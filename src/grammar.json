@@ -862,10 +862,6 @@
               }
             ]
           }
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_eol"
         }
       ]
     },
@@ -3758,57 +3754,129 @@
           "value": "command"
         },
         {
-          "type": "REPEAT",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "ALIAS",
-                "content": {
-                  "type": "PATTERN",
-                  "value": "-[AdDEPX]+"
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "ALIAS",
+                      "content": {
+                        "type": "PATTERN",
+                        "value": "-[AdDEPX]+"
+                      },
+                      "named": true,
+                      "value": "command_line_option"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_start_directory"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_environment"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_flags"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_format"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_window_name"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_session_name"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_group_name"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_width"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_height"
+                    }
+                  ]
                 },
-                "named": true,
-                "value": "command_line_option"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "_start_directory"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "_environment"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "_flags"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "_format"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "_window_name"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "_session_name"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "_group_name"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "_width"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "_height"
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": " "
+                  },
+                  {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "ALIAS",
+                        "content": {
+                          "type": "PATTERN",
+                          "value": "-[AdDEPX]+"
+                        },
+                        "named": true,
+                        "value": "command_line_option"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "_start_directory"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "_environment"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "_flags"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "_format"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "_window_name"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "_session_name"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "_group_name"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "_width"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "_height"
+                      }
+                    ]
+                  }
+                ]
               }
-            ]
-          }
+            }
+          ]
         },
         {
           "type": "CHOICE",
@@ -3821,10 +3889,6 @@
               "type": "BLANK"
             }
           ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_eol"
         }
       ]
     },
@@ -5230,33 +5294,73 @@
           "value": "command"
         },
         {
-          "type": "REPEAT",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "ALIAS",
-                "content": {
-                  "type": "PATTERN",
-                  "value": "-[DdeLlMmRUZ]+"
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "ALIAS",
+                      "content": {
+                        "type": "PATTERN",
+                        "value": "-[DdeLlMmRUZ]+"
+                      },
+                      "named": true,
+                      "value": "command_line_option"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_target_pane"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_title"
+                    }
+                  ]
                 },
-                "named": true,
-                "value": "command_line_option"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "_target_pane"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "_title"
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": " "
+                  },
+                  {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "ALIAS",
+                        "content": {
+                          "type": "PATTERN",
+                          "value": "-[DdeLlMmRUZ]+"
+                        },
+                        "named": true,
+                        "value": "command_line_option"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "_target_pane"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "_title"
+                      }
+                    ]
+                  }
+                ]
               }
-            ]
-          }
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_eol"
+            }
+          ]
         }
       ]
     },
@@ -5282,29 +5386,65 @@
           "value": "command"
         },
         {
-          "type": "REPEAT",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "ALIAS",
-                "content": {
-                  "type": "PATTERN",
-                  "value": "-[lnpT]+"
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "ALIAS",
+                      "content": {
+                        "type": "PATTERN",
+                        "value": "-[lnpT]+"
+                      },
+                      "named": true,
+                      "value": "command_line_option"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_target_window"
+                    }
+                  ]
                 },
-                "named": true,
-                "value": "command_line_option"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "_target_window"
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": " "
+                  },
+                  {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "ALIAS",
+                        "content": {
+                          "type": "PATTERN",
+                          "value": "-[lnpT]+"
+                        },
+                        "named": true,
+                        "value": "command_line_option"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "_target_window"
+                      }
+                    ]
+                  }
+                ]
               }
-            ]
-          }
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_eol"
+            }
+          ]
         }
       ]
     },
@@ -5492,10 +5632,6 @@
               "type": "BLANK"
             }
           ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_eol"
         }
       ]
     },
@@ -5616,10 +5752,6 @@
               "type": "BLANK"
             }
           ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_eol"
         }
       ]
     },
@@ -5836,10 +5968,6 @@
               "type": "BLANK"
             }
           ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_eol"
         }
       ]
     },
@@ -6122,10 +6250,6 @@
               "type": "BLANK"
             }
           ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_eol"
         }
       ]
     },
@@ -7021,7 +7145,23 @@
       "value": "\\\\\\r?\\n"
     }
   ],
-  "conflicts": [],
+  "conflicts": [
+    [
+      "new_session_directive"
+    ],
+    [
+      "server_access_directive"
+    ],
+    [
+      "set_environment_directive"
+    ],
+    [
+      "show_environment_directive"
+    ],
+    [
+      "split_window_directive"
+    ]
+  ],
   "precedences": [],
   "externals": [],
   "inline": [],

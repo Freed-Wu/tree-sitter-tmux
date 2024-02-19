@@ -3,6 +3,15 @@ module.exports = grammar({
 
   extras: (_) => [/\s/, /\\\r?\n/],
 
+  // final argument is optional
+  conflicts: ($) => [
+    [$.new_session_directive],
+    [$.server_access_directive],
+    [$.set_environment_directive],
+    [$.show_environment_directive],
+    [$.split_window_directive],
+  ],
+
   rules: {
     file: ($) => repeat(seq(optional($._command), $._end)),
 
@@ -148,8 +157,7 @@ module.exports = grammar({
           $._end_line,
           $._start_line,
           $._target_pane
-        ),
-        $._eol
+        )
       ),
     choose_buffer_directive: ($) =>
       command(
@@ -456,7 +464,7 @@ module.exports = grammar({
       command(
         $,
         choice("new-session", "new"),
-        cmd_opts(
+        cmd_opts0(
           options($, "AdDEPX"),
           $._start_directory,
           $._environment,
@@ -468,8 +476,7 @@ module.exports = grammar({
           $._width,
           $._height
         ),
-        optional($._shell),
-        $._eol
+        optional($._shell)
       ),
     new_window_directive: ($) =>
       command(
@@ -640,19 +647,18 @@ module.exports = grammar({
         $.layout_name
       ),
     _title: ($) => option($, "T", alias($._string, $.title)),
+    // use cmd_opts0() for commands without any mandatory argument
     select_pane_directive: ($) =>
       command(
         $,
         choice("select-pane", "selectp"),
-        cmd_opts(options($, "DdeLlMmRUZ"), $._target_pane, $._title),
-        $._eol
+        cmd_opts0(options($, "DdeLlMmRUZ"), $._target_pane, $._title)
       ),
     select_window_directive: ($) =>
       command(
         $,
         choice("select-window", "selectw"),
-        cmd_opts(options($, "lnpT"), $._target_window),
-        $._eol
+        cmd_opts0(options($, "lnpT"), $._target_window)
       ),
     _keys: ($) => spaceSep1($.key),
     send_keys_directive: ($) =>
@@ -670,8 +676,7 @@ module.exports = grammar({
         $,
         "server-access",
         cmd_opts(options($, "adlrw")),
-        optional($.user),
-        $._eol
+        optional($.user)
       ),
     data: ($) => $._string,
     set_buffer_directive: ($) =>
@@ -692,8 +697,7 @@ module.exports = grammar({
         choice("set-environment", "setenv"),
         cmd_opts(options($, "Fhgru"), $._target_session),
         $.name,
-        optional($.value),
-        $._eol
+        optional($.value)
       ),
     set_hook_directive: ($) =>
       command(
@@ -722,8 +726,7 @@ module.exports = grammar({
         $,
         choice("show-environment", "showenv"),
         cmd_opts(options($, "hgs"), $._target_session),
-        optional($.name),
-        $._eol
+        optional($.name)
       ),
     show_hooks_directive: ($) =>
       command($, "show-hooks", cmd_opts(options($, "gpw"), $._target_pane)),
@@ -768,8 +771,7 @@ module.exports = grammar({
           $._target_pane,
           $._format
         ),
-        optional($._shell),
-        $._eol
+        optional($._shell)
       ),
     start_server_directive: ($) => command($, choice("start-server", "start")),
     suspend_client_directive: ($) =>
@@ -887,12 +889,20 @@ function sep1(rule, separator) {
   return seq(rule, repeat(seq(separator, rule)));
 }
 
+function sep(rule, separator) {
+  return seq(optional(rule), repeat(seq(separator, rule)));
+}
+
 function commaSep1(rule) {
   return sep1(rule, ",");
 }
 
 function spaceSep1(rule) {
   return sep1(rule, " ");
+}
+
+function spaceSep(rule) {
+  return sep(rule, " ");
 }
 
 function quoted_string(char, name) {
@@ -919,4 +929,8 @@ function option($, char, ...arg) {
 
 function cmd_opts(...args) {
   return repeat(choice(...args));
+}
+
+function cmd_opts0(...args) {
+  return spaceSep(choice(...args));
 }
