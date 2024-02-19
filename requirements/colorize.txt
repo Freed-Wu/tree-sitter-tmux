@@ -1,0 +1,3 @@
+#!/usr/bin/env -S pip install -r
+
+tree_sitter_lsp[colorize]

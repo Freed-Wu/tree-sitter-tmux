@@ -1,0 +1,33 @@
+r"""Tree sitter
+===============
+"""
+
+import os
+import sysconfig
+
+from tree_sitter import Language, Parser
+
+__version__ = "@VERSION@"
+NAME = "@NAME@"
+DLL = "@CMAKE_SHARED_LIBRARY_SUFFIX@"
+
+paths = [
+    os.path.join(
+        os.path.join(
+            os.path.join(sysconfig.get_path("data", scheme), "lib"), "parser"
+        ),
+        NAME + DLL,
+    )
+    for scheme in [
+        sysconfig.get_preferred_scheme("user"),
+        sysconfig.get_default_scheme(),
+    ]
+]
+for path in paths:
+    if os.path.isfile(path):
+        break
+else:
+    raise FileNotFoundError(paths)
+language = Language(path, NAME)
+parser = Parser()
+parser.set_language(language)
