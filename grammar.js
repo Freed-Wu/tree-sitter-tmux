@@ -89,6 +89,7 @@ module.exports = grammar({
         $.set_environment_directive,
         $.set_hook_directive,
         $.set_option_directive,
+        $.set_window_option_directive,
         $.show_buffer_directive,
         $.show_environment_directive,
         $.show_hooks_directive,
@@ -715,6 +716,14 @@ module.exports = grammar({
         $,
         choice("set-option", "set"),
         optional(options($, "aFgopqsuUw")),
+        $.option,
+        $.value
+      ),
+    set_window_option_directive: ($) =>
+      command(
+        $,
+        choice("set-window-option", "setw"),
+        optional(options($, "aFgoqu")),
         $.option,
         $.value
       ),
