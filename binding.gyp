@@ -1,9 +1,9 @@
-{
+{  # noqa: B018 # type: ignore
     "targets": [
         {
             "target_name": "tree_sitter_tmux_binding",
             "dependencies": [
-                "<!(node -p \"require('node-addon-api').targets\"):node_addon_api_except",
+                "<!(node -p \"require('node-addon-api').targets\"):node_addon_api_except", # noqa: E501
             ],
             "include_dirs": [
                 "src",
