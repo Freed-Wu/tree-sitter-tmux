@@ -3,7 +3,7 @@
         {
             "target_name": "tree_sitter_tmux_binding",
             "dependencies": [
-                "<!(node -p \"require('node-addon-api').targets\"):node_addon_api_except",  #  noqa: E501
+                "<!(node -p \"require('node-addon-api').targets\"):node_addon_api_except",  # noqa: E501
             ],
             "include_dirs": [
                 "src",
