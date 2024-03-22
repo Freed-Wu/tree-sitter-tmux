@@ -1,5 +1,5 @@
 ---
-exclude: ^(templates|src)/.*
+exclude: ^(templates|bindings|src)/.*
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
