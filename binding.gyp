@@ -2,14 +2,19 @@
     "targets": [
         {
             "target_name": "tree_sitter_tmux_binding",
-            "include_dirs": ["<!(node -e \"require('nan')\")", "src"],
+            "dependencies": [
+                "<!(node -p \"require('node-addon-api').targets\"):node_addon_api_except",  # noqa: E501
+            ],
+            "include_dirs": [
+                "src",
+            ],
             "sources": [
                 "bindings/node/binding.cc",
                 "src/parser.c",
-                # If your language uses an external scanner, add it here.
+                # NOTE: if your language has an external scanner, add it here.
             ],
             "cflags_c": [
-                "-std=c99",
+                "-std=c11",
             ],
         }
     ]
