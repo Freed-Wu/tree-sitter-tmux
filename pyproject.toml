@@ -27,3 +27,6 @@ core = ["tree-sitter~=0.21"]
 [tool.cibuildwheel]
 build = "cp38-*"
 build-frontend = "build"
+
+[tool.codespell]
+ignore-words-list = "crate"
