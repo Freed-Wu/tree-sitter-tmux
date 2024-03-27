@@ -3,6 +3,9 @@ Example
 =======
 
 # https://github.com/tmux-plugins/tpm
+bind-key m set-option mouse \; display-message "mouse is now  #{?mouse,on,off}"
+bind-key m set-option mouse on \; display-message "mouse is now  #{?mouse,on,off}"
+bind r source-file ~/.config/tmux/tmux.conf \; display-message " Config updated successfully"
 set -g @plugin tmux-plugins/tpm
 setw -g pane-base-index 1
 set -g word-separators ' -_@'
@@ -52,6 +55,41 @@ new_window'
 
 (file
   (comment)
+  (bind_key_directive
+    (command)
+    (key)
+    (set_option_directive
+      (command)
+      (option))
+    (display_message_directive
+      (command)
+      (message
+        (string
+          (variable
+            (variable_name))))))
+  (bind_key_directive
+    (command)
+    (key)
+    (set_option_directive
+      (command)
+      (option)
+      (value))
+    (display_message_directive
+      (command)
+      (message
+        (string
+          (variable
+            (variable_name))))))
+  (bind_key_directive
+    (command)
+    (key)
+    (source_file_directive
+      (command)
+      (path))
+    (display_message_directive
+      (command)
+      (message
+        (string))))
   (set_option_directive
     (command)
     (command_line_option)
