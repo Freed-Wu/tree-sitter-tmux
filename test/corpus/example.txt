@@ -4,6 +4,7 @@ Example
 
 # https://github.com/tmux-plugins/tpm
 set -g @plugin tmux-plugins/tpm
+setw -g pane-base-index 1
 set -g word-separators ' -_@'
 set -g set-titles-string "#S:#I \
 #W#{session_alerts}\
@@ -52,6 +53,11 @@ new_window'
 (file
   (comment)
   (set_option_directive
+    (command)
+    (command_line_option)
+    (option)
+    (value))
+  (set_window_option_directive
     (command)
     (command_line_option)
     (option)
