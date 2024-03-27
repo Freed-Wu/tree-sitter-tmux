@@ -10,6 +10,7 @@ module.exports = grammar({
     [$.set_environment_directive],
     [$.show_environment_directive],
     [$.split_window_directive],
+    [$._tmux],
   ],
 
   rules: {
@@ -716,8 +717,11 @@ module.exports = grammar({
         $,
         choice("set-option", "set"),
         optional(options($, "aFgopqsuUw")),
-        $.option,
-        $.value
+        choice(
+          seq($.option, " ", $.value),
+          seq($.option, /\s*[\\]\n/, $.value),
+          $.option
+        )
       ),
     set_window_option_directive: ($) =>
       command(
@@ -881,7 +885,9 @@ module.exports = grammar({
         $._code
       ),
     _tmux: ($) =>
-      choice($.string, seq("'", $._command, "'"), $._command, $._code),
+      escSemiSep(
+        choice($.string, seq("'", $._command, "'"), $._command, $._code)
+      ),
 
     comment: (_) => /#[^\n]*/,
     _eol: (_) => /\r?\n/,
@@ -912,6 +918,10 @@ function spaceSep1(rule) {
 
 function spaceSep(rule) {
   return sep(rule, " ");
+}
+
+function escSemiSep(rule) {
+  return seq(rule, repeat(seq("\\;", rule)));
 }
 
 function quoted_string(char, name) {
