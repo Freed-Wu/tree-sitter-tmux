@@ -1,3 +1,7 @@
+/prebuilds/
+compile_commands.json
+*.pc
+
 # create by https://github.com/iamcco/coc-gitignore (Thu Nov 30 2023 16:50:01 GMT+0800 (China Standard Time))
 # Node.gitignore:
 # Logs

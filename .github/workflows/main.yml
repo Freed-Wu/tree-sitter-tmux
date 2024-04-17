@@ -47,6 +47,7 @@ jobs:
           yarn
       - name: Build
         run: |
+          yarn prebuildify
           yarn pack
         env:
           NODE_ENV: production
