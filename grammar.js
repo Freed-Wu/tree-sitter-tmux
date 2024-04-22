@@ -1,3 +1,5 @@
+/// <reference types="tree-sitter-cli/dsl" no-default-lib="true" />
+
 module.exports = grammar({
   name: "tmux",
 
