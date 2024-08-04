@@ -36,10 +36,12 @@ setup(
             sources=[
                 "bindings/python/tree_sitter_tmux/binding.c",
                 "src/parser.c",
+                # NOTE: if your language uses an external scanner, add it here.
+            ],
+            depends=[
                 "src/tree_sitter/alloc.h",
                 "src/tree_sitter/array.h",
                 "src/tree_sitter/parser.h",
-                # NOTE: if your language uses an external scanner, add it here.
             ],
             extra_compile_args=[
                 "-std=c11",
