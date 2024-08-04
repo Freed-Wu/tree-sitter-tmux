@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-tmux",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Tmux grammar for tree-sitter",
   "repository": "github:tree-sitter/tree-sitter-tmux",
   "license": "MIT",
