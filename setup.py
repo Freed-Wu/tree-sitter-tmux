@@ -36,11 +36,17 @@ setup(
             sources=[
                 "bindings/python/tree_sitter_tmux/binding.c",
                 "src/parser.c",
+                "src/tree_sitter/alloc.h",
+                "src/tree_sitter/array.h",
+                "src/tree_sitter/parser.h",
                 # NOTE: if your language uses an external scanner, add it here.
             ],
-            extra_compile_args=(
-                ["-std=c11"] if system() != 'Windows' else []
-            ),
+            extra_compile_args=[
+                "-std=c11",
+            ] if system() != "Windows" else [
+                "/std:c11",
+                "/utf-8",
+            ],
             define_macros=[
                 ("Py_LIMITED_API", "0x03080000"),
                 ("PY_SSIZE_T_CLEAN", None)
