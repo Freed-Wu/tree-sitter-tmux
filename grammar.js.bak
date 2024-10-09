@@ -1,0 +1,99 @@
+// https://github.com/tmux/tmux/blob/master/cmd-parse.y
+/// <reference types="tree-sitter-cli/dsl" />
+
+module.exports = grammar({
+  name: "tmux",
+
+  extras: (_) => [/\s/, /\\\r?\n/],
+
+  rules: {
+    lines: ($) => $._statements,
+    _statements: ($) =>
+      choice(seq($.statement, "\n"), seq($._statements, $.statement, "\n")),
+    comment: (_) => /#[^\n]*/,
+    statement: ($) => seq(choice($.hidden_assignment, $.condition, $.commands), optional($.comment)),
+    raw_string: ($) => quoted_string("'", $._content),
+    string: ($) => quoted_string('"', $._content),
+    _word: (_) => /[^"'](\\\s|\S)*/,
+    _string: ($) => choice($.string, $.raw_string, $._word),
+    format: ($) => $._string, // TODO
+    expanded: ($) => choice(/*$.format, */$.token),
+    hidden_assignment: ($) => seq("%hidden", $.equals),
+    if_open: ($) => seq("%if", $.expanded),
+    if_else: (_) => "%else",
+    if_elif: ($) => seq("%elif", $.expanded),
+    if_close: (_) => "%endif",
+    equals: ($) => seq($.var, "=", $._string),
+    condition: ($) =>
+      choice(
+        seq($.if_open, "\n", $._statements, $.if_close),
+        seq(
+          $.if_open,
+          "\n",
+          $._statements,
+          $.if_else,
+          "\n",
+          $._statements,
+          $.if_close
+        ),
+        seq($.if_open, "\n", $._statements, $.elif, $.if_close),
+        seq(
+          $.if_open,
+          "\n",
+          $._statements,
+          $.elif,
+          $.if_else,
+          "\n",
+          $._statements,
+          $.if_close
+        )
+      ),
+    elif: ($) =>
+      choice(
+        seq($.if_elif, "\n", $._statements),
+        seq($.if_elif, "\n", $._statements, $.elif)
+      ),
+    commands: ($) =>
+      choice(
+        $.command,
+        seq($.commands, ";"),
+        seq($.commands, ";", $.condition1),
+        seq($.commands, ";", $.command),
+        $.condition1
+      ),
+    command: ($) =>
+      choice(
+        $.equals,
+        $.token,
+        seq($.equals, $.token),
+        seq($.token, $._arguments),
+        seq($.equals, $.token, $._arguments)
+      ),
+    condition1: ($) =>
+      choice(
+        seq($.if_open, $.commands, $.if_close),
+        seq($.if_open, $.commands, $.if_else, $.commands, $.if_close),
+        seq($.if_open, $.commands, $.elif1, $.if_close),
+        seq($.if_open, $.commands, $.elif1, $.if_else, $.commands, $.if_close)
+      ),
+    elif1: ($) =>
+      choice(seq($.if_elif, $.commands), seq($.if_elif, $.commands, $.elif1)),
+    _arguments: ($) => choice($.argument, seq($.argument, $._arguments)),
+    argument: ($) => choice($.token, $.equals, seq("{", $.argument_statements)),
+    argument_statements: ($) =>
+      choice(seq($.statement, "}"), seq($._statements, $.statement, "}")),
+    token: ($) => /[-a-zA-Z]+/,
+    var: (_) => /[a-zA-Z_][a-zA-Z_0-9]*/,
+  },
+});
+
+function quoted_string(char, name) {
+  return seq(
+    char,
+    alias(
+      field("content", new RegExp("([^" + char + "]|\\\\" + char + ")*")),
+      name
+    ),
+    char
+  );
+}
