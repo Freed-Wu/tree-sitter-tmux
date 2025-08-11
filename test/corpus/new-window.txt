@@ -251,6 +251,7 @@ new-window -k -t :3
 neww -c ~/projects -t :2 "make build"
 
 new-window -c "#{pane_current_path}"
+bind c new-window -c "#{pane_current_path}"
 
 ---
 
@@ -293,5 +294,15 @@ new-window -c "#{pane_current_path}"
     (start_directory
       (string
         (variable
-          (variable_name))))))
+          (variable_name)))))
+  (bind_key_directive
+    (command)
+    (key)
+    (new_window_directive
+      (command)
+      (command_line_option)
+      (start_directory
+        (string
+          (variable
+            (variable_name)))))))
 
