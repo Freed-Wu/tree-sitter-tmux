@@ -5871,6 +5871,7 @@
   {
     "type": "file",
     "named": true,
+    "root": true,
     "fields": {},
     "children": {
       "multiple": true,
