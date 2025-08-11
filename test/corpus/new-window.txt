@@ -305,4 +305,3 @@ bind c new-window -c "#{pane_current_path}"
         (string
           (variable
             (variable_name)))))))
-
