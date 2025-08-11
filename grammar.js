@@ -8,6 +8,7 @@ module.exports = grammar({
   // final argument is optional
   conflicts: ($) => [
     [$.new_session_directive],
+    [$.new_window_directive],
     [$.server_access_directive],
     [$.set_environment_directive],
     [$.show_environment_directive],
@@ -485,15 +486,28 @@ module.exports = grammar({
       command(
         $,
         choice("new-window", "neww"),
-        cmd_opts(
-          options($, "abdkPS"),
-          $._start_directory,
-          $._environment,
-          $._format,
-          $._window_name,
-          $._target_window
-        ),
-        $._shell
+        choice(
+          seq(
+            cmd_opts(
+              options($, "abdkPS"),
+              $._start_directory,
+              $._environment,
+              $._format,
+              $._window_name,
+              $._target_window
+            ),
+            $._shell
+          ),
+          cmd_opts(
+            options($, "abdkPS"),
+            $._start_directory,
+            $._environment,
+            $._format,
+            $._window_name,
+            $._target_window
+          ),
+          $._shell
+        )
       ),
     next_layout_directive: ($) =>
       command($, choice("next-layout", "nextl"), cmd_opts($._target_window)),
