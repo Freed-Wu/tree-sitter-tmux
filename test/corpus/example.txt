@@ -3,6 +3,8 @@ Example
 =======
 
 # https://github.com/tmux-plugins/tpm
+bind v split-window -h -c "#{pane_current_path}"
+bind v split-window -h
 set -g @plugin tmux-plugins/tpm
 setw -g pane-base-index 1
 set -g word-separators ' -_@'
@@ -52,6 +54,23 @@ new_window'
 
 (file
   (comment)
+  (bind_key_directive
+    (command)
+    (key)
+    (split_window_directive
+      (command)
+      (command_line_option)
+      (command_line_option)
+      (start_directory
+        (string
+          (variable
+            (variable_name))))))
+  (bind_key_directive
+    (command)
+    (key)
+    (split_window_directive
+      (command)
+      (command_line_option)))
   (set_option_directive
     (command)
     (command_line_option)
