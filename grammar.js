@@ -486,28 +486,15 @@ module.exports = grammar({
       command(
         $,
         choice("new-window", "neww"),
-        choice(
-          seq(
-            cmd_opts(
-              options($, "abdkPS"),
-              $._start_directory,
-              $._environment,
-              $._format,
-              $._window_name,
-              $._target_window
-            ),
-            $._shell
-          ),
-          cmd_opts(
-            options($, "abdkPS"),
-            $._start_directory,
-            $._environment,
-            $._format,
-            $._window_name,
-            $._target_window
-          ),
-          $._shell
-        )
+        cmd_opts(
+          options($, "abdkPS"),
+          $._start_directory,
+          $._environment,
+          $._format,
+          $._window_name,
+          $._target_window
+        ),
+        optional($._shell)
       ),
     next_layout_directive: ($) =>
       command($, choice("next-layout", "nextl"), cmd_opts($._target_window)),
