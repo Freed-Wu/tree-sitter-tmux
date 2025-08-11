@@ -209,4 +209,3 @@ selectw -t \
     (window)
     (command_line_option))
   (comment))
-
