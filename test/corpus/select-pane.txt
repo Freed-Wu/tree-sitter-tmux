@@ -265,4 +265,3 @@ selectp -dZ -t \
     (title
       (string)))
   (comment))
-

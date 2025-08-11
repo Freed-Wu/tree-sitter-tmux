@@ -347,4 +347,3 @@ splitw -Z -h -b -l 60% -e MODE=ci -e COLOR=1 -t \
     (command_line_option)
     (start_directory)
     (string)))
-
