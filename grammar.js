@@ -468,7 +468,7 @@ module.exports = grammar({
       command(
         $,
         choice("new-session", "new"),
-        cmd_opts0(
+        cmd_opts(
           options($, "AdDEPX"),
           $._start_directory,
           $._environment,
@@ -651,18 +651,17 @@ module.exports = grammar({
         $.layout_name
       ),
     _title: ($) => option($, "T", alias($._string, $.title)),
-    // use cmd_opts0() for commands without any mandatory argument
     select_pane_directive: ($) =>
       command(
         $,
         choice("select-pane", "selectp"),
-        cmd_opts0(options($, "DdeLlMmRUZ"), $._target_pane, $._title)
+        cmd_opts(options($, "DdeLlMmRUZ"), $._target_pane, $._title)
       ),
     select_window_directive: ($) =>
       command(
         $,
         choice("select-window", "selectw"),
-        cmd_opts0(options($, "lnpT"), $._target_window)
+        cmd_opts(options($, "lnpT"), $._target_window)
       ),
     _keys: ($) => spaceSep1($.key),
     send_keys_directive: ($) =>
@@ -901,20 +900,12 @@ function sep1(rule, separator) {
   return seq(rule, repeat(seq(separator, rule)));
 }
 
-function sep(rule, separator) {
-  return seq(optional(rule), repeat(seq(separator, rule)));
-}
-
 function commaSep1(rule) {
   return sep1(rule, ",");
 }
 
 function spaceSep1(rule) {
   return sep1(rule, " ");
-}
-
-function spaceSep(rule) {
-  return sep(rule, " ");
 }
 
 function quoted_string(char, name) {
@@ -941,8 +932,4 @@ function option($, char, ...arg) {
 
 function cmd_opts(...args) {
   return repeat(choice(...args));
-}
-
-function cmd_opts0(...args) {
-  return spaceSep(choice(...args));
 }
