@@ -127,7 +127,10 @@ module.exports = grammar({
       ),
     _note: ($) => option($, "N", alias($._string, $.note)),
     _key_table: ($) => option($, "T", alias($._string, $.key_table)),
-    key: ($) => $._string,
+    key: ($) => choice(
+      '\\\\',      // Literal \\
+      $._string
+    ),
     bind_key_directive: ($) =>
       command(
         $,

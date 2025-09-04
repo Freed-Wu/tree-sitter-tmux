@@ -1,0 +1,20 @@
+========================================
+bind \\
+========================================
+
+bind \\ split-window -h -c "#{pane_current_path}"
+
+---
+
+    (file
+      (bind_key_directive
+        (command)
+        (key)
+        (split_window_directive
+          (command)
+          (command_line_option)
+          (command_line_option)
+          (start_directory
+            (string
+              (variable
+                (variable_name)))))))
