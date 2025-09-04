@@ -125,7 +125,10 @@ module.exports = grammar({
       ),
     _note: ($) => option($, "N", alias($._string, $.note)),
     _key_table: ($) => option($, "T", alias($._string, $.key_table)),
-    key: ($) => $._string,
+    key: ($) => choice(
+      '\\\\',      // Literal \\
+      $._string
+    ),
     bind_key_directive: ($) =>
       command(
         $,
@@ -888,7 +891,7 @@ module.exports = grammar({
     comment: (_) => /#[^\n]*/,
     _eol: (_) => /\r?\n/,
     _space: (_) => prec(-1, repeat1(/[ \t]/)),
-    _end: ($) => seq(optional($._space), optional($.comment), $._eol),
+    _end: ($) => seq(optional($.comment), $._eol),
   },
 });
 
