@@ -9,6 +9,7 @@ module.exports = grammar({
   conflicts: ($) => [
     [$.new_session_directive],
     [$.new_window_directive],
+    [$.resize_pane_directive],
     [$.server_access_directive],
     [$.set_environment_directive],
     [$.show_environment_directive],
@@ -574,7 +575,7 @@ module.exports = grammar({
         $,
         choice("resize-pane", "resizep"),
         cmd_opts(options($, "DLMRTUZ"), $._target_pane, $._width, $._height),
-        $.adjustment
+        optional($.adjustment)
       ),
     resize_window_directive: ($) =>
       command(

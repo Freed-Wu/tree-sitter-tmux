@@ -4467,8 +4467,16 @@
           }
         },
         {
-          "type": "SYMBOL",
-          "name": "adjustment"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "adjustment"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
@@ -7044,6 +7052,9 @@
     ],
     [
       "new_window_directive"
+    ],
+    [
+      "resize_pane_directive"
     ],
     [
       "server_access_directive"
