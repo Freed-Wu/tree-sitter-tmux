@@ -17,7 +17,9 @@ module.exports = grammar({
   ],
 
   rules: {
-    file: ($) => repeat(seq(optional($._command), $._end)),
+    file: ($) => repeat(seq(optional($._statement_list), $._end)),
+
+    _statement_list: ($) => sep1($._command, ';'),
 
     _command: ($) =>
       choice(
