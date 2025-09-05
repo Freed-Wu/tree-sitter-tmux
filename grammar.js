@@ -15,7 +15,9 @@ module.exports = grammar({
   ],
 
   rules: {
-    file: ($) => repeat(seq(optional($._command), $._end)),
+    file: ($) => repeat(seq(optional($._statement_list), $._end)),
+
+    _statement_list: ($) => sep1($._command, ';'),
 
     _command: ($) =>
       choice(
@@ -888,7 +890,7 @@ module.exports = grammar({
     comment: (_) => /#[^\n]*/,
     _eol: (_) => /\r?\n/,
     _space: (_) => prec(-1, repeat1(/[ \t]/)),
-    _end: ($) => seq(optional($._space), optional($.comment), $._eol),
+    _end: ($) => seq(optional($.comment), $._eol),
   },
 });
 
