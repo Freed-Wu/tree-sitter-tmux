@@ -1,0 +1,20 @@
+========================================
+environment variables
+========================================
+
+MYVAR=
+MYVAR=value
+TMUX_FZF_LAUNCH_KEY="C-t"
+
+---
+
+    (file
+      (environment_assignment
+        (name))
+      (environment_assignment
+        (name)
+        (value))
+      (environment_assignment
+        (name)
+        (value
+          (string))))

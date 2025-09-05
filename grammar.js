@@ -39,6 +39,7 @@ module.exports = grammar({
         $.display_message_directive,
         $.display_panes_directive,
         $.display_popup_directive,
+        $.environment_assignment,
         $.find_window_directive,
         $.has_session_directive,
         $.if_shell_directive,
@@ -334,6 +335,13 @@ module.exports = grammar({
         ),
         $._shell
       ),
+    _env_variable_name: (_) => /[A-Za-z_][A-Za-z0-9_]*/,
+    environment_assignment: ($) =>
+      prec.right(seq(
+        field('name', alias($._env_variable_name, $.name)),
+        '=',
+        field('value', alias(optional($._string), $.value))
+      )),
     find_window_directive: ($) =>
       command(
         $,
@@ -888,7 +896,7 @@ module.exports = grammar({
     comment: (_) => /#[^\n]*/,
     _eol: (_) => /\r?\n/,
     _space: (_) => prec(-1, repeat1(/[ \t]/)),
-    _end: ($) => seq(optional($._space), optional($.comment), $._eol),
+    _end: ($) => seq(optional($.comment), $._eol),
   },
 });
 
