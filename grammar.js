@@ -112,7 +112,7 @@ module.exports = grammar({
         $.switch_client_directive,
         $.unbind_key_directive,
         $.unlink_window_directive,
-        $.wait_for_directive
+        $.wait_for_directive,
       ),
 
     _working_directory: ($) =>
@@ -125,8 +125,8 @@ module.exports = grammar({
           options($, "dErx"),
           $._working_directory,
           $._flags,
-          $._target_session
-        )
+          $._target_session,
+        ),
       ),
     _note: ($) => option($, "N", alias($._string, $.note)),
     _key_table: ($) => option($, "T", alias($._string, $.key_table)),
@@ -140,7 +140,7 @@ module.exports = grammar({
         choice("bind-key", "bind"),
         cmd_opts(options($, "nr"), $._note, $._key_table),
         $.key,
-        $._tmux
+        $._tmux,
       ),
     break_pane_directive: ($) =>
       command(
@@ -151,8 +151,8 @@ module.exports = grammar({
           $._format,
           $._window_name,
           $._src_pane,
-          $._target_window
-        )
+          $._target_window,
+        ),
       ),
     _buffer_name: ($) => option($, "b", alias($._string, $.buffer_name)),
     _new_buffer_name: ($) => option($, "n", alias($._string, $.buffer_name)),
@@ -167,8 +167,8 @@ module.exports = grammar({
           $._buffer_name,
           $._end_line,
           $._start_line,
-          $._target_pane
-        )
+          $._target_pane,
+        ),
       ),
     choose_buffer_directive: ($) =>
       command(
@@ -179,9 +179,9 @@ module.exports = grammar({
           $._format,
           $._filter,
           $._sort_order,
-          $._target_pane
+          $._target_pane,
         ),
-        $.template
+        $.template,
       ),
     _filter: ($) => option($, "f", alias($._string, $.filter)),
     _key_format: ($) => option($, "K", alias($._string, $.key_format)),
@@ -196,9 +196,9 @@ module.exports = grammar({
           $._format,
           $._filter,
           $._sort_order,
-          $._target_pane
+          $._target_pane,
         ),
-        $.template
+        $.template,
       ),
     choose_tree_directive: ($) =>
       command(
@@ -210,21 +210,21 @@ module.exports = grammar({
           $._filter,
           $._key_format,
           $._sort_order,
-          $._target_pane
+          $._target_pane,
         ),
-        $.template
+        $.template,
       ),
     clear_history_directive: ($) =>
       command(
         $,
         choice("clear-history", "clearhist"),
-        cmd_opts($._target_pane)
+        cmd_opts($._target_pane),
       ),
     clear_prompt_history_directive: ($) =>
       command(
         $,
         choice("clear-prompt-history", "clearphist"),
-        cmd_opts($._prompt_type)
+        cmd_opts($._prompt_type),
       ),
     clock_mode_directive: ($) =>
       command($, choice("clock-mode", "clock"), cmd_opts($._target_pane)),
@@ -240,9 +240,9 @@ module.exports = grammar({
           $._inputs,
           $._prompts,
           $._target_client,
-          $._prompt_type
+          $._prompt_type,
         ),
-        $._tmux
+        $._tmux,
       ),
     _prompt: ($) => option($, "p", alias($._string, $.prompt)),
     confirm_before_directive: ($) =>
@@ -250,20 +250,20 @@ module.exports = grammar({
         $,
         choice("confirm-before", "confirm"),
         cmd_opts(options($, "b"), $._prompt, $._target_client),
-        $._tmux
+        $._tmux,
       ),
     copy_mode_directive: ($) =>
       command(
         $,
         "copy-mode",
-        cmd_opts(options($, "eHMqu"), $._src_pane, $._target_pane)
+        cmd_opts(options($, "eHMqu"), $._src_pane, $._target_pane),
       ),
     customize_mode_directive: ($) =>
       command(
         $,
         "customize-mode",
         cmd_opts(options($, "NZ"), $._format, $._filter, $._target_pane),
-        $.template
+        $.template,
       ),
     delete_buffer_directive: ($) =>
       command($, choice("delete-buffer", "deleteb"), cmd_opts($._buffer_name)),
@@ -276,8 +276,8 @@ module.exports = grammar({
           options($, "aP"),
           $._shell_command,
           $.__target_session,
-          $._target_client
-        )
+          $._target_client,
+        ),
       ),
     _x: ($) => option($, "x", alias($._string, $.position)),
     _y: ($) => option($, "y", alias($._string, $.position)),
@@ -292,10 +292,10 @@ module.exports = grammar({
           $._target_pane,
           $._title,
           $._x,
-          $._y
+          $._y,
         ),
         $.name,
-        $.key
+        $.key,
       ),
     message: ($) => $._string,
     display_message_directive: ($) =>
@@ -306,9 +306,9 @@ module.exports = grammar({
           options($, "aINpv"),
           $.__target_client,
           $._delay,
-          $._target_pane
+          $._target_pane,
         ),
-        $.message
+        $.message,
       ),
     display_panes_directive: ($) =>
       command(
@@ -316,7 +316,7 @@ module.exports = grammar({
         choice("display-panes", "displayp"),
         // -d duration
         cmd_opts(options($, "bN"), $._delay, $._target_client),
-        $.template
+        $.template,
       ),
     _border_lines: ($) => option($, "b", alias($._string, $.border_lines)),
     _style: ($) => option($, "s", alias($._string, $.style)),
@@ -338,9 +338,9 @@ module.exports = grammar({
           $._title,
           $.__width,
           $._x,
-          $._y
+          $._y,
         ),
-        $._shell
+        $._shell,
       ),
     _env_variable_name: (_) => /[A-Za-z_][A-Za-z0-9_]*/,
     environment_assignment: ($) =>
@@ -354,7 +354,7 @@ module.exports = grammar({
         $,
         choice("find-window", "findw"),
         cmd_opts(options($, "iCNrTZ"), $._target_pane),
-        $._string
+        $._string,
       ),
     has_session_directive: ($) =>
       command($, choice("has-session", "has"), cmd_opts($._target_session)),
@@ -367,8 +367,8 @@ module.exports = grammar({
           cmd_opts(options($, "bF"), $._target_pane),
           $._shell,
           $._tmux,
-          optional($._tmux)
-        )
+          optional($._tmux),
+        ),
       ),
     size: ($) => $._string,
     _size: ($) => option($, "l", $.size),
@@ -377,13 +377,13 @@ module.exports = grammar({
       command(
         $,
         choice("join-pane", "joinp"),
-        cmd_opts(options($, "bdfhv"), $._size, $._src_pane, $._target_pane)
+        cmd_opts(options($, "bdfhv"), $._size, $._src_pane, $._target_pane),
       ),
     kill_pane_directive: ($) =>
       command(
         $,
         choice("kill-pane", "killp"),
-        cmd_opts(options($, "a"), $._target_pane)
+        cmd_opts(options($, "a"), $._target_pane),
       ),
     kill_server_directive: ($) => command($, "kill-server"),
     kill_session_directive: ($) =>
@@ -392,13 +392,13 @@ module.exports = grammar({
       command(
         $,
         choice("kill-window", "killw"),
-        cmd_opts(options($, "a"), $._target_window)
+        cmd_opts(options($, "a"), $._target_window),
       ),
     last_pane_directive: ($) =>
       command(
         $,
         choice("last-pane", "lastp"),
-        cmd_opts(options($, "deZ"), $._target_window)
+        cmd_opts(options($, "deZ"), $._target_window),
       ),
     last_window_directive: ($) =>
       command($, choice("last-window", "last"), cmd_opts($._target_session)),
@@ -406,7 +406,7 @@ module.exports = grammar({
       command(
         $,
         choice("link-window", "linkw"),
-        cmd_opts(options($, "abdk"), $._src_window, $._target_window)
+        cmd_opts(options($, "abdk"), $._src_window, $._target_window),
       ),
     list_buffers_directive: ($) =>
       command($, choice("list-buffers", "lsb"), cmd_opts($._format, $._filter)),
@@ -414,7 +414,7 @@ module.exports = grammar({
       command(
         $,
         choice("list-clients", "lsc"),
-        cmd_opts($._format, $._target_session)
+        cmd_opts($._format, $._target_session),
       ),
     list_commands_directive: ($) =>
       command($, choice("list-commands", "lscm"), cmd_opts($._format), $._tmux),
@@ -424,13 +424,13 @@ module.exports = grammar({
         $,
         choice("list-keys", "lsk"),
         cmd_opts(options($, "1aN"), $._prefix_string, $._key_table),
-        $.key
+        $.key,
       ),
     list_panes_directive: ($) =>
       command(
         $,
         choice("list-panes", "lsp"),
-        cmd_opts(options($, "as"), $._format, $._filter, $._target_pane)
+        cmd_opts(options($, "as"), $._format, $._filter, $._target_pane),
       ),
     list_sessions_directive: ($) =>
       command($, choice("list-sessions", "ls"), cmd_opts($._format, $._filter)),
@@ -438,14 +438,14 @@ module.exports = grammar({
       command(
         $,
         choice("list-windows", "lsw"),
-        cmd_opts(options($, "a"), $._format, $._filter, $._target_session)
+        cmd_opts(options($, "a"), $._format, $._filter, $._target_session),
       ),
     load_buffer_directive: ($) =>
       command(
         $,
         choice("load-buffer", "loadb"),
         cmd_opts(options($, "w"), $._buffer_name, $._target_client),
-        $.path
+        $.path,
       ),
     lock_client_directive: ($) =>
       command($, choice("lock-client", "lockc"), cmd_opts($._target_client)),
@@ -456,13 +456,13 @@ module.exports = grammar({
       command(
         $,
         choice("move-pane", "movep"),
-        cmd_opts(options($, "bdfhv"), $._size, $._src_pane, $._target_pane)
+        cmd_opts(options($, "bdfhv"), $._size, $._src_pane, $._target_pane),
       ),
     move_window_directive: ($) =>
       command(
         $,
         choice("move-window", "movew"),
-        cmd_opts(options($, "abrdk"), $._src_window, $._target_window)
+        cmd_opts(options($, "abrdk"), $._src_window, $._target_window),
       ),
     _start_directory: ($) =>
       option($, "c", alias($._string, $.start_directory)),
@@ -492,9 +492,9 @@ module.exports = grammar({
           $._session_name,
           $._group_name,
           $._width,
-          $._height
+          $._height,
         ),
-        optional($._shell)
+        optional($._shell),
       ),
     new_window_directive: ($) =>
       command(
@@ -506,9 +506,9 @@ module.exports = grammar({
           $._environment,
           $._format,
           $._window_name,
-          $._target_window
+          $._target_window,
         ),
-        optional($._shell)
+        optional($._shell),
       ),
     next_layout_directive: ($) =>
       command($, choice("next-layout", "nextl"), cmd_opts($._target_window)),
@@ -516,7 +516,7 @@ module.exports = grammar({
       command(
         $,
         choice("next-window", "next"),
-        cmd_opts(options($, "a"), $._target_session)
+        cmd_opts(options($, "a"), $._target_session),
       ),
     _separator: ($) => option($, "s", alias($._string, $.separator)),
     paste_buffer_directive: ($) =>
@@ -527,27 +527,27 @@ module.exports = grammar({
           options($, "dpr"),
           $._buffer_name,
           $._separator,
-          $._target_pane
-        )
+          $._target_pane,
+        ),
       ),
     pipe_pane_directive: ($) =>
       command(
         $,
         choice("pipe-pane", "pipep"),
         cmd_opts(options($, "IOo"), $._target_pane),
-        $._shell
+        $._shell,
       ),
     previous_layout_directive: ($) =>
       command(
         $,
         choice("previous-layout", "prevl"),
-        cmd_opts($._target_window)
+        cmd_opts($._target_window),
       ),
     previous_window_directive: ($) =>
       command(
         $,
         choice("previous-window", "prev"),
-        cmd_opts(options($, "a"), $._target_session)
+        cmd_opts(options($, "a"), $._target_session),
       ),
     adjustment: ($) => $._string,
     _pane_state: ($) => option($, "A", alias($._string, $.pane_state)),
@@ -565,37 +565,37 @@ module.exports = grammar({
           $.__size,
           $._flags,
           $.__target_pane,
-          $._target_client
+          $._target_client,
         ),
-        $.adjustment
+        $.adjustment,
       ),
     rename_session_directive: ($) =>
       command(
         $,
         choice("rename-session", "rename"),
         cmd_opts($._target_session),
-        $.name
+        $.name,
       ),
     rename_window_directive: ($) =>
       command(
         $,
         choice("rename-window", "renamew"),
         cmd_opts($._target_window),
-        $.name
+        $.name,
       ),
     resize_pane_directive: ($) =>
       command(
         $,
         choice("resize-pane", "resizep"),
         cmd_opts(options($, "DLMRTUZ"), $._target_pane, $._width, $._height),
-        optional($.adjustment)
+        optional($.adjustment),
       ),
     resize_window_directive: ($) =>
       command(
         $,
         choice("resize-window", "resizew"),
         cmd_opts(options($, "aADLRU"), $._target_window, $._width, $._height),
-        $.adjustment
+        $.adjustment,
       ),
     respawn_pane_directive: ($) =>
       command(
@@ -605,9 +605,9 @@ module.exports = grammar({
           options($, "k"),
           $._start_directory,
           $._environment,
-          $._target_pane
+          $._target_pane,
         ),
-        $._shell
+        $._shell,
       ),
     respawn_window_directive: ($) =>
       command(
@@ -617,15 +617,15 @@ module.exports = grammar({
           options($, "k"),
           $._start_directory,
           $._environment,
-          $._target_pane
+          $._target_pane,
         ),
-        $._shell
+        $._shell,
       ),
     rotate_window_directive: ($) =>
       command(
         $,
         choice("rotate-window", "rotatew"),
-        cmd_opts(options($, "DUZ"), $._target_window)
+        cmd_opts(options($, "DUZ"), $._target_window),
       ),
     pane: ($) => $._string,
     _target_pane: ($) => option($, "t", $.pane),
@@ -646,15 +646,15 @@ module.exports = grammar({
       command(
         $,
         choice("run-shell", "run"),
-        cmd_opts(options($, "bC"), $._delay, $._target_pane),
-        $._shell
+        cmd_opts(options($, "bC"), $._delay, $._start_directory, $._target_pane),
+        $._shell,
       ),
     save_buffer_directive: ($) =>
       command(
         $,
         choice("save-buffer", "saveb"),
         cmd_opts(options($, "a"), $._buffer_name),
-        $.path
+        $.path,
       ),
     layout_name: ($) => $._string,
     select_layout_directive: ($) =>
@@ -662,20 +662,20 @@ module.exports = grammar({
         $,
         choice("select-layout", "selectl"),
         cmd_opts(options($, "Enop"), $._target_pane),
-        $.layout_name
+        $.layout_name,
       ),
     _title: ($) => option($, "T", alias($._string, $.title)),
     select_pane_directive: ($) =>
       command(
         $,
         choice("select-pane", "selectp"),
-        cmd_opts(options($, "DdeLlMmRUZ"), $._target_pane, $._title)
+        cmd_opts(options($, "DdeLlMmRUZ"), $._target_pane, $._title),
       ),
     select_window_directive: ($) =>
       command(
         $,
         choice("select-window", "selectw"),
-        cmd_opts(options($, "lnpT"), $._target_window)
+        cmd_opts(options($, "lnpT"), $._target_window),
       ),
     _keys: ($) => spaceSep1($, $.key),
     send_keys_directive: ($) =>
@@ -683,7 +683,7 @@ module.exports = grammar({
         $,
         choice("send-keys", "send"),
         cmd_opts(options($, "FHlMRX"), option($, "N", $.int), $._target_pane),
-        $._keys
+        $._keys,
       ),
     send_prefix_directive: ($) =>
       command($, "send-prefix", cmd_opts(options($, "2"), $._target_pane)),
@@ -693,7 +693,7 @@ module.exports = grammar({
         $,
         "server-access",
         cmd_opts(options($, "adlrw")),
-        optional($.user)
+        optional($.user),
       ),
     data: ($) => $._string,
     set_buffer_directive: ($) =>
@@ -704,9 +704,9 @@ module.exports = grammar({
           options($, "aw"),
           $._buffer_name,
           $._target_client,
-          $._new_buffer_name
+          $._new_buffer_name,
         ),
-        $.data
+        $.data,
       ),
     set_environment_directive: ($) =>
       command(
@@ -714,7 +714,7 @@ module.exports = grammar({
         choice("set-environment", "setenv"),
         cmd_opts(options($, "Fhgru"), $._target_session),
         $.name,
-        optional($.value)
+        optional($.value),
       ),
     set_hook_directive: ($) =>
       command(
@@ -723,7 +723,7 @@ module.exports = grammar({
         cmd_opts(options($, "agpRuw"), $._target_pane),
         alias(/[a-z][a-z-]*/, $.hook_name),
         optional(seq("[", $.int, "]")),
-        $._tmux
+        $._tmux,
       ),
 
     value: ($) => $._string,
@@ -733,7 +733,7 @@ module.exports = grammar({
         choice("set-option", "set"),
         optional(options($, "aFgopqsuUw")),
         $.option,
-        $.value
+        $.value,
       ),
     set_window_option_directive: ($) =>
       command(
@@ -741,7 +741,7 @@ module.exports = grammar({
         choice("set-window-option", "setw"),
         optional(options($, "aFgoqu")),
         $.option,
-        $.value
+        $.value,
       ),
 
     show_buffer_directive: ($) =>
@@ -751,7 +751,7 @@ module.exports = grammar({
         $,
         choice("show-environment", "showenv"),
         cmd_opts(options($, "hgs"), $._target_session),
-        optional($.name)
+        optional($.name),
       ),
     show_hooks_directive: ($) =>
       command($, "show-hooks", cmd_opts(options($, "gpw"), $._target_pane)),
@@ -759,20 +759,20 @@ module.exports = grammar({
       command(
         $,
         choice("show-messages", "showmsgs"),
-        cmd_opts(options($, "JT"), $._target_client)
+        cmd_opts(options($, "JT"), $._target_client),
       ),
     show_options_directive: ($) =>
       command(
         $,
         choice("show-options", "show"),
         cmd_opts(options($, "AgHpqsvw"), $._target_pane),
-        $.option
+        $.option,
       ),
     show_prompt_history_directive: ($) =>
       command(
         $,
         choice("show-prompt-history", "showphist"),
-        cmd_opts($._prompt_type)
+        cmd_opts($._prompt_type),
       ),
 
     path: ($) => $._string,
@@ -781,7 +781,7 @@ module.exports = grammar({
         $,
         choice("source-file", "source"),
         optional(options($, "Fnqv")),
-        $.path
+        $.path,
       ),
 
     split_window_directive: ($) =>
@@ -794,28 +794,28 @@ module.exports = grammar({
           $._environment,
           $._size,
           $._target_pane,
-          $._format
+          $._format,
         ),
-        optional($._shell)
+        optional($._shell),
       ),
     start_server_directive: ($) => command($, choice("start-server", "start")),
     suspend_client_directive: ($) =>
       command(
         $,
         choice("suspend-client", "suspendc"),
-        cmd_opts($._target_client)
+        cmd_opts($._target_client),
       ),
     swap_pane_directive: ($) =>
       command(
         $,
         choice("swap-pane", "swapp"),
-        cmd_opts(options($, "dDUZ"), $._src_pane, $._target_pane)
+        cmd_opts(options($, "dDUZ"), $._src_pane, $._target_pane),
       ),
     swap_window_directive: ($) =>
       command(
         $,
         choice("swap-window", "swapw"),
-        cmd_opts(options($, "d"), $._src_window, $._target_window)
+        cmd_opts(options($, "d"), $._src_window, $._target_window),
       ),
     switch_client_directive: ($) =>
       command(
@@ -825,21 +825,21 @@ module.exports = grammar({
           options($, "ElnprZ"),
           $.__target_client,
           $._target_session,
-          $._key_table
-        )
+          $._key_table,
+        ),
       ),
     unbind_key_directive: ($) =>
       command(
         $,
         choice("unbind-key", "unbind"),
         cmd_opts(options($, "anq"), $._key_table),
-        $.key
+        $.key,
       ),
     unlink_window_directive: ($) =>
       command(
         $,
         choice("unlink-window", "unlinkw"),
-        cmd_opts(options($, "k"), $._target_window)
+        cmd_opts(options($, "k"), $._target_window),
       ),
     channel: ($) => $._string,
     wait_for_directive: ($) =>
@@ -847,7 +847,7 @@ module.exports = grammar({
         $,
         choice("wait-for", "wait"),
         optional(choice("-L", "-S", "-U")),
-        $.channel
+        $.channel,
       ),
 
     option: (_) => /[@A-Za-z-_\d]+/,
@@ -863,23 +863,23 @@ module.exports = grammar({
             seq(
               choice(
                 seq("?", choice($.variable, $.variable_name)),
-                seq(alias($.variable_name, $.function_name), ":")
+                seq(alias($.variable_name, $.function_name), ":"),
               ),
-              commaSep1(optional(repeat(choice($.variable, /[^,}"#]+/))))
-            )
+              commaSep1(optional(repeat(choice($.variable, /[^,}"#]+/)))),
+            ),
           ),
-          "}"
+          "}",
         ),
         seq(
           "#[",
           commaSep1(
             choice(
               $.attribute,
-              seq($.attribute, "=", choice($.variable, $.variable_name))
-            )
+              seq($.attribute, "=", choice($.variable, $.variable_name)),
+            ),
           ),
-          "]"
-        )
+          "]",
+        ),
       ),
     attribute: (_) => /[a-z-]+/,
     raw_string: ($) => quoted_string("'", $.__string),
@@ -894,7 +894,7 @@ module.exports = grammar({
         $.string,
         quoted_string("'", $.shell),
         alias($._word, $.shell),
-        $._code
+        $._code,
       ),
     _tmux: ($) =>
       choice($.string, seq("'", $._command, "'"), $._command, $._code),
@@ -927,9 +927,9 @@ function quoted_string(char, name) {
     char,
     alias(
       field("content", new RegExp("([^" + char + "]|\\\\" + char + ")*")),
-      name
+      name,
     ),
-    char
+    char,
   );
 }
 
@@ -940,7 +940,7 @@ function options($, chars) {
 function option($, char, ...arg) {
   return choice(
     seq(alias("-" + char, $.command_line_option), ...arg),
-    alias(new RegExp("-" + char + "\\S+"), $.command_line_option)
+    alias(new RegExp("-" + char + "\\S+"), $.command_line_option),
   );
 }
 

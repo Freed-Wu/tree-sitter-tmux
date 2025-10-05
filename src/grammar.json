@@ -5162,6 +5162,10 @@
               },
               {
                 "type": "SYMBOL",
+                "name": "_start_directory"
+              },
+              {
+                "type": "SYMBOL",
                 "name": "_target_pane"
               }
             ]

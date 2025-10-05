@@ -19138,6 +19138,10 @@
           "named": true
         },
         {
+          "type": "start_directory",
+          "named": true
+        },
+        {
           "type": "start_server_directive",
           "named": true
         },
