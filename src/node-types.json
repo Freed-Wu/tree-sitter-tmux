@@ -88,6 +88,10 @@
           "named": true
         },
         {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
           "type": "find_window_directive",
           "named": true
         },
@@ -502,6 +506,10 @@
           "named": true
         },
         {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
           "type": "find_window_directive",
           "named": true
         },
@@ -885,6 +893,10 @@
           "named": true
         },
         {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
           "type": "find_window_directive",
           "named": true
         },
@@ -1257,6 +1269,10 @@
         },
         {
           "type": "display_popup_directive",
+          "named": true
+        },
+        {
+          "type": "environment_assignment",
           "named": true
         },
         {
@@ -1670,6 +1686,10 @@
           "named": true
         },
         {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
           "type": "find_window_directive",
           "named": true
         },
@@ -2077,6 +2097,10 @@
         },
         {
           "type": "display_popup_directive",
+          "named": true
+        },
+        {
+          "type": "environment_assignment",
           "named": true
         },
         {
@@ -2622,6 +2646,10 @@
           "named": true
         },
         {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
           "type": "find_window_directive",
           "named": true
         },
@@ -3032,6 +3060,10 @@
           "named": true
         },
         {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
           "type": "find_window_directive",
           "named": true
         },
@@ -3424,6 +3456,10 @@
         },
         {
           "type": "display_popup_directive",
+          "named": true
+        },
+        {
+          "type": "environment_assignment",
           "named": true
         },
         {
@@ -3860,6 +3896,10 @@
           "named": true
         },
         {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
           "type": "find_window_directive",
           "named": true
         },
@@ -4278,6 +4318,10 @@
         },
         {
           "type": "display_popup_directive",
+          "named": true
+        },
+        {
+          "type": "environment_assignment",
           "named": true
         },
         {
@@ -4804,6 +4848,10 @@
           "named": true
         },
         {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
           "type": "find_window_directive",
           "named": true
         },
@@ -5207,6 +5255,10 @@
           "named": true
         },
         {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
           "type": "find_window_directive",
           "named": true
         },
@@ -5582,6 +5634,10 @@
           "named": true
         },
         {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
           "type": "find_window_directive",
           "named": true
         },
@@ -5869,6 +5925,32 @@
     }
   },
   {
+    "type": "environment_assignment",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "value",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "file",
     "named": true,
     "root": true,
@@ -5959,6 +6041,10 @@
         },
         {
           "type": "display_popup_directive",
+          "named": true
+        },
+        {
+          "type": "environment_assignment",
           "named": true
         },
         {
@@ -6326,6 +6412,10 @@
         },
         {
           "type": "display_popup_directive",
+          "named": true
+        },
+        {
+          "type": "environment_assignment",
           "named": true
         },
         {
@@ -6712,6 +6802,10 @@
           "named": true
         },
         {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
           "type": "find_window_directive",
           "named": true
         },
@@ -7091,6 +7185,10 @@
           "named": true
         },
         {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
           "type": "find_window_directive",
           "named": true
         },
@@ -7466,6 +7564,10 @@
           "named": true
         },
         {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
           "type": "find_window_directive",
           "named": true
         },
@@ -7838,6 +7940,10 @@
         },
         {
           "type": "display_popup_directive",
+          "named": true
+        },
+        {
+          "type": "environment_assignment",
           "named": true
         },
         {
@@ -8239,6 +8345,10 @@
           "named": true
         },
         {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
           "type": "find_window_directive",
           "named": true
         },
@@ -8633,6 +8743,10 @@
           "named": true
         },
         {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
           "type": "find_window_directive",
           "named": true
         },
@@ -9009,6 +9123,10 @@
         },
         {
           "type": "display_popup_directive",
+          "named": true
+        },
+        {
+          "type": "environment_assignment",
           "named": true
         },
         {
@@ -9414,6 +9532,10 @@
           "named": true
         },
         {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
           "type": "find_window_directive",
           "named": true
         },
@@ -9789,6 +9911,10 @@
           "named": true
         },
         {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
           "type": "find_window_directive",
           "named": true
         },
@@ -10161,6 +10287,10 @@
         },
         {
           "type": "display_popup_directive",
+          "named": true
+        },
+        {
+          "type": "environment_assignment",
           "named": true
         },
         {
@@ -10669,6 +10799,10 @@
           "named": true
         },
         {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
           "type": "find_window_directive",
           "named": true
         },
@@ -11126,6 +11260,10 @@
         },
         {
           "type": "display_popup_directive",
+          "named": true
+        },
+        {
+          "type": "environment_assignment",
           "named": true
         },
         {
@@ -11716,6 +11854,10 @@
           "named": true
         },
         {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
           "type": "find_window_directive",
           "named": true
         },
@@ -12141,6 +12283,10 @@
           "named": true
         },
         {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
           "type": "find_window_directive",
           "named": true
         },
@@ -12513,6 +12659,10 @@
         },
         {
           "type": "display_popup_directive",
+          "named": true
+        },
+        {
+          "type": "environment_assignment",
           "named": true
         },
         {
@@ -12911,6 +13061,10 @@
         },
         {
           "type": "environment",
+          "named": true
+        },
+        {
+          "type": "environment_assignment",
           "named": true
         },
         {
@@ -13341,6 +13495,10 @@
         },
         {
           "type": "environment",
+          "named": true
+        },
+        {
+          "type": "environment_assignment",
           "named": true
         },
         {
@@ -13781,6 +13939,10 @@
           "named": true
         },
         {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
           "type": "find_window_directive",
           "named": true
         },
@@ -14156,6 +14318,10 @@
           "named": true
         },
         {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
           "type": "find_window_directive",
           "named": true
         },
@@ -14528,6 +14694,10 @@
         },
         {
           "type": "display_popup_directive",
+          "named": true
+        },
+        {
+          "type": "environment_assignment",
           "named": true
         },
         {
@@ -14937,6 +15107,10 @@
           "named": true
         },
         {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
           "type": "find_window_directive",
           "named": true
         },
@@ -15331,6 +15505,10 @@
           "named": true
         },
         {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
           "type": "find_window_directive",
           "named": true
         },
@@ -15710,6 +15888,10 @@
           "named": true
         },
         {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
           "type": "find_window_directive",
           "named": true
         },
@@ -16082,6 +16264,10 @@
         },
         {
           "type": "display_popup_directive",
+          "named": true
+        },
+        {
+          "type": "environment_assignment",
           "named": true
         },
         {
@@ -16506,6 +16692,10 @@
           "named": true
         },
         {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
           "type": "find_window_directive",
           "named": true
         },
@@ -16881,6 +17071,10 @@
           "named": true
         },
         {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
           "type": "find_window_directive",
           "named": true
         },
@@ -17253,6 +17447,10 @@
         },
         {
           "type": "display_popup_directive",
+          "named": true
+        },
+        {
+          "type": "environment_assignment",
           "named": true
         },
         {
@@ -17841,6 +18039,10 @@
           "named": true
         },
         {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
           "type": "find_window_directive",
           "named": true
         },
@@ -18244,6 +18446,10 @@
         },
         {
           "type": "environment",
+          "named": true
+        },
+        {
+          "type": "environment_assignment",
           "named": true
         },
         {
@@ -18672,6 +18878,10 @@
           "named": true
         },
         {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
           "type": "find_window_directive",
           "named": true
         },
@@ -19087,6 +19297,10 @@
           "named": true
         },
         {
+          "type": "comment",
+          "named": true
+        },
+        {
           "type": "int",
           "named": true
         },
@@ -19210,6 +19424,10 @@
         },
         {
           "type": "display_popup_directive",
+          "named": true
+        },
+        {
+          "type": "environment_assignment",
           "named": true
         },
         {
@@ -19611,6 +19829,10 @@
           "named": true
         },
         {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
           "type": "find_window_directive",
           "named": true
         },
@@ -19983,6 +20205,10 @@
         },
         {
           "type": "display_popup_directive",
+          "named": true
+        },
+        {
+          "type": "environment_assignment",
           "named": true
         },
         {
@@ -20428,6 +20654,10 @@
         },
         {
           "type": "display_popup_directive",
+          "named": true
+        },
+        {
+          "type": "environment_assignment",
           "named": true
         },
         {
@@ -21014,6 +21244,10 @@
           "named": true
         },
         {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
           "type": "find_window_directive",
           "named": true
         },
@@ -21386,6 +21620,10 @@
         },
         {
           "type": "display_popup_directive",
+          "named": true
+        },
+        {
+          "type": "environment_assignment",
           "named": true
         },
         {
@@ -21810,6 +22048,10 @@
           "named": true
         },
         {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
           "type": "find_window_directive",
           "named": true
         },
@@ -22201,6 +22443,10 @@
           "named": true
         },
         {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
           "type": "find_window_directive",
           "named": true
         },
@@ -22573,6 +22819,10 @@
         },
         {
           "type": "display_popup_directive",
+          "named": true
+        },
+        {
+          "type": "environment_assignment",
           "named": true
         },
         {
@@ -22978,6 +23228,10 @@
         },
         {
           "type": "display_popup_directive",
+          "named": true
+        },
+        {
+          "type": "environment_assignment",
           "named": true
         },
         {
@@ -23456,6 +23710,10 @@
           "named": true
         },
         {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
           "type": "find_window_directive",
           "named": true
         },
@@ -23828,6 +24086,10 @@
         },
         {
           "type": "display_popup_directive",
+          "named": true
+        },
+        {
+          "type": "environment_assignment",
           "named": true
         },
         {
@@ -24256,6 +24518,10 @@
           "named": true
         },
         {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
           "type": "find_window_directive",
           "named": true
         },
@@ -24628,6 +24894,10 @@
         },
         {
           "type": "display_popup_directive",
+          "named": true
+        },
+        {
+          "type": "environment_assignment",
           "named": true
         },
         {
@@ -25052,6 +25322,10 @@
           "named": true
         },
         {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
           "type": "find_window_directive",
           "named": true
         },
@@ -25424,6 +25698,10 @@
         },
         {
           "type": "display_popup_directive",
+          "named": true
+        },
+        {
+          "type": "environment_assignment",
           "named": true
         },
         {
@@ -25802,6 +26080,10 @@
           "named": true
         },
         {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
           "type": "find_window_directive",
           "named": true
         },
@@ -26177,6 +26459,10 @@
           "named": true
         },
         {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
           "type": "find_window_directive",
           "named": true
         },
@@ -26508,6 +26794,10 @@
     "named": false
   },
   {
+    "type": ";",
+    "named": false
+  },
+  {
     "type": "=",
     "named": false
   },
@@ -26517,6 +26807,10 @@
   },
   {
     "type": "[",
+    "named": false
+  },
+  {
+    "type": "\\\\",
     "named": false
   },
   {

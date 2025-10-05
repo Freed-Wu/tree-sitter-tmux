@@ -677,7 +677,7 @@ module.exports = grammar({
         choice("select-window", "selectw"),
         cmd_opts(options($, "lnpT"), $._target_window)
       ),
-    _keys: ($) => spaceSep1($.key),
+    _keys: ($) => spaceSep1($, $.key),
     send_keys_directive: ($) =>
       command(
         $,
@@ -918,8 +918,8 @@ function commaSep1(rule) {
   return sep1(rule, ",");
 }
 
-function spaceSep1(rule) {
-  return sep1(rule, " ");
+function spaceSep1($, rule) {
+  return sep1(choice(rule, $.comment), " ");
 }
 
 function quoted_string(char, name) {

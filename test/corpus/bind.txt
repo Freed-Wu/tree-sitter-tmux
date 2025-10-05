@@ -18,3 +18,20 @@ bind \\ split-window -h -c "#{pane_current_path}"
             (string
               (variable
                 (variable_name)))))))
+
+========================================
+bind send keys comment
+========================================
+
+bind a send-keys a # Foo
+
+---
+
+    (file
+      (bind_key_directive
+        (command)
+        (key)
+        (send_keys_directive
+          (command)
+          (key)
+          (comment))))
