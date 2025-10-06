@@ -854,7 +854,7 @@ module.exports = grammar({
 
     hash_escape: (_) => /#[#,}]/,
     _hash: (_) => /#[^#,{}"'HhDPTSFIW]/,
-    backslash_escape: (_) => /\\(u[\da-fA-F]{4}|u[\da-fA-F]{8}|[0-8]{3}|.)/,
+    backslash_escape: (_) => /\\(u[\da-fA-F]{4}|u[\da-fA-F]{8}|[0-7]{3}|.)/,
     variable_name_short: (_) => /[HhDPTSFIW]/,
     variable_name: (_) => /[a-z-_\d]+/,
     variable: ($) => variable_rule($, '"'),

@@ -1,0 +1,22 @@
+========================================
+str-escape
+========================================
+
+bind-key a send-keys \033"\\u09aF\\u0123abCD\\777\\\a"
+
+---
+
+    (file
+      (bind_key_directive
+        (command)
+        (key)
+        (send_keys_directive
+          (command)
+          (key
+            (backslash_escape)
+            (string
+              (backslash_escape)
+              (backslash_escape)
+              (backslash_escape)
+              (backslash_escape)
+              (backslash_escape))))))

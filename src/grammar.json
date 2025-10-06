@@ -6652,7 +6652,7 @@
     },
     "backslash_escape": {
       "type": "PATTERN",
-      "value": "\\\\(u[\\da-fA-F]{4}|u[\\da-fA-F]{8}|[0-8]{3}|.)"
+      "value": "\\\\(u[\\da-fA-F]{4}|u[\\da-fA-F]{8}|[0-7]{3}|.)"
     },
     "variable_name_short": {
       "type": "PATTERN",
