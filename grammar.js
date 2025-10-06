@@ -852,40 +852,19 @@ module.exports = grammar({
 
     option: (_) => /[@A-Za-z-_\d]+/,
 
-    variable_name: (_) => /[^?\]}:,#"]+/,
-    variable: ($) =>
-      choice(
-        seq("#", alias(choice(/\S/, /[A-Za-z\d]+/), $.variable_name)),
-        seq(
-          "#{",
-          choice(
-            $.variable_name,
-            seq(
-              choice(
-                seq("?", choice($.variable, $.variable_name)),
-                seq(alias($.variable_name, $.function_name), ":"),
-              ),
-              commaSep1(optional(repeat(choice($.variable, /[^,}"#]+/)))),
-            ),
-          ),
-          "}",
-        ),
-        seq(
-          "#[",
-          commaSep1(
-            choice(
-              $.attribute,
-              seq($.attribute, "=", choice($.variable, $.variable_name)),
-            ),
-          ),
-          "]",
-        ),
-      ),
+    escape_sequence: (_) => /#[#,}]/,
+    _hash: (_) => /#[^#,{}"'HhDPTSFIW]/,
+    variable_name_short: (_) => /[HhDPTSFIW]/,
+    variable_name: (_) => /[a-z-_\d]+/,
+    variable: ($) => variable_rule($, '"'),
+    variable_raw: ($) => variable_rule($, "'"),
+    operator: (_) => /==|!=|<|>|<=|>=|\|\||&&/,
     attribute: (_) => /[a-z-]+/,
     raw_string_quote: (_) => "'",
-    raw_string: ($) => quoted_string("'", $.__string),
+    raw_string: ($) =>
+      seq("'", optional(repeat(choice($.variable_raw, $.escape_sequence, $._hash, /([^#'])+/))), "'"),
     string: ($) =>
-      seq('"', optional(repeat(choice($.variable, /([^"#]|\\\r?\n)+/))), '"'),
+      seq('"', optional(repeat(choice($.variable, $.escape_sequence, $._hash, /([^#"]|\\\r?\n)+/))), '"'),
     _word: (_) => /([^"'\\\s])([^"'\\\s]|\\["'\\\s])*/,
     _string: ($) => choice($.string, $.raw_string, $._word, $._code),
     _commands: ($) => repeat1($._command),
@@ -948,4 +927,41 @@ function option($, char, ...arg) {
 
 function cmd_opts(...args) {
   return repeat(choice(...args));
+}
+
+function variable_rule($, quote) {
+  const variable = quote == '"' ? $.variable : $.variable_raw
+  return choice(
+    seq("#", $.variable_name_short),
+    seq(
+      "#{",
+      choice(
+        $.variable_name,
+        seq(
+          choice(
+            seq("?", choice(variable, $.variable_name)),
+            seq(alias($.variable_name, $.function_name), ":"),
+            seq($.operator, ":"),
+          ),
+          commaSep1(optional(repeat(choice(
+            variable,
+            $.escape_sequence,
+            $._hash,
+            quote == '"' ? /[^,}"#]+/ : /[^,}'#]+/,
+          )))),
+        ),
+      ),
+      "}",
+    ),
+    seq(
+      "#[",
+      commaSep1(
+        choice(
+          $.attribute,
+          seq($.attribute, "=", /[^\]]+/),
+        ),
+      ),
+      "]",
+    ),
+  )
 }

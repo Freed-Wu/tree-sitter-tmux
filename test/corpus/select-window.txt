@@ -121,14 +121,12 @@ selectw -t 'proj alpha:4'
     (command)
     (command_line_option)
     (window
-      (raw_string
-        (__string))))
+      (raw_string)))
   (select_window_directive
     (command)
     (command_line_option)
     (window
-      (raw_string
-        (__string)))))
+      (raw_string))))
 
 ========================================
 select-window: Flags + Options

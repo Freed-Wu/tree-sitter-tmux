@@ -86,8 +86,7 @@ new_window'
     (command_line_option)
     (option)
     (value
-      (raw_string
-        (__string))))
+      (raw_string)))
   (set_option_directive
     (command)
     (command_line_option)
@@ -95,19 +94,36 @@ new_window'
     (value
       (string
         (variable
-          (variable_name))
+          (variable_name_short))
+        (variable
+          (variable_name_short))
+        (variable
+          (variable_name_short))
         (variable
           (variable_name))
         (variable
-          (variable_name))
+          (variable_name_short))
         (variable
           (variable_name))
         (variable
-          (variable_name))
-        (variable
-          (variable_name))
+          (operator)
+          (variable
+            (variable_name))))))
+  (set_option_directive
+    (command)
+    (command_line_option)
+    (option)
+    (value
+      (string
         (variable
           (function_name)
+          (variable
+            (attribute)
+            (attribute))
+          (variable
+            (variable_name_short))
+          (variable
+            (variable_name_short))
           (variable
             (variable_name))))))
   (set_option_directive
@@ -121,70 +137,43 @@ new_window'
           (variable
             (variable_name))
           (variable
-            (attribute)
-            (attribute)
-            (variable
-              (variable_name))
             (attribute))
           (variable
             (variable_name))
           (variable
-            (variable_name))
-          (variable
-            (variable_name))))))
-  (set_option_directive
-    (command)
-    (command_line_option)
-    (option)
-    (value
-      (string
-        (variable
-          (function_name)
-          (variable
-            (variable_name))
-          (variable
-            (attribute)
-            (variable_name))
-          (variable
-            (variable_name))
-          (variable
-            (variable_name))
-          (variable
             (variable
-              (function_name)
+              (operator)
               (variable
                 (variable_name)))
             (variable
               (variable_name)))
           (variable
             (variable
-              (function_name)
+              (operator)
               (variable
-                (function_name)
+                (operator)
                 (variable
                   (variable_name)))
               (variable
-                (function_name)
+                (operator)
                 (variable
                   (variable_name)))))
           (variable
             (variable
-              (function_name)
+              (operator)
               (variable
                 (variable_name)))
             (variable
               (variable_name)))
           (variable
-            (variable_name))
-          (variable
             (variable
-              (function_name)
+              (operator)
               (variable
-                (function_name)
+                (operator)
                 (variable
                   (variable_name)))
               (variable
-                (function_name)
+                (operator)
                 (variable
                   (variable_name))))
             (variable
@@ -196,15 +185,11 @@ new_window'
             (variable
               (variable_name))
             (variable
-              (attribute)
-              (variable
-                (variable_name)))
+              (attribute))
             (variable
               (variable_name))
             (variable
-              (variable_name)))
-          (variable
-            (variable_name))))))
+              (variable_name)))))))
   (bind_key_directive
     (command)
     (command_line_option)

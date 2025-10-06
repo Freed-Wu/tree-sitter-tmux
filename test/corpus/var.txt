@@ -1,0 +1,19 @@
+========================================
+var single quote
+========================================
+
+set-option -g automatic-rename-format '1#{pane_title}2#{pane_current_path}3'
+
+---
+
+    (file
+      (set_option_directive
+        (command)
+        (command_line_option)
+        (option)
+        (value
+          (raw_string
+            (variable_raw
+              (variable_name))
+            (variable_raw
+              (variable_name))))))

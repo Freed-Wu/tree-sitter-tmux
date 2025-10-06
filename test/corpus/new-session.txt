@@ -101,14 +101,20 @@ new -P -F '#{session_name}:#{session_attached}'
     (command_line_option)
     (format
       (raw_string
-        (__string))))
+        (variable_raw
+          (variable_name))
+        (variable_raw
+          (variable_name)))))
   (new_session_directive
     (command)
     (command_line_option)
     (command_line_option)
     (format
       (raw_string
-        (__string)))))
+        (variable_raw
+          (variable_name))
+        (variable_raw
+          (variable_name))))))
 
 ========================================
 new-session: Options
@@ -170,13 +176,15 @@ new -x 180 -y 48
     (command_line_option)
     (format
       (raw_string
-        (__string))))
+        (variable_raw
+          (variable_name)))))
   (new_session_directive
     (command)
     (command_line_option)
     (format
       (raw_string
-        (__string))))
+        (variable_raw
+          (variable_name)))))
   (new_session_directive
     (command)
     (command_line_option)
@@ -284,7 +292,10 @@ ci -n "workers" -c ~/proj \
     (command_line_option)
     (format
       (raw_string
-        (__string)))
+        (variable_raw
+          (variable_name))
+        (variable_raw
+          (variable_name))))
     (command_line_option)
     (session_name)
     (command_line_option)
@@ -309,7 +320,10 @@ ci -n "workers" -c ~/proj \
     (command_line_option)
     (format
       (raw_string
-        (__string)))
+        (variable_raw
+          (variable_name))
+        (variable_raw
+          (variable_name))))
     (command_line_option)
     (session_name)
     (command_line_option)

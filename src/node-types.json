@@ -17783,17 +17783,20 @@
   {
     "type": "raw_string",
     "named": true,
-    "fields": {
-      "content": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "__string",
-            "named": true
-          }
-        ]
-      }
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "escape_sequence",
+          "named": true
+        },
+        {
+          "type": "variable_raw",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -23205,6 +23208,10 @@
       "required": false,
       "types": [
         {
+          "type": "escape_sequence",
+          "named": true
+        },
+        {
           "type": "variable",
           "named": true
         }
@@ -25269,7 +25276,15 @@
           "named": true
         },
         {
+          "type": "escape_sequence",
+          "named": true
+        },
+        {
           "type": "function_name",
+          "named": true
+        },
+        {
+          "type": "operator",
           "named": true
         },
         {
@@ -25278,6 +25293,49 @@
         },
         {
           "type": "variable_name",
+          "named": true
+        },
+        {
+          "type": "variable_name_short",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "variable_raw",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute",
+          "named": true
+        },
+        {
+          "type": "escape_sequence",
+          "named": true
+        },
+        {
+          "type": "function_name",
+          "named": true
+        },
+        {
+          "type": "operator",
+          "named": true
+        },
+        {
+          "type": "variable_name",
+          "named": true
+        },
+        {
+          "type": "variable_name_short",
+          "named": true
+        },
+        {
+          "type": "variable_raw",
           "named": true
         }
       ]
@@ -26887,10 +26945,6 @@
     "named": false
   },
   {
-    "type": "__string",
-    "named": true
-  },
-  {
     "type": "attribute",
     "named": true
   },
@@ -26907,6 +26961,10 @@
     "named": true
   },
   {
+    "type": "escape_sequence",
+    "named": true
+  },
+  {
     "type": "function_name",
     "named": true
   },
@@ -26919,6 +26977,10 @@
     "named": true
   },
   {
+    "type": "operator",
+    "named": true
+  },
+  {
     "type": "option",
     "named": true
   },
@@ -26928,6 +26990,10 @@
   },
   {
     "type": "variable_name",
+    "named": true
+  },
+  {
+    "type": "variable_name_short",
     "named": true
   },
   {
