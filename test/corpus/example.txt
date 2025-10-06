@@ -228,19 +228,27 @@ new_window'
       (command)
       (command_line_option)
       (prompts)
+      (raw_string_quote)
       (switch_client_directive
         (command)
         (command_line_option)
-        (session))))
+        (session))
+      (raw_string_quote)))
   (if_shell_directive
     (command)
+    (raw_string_quote)
     (shell)
+    (raw_string_quote)
     (run_shell_directive
       (command)
-      (shell)))
+      (raw_string_quote)
+      (shell)
+      (raw_string_quote)))
   (if_shell_directive
     (command)
+    (raw_string_quote)
     (shell)
+    (raw_string_quote)
     (set_hook_directive
       (command)
       (command_line_option)
@@ -249,11 +257,15 @@ new_window'
       (run_shell_directive
         (command)
         (command_line_option)
-        (shell)))
+        (raw_string_quote)
+        (shell)
+        (raw_string_quote)))
     (bind_key_directive
       (command)
       (key)
       (run_shell_directive
         (command)
         (command_line_option)
-        (shell)))))
+        (raw_string_quote)
+        (shell)
+        (raw_string_quote)))))

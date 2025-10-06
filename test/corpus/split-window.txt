@@ -293,10 +293,14 @@ splitw -dI
 (file
   (split_window_directive
     (command)
-    (shell))
+    (raw_string_quote)
+    (shell)
+    (raw_string_quote))
   (split_window_directive
     (command)
-    (shell))
+    (raw_string_quote)
+    (shell)
+    (raw_string_quote))
   (split_window_directive
     (command)
     (command_line_option))

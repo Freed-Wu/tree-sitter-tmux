@@ -650,6 +650,10 @@
           "named": true
         },
         {
+          "type": "raw_string_quote",
+          "named": true
+        },
+        {
           "type": "refresh_client_directive",
           "named": true
         },
@@ -3204,6 +3208,10 @@
           "named": true
         },
         {
+          "type": "raw_string_quote",
+          "named": true
+        },
+        {
           "type": "refresh_client_directive",
           "named": true
         },
@@ -3592,6 +3600,10 @@
         },
         {
           "type": "prompt",
+          "named": true
+        },
+        {
+          "type": "raw_string_quote",
           "named": true
         },
         {
@@ -4453,6 +4465,10 @@
           "named": true
         },
         {
+          "type": "raw_string_quote",
+          "named": true
+        },
+        {
           "type": "refresh_client_directive",
           "named": true
         },
@@ -4989,6 +5005,10 @@
         },
         {
           "type": "previous_window_directive",
+          "named": true
+        },
+        {
+          "type": "raw_string_quote",
           "named": true
         },
         {
@@ -8879,6 +8899,10 @@
           "named": true
         },
         {
+          "type": "raw_string_quote",
+          "named": true
+        },
+        {
           "type": "refresh_client_directive",
           "named": true
         },
@@ -11399,6 +11423,10 @@
           "named": true
         },
         {
+          "type": "raw_string_quote",
+          "named": true
+        },
+        {
           "type": "refresh_client_directive",
           "named": true
         },
@@ -13212,6 +13240,10 @@
           "named": true
         },
         {
+          "type": "raw_string_quote",
+          "named": true
+        },
+        {
           "type": "refresh_client_directive",
           "named": true
         },
@@ -13631,6 +13663,10 @@
         },
         {
           "type": "previous_window_directive",
+          "named": true
+        },
+        {
+          "type": "raw_string_quote",
           "named": true
         },
         {
@@ -15638,6 +15674,10 @@
         },
         {
           "type": "previous_window_directive",
+          "named": true
+        },
+        {
+          "type": "raw_string_quote",
           "named": true
         },
         {
@@ -17757,6 +17797,11 @@
     }
   },
   {
+    "type": "raw_string_quote",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "refresh_client_directive",
     "named": true,
     "fields": {},
@@ -18175,6 +18220,10 @@
           "named": true
         },
         {
+          "type": "raw_string_quote",
+          "named": true
+        },
+        {
           "type": "refresh_client_directive",
           "named": true
         },
@@ -18582,6 +18631,10 @@
         },
         {
           "type": "previous_window_directive",
+          "named": true
+        },
+        {
+          "type": "raw_string_quote",
           "named": true
         },
         {
@@ -19015,6 +19068,10 @@
         },
         {
           "type": "previous_window_directive",
+          "named": true
+        },
+        {
+          "type": "raw_string_quote",
           "named": true
         },
         {
@@ -20805,6 +20862,10 @@
           "named": true
         },
         {
+          "type": "raw_string_quote",
+          "named": true
+        },
+        {
           "type": "refresh_client_directive",
           "named": true
         },
@@ -22189,6 +22250,10 @@
         },
         {
           "type": "previous_window_directive",
+          "named": true
+        },
+        {
+          "type": "raw_string_quote",
           "named": true
         },
         {

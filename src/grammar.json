@@ -6912,6 +6912,10 @@
       "type": "PATTERN",
       "value": "[a-z-]+"
     },
+    "raw_string_quote": {
+      "type": "STRING",
+      "value": "'"
+    },
     "raw_string": {
       "type": "SEQ",
       "members": [
@@ -7035,8 +7039,8 @@
           "type": "SEQ",
           "members": [
             {
-              "type": "STRING",
-              "value": "'"
+              "type": "SYMBOL",
+              "name": "raw_string_quote"
             },
             {
               "type": "ALIAS",
@@ -7052,8 +7056,8 @@
               "value": "shell"
             },
             {
-              "type": "STRING",
-              "value": "'"
+              "type": "SYMBOL",
+              "name": "raw_string_quote"
             }
           ]
         },
@@ -7083,16 +7087,16 @@
           "type": "SEQ",
           "members": [
             {
-              "type": "STRING",
-              "value": "'"
+              "type": "SYMBOL",
+              "name": "raw_string_quote"
             },
             {
               "type": "SYMBOL",
               "name": "_command"
             },
             {
-              "type": "STRING",
-              "value": "'"
+              "type": "SYMBOL",
+              "name": "raw_string_quote"
             }
           ]
         },

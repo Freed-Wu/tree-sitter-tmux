@@ -882,6 +882,7 @@ module.exports = grammar({
         ),
       ),
     attribute: (_) => /[a-z-]+/,
+    raw_string_quote: (_) => "'",
     raw_string: ($) => quoted_string("'", $.__string),
     string: ($) =>
       seq('"', optional(repeat(choice($.variable, /([^"#]|\\\r?\n)+/))), '"'),
@@ -892,12 +893,12 @@ module.exports = grammar({
     _shell: ($) =>
       choice(
         $.string,
-        quoted_string("'", $.shell),
+        quoted_string("'", $.shell, $.raw_string_quote),
         alias($._word, $.shell),
         $._code,
       ),
     _tmux: ($) =>
-      choice($.string, seq("'", $._command, "'"), $._command, $._code),
+      choice($.string, seq($.raw_string_quote, $._command, $.raw_string_quote), $._command, $._code),
 
     comment: (_) => /#[^\n]*/,
     _eol: (_) => /\r?\n/,
@@ -922,14 +923,15 @@ function spaceSep1($, rule) {
   return sep1(choice(rule, $.comment), " ");
 }
 
-function quoted_string(char, name) {
+function quoted_string(char, name, char_rule = null) {
+  char_rule = char_rule || char
   return seq(
-    char,
+    char_rule,
     alias(
       field("content", new RegExp("([^" + char + "]|\\\\" + char + ")*")),
       name,
     ),
-    char,
+    char_rule,
   );
 }
 

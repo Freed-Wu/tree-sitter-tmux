@@ -11,4 +11,6 @@ run -c /tmp/ 'touch -m foo.txt'
         (command)
         (command_line_option)
         (start_directory)
-        (shell)))
+        (raw_string_quote)
+        (shell)
+        (raw_string_quote)))
