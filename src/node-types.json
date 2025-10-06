@@ -422,6 +422,10 @@
           "named": true
         },
         {
+          "type": "backslash_escape",
+          "named": true
+        },
+        {
           "type": "bind_key_directive",
           "named": true
         },
@@ -2976,6 +2980,10 @@
           "named": true
         },
         {
+          "type": "backslash_escape",
+          "named": true
+        },
+        {
           "type": "bind_key_directive",
           "named": true
         },
@@ -3376,6 +3384,10 @@
       "types": [
         {
           "type": "attach_session_directive",
+          "named": true
+        },
+        {
+          "type": "backslash_escape",
           "named": true
         },
         {
@@ -4245,6 +4257,10 @@
           "named": true
         },
         {
+          "type": "backslash_escape",
+          "named": true
+        },
+        {
           "type": "bind_key_directive",
           "named": true
         },
@@ -4761,6 +4777,10 @@
       "types": [
         {
           "type": "attach_session_directive",
+          "named": true
+        },
+        {
+          "type": "backslash_escape",
           "named": true
         },
         {
@@ -8679,6 +8699,10 @@
           "named": true
         },
         {
+          "type": "backslash_escape",
+          "named": true
+        },
+        {
           "type": "bind_key_directive",
           "named": true
         },
@@ -9477,6 +9501,10 @@
       "types": [
         {
           "type": "attach_session_directive",
+          "named": true
+        },
+        {
+          "type": "backslash_escape",
           "named": true
         },
         {
@@ -11200,6 +11228,10 @@
       "types": [
         {
           "type": "attach_session_directive",
+          "named": true
+        },
+        {
+          "type": "backslash_escape",
           "named": true
         },
         {
@@ -13004,6 +13036,10 @@
           "named": true
         },
         {
+          "type": "backslash_escape",
+          "named": true
+        },
+        {
           "type": "bind_key_directive",
           "named": true
         },
@@ -13439,6 +13475,10 @@
       "types": [
         {
           "type": "attach_session_directive",
+          "named": true
+        },
+        {
+          "type": "backslash_escape",
           "named": true
         },
         {
@@ -15454,6 +15494,10 @@
       "types": [
         {
           "type": "attach_session_directive",
+          "named": true
+        },
+        {
+          "type": "backslash_escape",
           "named": true
         },
         {
@@ -17789,7 +17833,7 @@
       "required": false,
       "types": [
         {
-          "type": "escape_sequence",
+          "type": "hash_escape",
           "named": true
         },
         {
@@ -17996,6 +18040,10 @@
       "types": [
         {
           "type": "attach_session_directive",
+          "named": true
+        },
+        {
+          "type": "backslash_escape",
           "named": true
         },
         {
@@ -18410,6 +18458,10 @@
       "types": [
         {
           "type": "attach_session_directive",
+          "named": true
+        },
+        {
+          "type": "backslash_escape",
           "named": true
         },
         {
@@ -18847,6 +18899,10 @@
       "types": [
         {
           "type": "attach_session_directive",
+          "named": true
+        },
+        {
+          "type": "backslash_escape",
           "named": true
         },
         {
@@ -20637,6 +20693,10 @@
           "named": true
         },
         {
+          "type": "backslash_escape",
+          "named": true
+        },
+        {
           "type": "bind_key_directive",
           "named": true
         },
@@ -22028,6 +22088,10 @@
           "named": true
         },
         {
+          "type": "backslash_escape",
+          "named": true
+        },
+        {
           "type": "bind_key_directive",
           "named": true
         },
@@ -23208,7 +23272,11 @@
       "required": false,
       "types": [
         {
-          "type": "escape_sequence",
+          "type": "backslash_escape",
+          "named": true
+        },
+        {
+          "type": "hash_escape",
           "named": true
         },
         {
@@ -25276,11 +25344,11 @@
           "named": true
         },
         {
-          "type": "escape_sequence",
+          "type": "function_name",
           "named": true
         },
         {
-          "type": "function_name",
+          "type": "hash_escape",
           "named": true
         },
         {
@@ -25315,11 +25383,11 @@
           "named": true
         },
         {
-          "type": "escape_sequence",
+          "type": "function_name",
           "named": true
         },
         {
-          "type": "function_name",
+          "type": "hash_escape",
           "named": true
         },
         {
@@ -26937,15 +27005,15 @@
     "named": false
   },
   {
-    "type": "\\\\",
-    "named": false
-  },
-  {
     "type": "]",
     "named": false
   },
   {
     "type": "attribute",
+    "named": true
+  },
+  {
+    "type": "backslash_escape",
     "named": true
   },
   {
@@ -26961,11 +27029,11 @@
     "named": true
   },
   {
-    "type": "escape_sequence",
+    "type": "function_name",
     "named": true
   },
   {
-    "type": "function_name",
+    "type": "hash_escape",
     "named": true
   },
   {

@@ -580,17 +580,24 @@
       ]
     },
     "key": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "\\\\"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_string"
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "REPEAT1",
+        "content": {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "backslash_escape"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_string"
+            }
+          ]
         }
-      ]
+      }
     },
     "bind_key_directive": {
       "type": "SEQ",
@@ -6635,13 +6642,17 @@
       "type": "PATTERN",
       "value": "[@A-Za-z-_\\d]+"
     },
-    "escape_sequence": {
+    "hash_escape": {
       "type": "PATTERN",
       "value": "#[#,}]"
     },
     "_hash": {
       "type": "PATTERN",
       "value": "#[^#,{}\"'HhDPTSFIW]"
+    },
+    "backslash_escape": {
+      "type": "PATTERN",
+      "value": "\\\\(u[\\da-fA-F]{4}|u[\\da-fA-F]{8}|[0-8]{3}|.)"
     },
     "variable_name_short": {
       "type": "PATTERN",
@@ -6759,7 +6770,7 @@
                                   },
                                   {
                                     "type": "SYMBOL",
-                                    "name": "escape_sequence"
+                                    "name": "hash_escape"
                                   },
                                   {
                                     "type": "SYMBOL",
@@ -6800,7 +6811,7 @@
                                         },
                                         {
                                           "type": "SYMBOL",
-                                          "name": "escape_sequence"
+                                          "name": "hash_escape"
                                         },
                                         {
                                           "type": "SYMBOL",
@@ -7025,7 +7036,7 @@
                                   },
                                   {
                                     "type": "SYMBOL",
-                                    "name": "escape_sequence"
+                                    "name": "hash_escape"
                                   },
                                   {
                                     "type": "SYMBOL",
@@ -7066,7 +7077,7 @@
                                         },
                                         {
                                           "type": "SYMBOL",
-                                          "name": "escape_sequence"
+                                          "name": "hash_escape"
                                         },
                                         {
                                           "type": "SYMBOL",
@@ -7216,7 +7227,7 @@
                   },
                   {
                     "type": "SYMBOL",
-                    "name": "escape_sequence"
+                    "name": "hash_escape"
                   },
                   {
                     "type": "SYMBOL",
@@ -7261,7 +7272,11 @@
                   },
                   {
                     "type": "SYMBOL",
-                    "name": "escape_sequence"
+                    "name": "backslash_escape"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "hash_escape"
                   },
                   {
                     "type": "SYMBOL",
@@ -7269,7 +7284,7 @@
                   },
                   {
                     "type": "PATTERN",
-                    "value": "([^#\"]|\\\\\\r?\\n)+"
+                    "value": "([^#\"\\\\]|\\\\\\r?\\n)+"
                   }
                 ]
               }
@@ -7339,6 +7354,10 @@
       "members": [
         {
           "type": "SYMBOL",
+          "name": "backslash_escape"
+        },
+        {
+          "type": "SYMBOL",
           "name": "string"
         },
         {
@@ -7385,6 +7404,10 @@
     "_tmux": {
       "type": "CHOICE",
       "members": [
+        {
+          "type": "SYMBOL",
+          "name": "backslash_escape"
+        },
         {
           "type": "SYMBOL",
           "name": "string"

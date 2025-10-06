@@ -9,7 +9,8 @@ bind \\ split-window -h -c "#{pane_current_path}"
     (file
       (bind_key_directive
         (command)
-        (key)
+        (key
+          (backslash_escape))
         (split_window_directive
           (command)
           (command_line_option)

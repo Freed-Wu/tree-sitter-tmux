@@ -130,10 +130,10 @@ module.exports = grammar({
       ),
     _note: ($) => option($, "N", alias($._string, $.note)),
     _key_table: ($) => option($, "T", alias($._string, $.key_table)),
-    key: ($) => choice(
-      '\\\\',      // Literal \\
-      $._string
-    ),
+    key: ($) => prec.right(repeat1(choice(
+      $.backslash_escape,
+      $._string,
+    ))),
     bind_key_directive: ($) =>
       command(
         $,
@@ -852,8 +852,9 @@ module.exports = grammar({
 
     option: (_) => /[@A-Za-z-_\d]+/,
 
-    escape_sequence: (_) => /#[#,}]/,
+    hash_escape: (_) => /#[#,}]/,
     _hash: (_) => /#[^#,{}"'HhDPTSFIW]/,
+    backslash_escape: (_) => /\\(u[\da-fA-F]{4}|u[\da-fA-F]{8}|[0-8]{3}|.)/,
     variable_name_short: (_) => /[HhDPTSFIW]/,
     variable_name: (_) => /[a-z-_\d]+/,
     variable: ($) => variable_rule($, '"'),
@@ -862,22 +863,33 @@ module.exports = grammar({
     attribute: (_) => /[a-z-]+/,
     raw_string_quote: (_) => "'",
     raw_string: ($) =>
-      seq("'", optional(repeat(choice($.variable_raw, $.escape_sequence, $._hash, /([^#'])+/))), "'"),
+      seq("'", optional(repeat(choice(
+        $.variable_raw, $.hash_escape, $._hash, /([^#'])+/,
+      ))), "'"),
     string: ($) =>
-      seq('"', optional(repeat(choice($.variable, $.escape_sequence, $._hash, /([^#"]|\\\r?\n)+/))), '"'),
+      seq('"', optional(repeat(choice(
+        $.variable, $.backslash_escape, $.hash_escape, $._hash, /([^#"\\]|\\\r?\n)+/,
+      ))), '"'),
     _word: (_) => /([^"'\\\s])([^"'\\\s]|\\["'\\\s])*/,
     _string: ($) => choice($.string, $.raw_string, $._word, $._code),
     _commands: ($) => repeat1($._command),
     _code: ($) => seq("{", $._commands, "}"),
     _shell: ($) =>
       choice(
+        $.backslash_escape,
         $.string,
         quoted_string("'", $.shell, $.raw_string_quote),
         alias($._word, $.shell),
         $._code,
       ),
     _tmux: ($) =>
-      choice($.string, seq($.raw_string_quote, $._command, $.raw_string_quote), $._command, $._code),
+      choice(
+        $.backslash_escape,
+        $.string,
+        seq($.raw_string_quote, $._command, $.raw_string_quote),
+        $._command,
+        $._code,
+      ),
 
     comment: (_) => /#[^\n]*/,
     _eol: (_) => /\r?\n/,
@@ -945,7 +957,7 @@ function variable_rule($, quote) {
           ),
           commaSep1(optional(repeat(choice(
             variable,
-            $.escape_sequence,
+            $.hash_escape,
             $._hash,
             quote == '"' ? /[^,}"#]+/ : /[^,}'#]+/,
           )))),
