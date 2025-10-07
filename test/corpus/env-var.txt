@@ -18,3 +18,27 @@ TMUX_FZF_LAUNCH_KEY="C-t"
         (name)
         (value
           (string))))
+
+========================================
+hidden variables
+========================================
+
+%hidden MYVAR=
+%hidden MYVAR=value
+%hidden MYVAR="value"
+
+---
+
+    (file
+      (hidden_assignment
+        (hidden_keyword)
+        (name))
+      (hidden_assignment
+        (hidden_keyword)
+        (name)
+        (value))
+      (hidden_assignment
+        (hidden_keyword)
+        (name)
+        (value
+          (string))))

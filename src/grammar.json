@@ -148,6 +148,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "hidden_assignment"
+        },
+        {
+          "type": "SYMBOL",
           "name": "if_shell_directive"
         },
         {
@@ -2209,7 +2213,7 @@
         }
       ]
     },
-    "_env_variable_name": {
+    "_variable_name": {
       "type": "PATTERN",
       "value": "[A-Za-z_][A-Za-z0-9_]*"
     },
@@ -2226,7 +2230,67 @@
               "type": "ALIAS",
               "content": {
                 "type": "SYMBOL",
-                "name": "_env_variable_name"
+                "name": "_variable_name"
+              },
+              "named": true,
+              "value": "name"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": "="
+          },
+          {
+            "type": "FIELD",
+            "name": "value",
+            "content": {
+              "type": "ALIAS",
+              "content": {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "_string"
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              "named": true,
+              "value": "value"
+            }
+          }
+        ]
+      }
+    },
+    "hidden_assignment": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "ALIAS",
+            "content": {
+              "type": "PATTERN",
+              "value": "\\%hidden"
+            },
+            "named": true,
+            "value": "hidden_keyword"
+          },
+          {
+            "type": "PATTERN",
+            "value": "\\s+"
+          },
+          {
+            "type": "FIELD",
+            "name": "name",
+            "content": {
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_variable_name"
               },
               "named": true,
               "value": "name"

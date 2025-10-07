@@ -100,6 +100,10 @@
           "named": true
         },
         {
+          "type": "hidden_assignment",
+          "named": true
+        },
+        {
           "type": "if_shell_directive",
           "named": true
         },
@@ -522,6 +526,10 @@
           "named": true
         },
         {
+          "type": "hidden_assignment",
+          "named": true
+        },
+        {
           "type": "if_shell_directive",
           "named": true
         },
@@ -913,6 +921,10 @@
           "named": true
         },
         {
+          "type": "hidden_assignment",
+          "named": true
+        },
+        {
           "type": "if_shell_directive",
           "named": true
         },
@@ -1289,6 +1301,10 @@
         },
         {
           "type": "has_session_directive",
+          "named": true
+        },
+        {
+          "type": "hidden_assignment",
           "named": true
         },
         {
@@ -1706,6 +1722,10 @@
           "named": true
         },
         {
+          "type": "hidden_assignment",
+          "named": true
+        },
+        {
           "type": "if_shell_directive",
           "named": true
         },
@@ -2117,6 +2137,10 @@
         },
         {
           "type": "has_session_directive",
+          "named": true
+        },
+        {
+          "type": "hidden_assignment",
           "named": true
         },
         {
@@ -2666,6 +2690,10 @@
           "named": true
         },
         {
+          "type": "hidden_assignment",
+          "named": true
+        },
+        {
           "type": "if_shell_directive",
           "named": true
         },
@@ -3084,6 +3112,10 @@
           "named": true
         },
         {
+          "type": "hidden_assignment",
+          "named": true
+        },
+        {
           "type": "if_shell_directive",
           "named": true
         },
@@ -3488,6 +3520,10 @@
         },
         {
           "type": "has_session_directive",
+          "named": true
+        },
+        {
+          "type": "hidden_assignment",
           "named": true
         },
         {
@@ -3932,6 +3968,10 @@
           "named": true
         },
         {
+          "type": "hidden_assignment",
+          "named": true
+        },
+        {
           "type": "if_shell_directive",
           "named": true
         },
@@ -4358,6 +4398,10 @@
         },
         {
           "type": "has_session_directive",
+          "named": true
+        },
+        {
+          "type": "hidden_assignment",
           "named": true
         },
         {
@@ -4900,6 +4944,10 @@
           "named": true
         },
         {
+          "type": "hidden_assignment",
+          "named": true
+        },
+        {
           "type": "if_shell_directive",
           "named": true
         },
@@ -5307,6 +5355,10 @@
           "named": true
         },
         {
+          "type": "hidden_assignment",
+          "named": true
+        },
+        {
           "type": "if_shell_directive",
           "named": true
         },
@@ -5683,6 +5735,10 @@
         },
         {
           "type": "has_session_directive",
+          "named": true
+        },
+        {
+          "type": "hidden_assignment",
           "named": true
         },
         {
@@ -6096,6 +6152,10 @@
           "named": true
         },
         {
+          "type": "hidden_assignment",
+          "named": true
+        },
+        {
           "type": "if_shell_directive",
           "named": true
         },
@@ -6464,6 +6524,10 @@
         },
         {
           "type": "has_session_directive",
+          "named": true
+        },
+        {
+          "type": "hidden_assignment",
           "named": true
         },
         {
@@ -6854,6 +6918,10 @@
           "named": true
         },
         {
+          "type": "hidden_assignment",
+          "named": true
+        },
+        {
           "type": "if_shell_directive",
           "named": true
         },
@@ -7237,6 +7305,10 @@
           "named": true
         },
         {
+          "type": "hidden_assignment",
+          "named": true
+        },
+        {
           "type": "if_shell_directive",
           "named": true
         },
@@ -7616,6 +7688,10 @@
           "named": true
         },
         {
+          "type": "hidden_assignment",
+          "named": true
+        },
+        {
           "type": "if_shell_directive",
           "named": true
         },
@@ -7992,6 +8068,10 @@
         },
         {
           "type": "has_session_directive",
+          "named": true
+        },
+        {
+          "type": "hidden_assignment",
           "named": true
         },
         {
@@ -8397,6 +8477,10 @@
           "named": true
         },
         {
+          "type": "hidden_assignment",
+          "named": true
+        },
+        {
           "type": "if_shell_directive",
           "named": true
         },
@@ -8676,6 +8760,42 @@
     }
   },
   {
+    "type": "hidden_assignment",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "value",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "hidden_keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "if_shell_directive",
     "named": true,
     "fields": {
@@ -8796,6 +8916,10 @@
         },
         {
           "type": "has_session_directive",
+          "named": true
+        },
+        {
+          "type": "hidden_assignment",
           "named": true
         },
         {
@@ -9183,6 +9307,10 @@
         },
         {
           "type": "has_session_directive",
+          "named": true
+        },
+        {
+          "type": "hidden_assignment",
           "named": true
         },
         {
@@ -9596,6 +9724,10 @@
           "named": true
         },
         {
+          "type": "hidden_assignment",
+          "named": true
+        },
+        {
           "type": "if_shell_directive",
           "named": true
         },
@@ -9975,6 +10107,10 @@
           "named": true
         },
         {
+          "type": "hidden_assignment",
+          "named": true
+        },
+        {
           "type": "if_shell_directive",
           "named": true
         },
@@ -10351,6 +10487,10 @@
         },
         {
           "type": "has_session_directive",
+          "named": true
+        },
+        {
+          "type": "hidden_assignment",
           "named": true
         },
         {
@@ -10863,6 +11003,10 @@
           "named": true
         },
         {
+          "type": "hidden_assignment",
+          "named": true
+        },
+        {
           "type": "if_shell_directive",
           "named": true
         },
@@ -11332,6 +11476,10 @@
         },
         {
           "type": "has_session_directive",
+          "named": true
+        },
+        {
+          "type": "hidden_assignment",
           "named": true
         },
         {
@@ -11926,6 +12074,10 @@
           "named": true
         },
         {
+          "type": "hidden_assignment",
+          "named": true
+        },
+        {
           "type": "if_shell_directive",
           "named": true
         },
@@ -12355,6 +12507,10 @@
           "named": true
         },
         {
+          "type": "hidden_assignment",
+          "named": true
+        },
+        {
           "type": "if_shell_directive",
           "named": true
         },
@@ -12731,6 +12887,10 @@
         },
         {
           "type": "has_session_directive",
+          "named": true
+        },
+        {
+          "type": "hidden_assignment",
           "named": true
         },
         {
@@ -13153,6 +13313,10 @@
         },
         {
           "type": "height",
+          "named": true
+        },
+        {
+          "type": "hidden_assignment",
           "named": true
         },
         {
@@ -13583,6 +13747,10 @@
         },
         {
           "type": "has_session_directive",
+          "named": true
+        },
+        {
+          "type": "hidden_assignment",
           "named": true
         },
         {
@@ -14027,6 +14195,10 @@
           "named": true
         },
         {
+          "type": "hidden_assignment",
+          "named": true
+        },
+        {
           "type": "if_shell_directive",
           "named": true
         },
@@ -14406,6 +14578,10 @@
           "named": true
         },
         {
+          "type": "hidden_assignment",
+          "named": true
+        },
+        {
           "type": "if_shell_directive",
           "named": true
         },
@@ -14782,6 +14958,10 @@
         },
         {
           "type": "has_session_directive",
+          "named": true
+        },
+        {
+          "type": "hidden_assignment",
           "named": true
         },
         {
@@ -15195,6 +15375,10 @@
           "named": true
         },
         {
+          "type": "hidden_assignment",
+          "named": true
+        },
+        {
           "type": "if_shell_directive",
           "named": true
         },
@@ -15597,6 +15781,10 @@
           "named": true
         },
         {
+          "type": "hidden_assignment",
+          "named": true
+        },
+        {
           "type": "if_shell_directive",
           "named": true
         },
@@ -15984,6 +16172,10 @@
           "named": true
         },
         {
+          "type": "hidden_assignment",
+          "named": true
+        },
+        {
           "type": "if_shell_directive",
           "named": true
         },
@@ -16360,6 +16552,10 @@
         },
         {
           "type": "has_session_directive",
+          "named": true
+        },
+        {
+          "type": "hidden_assignment",
           "named": true
         },
         {
@@ -16788,6 +16984,10 @@
           "named": true
         },
         {
+          "type": "hidden_assignment",
+          "named": true
+        },
+        {
           "type": "if_shell_directive",
           "named": true
         },
@@ -17167,6 +17367,10 @@
           "named": true
         },
         {
+          "type": "hidden_assignment",
+          "named": true
+        },
+        {
           "type": "if_shell_directive",
           "named": true
         },
@@ -17543,6 +17747,10 @@
         },
         {
           "type": "has_session_directive",
+          "named": true
+        },
+        {
+          "type": "hidden_assignment",
           "named": true
         },
         {
@@ -18147,6 +18355,10 @@
           "named": true
         },
         {
+          "type": "hidden_assignment",
+          "named": true
+        },
+        {
           "type": "if_shell_directive",
           "named": true
         },
@@ -18562,6 +18774,10 @@
         },
         {
           "type": "has_session_directive",
+          "named": true
+        },
+        {
+          "type": "hidden_assignment",
           "named": true
         },
         {
@@ -18999,6 +19215,10 @@
         },
         {
           "type": "has_session_directive",
+          "named": true
+        },
+        {
+          "type": "hidden_assignment",
           "named": true
         },
         {
@@ -19559,6 +19779,10 @@
           "named": true
         },
         {
+          "type": "hidden_assignment",
+          "named": true
+        },
+        {
           "type": "if_shell_directive",
           "named": true
         },
@@ -19961,6 +20185,10 @@
           "named": true
         },
         {
+          "type": "hidden_assignment",
+          "named": true
+        },
+        {
           "type": "if_shell_directive",
           "named": true
         },
@@ -20337,6 +20565,10 @@
         },
         {
           "type": "has_session_directive",
+          "named": true
+        },
+        {
+          "type": "hidden_assignment",
           "named": true
         },
         {
@@ -20790,6 +21022,10 @@
         },
         {
           "type": "has_session_directive",
+          "named": true
+        },
+        {
+          "type": "hidden_assignment",
           "named": true
         },
         {
@@ -21384,6 +21620,10 @@
           "named": true
         },
         {
+          "type": "hidden_assignment",
+          "named": true
+        },
+        {
           "type": "if_shell_directive",
           "named": true
         },
@@ -21760,6 +22000,10 @@
         },
         {
           "type": "has_session_directive",
+          "named": true
+        },
+        {
+          "type": "hidden_assignment",
           "named": true
         },
         {
@@ -22196,6 +22440,10 @@
           "named": true
         },
         {
+          "type": "hidden_assignment",
+          "named": true
+        },
+        {
           "type": "if_shell_directive",
           "named": true
         },
@@ -22591,6 +22839,10 @@
           "named": true
         },
         {
+          "type": "hidden_assignment",
+          "named": true
+        },
+        {
           "type": "if_shell_directive",
           "named": true
         },
@@ -22967,6 +23219,10 @@
         },
         {
           "type": "has_session_directive",
+          "named": true
+        },
+        {
+          "type": "hidden_assignment",
           "named": true
         },
         {
@@ -23384,6 +23640,10 @@
         },
         {
           "type": "has_session_directive",
+          "named": true
+        },
+        {
+          "type": "hidden_assignment",
           "named": true
         },
         {
@@ -23866,6 +24126,10 @@
           "named": true
         },
         {
+          "type": "hidden_assignment",
+          "named": true
+        },
+        {
           "type": "if_shell_directive",
           "named": true
         },
@@ -24242,6 +24506,10 @@
         },
         {
           "type": "has_session_directive",
+          "named": true
+        },
+        {
+          "type": "hidden_assignment",
           "named": true
         },
         {
@@ -24674,6 +24942,10 @@
           "named": true
         },
         {
+          "type": "hidden_assignment",
+          "named": true
+        },
+        {
           "type": "if_shell_directive",
           "named": true
         },
@@ -25050,6 +25322,10 @@
         },
         {
           "type": "has_session_directive",
+          "named": true
+        },
+        {
+          "type": "hidden_assignment",
           "named": true
         },
         {
@@ -25529,6 +25805,10 @@
           "named": true
         },
         {
+          "type": "hidden_assignment",
+          "named": true
+        },
+        {
           "type": "if_shell_directive",
           "named": true
         },
@@ -25905,6 +26185,10 @@
         },
         {
           "type": "has_session_directive",
+          "named": true
+        },
+        {
+          "type": "hidden_assignment",
           "named": true
         },
         {
@@ -26287,6 +26571,10 @@
           "named": true
         },
         {
+          "type": "hidden_assignment",
+          "named": true
+        },
+        {
           "type": "if_shell_directive",
           "named": true
         },
@@ -26666,6 +26954,10 @@
           "named": true
         },
         {
+          "type": "hidden_assignment",
+          "named": true
+        },
+        {
           "type": "if_shell_directive",
           "named": true
         },
@@ -27034,6 +27326,10 @@
   },
   {
     "type": "hash_escape",
+    "named": true
+  },
+  {
+    "type": "hidden_keyword",
     "named": true
   },
   {

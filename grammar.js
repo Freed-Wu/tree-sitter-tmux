@@ -46,6 +46,7 @@ module.exports = grammar({
         $.environment_assignment,
         $.find_window_directive,
         $.has_session_directive,
+        $.hidden_assignment,
         $.if_shell_directive,
         $.join_pane_directive,
         $.kill_pane_directive,
@@ -342,10 +343,18 @@ module.exports = grammar({
         ),
         $._shell,
       ),
-    _env_variable_name: (_) => /[A-Za-z_][A-Za-z0-9_]*/,
+    _variable_name: (_) => /[A-Za-z_][A-Za-z0-9_]*/,
     environment_assignment: ($) =>
       prec.right(seq(
-        field('name', alias($._env_variable_name, $.name)),
+        field('name', alias($._variable_name, $.name)),
+        '=',
+        field('value', alias(optional($._string), $.value))
+      )),
+    hidden_assignment: ($) =>
+      prec.right(seq(
+        alias(/\%hidden/, $.hidden_keyword),
+        /\s+/,
+        field('name', alias($._variable_name, $.name)),
         '=',
         field('value', alias(optional($._string), $.value))
       )),
