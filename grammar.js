@@ -17,7 +17,7 @@ module.exports = grammar({
   ],
 
   rules: {
-    file: ($) => repeat(seq(optional($._statement_list), $._end)),
+    file: ($) => repeat(seq(optional(choice($._statement_list, $.if_statement)), $._end)),
 
     _statement_list: ($) => sep1($._command, ';'),
 
@@ -114,6 +114,26 @@ module.exports = grammar({
         $.unbind_key_directive,
         $.unlink_window_directive,
         $.wait_for_directive,
+      ),
+
+    if_statement: ($) =>
+      seq(
+        alias(/\%if/, $.if_keyword),
+        /\s+/,
+        alias($.string, $.condition),
+        sep0($._command, ';'),
+        repeat(seq(
+          alias(/\%elif/, $.elif_keyword),
+          /\s+/,
+          alias($.string, $.condition),
+          sep0($._command, ';'),
+        )),
+        optional(seq(
+          alias(/\%else/, $.else_keyword),
+          /\s+/,
+          sep0($._command, ';'),
+        )),
+        alias(/%endif/, $.endif_keyword),
       ),
 
     _working_directory: ($) =>
@@ -909,6 +929,10 @@ module.exports = grammar({
 
 function command($, cmd, ...args) {
   return seq(alias(cmd, $.command), ...args);
+}
+
+function sep0(rule, separator) {
+  return choice(rule, sep1(rule, separator));
 }
 
 function sep1(rule, separator) {

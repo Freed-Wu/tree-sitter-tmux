@@ -3407,6 +3407,29 @@
     }
   },
   {
+    "type": "condition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "backslash_escape",
+          "named": true
+        },
+        {
+          "type": "hash_escape",
+          "named": true
+        },
+        {
+          "type": "variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "confirm_before_directive",
     "named": true,
     "fields": {},
@@ -6157,6 +6180,10 @@
         },
         {
           "type": "if_shell_directive",
+          "named": true
+        },
+        {
+          "type": "if_statement",
           "named": true
         },
         {
@@ -9176,6 +9203,401 @@
         },
         {
           "type": "string",
+          "named": true
+        },
+        {
+          "type": "suspend_client_directive",
+          "named": true
+        },
+        {
+          "type": "swap_pane_directive",
+          "named": true
+        },
+        {
+          "type": "swap_window_directive",
+          "named": true
+        },
+        {
+          "type": "switch_client_directive",
+          "named": true
+        },
+        {
+          "type": "unbind_key_directive",
+          "named": true
+        },
+        {
+          "type": "unlink_window_directive",
+          "named": true
+        },
+        {
+          "type": "wait_for_directive",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "if_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "attach_session_directive",
+          "named": true
+        },
+        {
+          "type": "bind_key_directive",
+          "named": true
+        },
+        {
+          "type": "break_pane_directive",
+          "named": true
+        },
+        {
+          "type": "capture_pane_directive",
+          "named": true
+        },
+        {
+          "type": "choose_buffer_directive",
+          "named": true
+        },
+        {
+          "type": "choose_client_directive",
+          "named": true
+        },
+        {
+          "type": "choose_tree_directive",
+          "named": true
+        },
+        {
+          "type": "clear_history_directive",
+          "named": true
+        },
+        {
+          "type": "clear_prompt_history_directive",
+          "named": true
+        },
+        {
+          "type": "clock_mode_directive",
+          "named": true
+        },
+        {
+          "type": "command_prompt_directive",
+          "named": true
+        },
+        {
+          "type": "condition",
+          "named": true
+        },
+        {
+          "type": "confirm_before_directive",
+          "named": true
+        },
+        {
+          "type": "copy_mode_directive",
+          "named": true
+        },
+        {
+          "type": "customize_mode_directive",
+          "named": true
+        },
+        {
+          "type": "delete_buffer_directive",
+          "named": true
+        },
+        {
+          "type": "detach_client_directive",
+          "named": true
+        },
+        {
+          "type": "display_menu_directive",
+          "named": true
+        },
+        {
+          "type": "display_message_directive",
+          "named": true
+        },
+        {
+          "type": "display_panes_directive",
+          "named": true
+        },
+        {
+          "type": "display_popup_directive",
+          "named": true
+        },
+        {
+          "type": "elif_keyword",
+          "named": true
+        },
+        {
+          "type": "else_keyword",
+          "named": true
+        },
+        {
+          "type": "endif_keyword",
+          "named": true
+        },
+        {
+          "type": "environment_assignment",
+          "named": true
+        },
+        {
+          "type": "find_window_directive",
+          "named": true
+        },
+        {
+          "type": "has_session_directive",
+          "named": true
+        },
+        {
+          "type": "hidden_assignment",
+          "named": true
+        },
+        {
+          "type": "if_keyword",
+          "named": true
+        },
+        {
+          "type": "if_shell_directive",
+          "named": true
+        },
+        {
+          "type": "join_pane_directive",
+          "named": true
+        },
+        {
+          "type": "kill_pane_directive",
+          "named": true
+        },
+        {
+          "type": "kill_server_directive",
+          "named": true
+        },
+        {
+          "type": "kill_session_directive",
+          "named": true
+        },
+        {
+          "type": "kill_window_directive",
+          "named": true
+        },
+        {
+          "type": "last_pane_directive",
+          "named": true
+        },
+        {
+          "type": "last_window_directive",
+          "named": true
+        },
+        {
+          "type": "link_window_directive",
+          "named": true
+        },
+        {
+          "type": "list_buffers_directive",
+          "named": true
+        },
+        {
+          "type": "list_clients_directive",
+          "named": true
+        },
+        {
+          "type": "list_commands_directive",
+          "named": true
+        },
+        {
+          "type": "list_keys_directive",
+          "named": true
+        },
+        {
+          "type": "list_panes_directive",
+          "named": true
+        },
+        {
+          "type": "list_sessions_directive",
+          "named": true
+        },
+        {
+          "type": "list_windows_directive",
+          "named": true
+        },
+        {
+          "type": "load_buffer_directive",
+          "named": true
+        },
+        {
+          "type": "lock_client_directive",
+          "named": true
+        },
+        {
+          "type": "lock_server_directive",
+          "named": true
+        },
+        {
+          "type": "lock_session_directive",
+          "named": true
+        },
+        {
+          "type": "move_pane_directive",
+          "named": true
+        },
+        {
+          "type": "move_window_directive",
+          "named": true
+        },
+        {
+          "type": "new_session_directive",
+          "named": true
+        },
+        {
+          "type": "new_window_directive",
+          "named": true
+        },
+        {
+          "type": "next_layout_directive",
+          "named": true
+        },
+        {
+          "type": "next_window_directive",
+          "named": true
+        },
+        {
+          "type": "paste_buffer_directive",
+          "named": true
+        },
+        {
+          "type": "pipe_pane_directive",
+          "named": true
+        },
+        {
+          "type": "previous_layout_directive",
+          "named": true
+        },
+        {
+          "type": "previous_window_directive",
+          "named": true
+        },
+        {
+          "type": "refresh_client_directive",
+          "named": true
+        },
+        {
+          "type": "rename_session_directive",
+          "named": true
+        },
+        {
+          "type": "rename_window_directive",
+          "named": true
+        },
+        {
+          "type": "resize_pane_directive",
+          "named": true
+        },
+        {
+          "type": "resize_window_directive",
+          "named": true
+        },
+        {
+          "type": "respawn_pane_directive",
+          "named": true
+        },
+        {
+          "type": "respawn_window_directive",
+          "named": true
+        },
+        {
+          "type": "rotate_window_directive",
+          "named": true
+        },
+        {
+          "type": "run_shell_directive",
+          "named": true
+        },
+        {
+          "type": "save_buffer_directive",
+          "named": true
+        },
+        {
+          "type": "select_layout_directive",
+          "named": true
+        },
+        {
+          "type": "select_pane_directive",
+          "named": true
+        },
+        {
+          "type": "select_window_directive",
+          "named": true
+        },
+        {
+          "type": "send_keys_directive",
+          "named": true
+        },
+        {
+          "type": "send_prefix_directive",
+          "named": true
+        },
+        {
+          "type": "server_access_directive",
+          "named": true
+        },
+        {
+          "type": "set_buffer_directive",
+          "named": true
+        },
+        {
+          "type": "set_environment_directive",
+          "named": true
+        },
+        {
+          "type": "set_hook_directive",
+          "named": true
+        },
+        {
+          "type": "set_option_directive",
+          "named": true
+        },
+        {
+          "type": "set_window_option_directive",
+          "named": true
+        },
+        {
+          "type": "show_buffer_directive",
+          "named": true
+        },
+        {
+          "type": "show_environment_directive",
+          "named": true
+        },
+        {
+          "type": "show_hooks_directive",
+          "named": true
+        },
+        {
+          "type": "show_messages_directive",
+          "named": true
+        },
+        {
+          "type": "show_options_directive",
+          "named": true
+        },
+        {
+          "type": "show_prompt_history_directive",
+          "named": true
+        },
+        {
+          "type": "source_file_directive",
+          "named": true
+        },
+        {
+          "type": "split_window_directive",
+          "named": true
+        },
+        {
+          "type": "start_server_directive",
           "named": true
         },
         {
@@ -27321,6 +27743,18 @@
     "named": true
   },
   {
+    "type": "elif_keyword",
+    "named": true
+  },
+  {
+    "type": "else_keyword",
+    "named": true
+  },
+  {
+    "type": "endif_keyword",
+    "named": true
+  },
+  {
     "type": "function_name",
     "named": true
   },
@@ -27334,6 +27768,10 @@
   },
   {
     "type": "hook_name",
+    "named": true
+  },
+  {
+    "type": "if_keyword",
     "named": true
   },
   {

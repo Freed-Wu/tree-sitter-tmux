@@ -1,0 +1,99 @@
+========================================
+if statement
+========================================
+
+%if "#{==:#{host},myhost}"
+set -g status-style bg=red
+%endif
+
+---
+
+(file
+  (if_statement
+    (if_keyword)
+    (condition
+      (variable
+        (operator)
+        (variable
+          (variable_name))))
+    (set_option_directive
+      (command)
+      (command_line_option)
+      (option)
+      (value))
+    (endif_keyword)))
+
+========================================
+if else statement
+========================================
+
+%if "#{==:#{host},myhost}"
+set -g status-style bg=red
+%else
+set -g status-style bg=blue
+%endif
+
+(file
+  (if_statement
+    (if_keyword)
+    (condition
+      (variable
+        (operator)
+        (variable
+          (variable_name))))
+    (set_option_directive
+      (command)
+      (command_line_option)
+      (option)
+      (value))
+    (else_keyword)
+    (set_option_directive
+      (command)
+      (command_line_option)
+      (option)
+      (value))
+    (endif_keyword)))
+
+========================================
+if elif else statement
+========================================
+
+%if "#{==:#{host},myhost}"
+set -g status-style bg=red
+%elif "#{==:#{host},myotherhost}"
+set -g status-style bg=green
+%else
+set -g status-style bg=blue
+%endif
+
+(file
+  (if_statement
+    (if_keyword)
+    (condition
+      (variable
+        (operator)
+        (variable
+          (variable_name))))
+    (set_option_directive
+      (command)
+      (command_line_option)
+      (option)
+      (value))
+    (elif_keyword)
+    (condition
+      (variable
+        (operator)
+        (variable
+          (variable_name))))
+    (set_option_directive
+      (command)
+      (command_line_option)
+      (option)
+      (value))
+    (else_keyword)
+    (set_option_directive
+      (command)
+      (command_line_option)
+      (option)
+      (value))
+    (endif_keyword)))
