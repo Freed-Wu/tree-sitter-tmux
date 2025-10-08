@@ -128,4 +128,3 @@ resize-pane -Z
       (resize_pane_directive
         (command)
         (command_line_option)))
-
