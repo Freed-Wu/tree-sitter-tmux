@@ -1033,7 +1033,11 @@ function variable_rule($, quote) {
       commaSep1(
         choice(
           $.attribute,
-          seq($.attribute, "=", token.immediate(prec(1, /[^\]]+/))),
+          seq(
+            $.attribute,
+            "=",
+            token.immediate(prec(1, quote == '"' ? /[^,\]"]+/ : /[^,\]']+/)),
+          ),
         ),
       ),
       "]",
