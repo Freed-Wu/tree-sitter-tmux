@@ -7,14 +7,14 @@ MYVAR="value"
 
 ---
 
-    (file
-      (environment_assignment
-        (name)
-        (value))
-      (environment_assignment
-        (name)
-        (value
-          (string))))
+(file
+  (environment_assignment
+    (name)
+    (value))
+  (environment_assignment
+    (name)
+    (value
+      (string))))
 
 ========================================
 hidden variables
@@ -25,13 +25,13 @@ hidden variables
 
 ---
 
-    (file
-      (hidden_assignment
-        (hidden_keyword)
-        (name)
-        (value))
-      (hidden_assignment
-        (hidden_keyword)
-        (name)
-        (value
-          (string))))
+(file
+  (hidden_assignment
+    (hidden_keyword)
+    (name)
+    (value))
+  (hidden_assignment
+    (hidden_keyword)
+    (name)
+    (value
+      (string))))

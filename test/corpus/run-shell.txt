@@ -6,11 +6,11 @@ run -c /tmp/ 'touch -m foo.txt'
 
 ---
 
-    (file
-      (run_shell_directive
-        (command)
-        (command_line_option)
-        (start_directory)
-        (raw_string_quote)
-        (shell)
-        (raw_string_quote)))
+(file
+  (run_shell_directive
+    (command)
+    (command_line_option)
+    (start_directory)
+    (raw_string_quote)
+    (shell)
+    (raw_string_quote)))

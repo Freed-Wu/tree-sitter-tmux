@@ -6,16 +6,16 @@ bind \\ split-window -h -c "#{pane_current_path}"
 
 ---
 
-    (file
-      (bind_key_directive
-        (command)
-        (key
-          (backslash_escape))
-        (split_window_directive
-          (command)
-          (command_line_option)
-          (command_line_option)
-          (start_directory
-            (string
-              (variable
-                (variable_name)))))))
+(file
+  (bind_key_directive
+    (command)
+    (key
+      (backslash_escape))
+    (split_window_directive
+      (command)
+      (command_line_option)
+      (command_line_option)
+      (start_directory
+        (string
+          (variable
+            (variable_name)))))))

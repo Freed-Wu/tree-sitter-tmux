@@ -6,10 +6,10 @@ bind # Foo
 
 ---
 
-    (file
-      (ERROR
-        (command))
-      (comment))
+(file
+  (ERROR
+    (command))
+  (comment))
 
 ========================================
 comment: missing argument
@@ -19,10 +19,10 @@ bind a # Foo
 
 ---
 
-    (file
-      (ERROR
-        (command))
-      (comment))
+(file
+  (ERROR
+    (command))
+  (comment))
 
 ========================================
 comment
@@ -32,11 +32,11 @@ bind a send-keys a # Foo
 
 ---
 
-    (file
-      (bind_key_directive
-        (command)
-        (key)
-        (send_keys_directive
-          (command)
-          (key)
-          (comment))))
+(file
+  (bind_key_directive
+    (command)
+    (key)
+    (send_keys_directive
+      (command)
+      (key)
+      (comment))))
