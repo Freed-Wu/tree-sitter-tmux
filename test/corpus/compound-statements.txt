@@ -1,5 +1,5 @@
 ========================================
-statements with ;
+compound statement
 ========================================
 
 unbind-key -T copy-mode-vi v ; bind-key -T copy-mode-vi v send-keys -X begin-selection

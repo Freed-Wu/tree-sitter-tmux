@@ -1,5 +1,5 @@
 ========================================
-comment no argument
+comment: no argument
 ========================================
 
 bind # Foo
@@ -12,7 +12,7 @@ bind # Foo
       (comment))
 
 ========================================
-comment missing argument
+comment: missing argument
 ========================================
 
 bind a # Foo

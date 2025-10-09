@@ -1,6 +1,6 @@
-===========
-Simple
-===========
+========================================
+new-window: Simple
+========================================
 
 new-window
 neww
@@ -21,9 +21,9 @@ neww top
     (command)
     (shell)))
 
-====================
-Flags
-====================
+========================================
+new-window: Flags
+========================================
 
 new-window -a
 new-window -b
@@ -58,9 +58,9 @@ new-window -abdkPS
     (command)
     (command_line_option)))
 
-====================
-Flags + Shell
-====================
+========================================
+new-window: Flags + Shell
+========================================
 
 new-window -a top
 new-window -b top
@@ -102,9 +102,9 @@ new-window -abdkPS top
     (command_line_option)
     (shell)))
 
-==================
-Options
-==================
+========================================
+new-window: Options
+========================================
 
 new-window -c /tmp
 new-window -e VAR=value
@@ -168,9 +168,9 @@ new-window -c /tmp -e VAR=value -e VAR2=value2 -F "#{session_name}:#{window_inde
     (command_line_option)
     (window)))
 
-===============
-Options + Shell
-===============
+========================================
+new-window: Options + Shell
+========================================
 
 new-window -c /tmp top
 new-window -e VAR=value top
@@ -241,9 +241,9 @@ new-window -c /tmp -e VAR=value -e VAR2=value2 -F "#{session_name}:#{window_inde
     (window)
     (shell)))
 
-===============
-Complex
-===============
+========================================
+new-window: Complex
+========================================
 
 new-window -P -F "#{window_id}" -n scratch vim
 new-window -e VAR1=foo -e VAR2=bar -n envtest bash
