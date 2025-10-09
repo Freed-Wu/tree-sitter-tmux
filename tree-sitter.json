@@ -1,0 +1,39 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "tmux",
+      "camelcase": "tmux",
+      "title": "tmux",
+      "scope": "source.tmux",
+      "file-types": [
+        "tmux"
+      ],
+      "injection-regex": "^tmux$",
+      "class-name": "TreeSitterTmux"
+    }
+  ],
+  "metadata": {
+    "version": "0.0.4",
+    "license": "MIT",
+    "description": "tmux grammar for tree-sitter",
+    "authors": [
+      {
+        "name": "Freed Wu",
+        "email": "wuzhenyu@ustc.edu"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/Freed-Wu/tree-sitter-tmux"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true,
+    "zig": false
+  }
+}
