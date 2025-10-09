@@ -20,7 +20,7 @@ module.exports = grammar({
     file: ($) =>
       repeat(seq(optional(choice($._statement_list, $.if_statement)), $._eol)),
 
-    _statement_list: ($) => sep1($._command, ';'),
+    _statement_list: ($) => sep1($._command, ";"),
 
     _command: ($) =>
       choice(
@@ -122,18 +122,18 @@ module.exports = grammar({
         alias(/\%if/, $.if_keyword),
         /\s+/,
         alias($.string, $.condition),
-        sep0($._command, ';'),
-        repeat(seq(
-          alias(/\%elif/, $.elif_keyword),
-          /\s+/,
-          alias($.string, $.condition),
-          sep0($._command, ';'),
-        )),
-        optional(seq(
-          alias(/\%else/, $.else_keyword),
-          /\s+/,
-          sep0($._command, ';'),
-        )),
+        sep0($._command, ";"),
+        repeat(
+          seq(
+            alias(/\%elif/, $.elif_keyword),
+            /\s+/,
+            alias($.string, $.condition),
+            sep0($._command, ";"),
+          ),
+        ),
+        optional(
+          seq(alias(/\%else/, $.else_keyword), /\s+/, sep0($._command, ";")),
+        ),
         alias(/%endif/, $.endif_keyword),
       ),
 
@@ -143,6 +143,7 @@ module.exports = grammar({
       command(
         $,
         choice("attach-session", "attach"),
+
         cmd_opts(
           options($, "dErx"),
           $._working_directory,
@@ -152,10 +153,7 @@ module.exports = grammar({
       ),
     _note: ($) => option($, "N", alias($._string, $.note)),
     _key_table: ($) => option($, "T", alias($._string, $.key_table)),
-    key: ($) => prec.right(repeat1(choice(
-      $.backslash_escape,
-      $._string,
-    ))),
+    key: ($) => prec.right(repeat1(choice($.backslash_escape, $._string))),
     bind_key_directive: ($) =>
       command(
         $,
@@ -366,19 +364,23 @@ module.exports = grammar({
       ),
     _variable_name: (_) => /[A-Za-z_][A-Za-z0-9_]*/,
     environment_assignment: ($) =>
-      prec.right(seq(
-        field('name', alias($._variable_name, $.name)),
-        '=',
-        field('value', alias(optional($._string), $.value))
-      )),
+      prec.right(
+        seq(
+          field("name", alias($._variable_name, $.name)),
+          "=",
+          field("value", alias(optional($._string), $.value)),
+        ),
+      ),
     hidden_assignment: ($) =>
-      prec.right(seq(
-        alias(/\%hidden/, $.hidden_keyword),
-        /\s+/,
-        field('name', alias($._variable_name, $.name)),
-        '=',
-        field('value', alias(optional($._string), $.value))
-      )),
+      prec.right(
+        seq(
+          alias(/\%hidden/, $.hidden_keyword),
+          /\s+/,
+          field("name", alias($._variable_name, $.name)),
+          "=",
+          field("value", alias(optional($._string), $.value)),
+        ),
+      ),
     find_window_directive: ($) =>
       command(
         $,
@@ -676,7 +678,12 @@ module.exports = grammar({
       command(
         $,
         choice("run-shell", "run"),
-        cmd_opts(options($, "bC"), $._delay, $._start_directory, $._target_pane),
+        cmd_opts(
+          options($, "bC"),
+          $._delay,
+          $._start_directory,
+          $._target_pane,
+        ),
         $._shell,
       ),
     save_buffer_directive: ($) =>
@@ -893,13 +900,25 @@ module.exports = grammar({
     attribute: (_) => /[a-z-]+/,
     raw_string_quote: (_) => "'",
     raw_string: ($) =>
-      seq("'", repeat(choice(
-        $.variable_raw, $.hash_escape, $._hash, /([^#'])+/,
-      )), "'"),
+      seq(
+        "'",
+        repeat(choice($.variable_raw, $.hash_escape, $._hash, /([^#'])+/)),
+        "'",
+      ),
     string: ($) =>
-      seq('"', repeat(choice(
-        $.variable, $.backslash_escape, $.hash_escape, $._hash, /([^#"\\]|\\\r?\n)+/,
-      )), '"'),
+      seq(
+        '"',
+        repeat(
+          choice(
+            $.variable,
+            $.backslash_escape,
+            $.hash_escape,
+            $._hash,
+            /([^#"\\]|\\\r?\n)+/,
+          ),
+        ),
+        '"',
+      ),
     _word: (_) => /([^"'\\\s])([^"'\\\s]|\\["'\\\s])*/,
     _string: ($) => choice($.string, $.raw_string, $._word, $._code),
     _commands: ($) => repeat1($._command),
@@ -948,7 +967,7 @@ function spaceSep1($, rule) {
 }
 
 function quoted_string(char, name, char_rule = null) {
-  char_rule = char_rule || char
+  char_rule = char_rule || char;
   return seq(
     char_rule,
     alias(
@@ -975,7 +994,7 @@ function cmd_opts(...args) {
 }
 
 function variable_rule($, quote) {
-  const variable = quote == '"' ? $.variable : $.variable_raw
+  const variable = quote == '"' ? $.variable : $.variable_raw;
   return choice(
     seq(token.immediate(prec(1, "#")), $.variable_name_short),
     seq(
@@ -988,12 +1007,18 @@ function variable_rule($, quote) {
             seq(alias($.variable_name, $.function_name), ":"),
             seq($.operator, ":"),
           ),
-          commaSep1(repeat(choice(
-            variable,
-            $.hash_escape,
-            $._hash,
-            token.immediate(prec(1, quote == '"' ? /[^,}"#]+/ : /[^,}'#]+/)),
-          ))),
+          commaSep1(
+            repeat(
+              choice(
+                variable,
+                $.hash_escape,
+                $._hash,
+                token.immediate(
+                  prec(1, quote == '"' ? /[^,}"#]+/ : /[^,}'#]+/),
+                ),
+              ),
+            ),
+          ),
         ),
       ),
       "}",
@@ -1008,5 +1033,5 @@ function variable_rule($, quote) {
       ),
       "]",
     ),
-  )
+  );
 }
