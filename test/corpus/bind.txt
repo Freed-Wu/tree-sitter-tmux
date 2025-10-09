@@ -1,4 +1,40 @@
 ========================================
+bind
+========================================
+
+bind v split-window -h
+
+---
+
+(file
+  (bind_key_directive
+    (command)
+    (key)
+    (split_window_directive
+      (command)
+      (command_line_option))))
+
+========================================
+bind: copy-mode
+========================================
+
+bind -Tcopy-mode-vi C-v send-keys -X rectangle-toggle v M-v
+
+---
+
+(file
+  (bind_key_directive
+    (command)
+    (command_line_option)
+    (key)
+    (send_keys_directive
+      (command)
+      (command_line_option)
+      (key)
+      (key)
+      (key))))
+
+========================================
 bind: \\
 ========================================
 

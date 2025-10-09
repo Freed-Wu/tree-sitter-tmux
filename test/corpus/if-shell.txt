@@ -1,0 +1,19 @@
+========================================
+if-shell
+========================================
+
+if '[[ -d ~/.config/foo ]]' {
+  foo=bar
+}
+
+---
+
+(file
+  (if_shell_directive
+    (command)
+    (raw_string_quote)
+    (shell)
+    (raw_string_quote)
+    (environment_assignment
+      (name)
+      (value))))
