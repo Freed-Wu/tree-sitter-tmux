@@ -7024,36 +7024,28 @@
                       "type": "SEQ",
                       "members": [
                         {
-                          "type": "CHOICE",
-                          "members": [
-                            {
-                              "type": "REPEAT",
-                              "content": {
-                                "type": "CHOICE",
-                                "members": [
-                                  {
-                                    "type": "SYMBOL",
-                                    "name": "variable"
-                                  },
-                                  {
-                                    "type": "SYMBOL",
-                                    "name": "hash_escape"
-                                  },
-                                  {
-                                    "type": "SYMBOL",
-                                    "name": "_hash"
-                                  },
-                                  {
-                                    "type": "PATTERN",
-                                    "value": "[^,}\"#]+"
-                                  }
-                                ]
+                          "type": "REPEAT",
+                          "content": {
+                            "type": "CHOICE",
+                            "members": [
+                              {
+                                "type": "SYMBOL",
+                                "name": "variable"
+                              },
+                              {
+                                "type": "SYMBOL",
+                                "name": "hash_escape"
+                              },
+                              {
+                                "type": "SYMBOL",
+                                "name": "_hash"
+                              },
+                              {
+                                "type": "PATTERN",
+                                "value": "[^,}\"#]+"
                               }
-                            },
-                            {
-                              "type": "BLANK"
-                            }
-                          ]
+                            ]
+                          }
                         },
                         {
                           "type": "REPEAT",
@@ -7065,36 +7057,28 @@
                                 "value": ","
                               },
                               {
-                                "type": "CHOICE",
-                                "members": [
-                                  {
-                                    "type": "REPEAT",
-                                    "content": {
-                                      "type": "CHOICE",
-                                      "members": [
-                                        {
-                                          "type": "SYMBOL",
-                                          "name": "variable"
-                                        },
-                                        {
-                                          "type": "SYMBOL",
-                                          "name": "hash_escape"
-                                        },
-                                        {
-                                          "type": "SYMBOL",
-                                          "name": "_hash"
-                                        },
-                                        {
-                                          "type": "PATTERN",
-                                          "value": "[^,}\"#]+"
-                                        }
-                                      ]
+                                "type": "REPEAT",
+                                "content": {
+                                  "type": "CHOICE",
+                                  "members": [
+                                    {
+                                      "type": "SYMBOL",
+                                      "name": "variable"
+                                    },
+                                    {
+                                      "type": "SYMBOL",
+                                      "name": "hash_escape"
+                                    },
+                                    {
+                                      "type": "SYMBOL",
+                                      "name": "_hash"
+                                    },
+                                    {
+                                      "type": "PATTERN",
+                                      "value": "[^,}\"#]+"
                                     }
-                                  },
-                                  {
-                                    "type": "BLANK"
-                                  }
-                                ]
+                                  ]
+                                }
                               }
                             ]
                           }
@@ -7290,36 +7274,28 @@
                       "type": "SEQ",
                       "members": [
                         {
-                          "type": "CHOICE",
-                          "members": [
-                            {
-                              "type": "REPEAT",
-                              "content": {
-                                "type": "CHOICE",
-                                "members": [
-                                  {
-                                    "type": "SYMBOL",
-                                    "name": "variable_raw"
-                                  },
-                                  {
-                                    "type": "SYMBOL",
-                                    "name": "hash_escape"
-                                  },
-                                  {
-                                    "type": "SYMBOL",
-                                    "name": "_hash"
-                                  },
-                                  {
-                                    "type": "PATTERN",
-                                    "value": "[^,}'#]+"
-                                  }
-                                ]
+                          "type": "REPEAT",
+                          "content": {
+                            "type": "CHOICE",
+                            "members": [
+                              {
+                                "type": "SYMBOL",
+                                "name": "variable_raw"
+                              },
+                              {
+                                "type": "SYMBOL",
+                                "name": "hash_escape"
+                              },
+                              {
+                                "type": "SYMBOL",
+                                "name": "_hash"
+                              },
+                              {
+                                "type": "PATTERN",
+                                "value": "[^,}'#]+"
                               }
-                            },
-                            {
-                              "type": "BLANK"
-                            }
-                          ]
+                            ]
+                          }
                         },
                         {
                           "type": "REPEAT",
@@ -7331,36 +7307,28 @@
                                 "value": ","
                               },
                               {
-                                "type": "CHOICE",
-                                "members": [
-                                  {
-                                    "type": "REPEAT",
-                                    "content": {
-                                      "type": "CHOICE",
-                                      "members": [
-                                        {
-                                          "type": "SYMBOL",
-                                          "name": "variable_raw"
-                                        },
-                                        {
-                                          "type": "SYMBOL",
-                                          "name": "hash_escape"
-                                        },
-                                        {
-                                          "type": "SYMBOL",
-                                          "name": "_hash"
-                                        },
-                                        {
-                                          "type": "PATTERN",
-                                          "value": "[^,}'#]+"
-                                        }
-                                      ]
+                                "type": "REPEAT",
+                                "content": {
+                                  "type": "CHOICE",
+                                  "members": [
+                                    {
+                                      "type": "SYMBOL",
+                                      "name": "variable_raw"
+                                    },
+                                    {
+                                      "type": "SYMBOL",
+                                      "name": "hash_escape"
+                                    },
+                                    {
+                                      "type": "SYMBOL",
+                                      "name": "_hash"
+                                    },
+                                    {
+                                      "type": "PATTERN",
+                                      "value": "[^,}'#]+"
                                     }
-                                  },
-                                  {
-                                    "type": "BLANK"
-                                  }
-                                ]
+                                  ]
+                                }
                               }
                             ]
                           }
@@ -7481,36 +7449,28 @@
           "value": "'"
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "REPEAT",
-              "content": {
-                "type": "CHOICE",
-                "members": [
-                  {
-                    "type": "SYMBOL",
-                    "name": "variable_raw"
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "hash_escape"
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "_hash"
-                  },
-                  {
-                    "type": "PATTERN",
-                    "value": "([^#'])+"
-                  }
-                ]
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "variable_raw"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "hash_escape"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_hash"
+              },
+              {
+                "type": "PATTERN",
+                "value": "([^#'])+"
               }
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
+            ]
+          }
         },
         {
           "type": "STRING",
@@ -7526,40 +7486,32 @@
           "value": "\""
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "REPEAT",
-              "content": {
-                "type": "CHOICE",
-                "members": [
-                  {
-                    "type": "SYMBOL",
-                    "name": "variable"
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "backslash_escape"
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "hash_escape"
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "_hash"
-                  },
-                  {
-                    "type": "PATTERN",
-                    "value": "([^#\"\\\\]|\\\\\\r?\\n)+"
-                  }
-                ]
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "variable"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "backslash_escape"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "hash_escape"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_hash"
+              },
+              {
+                "type": "PATTERN",
+                "value": "([^#\"\\\\]|\\\\\\r?\\n)+"
               }
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
+            ]
+          }
         },
         {
           "type": "STRING",

@@ -892,13 +892,13 @@ module.exports = grammar({
     attribute: (_) => /[a-z-]+/,
     raw_string_quote: (_) => "'",
     raw_string: ($) =>
-      seq("'", optional(repeat(choice(
+      seq("'", repeat(choice(
         $.variable_raw, $.hash_escape, $._hash, /([^#'])+/,
-      ))), "'"),
+      )), "'"),
     string: ($) =>
-      seq('"', optional(repeat(choice(
+      seq('"', repeat(choice(
         $.variable, $.backslash_escape, $.hash_escape, $._hash, /([^#"\\]|\\\r?\n)+/,
-      ))), '"'),
+      )), '"'),
     _word: (_) => /([^"'\\\s])([^"'\\\s]|\\["'\\\s])*/,
     _string: ($) => choice($.string, $.raw_string, $._word, $._code),
     _commands: ($) => repeat1($._command),
@@ -988,12 +988,12 @@ function variable_rule($, quote) {
             seq(alias($.variable_name, $.function_name), ":"),
             seq($.operator, ":"),
           ),
-          commaSep1(optional(repeat(choice(
+          commaSep1(repeat(choice(
             variable,
             $.hash_escape,
             $._hash,
             quote == '"' ? /[^,}"#]+/ : /[^,}'#]+/,
-          )))),
+          ))),
         ),
       ),
       "}",
