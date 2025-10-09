@@ -1,0 +1,62 @@
+========================================
+string: raw
+========================================
+
+foo=\033
+
+---
+
+    (file
+      (environment_assignment
+        (name)
+        (value
+          (backslash_escape))))
+
+========================================
+string: single quotes
+========================================
+
+foo='"'
+
+---
+
+    (file
+      (environment_assignment
+        (name)
+        (value
+          (raw_string))))
+
+========================================
+string: double quotes
+========================================
+
+foo="\\u09aF\\u0123abCD\\777\\\a"
+
+---
+
+    (file
+      (environment_assignment
+        (name)
+        (value
+          (string
+              (backslash_escape)
+              (backslash_escape)
+              (backslash_escape)
+              (backslash_escape)
+              (backslash_escape)))))
+
+========================================
+string: mixed
+========================================
+
+foo=\033'1'"2"
+
+---
+
+    (file
+      (environment_assignment
+        (name)
+        (value
+          (backslash_escape)
+          (raw_string)
+          (string))))

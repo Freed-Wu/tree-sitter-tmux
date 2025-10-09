@@ -12,6 +12,10 @@
           "named": true
         },
         {
+          "type": "backslash_escape",
+          "named": true
+        },
+        {
           "type": "bind_key_directive",
           "named": true
         },
@@ -833,6 +837,10 @@
           "named": true
         },
         {
+          "type": "backslash_escape",
+          "named": true
+        },
+        {
           "type": "bind_key_directive",
           "named": true
         },
@@ -1213,6 +1221,10 @@
       "types": [
         {
           "type": "attach_session_directive",
+          "named": true
+        },
+        {
+          "type": "backslash_escape",
           "named": true
         },
         {
@@ -1634,6 +1646,10 @@
           "named": true
         },
         {
+          "type": "backslash_escape",
+          "named": true
+        },
+        {
           "type": "bind_key_directive",
           "named": true
         },
@@ -2049,6 +2065,10 @@
       "types": [
         {
           "type": "attach_session_directive",
+          "named": true
+        },
+        {
+          "type": "backslash_escape",
           "named": true
         },
         {
@@ -2599,6 +2619,10 @@
       "types": [
         {
           "type": "attach_session_directive",
+          "named": true
+        },
+        {
+          "type": "backslash_escape",
           "named": true
         },
         {
@@ -3900,6 +3924,10 @@
       "types": [
         {
           "type": "attach_session_directive",
+          "named": true
+        },
+        {
+          "type": "backslash_escape",
           "named": true
         },
         {
@@ -5290,6 +5318,10 @@
           "named": true
         },
         {
+          "type": "backslash_escape",
+          "named": true
+        },
+        {
           "type": "bind_key_directive",
           "named": true
         },
@@ -5670,6 +5702,10 @@
       "types": [
         {
           "type": "attach_session_directive",
+          "named": true
+        },
+        {
+          "type": "backslash_escape",
           "named": true
         },
         {
@@ -6059,7 +6095,7 @@
       },
       "value": {
         "multiple": false,
-        "required": false,
+        "required": true,
         "types": [
           {
             "type": "value",
@@ -6462,6 +6498,10 @@
           "named": true
         },
         {
+          "type": "backslash_escape",
+          "named": true
+        },
+        {
           "type": "bind_key_directive",
           "named": true
         },
@@ -6842,6 +6882,10 @@
       "types": [
         {
           "type": "attach_session_directive",
+          "named": true
+        },
+        {
+          "type": "backslash_escape",
           "named": true
         },
         {
@@ -7240,6 +7284,10 @@
           "named": true
         },
         {
+          "type": "backslash_escape",
+          "named": true
+        },
+        {
           "type": "bind_key_directive",
           "named": true
         },
@@ -7623,6 +7671,10 @@
           "named": true
         },
         {
+          "type": "backslash_escape",
+          "named": true
+        },
+        {
           "type": "bind_key_directive",
           "named": true
         },
@@ -8003,6 +8055,10 @@
       "types": [
         {
           "type": "attach_session_directive",
+          "named": true
+        },
+        {
+          "type": "backslash_escape",
           "named": true
         },
         {
@@ -8412,6 +8468,10 @@
           "named": true
         },
         {
+          "type": "backslash_escape",
+          "named": true
+        },
+        {
           "type": "bind_key_directive",
           "named": true
         },
@@ -8798,7 +8858,7 @@
       },
       "value": {
         "multiple": false,
-        "required": false,
+        "required": true,
         "types": [
           {
             "type": "value",
@@ -9640,6 +9700,10 @@
           "named": true
         },
         {
+          "type": "backslash_escape",
+          "named": true
+        },
+        {
           "type": "bind_key_directive",
           "named": true
         },
@@ -10437,6 +10501,10 @@
           "named": true
         },
         {
+          "type": "backslash_escape",
+          "named": true
+        },
+        {
           "type": "bind_key_directive",
           "named": true
         },
@@ -10817,6 +10885,10 @@
       "types": [
         {
           "type": "attach_session_directive",
+          "named": true
+        },
+        {
+          "type": "backslash_escape",
           "named": true
         },
         {
@@ -11330,6 +11402,10 @@
       "types": [
         {
           "type": "attach_session_directive",
+          "named": true
+        },
+        {
+          "type": "backslash_escape",
           "named": true
         },
         {
@@ -12404,6 +12480,10 @@
           "named": true
         },
         {
+          "type": "backslash_escape",
+          "named": true
+        },
+        {
           "type": "bind_key_directive",
           "named": true
         },
@@ -12837,6 +12917,10 @@
           "named": true
         },
         {
+          "type": "backslash_escape",
+          "named": true
+        },
+        {
           "type": "bind_key_directive",
           "named": true
         },
@@ -13217,6 +13301,10 @@
       "types": [
         {
           "type": "attach_session_directive",
+          "named": true
+        },
+        {
+          "type": "backslash_escape",
           "named": true
         },
         {
@@ -14525,6 +14613,10 @@
           "named": true
         },
         {
+          "type": "backslash_escape",
+          "named": true
+        },
+        {
           "type": "bind_key_directive",
           "named": true
         },
@@ -14908,6 +15000,10 @@
           "named": true
         },
         {
+          "type": "backslash_escape",
+          "named": true
+        },
+        {
           "type": "bind_key_directive",
           "named": true
         },
@@ -15288,6 +15384,10 @@
       "types": [
         {
           "type": "attach_session_directive",
+          "named": true
+        },
+        {
+          "type": "backslash_escape",
           "named": true
         },
         {
@@ -15702,6 +15802,10 @@
       "types": [
         {
           "type": "attach_session_directive",
+          "named": true
+        },
+        {
+          "type": "backslash_escape",
           "named": true
         },
         {
@@ -16502,6 +16606,10 @@
           "named": true
         },
         {
+          "type": "backslash_escape",
+          "named": true
+        },
+        {
           "type": "bind_key_directive",
           "named": true
         },
@@ -16882,6 +16990,10 @@
       "types": [
         {
           "type": "attach_session_directive",
+          "named": true
+        },
+        {
+          "type": "backslash_escape",
           "named": true
         },
         {
@@ -17314,6 +17426,10 @@
           "named": true
         },
         {
+          "type": "backslash_escape",
+          "named": true
+        },
+        {
           "type": "bind_key_directive",
           "named": true
         },
@@ -17697,6 +17813,10 @@
           "named": true
         },
         {
+          "type": "backslash_escape",
+          "named": true
+        },
+        {
           "type": "bind_key_directive",
           "named": true
         },
@@ -18077,6 +18197,10 @@
       "types": [
         {
           "type": "attach_session_directive",
+          "named": true
+        },
+        {
+          "type": "backslash_escape",
           "named": true
         },
         {
@@ -20109,6 +20233,10 @@
           "named": true
         },
         {
+          "type": "backslash_escape",
+          "named": true
+        },
+        {
           "type": "bind_key_directive",
           "named": true
         },
@@ -20515,6 +20643,10 @@
           "named": true
         },
         {
+          "type": "backslash_escape",
+          "named": true
+        },
+        {
           "type": "bind_key_directive",
           "named": true
         },
@@ -20895,6 +21027,10 @@
       "types": [
         {
           "type": "attach_session_directive",
+          "named": true
+        },
+        {
+          "type": "backslash_escape",
           "named": true
         },
         {
@@ -21950,6 +22086,10 @@
           "named": true
         },
         {
+          "type": "backslash_escape",
+          "named": true
+        },
+        {
           "type": "bind_key_directive",
           "named": true
         },
@@ -22330,6 +22470,10 @@
       "types": [
         {
           "type": "attach_session_directive",
+          "named": true
+        },
+        {
+          "type": "backslash_escape",
           "named": true
         },
         {
@@ -23169,6 +23313,10 @@
           "named": true
         },
         {
+          "type": "backslash_escape",
+          "named": true
+        },
+        {
           "type": "bind_key_directive",
           "named": true
         },
@@ -23549,6 +23697,10 @@
       "types": [
         {
           "type": "attach_session_directive",
+          "named": true
+        },
+        {
+          "type": "backslash_escape",
           "named": true
         },
         {
@@ -23970,6 +24122,10 @@
       "types": [
         {
           "type": "attach_session_directive",
+          "named": true
+        },
+        {
+          "type": "backslash_escape",
           "named": true
         },
         {
@@ -24456,6 +24612,10 @@
           "named": true
         },
         {
+          "type": "backslash_escape",
+          "named": true
+        },
+        {
           "type": "bind_key_directive",
           "named": true
         },
@@ -24836,6 +24996,10 @@
       "types": [
         {
           "type": "attach_session_directive",
+          "named": true
+        },
+        {
+          "type": "backslash_escape",
           "named": true
         },
         {
@@ -25272,6 +25436,10 @@
           "named": true
         },
         {
+          "type": "backslash_escape",
+          "named": true
+        },
+        {
           "type": "bind_key_directive",
           "named": true
         },
@@ -25652,6 +25820,10 @@
       "types": [
         {
           "type": "attach_session_directive",
+          "named": true
+        },
+        {
+          "type": "backslash_escape",
           "named": true
         },
         {
@@ -26135,6 +26307,10 @@
           "named": true
         },
         {
+          "type": "backslash_escape",
+          "named": true
+        },
+        {
           "type": "bind_key_directive",
           "named": true
         },
@@ -26515,6 +26691,10 @@
       "types": [
         {
           "type": "attach_session_directive",
+          "named": true
+        },
+        {
+          "type": "backslash_escape",
           "named": true
         },
         {
@@ -26901,6 +27081,10 @@
           "named": true
         },
         {
+          "type": "backslash_escape",
+          "named": true
+        },
+        {
           "type": "bind_key_directive",
           "named": true
         },
@@ -27281,6 +27465,10 @@
       "types": [
         {
           "type": "attach_session_directive",
+          "named": true
+        },
+        {
+          "type": "backslash_escape",
           "named": true
         },
         {

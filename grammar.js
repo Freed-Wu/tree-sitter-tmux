@@ -153,7 +153,7 @@ module.exports = grammar({
       ),
     _note: ($) => option($, "N", alias($._string, $.note)),
     _key_table: ($) => option($, "T", alias($._string, $.key_table)),
-    key: ($) => prec.right(repeat1(choice($.backslash_escape, $._string))),
+    key: ($) => $._string,
     bind_key_directive: ($) =>
       command(
         $,
@@ -368,7 +368,7 @@ module.exports = grammar({
         seq(
           field("name", alias($._variable_name, $.name)),
           "=",
-          field("value", alias(optional($._string), $.value)),
+          field("value", alias($._string, $.value)),
         ),
       ),
     hidden_assignment: ($) =>
@@ -378,7 +378,7 @@ module.exports = grammar({
           /\s+/,
           field("name", alias($._variable_name, $.name)),
           "=",
-          field("value", alias(optional($._string), $.value)),
+          field("value", alias($._string, $.value)),
         ),
       ),
     find_window_directive: ($) =>
@@ -919,8 +919,13 @@ module.exports = grammar({
         ),
         '"',
       ),
-    _word: (_) => /([^"'\\\s])([^"'\\\s]|\\["'\\\s])*/,
-    _string: ($) => choice($.string, $.raw_string, $._word, $._code),
+    _word: (_) => /[^"'\\\s]+/,
+    _string: ($) =>
+      prec.left(
+        repeat1(
+          choice($.backslash_escape, $.string, $.raw_string, $._word, $._code),
+        ),
+      ),
     _commands: ($) => repeat1($._command),
     _code: ($) => seq("{", $._commands, "}"),
     _shell: ($) =>

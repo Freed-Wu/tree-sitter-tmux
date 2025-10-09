@@ -2,15 +2,12 @@
 environment variables
 ========================================
 
-MYVAR=
 MYVAR=value
-TMUX_FZF_LAUNCH_KEY="C-t"
+MYVAR="value"
 
 ---
 
     (file
-      (environment_assignment
-        (name))
       (environment_assignment
         (name)
         (value))
@@ -23,16 +20,12 @@ TMUX_FZF_LAUNCH_KEY="C-t"
 hidden variables
 ========================================
 
-%hidden MYVAR=
 %hidden MYVAR=value
 %hidden MYVAR="value"
 
 ---
 
     (file
-      (hidden_assignment
-        (hidden_keyword)
-        (name))
       (hidden_assignment
         (hidden_keyword)
         (name)

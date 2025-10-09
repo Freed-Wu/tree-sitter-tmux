@@ -787,24 +787,8 @@
       ]
     },
     "key": {
-      "type": "PREC_RIGHT",
-      "value": 0,
-      "content": {
-        "type": "REPEAT1",
-        "content": {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "backslash_escape"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_string"
-            }
-          ]
-        }
-      }
+      "type": "SYMBOL",
+      "name": "_string"
     },
     "bind_key_directive": {
       "type": "SEQ",
@@ -2449,16 +2433,8 @@
             "content": {
               "type": "ALIAS",
               "content": {
-                "type": "CHOICE",
-                "members": [
-                  {
-                    "type": "SYMBOL",
-                    "name": "_string"
-                  },
-                  {
-                    "type": "BLANK"
-                  }
-                ]
+                "type": "SYMBOL",
+                "name": "_string"
               },
               "named": true,
               "value": "value"
@@ -2509,16 +2485,8 @@
             "content": {
               "type": "ALIAS",
               "content": {
-                "type": "CHOICE",
-                "members": [
-                  {
-                    "type": "SYMBOL",
-                    "name": "_string"
-                  },
-                  {
-                    "type": "BLANK"
-                  }
-                ]
+                "type": "SYMBOL",
+                "name": "_string"
               },
               "named": true,
               "value": "value"
@@ -7633,28 +7601,39 @@
     },
     "_word": {
       "type": "PATTERN",
-      "value": "([^\"'\\\\\\s])([^\"'\\\\\\s]|\\\\[\"'\\\\\\s])*"
+      "value": "[^\"'\\\\\\s]+"
     },
     "_string": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "string"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "raw_string"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_word"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_code"
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "REPEAT1",
+        "content": {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "backslash_escape"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "string"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "raw_string"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_word"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_code"
+            }
+          ]
         }
-      ]
+      }
     },
     "_commands": {
       "type": "REPEAT1",
