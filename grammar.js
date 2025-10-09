@@ -3,7 +3,7 @@
 module.exports = grammar({
   name: "tmux",
 
-  extras: (_) => [/\s/, /\\\r?\n/],
+  extras: ($) => [/\s/, /\\\r?\n/, $.comment],
 
   // final argument is optional
   conflicts: ($) => [
@@ -17,7 +17,8 @@ module.exports = grammar({
   ],
 
   rules: {
-    file: ($) => repeat(seq(optional(choice($._statement_list, $.if_statement)), $._end)),
+    file: ($) =>
+      repeat(seq(optional(choice($._statement_list, $.if_statement)), $._eol)),
 
     _statement_list: ($) => sep1($._command, ';'),
 
@@ -881,8 +882,8 @@ module.exports = grammar({
 
     option: (_) => /[@A-Za-z-_\d]+/,
 
-    hash_escape: (_) => /#[#,}]/,
-    _hash: (_) => /#[^#,{}"'HhDPTSFIW]/,
+    hash_escape: (_) => token.immediate(prec(1, /#[#,}]/)),
+    _hash: (_) => token.immediate(prec(1, /#[^#,{}"'HhDPTSFIW]/)),
     backslash_escape: (_) => /\\(u[\da-fA-F]{4}|u[\da-fA-F]{8}|[0-7]{3}|.)/,
     variable_name_short: (_) => /[HhDPTSFIW]/,
     variable_name: (_) => /[a-z-_\d]+/,
@@ -922,8 +923,7 @@ module.exports = grammar({
 
     comment: (_) => /#[^\n]*/,
     _eol: (_) => /\r?\n/,
-    _space: (_) => prec(-1, repeat1(/[ \t]/)),
-    _end: ($) => seq(optional($.comment), $._eol),
+    _space: (_) => prec(1, repeat1(/[ \t]/)),
   },
 });
 
@@ -977,9 +977,9 @@ function cmd_opts(...args) {
 function variable_rule($, quote) {
   const variable = quote == '"' ? $.variable : $.variable_raw
   return choice(
-    seq("#", $.variable_name_short),
+    seq(token.immediate(prec(1, "#")), $.variable_name_short),
     seq(
-      "#{",
+      token.immediate(prec(1, "#{")),
       choice(
         $.variable_name,
         seq(
@@ -992,18 +992,18 @@ function variable_rule($, quote) {
             variable,
             $.hash_escape,
             $._hash,
-            quote == '"' ? /[^,}"#]+/ : /[^,}'#]+/,
+            token.immediate(prec(1, quote == '"' ? /[^,}"#]+/ : /[^,}'#]+/)),
           ))),
         ),
       ),
       "}",
     ),
     seq(
-      "#[",
+      token.immediate(prec(1, "#[")),
       commaSep1(
         choice(
           $.attribute,
-          seq($.attribute, "=", /[^\]]+/),
+          seq($.attribute, "=", token.immediate(prec(1, /[^\]]+/))),
         ),
       ),
       "]",

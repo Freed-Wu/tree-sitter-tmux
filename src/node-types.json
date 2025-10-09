@@ -6123,10 +6123,6 @@
           "named": true
         },
         {
-          "type": "comment",
-          "named": true
-        },
-        {
           "type": "confirm_before_directive",
           "named": true
         },
@@ -27740,7 +27736,8 @@
   },
   {
     "type": "comment",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "elif_keyword",
