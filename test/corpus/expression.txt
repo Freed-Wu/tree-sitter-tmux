@@ -1,5 +1,5 @@
 ========================================
-variable single quote
+expression: single quote
 ========================================
 
 set-option -g automatic-rename-format '1#{pane_title}2#{pane_current_path}3'

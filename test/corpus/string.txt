@@ -1,5 +1,5 @@
 ========================================
-str_double_quotes: raw
+string: raw
 ========================================
 
 foo=\033
@@ -13,7 +13,7 @@ foo=\033
       (backslash_escape))))
 
 ========================================
-str_double_quotes: single quotes
+string: single quotes
 ========================================
 
 foo='"'
@@ -27,7 +27,7 @@ foo='"'
       (str_single_quotes))))
 
 ========================================
-str_double_quotes: double quotes
+string: double quotes
 ========================================
 
 foo="\\u09aF\\u0123abCD\\777\\\a"
@@ -46,7 +46,7 @@ foo="\\u09aF\\u0123abCD\\777\\\a"
         (backslash_escape)))))
 
 ========================================
-str_double_quotes: mixed
+string: mixed
 ========================================
 
 foo=\033'1'"2"
@@ -62,7 +62,7 @@ foo=\033'1'"2"
       (str_double_quotes))))
 
 ========================================
-str_double_quotes: multi line
+string: multi line
 ========================================
 
 foo="a\
@@ -78,7 +78,7 @@ c"
       (str_double_quotes))))
 
 ========================================
-str_double_quotes: variable
+string: variable
 ========================================
 
 foo='#S#{var}'
@@ -96,7 +96,7 @@ foo='#S#{var}'
           (variable_name))))))
 
 ========================================
-str_double_quotes: status
+string: status
 ========================================
 
 foo='#[bold,fg=#000000,italic]'
@@ -114,7 +114,7 @@ foo='#[bold,fg=#000000,italic]'
           (attribute))))))
 
 ========================================
-str_double_quotes: shell command
+string: shell command
 ========================================
 
 foo='#(ls)'
@@ -130,7 +130,7 @@ foo='#(ls)'
           (shell))))))
 
 ========================================
-str_double_quotes: shell command args
+string: shell command args
 ========================================
 
 foo='#(date --debug +%Y-%m-%d)'
@@ -146,7 +146,7 @@ foo='#(date --debug +%Y-%m-%d)'
           (shell))))))
 
 ========================================
-str_double_quotes: comparison
+string: comparison
 ========================================
 
 foo='#{==:#{var1}#{var2},#{var3}}'
@@ -168,7 +168,7 @@ foo='#{==:#{var1}#{var2},#{var3}}'
             (variable_name)))))))
 
 ========================================
-str_double_quotes: comparison empty else
+string: comparison empty else
 ========================================
 
 foo='#{==:#{var},}'
@@ -186,7 +186,7 @@ foo='#{==:#{var},}'
             (variable_name)))))))
 
 ========================================
-str_double_quotes: ternary
+string: ternary
 ========================================
 
 foo="#{?var1,#{var1},#{var2}}"
@@ -206,7 +206,7 @@ foo="#{?var1,#{var1},#{var2}}"
             (variable_name)))))))
 
 ========================================
-str_double_quotes: ternary empty if
+string: ternary empty if
 ========================================
 
 foo="#{?var1,,#{var2}}"
@@ -224,7 +224,7 @@ foo="#{?var1,,#{var2}}"
             (variable_name)))))))
 
 ========================================
-str_double_quotes: ternary empty else
+string: ternary empty else
 ========================================
 
 foo="#{?var1,#{var2},}"
@@ -242,7 +242,7 @@ foo="#{?var1,#{var2},}"
             (variable_name)))))))
 
 ========================================
-str_double_quotes: condition nested
+string: condition nested
 ========================================
 
 foo="#{?#{==:#{var1},},a#{var2},b#[bold,italic]}"

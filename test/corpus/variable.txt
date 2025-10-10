@@ -1,5 +1,5 @@
 ========================================
-environment variables
+variable: environment
 ========================================
 
 MYVAR=value
@@ -17,7 +17,7 @@ MYVAR="value"
       (str_double_quotes))))
 
 ========================================
-hidden variables
+variable: hidden
 ========================================
 
 %hidden MYVAR=value
