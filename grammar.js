@@ -17,10 +17,7 @@ module.exports = grammar({
   ],
 
   rules: {
-    file: ($) =>
-      repeat(seq(optional(choice($._statement_list, $.if_statement)), $._eol)),
-
-    _statement_list: ($) => sep1($._command, ";"),
+    file: ($) => commands($),
 
     _command: ($) =>
       choice(
@@ -116,24 +113,23 @@ module.exports = grammar({
         $.unlink_window_directive,
         $.wait_for_directive,
       ),
+    _command_separator: (_) => choice(";", "\\;", "';'", /\r?\n/),
 
     if_statement: ($) =>
       seq(
         alias(/\%if/, $.if_keyword),
         /\s+/,
         alias($.string, $.condition),
-        sep0($._command, ";"),
+        commands($),
         repeat(
           seq(
             alias(/\%elif/, $.elif_keyword),
             /\s+/,
             alias($.string, $.condition),
-            sep0($._command, ";"),
+            commands($),
           ),
         ),
-        optional(
-          seq(alias(/\%else/, $.else_keyword), /\s+/, sep0($._command, ";")),
-        ),
+        optional(seq(alias(/\%else/, $.else_keyword), /\s+/, commands($))),
         alias(/%endif/, $.endif_keyword),
       ),
 
@@ -891,7 +887,8 @@ module.exports = grammar({
 
     hash_escape: (_) => token.immediate(prec(1, /#[#,}]/)),
     _hash: (_) => token.immediate(prec(1, /#[^#,{}"'HhDPTSFIW]/)),
-    backslash_escape: (_) => /\\(u[\da-fA-F]{4}|u[\da-fA-F]{8}|[0-7]{3}|.)/,
+    backslash_escape: (_) =>
+      /\\(u[\da-fA-F]{4}|u[\da-fA-F]{8}|[0-7]{3}|[^;\n])/,
     variable_name_short: (_) => /[HhDPTSFIW]/,
     variable_name: (_) => /[a-z-_\d]+/,
     variable: ($) => variable_rule($, '"'),
@@ -926,8 +923,7 @@ module.exports = grammar({
           choice($.backslash_escape, $.string, $.raw_string, $._word, $.block),
         ),
       ),
-    _commands: ($) => repeat1($._command),
-    block: ($) => seq("{", $._commands, "}"),
+    block: ($) => seq("{", commands($), "}"),
     _shell: ($) =>
       choice(
         $.backslash_escape,
@@ -946,13 +942,18 @@ module.exports = grammar({
       ),
 
     comment: (_) => /#[^\n]*/,
-    _eol: (_) => /\r?\n/,
     _space: (_) => prec(1, repeat1(/[ \t]/)),
   },
 });
 
 function command($, cmd, ...args) {
   return seq(alias(cmd, $.command), ...args);
+}
+
+function commands($) {
+  return repeat(
+    seq(optional(choice($._command, $.if_statement)), $._command_separator),
+  );
 }
 
 function sep0(rule, separator) {

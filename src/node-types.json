@@ -474,7 +474,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "attach_session_directive",
@@ -574,6 +574,10 @@
         },
         {
           "type": "if_shell_directive",
+          "named": true
+        },
+        {
+          "type": "if_statement",
           "named": true
         },
         {
@@ -3689,6 +3693,10 @@
         },
         {
           "type": "if_shell_directive",
+          "named": true
+        },
+        {
+          "type": "if_statement",
           "named": true
         },
         {
@@ -7758,6 +7766,10 @@
     "named": false
   },
   {
+    "type": "';'",
+    "named": false
+  },
+  {
     "type": ")",
     "named": false
   },
@@ -7795,6 +7807,10 @@
   },
   {
     "type": "[",
+    "named": false
+  },
+  {
+    "type": "\\;",
     "named": false
   },
   {
