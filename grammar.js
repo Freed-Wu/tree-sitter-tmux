@@ -891,15 +891,15 @@ module.exports = grammar({
       /\\(u[\da-fA-F]{4}|u[\da-fA-F]{8}|[0-7]{3}|[^;\n])/,
     variable_name_short: (_) => /[HhDPTSFIW]/,
     variable_name: (_) => /[a-z-_\d]+/,
-    variable: ($) => variable_rule($, '"'),
-    variable_raw: ($) => variable_rule($, "'"),
+    expr: ($) => expr_rule($, '"'),
+    expr_raw: ($) => expr_rule($, "'"),
     operator: (_) => /==|!=|<|>|<=|>=|\|\||&&/,
     attribute: (_) => /[a-z-]+/,
     raw_string_quote: (_) => "'",
     raw_string: ($) =>
       seq(
         "'",
-        repeat(choice($.variable_raw, $.hash_escape, $._hash, /([^#'])+/)),
+        repeat(choice($.expr_raw, $.hash_escape, $._hash, /([^#'])+/)),
         "'",
       ),
     string: ($) =>
@@ -907,7 +907,7 @@ module.exports = grammar({
         '"',
         repeat(
           choice(
-            $.variable,
+            $.expr,
             $.backslash_escape,
             $.hash_escape,
             $._hash,
@@ -999,8 +999,8 @@ function cmd_opts(...args) {
   return repeat(choice(...args));
 }
 
-function variable_rule($, quote) {
-  const variable = quote == '"' ? $.variable : $.variable_raw;
+function expr_rule($, quote) {
+  const expr = quote == '"' ? $.expr : $.expr_raw;
   return choice(
     seq(token.immediate(prec(1, "#")), $.variable_name_short),
     seq(
@@ -1009,14 +1009,14 @@ function variable_rule($, quote) {
         $.variable_name,
         seq(
           choice(
-            seq("?", choice(variable, $.variable_name)),
+            seq("?", choice(expr, $.variable_name)),
             seq(alias($.variable_name, $.function_name), ":"),
             seq($.operator, ":"),
           ),
           commaSep1(
             repeat(
               choice(
-                variable,
+                expr,
                 $.hash_escape,
                 $._hash,
                 token.immediate(

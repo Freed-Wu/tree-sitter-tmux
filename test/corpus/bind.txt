@@ -53,5 +53,5 @@ bind \\ split-window -h -c "#{pane_current_path}"
       (command_line_option)
       (start_directory
         (string
-          (variable
+          (expr
             (variable_name)))))))

@@ -6904,7 +6904,7 @@
       "type": "PATTERN",
       "value": "[a-z-_\\d]+"
     },
-    "variable": {
+    "expr": {
       "type": "CHOICE",
       "members": [
         {
@@ -6966,7 +6966,7 @@
                               "members": [
                                 {
                                   "type": "SYMBOL",
-                                  "name": "variable"
+                                  "name": "expr"
                                 },
                                 {
                                   "type": "SYMBOL",
@@ -7019,7 +7019,7 @@
                             "members": [
                               {
                                 "type": "SYMBOL",
-                                "name": "variable"
+                                "name": "expr"
                               },
                               {
                                 "type": "SYMBOL",
@@ -7059,7 +7059,7 @@
                                   "members": [
                                     {
                                       "type": "SYMBOL",
-                                      "name": "variable"
+                                      "name": "expr"
                                     },
                                     {
                                       "type": "SYMBOL",
@@ -7232,7 +7232,7 @@
         }
       ]
     },
-    "variable_raw": {
+    "expr_raw": {
       "type": "CHOICE",
       "members": [
         {
@@ -7294,7 +7294,7 @@
                               "members": [
                                 {
                                   "type": "SYMBOL",
-                                  "name": "variable_raw"
+                                  "name": "expr_raw"
                                 },
                                 {
                                   "type": "SYMBOL",
@@ -7347,7 +7347,7 @@
                             "members": [
                               {
                                 "type": "SYMBOL",
-                                "name": "variable_raw"
+                                "name": "expr_raw"
                               },
                               {
                                 "type": "SYMBOL",
@@ -7387,7 +7387,7 @@
                                   "members": [
                                     {
                                       "type": "SYMBOL",
-                                      "name": "variable_raw"
+                                      "name": "expr_raw"
                                     },
                                     {
                                       "type": "SYMBOL",
@@ -7586,7 +7586,7 @@
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "variable_raw"
+                "name": "expr_raw"
               },
               {
                 "type": "SYMBOL",
@@ -7623,7 +7623,7 @@
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "variable"
+                "name": "expr"
               },
               {
                 "type": "SYMBOL",

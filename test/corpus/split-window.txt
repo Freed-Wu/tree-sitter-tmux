@@ -162,14 +162,14 @@ splitw -F '#{pane_id}'
     (command_line_option)
     (format
       (raw_string
-        (variable_raw
+        (expr_raw
           (variable_name)))))
   (split_window_directive
     (command)
     (command_line_option)
     (format
       (raw_string
-        (variable_raw
+        (expr_raw
           (variable_name))))))
 
 ========================================
@@ -269,9 +269,9 @@ splitw -P -F '#{pane_index}:#{pane_active}' -t %1
     (command_line_option)
     (format
       (raw_string
-        (variable_raw
+        (expr_raw
           (variable_name))
-        (variable_raw
+        (expr_raw
           (variable_name))))
     (command_line_option)
     (pane))
@@ -281,9 +281,9 @@ splitw -P -F '#{pane_index}:#{pane_active}' -t %1
     (command_line_option)
     (format
       (raw_string
-        (variable_raw
+        (expr_raw
           (variable_name))
-        (variable_raw
+        (expr_raw
           (variable_name))))
     (command_line_option)
     (pane)))

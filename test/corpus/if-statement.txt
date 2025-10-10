@@ -12,9 +12,9 @@ set -g status-style bg=red
   (if_statement
     (if_keyword)
     (condition
-      (variable
+      (expr
         (operator)
-        (variable
+        (expr
           (variable_name))))
     (set_option_directive
       (command)
@@ -39,9 +39,9 @@ set -g status-style bg=blue
   (if_statement
     (if_keyword)
     (condition
-      (variable
+      (expr
         (operator)
-        (variable
+        (expr
           (variable_name))))
     (set_option_directive
       (command)
@@ -74,9 +74,9 @@ set -g status-style bg=blue
   (if_statement
     (if_keyword)
     (condition
-      (variable
+      (expr
         (operator)
-        (variable
+        (expr
           (variable_name))))
     (set_option_directive
       (command)
@@ -85,9 +85,9 @@ set -g status-style bg=blue
       (value))
     (elif_keyword)
     (condition
-      (variable
+      (expr
         (operator)
-        (variable
+        (expr
           (variable_name))))
     (set_option_directive
       (command)
@@ -123,9 +123,9 @@ bar=6
   (if_statement
     (if_keyword)
     (condition
-      (variable
+      (expr
         (operator)
-        (variable
+        (expr
           (variable_name))))
     (environment_assignment
       (name)
@@ -135,9 +135,9 @@ bar=6
       (value))
     (elif_keyword)
     (condition
-      (variable
+      (expr
         (operator)
-        (variable
+        (expr
           (variable_name))))
     (environment_assignment
       (name)

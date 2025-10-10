@@ -136,9 +136,9 @@ new-window -c /tmp -e VAR=value -e VAR2=value2 -F "#{session_name}:#{window_inde
     (command_line_option)
     (format
       (string
-        (variable
+        (expr
           (variable_name))
-        (variable
+        (expr
           (variable_name)))))
   (new_window_directive
     (command)
@@ -159,9 +159,9 @@ new-window -c /tmp -e VAR=value -e VAR2=value2 -F "#{session_name}:#{window_inde
     (command_line_option)
     (format
       (string
-        (variable
+        (expr
           (variable_name))
-        (variable
+        (expr
           (variable_name))))
     (command_line_option)
     (window_name)
@@ -205,9 +205,9 @@ new-window -c /tmp -e VAR=value -e VAR2=value2 -F "#{session_name}:#{window_inde
     (command_line_option)
     (format
       (string
-        (variable
+        (expr
           (variable_name))
-        (variable
+        (expr
           (variable_name))))
     (shell))
   (new_window_directive
@@ -231,9 +231,9 @@ new-window -c /tmp -e VAR=value -e VAR2=value2 -F "#{session_name}:#{window_inde
     (command_line_option)
     (format
       (string
-        (variable
+        (expr
           (variable_name))
-        (variable
+        (expr
           (variable_name))))
     (command_line_option)
     (window_name)
@@ -262,7 +262,7 @@ bind c new-window -c "#{pane_current_path}"
     (command_line_option)
     (format
       (string
-        (variable
+        (expr
           (variable_name))))
     (command_line_option)
     (window_name)
@@ -293,7 +293,7 @@ bind c new-window -c "#{pane_current_path}"
     (command_line_option)
     (start_directory
       (string
-        (variable
+        (expr
           (variable_name)))))
   (bind_key_directive
     (command)
@@ -303,5 +303,5 @@ bind c new-window -c "#{pane_current_path}"
       (command_line_option)
       (start_directory
         (string
-          (variable
+          (expr
             (variable_name)))))))

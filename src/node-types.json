@@ -1670,11 +1670,11 @@
           "named": true
         },
         {
-          "type": "hash_escape",
+          "type": "expr",
           "named": true
         },
         {
-          "type": "variable",
+          "type": "hash_escape",
           "named": true
         }
       ]
@@ -2534,6 +2534,92 @@
           }
         ]
       }
+    }
+  },
+  {
+    "type": "expr",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute",
+          "named": true
+        },
+        {
+          "type": "expr",
+          "named": true
+        },
+        {
+          "type": "function_name",
+          "named": true
+        },
+        {
+          "type": "hash_escape",
+          "named": true
+        },
+        {
+          "type": "operator",
+          "named": true
+        },
+        {
+          "type": "shell",
+          "named": true
+        },
+        {
+          "type": "variable_name",
+          "named": true
+        },
+        {
+          "type": "variable_name_short",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "expr_raw",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute",
+          "named": true
+        },
+        {
+          "type": "expr_raw",
+          "named": true
+        },
+        {
+          "type": "function_name",
+          "named": true
+        },
+        {
+          "type": "hash_escape",
+          "named": true
+        },
+        {
+          "type": "operator",
+          "named": true
+        },
+        {
+          "type": "shell",
+          "named": true
+        },
+        {
+          "type": "variable_name",
+          "named": true
+        },
+        {
+          "type": "variable_name_short",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -5666,11 +5752,11 @@
       "required": false,
       "types": [
         {
-          "type": "hash_escape",
+          "type": "expr_raw",
           "named": true
         },
         {
-          "type": "variable_raw",
+          "type": "hash_escape",
           "named": true
         }
       ]
@@ -7229,11 +7315,11 @@
           "named": true
         },
         {
-          "type": "hash_escape",
+          "type": "expr",
           "named": true
         },
         {
-          "type": "variable",
+          "type": "hash_escape",
           "named": true
         }
       ]
@@ -7519,92 +7605,6 @@
         },
         {
           "type": "string",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "variable",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "attribute",
-          "named": true
-        },
-        {
-          "type": "function_name",
-          "named": true
-        },
-        {
-          "type": "hash_escape",
-          "named": true
-        },
-        {
-          "type": "operator",
-          "named": true
-        },
-        {
-          "type": "shell",
-          "named": true
-        },
-        {
-          "type": "variable",
-          "named": true
-        },
-        {
-          "type": "variable_name",
-          "named": true
-        },
-        {
-          "type": "variable_name_short",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "variable_raw",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "attribute",
-          "named": true
-        },
-        {
-          "type": "function_name",
-          "named": true
-        },
-        {
-          "type": "hash_escape",
-          "named": true
-        },
-        {
-          "type": "operator",
-          "named": true
-        },
-        {
-          "type": "shell",
-          "named": true
-        },
-        {
-          "type": "variable_name",
-          "named": true
-        },
-        {
-          "type": "variable_name_short",
-          "named": true
-        },
-        {
-          "type": "variable_raw",
           "named": true
         }
       ]

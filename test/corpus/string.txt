@@ -90,9 +90,9 @@ foo='#S#{var}'
     (name)
     (value
       (raw_string
-        (variable_raw
+        (expr_raw
           (variable_name_short))
-        (variable_raw
+        (expr_raw
           (variable_name))))))
 
 ========================================
@@ -108,7 +108,7 @@ foo='#[bold,fg=#000000,italic]'
     (name)
     (value
       (raw_string
-        (variable_raw
+        (expr_raw
           (attribute)
           (attribute)
           (attribute))))))
@@ -126,7 +126,7 @@ foo='#(ls)'
     (name)
     (value
       (raw_string
-        (variable_raw
+        (expr_raw
           (shell))))))
 
 ========================================
@@ -142,7 +142,7 @@ foo='#(date --debug +%Y-%m-%d)'
     (name)
     (value
       (raw_string
-        (variable_raw
+        (expr_raw
           (shell))))))
 
 ========================================
@@ -158,13 +158,13 @@ foo='#{==:#{var1}#{var2},#{var3}}'
     (name)
     (value
       (raw_string
-        (variable_raw
+        (expr_raw
           (operator)
-          (variable_raw
+          (expr_raw
             (variable_name))
-          (variable_raw
+          (expr_raw
             (variable_name))
-          (variable_raw
+          (expr_raw
             (variable_name)))))))
 
 ========================================
@@ -180,9 +180,9 @@ foo='#{==:#{var},}'
     (name)
     (value
       (raw_string
-        (variable_raw
+        (expr_raw
           (operator)
-          (variable_raw
+          (expr_raw
             (variable_name)))))))
 
 ========================================
@@ -198,11 +198,11 @@ foo="#{?var1,#{var1},#{var2}}"
     (name)
     (value
       (string
-        (variable
+        (expr
           (variable_name)
-          (variable
+          (expr
             (variable_name))
-          (variable
+          (expr
             (variable_name)))))))
 
 ========================================
@@ -218,9 +218,9 @@ foo="#{?var1,,#{var2}}"
     (name)
     (value
       (string
-        (variable
+        (expr
           (variable_name)
-          (variable
+          (expr
             (variable_name)))))))
 
 ========================================
@@ -236,9 +236,9 @@ foo="#{?var1,#{var2},}"
     (name)
     (value
       (string
-        (variable
+        (expr
           (variable_name)
-          (variable
+          (expr
             (variable_name)))))))
 
 ========================================
@@ -254,13 +254,13 @@ foo="#{?#{==:#{var1},},a#{var2},b#[bold,italic]}"
     (name)
     (value
       (string
-        (variable
-          (variable
+        (expr
+          (expr
             (operator)
-            (variable
+            (expr
               (variable_name)))
-          (variable
+          (expr
             (variable_name))
-          (variable
+          (expr
             (attribute)
             (attribute)))))))

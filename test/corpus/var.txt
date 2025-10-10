@@ -13,7 +13,7 @@ set-option -g automatic-rename-format '1#{pane_title}2#{pane_current_path}3'
     (option)
     (value
       (raw_string
-        (variable_raw
+        (expr_raw
           (variable_name))
-        (variable_raw
+        (expr_raw
           (variable_name))))))
