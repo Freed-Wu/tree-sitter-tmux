@@ -7568,10 +7568,6 @@
       "type": "PATTERN",
       "value": "[a-z-]+"
     },
-    "str_single_quote": {
-      "type": "STRING",
-      "value": "'"
-    },
     "str_single_quotes": {
       "type": "SEQ",
       "members": [
@@ -7747,8 +7743,8 @@
           "type": "SEQ",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "str_single_quote"
+              "type": "STRING",
+              "value": "'"
             },
             {
               "type": "ALIAS",
@@ -7764,8 +7760,8 @@
               "value": "shell"
             },
             {
-              "type": "SYMBOL",
-              "name": "str_single_quote"
+              "type": "STRING",
+              "value": "'"
             }
           ]
         },
@@ -7799,16 +7795,16 @@
           "type": "SEQ",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "str_single_quote"
+              "type": "STRING",
+              "value": "'"
             },
             {
               "type": "SYMBOL",
               "name": "_command"
             },
             {
-              "type": "SYMBOL",
-              "name": "str_single_quote"
+              "type": "STRING",
+              "value": "'"
             }
           ]
         },

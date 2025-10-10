@@ -895,7 +895,6 @@ module.exports = grammar({
     expr_double_quotes: ($) => expr_rule($, '"'),
     operator: (_) => /==|!=|<|>|<=|>=|\|\||&&/,
     attribute: (_) => /[a-z-]+/,
-    str_single_quote: (_) => "'",
     str_single_quotes: ($) =>
       seq(
         "'",
@@ -936,7 +935,11 @@ module.exports = grammar({
       choice(
         $.backslash_escape,
         $.str_double_quotes,
-        quoted_string("'", $.shell, $.str_single_quote),
+        seq(
+          "'",
+          alias(field("content", new RegExp("([^']|\\\\')*")), $.shell),
+          "'",
+        ),
         alias($._word, $.shell),
         $.block,
       ),
@@ -944,7 +947,7 @@ module.exports = grammar({
       choice(
         $.backslash_escape,
         $.str_double_quotes,
-        seq($.str_single_quote, $._command, $.str_single_quote),
+        seq("'", $._command, "'"),
         $._command,
         $.block,
       ),
@@ -978,18 +981,6 @@ function commaSep1(rule) {
 
 function spaceSep1($, rule) {
   return sep1(choice(rule, $.comment), " ");
-}
-
-function quoted_string(char, name, char_rule = null) {
-  char_rule = char_rule || char;
-  return seq(
-    char_rule,
-    alias(
-      field("content", new RegExp("([^" + char + "]|\\\\" + char + ")*")),
-      name,
-    ),
-    char_rule,
-  );
 }
 
 function options($, chars) {
