@@ -34,10 +34,10 @@ indent_size = 4
 indent_style = tab
 indent_size = 8
 
-[*.txt]
-indent_style = space
-indent_size = 2
-
 [Makefile]
 indent_style = tab
 indent_size = 8
+
+[test/corpus/**.txt]
+indent_style = space
+indent_size = 2
