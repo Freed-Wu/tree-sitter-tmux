@@ -923,18 +923,18 @@ module.exports = grammar({
     _string: ($) =>
       prec.left(
         repeat1(
-          choice($.backslash_escape, $.string, $.raw_string, $._word, $._code),
+          choice($.backslash_escape, $.string, $.raw_string, $._word, $.block),
         ),
       ),
     _commands: ($) => repeat1($._command),
-    _code: ($) => seq("{", $._commands, "}"),
+    block: ($) => seq("{", $._commands, "}"),
     _shell: ($) =>
       choice(
         $.backslash_escape,
         $.string,
         quoted_string("'", $.shell, $.raw_string_quote),
         alias($._word, $.shell),
-        $._code,
+        $.block,
       ),
     _tmux: ($) =>
       choice(
@@ -942,7 +942,7 @@ module.exports = grammar({
         $.string,
         seq($.raw_string_quote, $._command, $.raw_string_quote),
         $._command,
-        $._code,
+        $.block,
       ),
 
     comment: (_) => /#[^\n]*/,

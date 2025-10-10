@@ -7629,7 +7629,7 @@
             },
             {
               "type": "SYMBOL",
-              "name": "_code"
+              "name": "block"
             }
           ]
         }
@@ -7642,7 +7642,7 @@
         "name": "_command"
       }
     },
-    "_code": {
+    "block": {
       "type": "SEQ",
       "members": [
         {
@@ -7707,7 +7707,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_code"
+          "name": "block"
         }
       ]
     },
@@ -7745,7 +7745,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_code"
+          "name": "block"
         }
       ]
     },
