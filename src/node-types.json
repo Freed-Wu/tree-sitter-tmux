@@ -7541,6 +7541,10 @@
           "named": true
         },
         {
+          "type": "shell",
+          "named": true
+        },
+        {
           "type": "variable",
           "named": true
         },
@@ -7577,6 +7581,10 @@
         },
         {
           "type": "operator",
+          "named": true
+        },
+        {
+          "type": "shell",
           "named": true
         },
         {
@@ -7734,6 +7742,10 @@
     "named": false
   },
   {
+    "type": "#(",
+    "named": false
+  },
+  {
     "type": "#[",
     "named": false
   },
@@ -7743,6 +7755,10 @@
   },
   {
     "type": "'",
+    "named": false
+  },
+  {
+    "type": ")",
     "named": false
   },
   {

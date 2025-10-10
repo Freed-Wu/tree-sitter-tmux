@@ -1042,5 +1042,10 @@ function variable_rule($, quote) {
       ),
       "]",
     ),
+    seq(
+      token.immediate(prec(1, "#(")),
+      alias(quote == '"' ? /[^)"]+/ : /[^)']*/, $.shell),
+      ")",
+    ),
   );
 }

@@ -114,6 +114,38 @@ foo='#[bold,fg=#000000,italic]'
           (attribute))))))
 
 ========================================
+string: shell command
+========================================
+
+foo='#(ls)'
+
+---
+
+(file
+  (environment_assignment
+    (name)
+    (value
+      (raw_string
+        (variable_raw
+          (shell))))))
+
+========================================
+string: shell command args
+========================================
+
+foo='#(date --debug +%Y-%m-%d)'
+
+---
+
+(file
+  (environment_assignment
+    (name)
+    (value
+      (raw_string
+        (variable_raw
+          (shell))))))
+
+========================================
 string: comparison
 ========================================
 
