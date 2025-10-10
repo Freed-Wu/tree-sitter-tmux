@@ -27,7 +27,7 @@ set -g word-separators ' -_@'
     (command_line_option)
     (option)
     (value
-      (raw_string))))
+      (str_single_quotes))))
 
 ========================================
 set: set-option

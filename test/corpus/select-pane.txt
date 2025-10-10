@@ -143,22 +143,22 @@ selectp -T "build #2"
     (command)
     (command_line_option)
     (title
-      (raw_string)))
+      (str_single_quotes)))
   (select_pane_directive
     (command)
     (command_line_option)
     (title
-      (raw_string)))
+      (str_single_quotes)))
   (select_pane_directive
     (command)
     (command_line_option)
     (title
-      (string)))
+      (str_double_quotes)))
   (select_pane_directive
     (command)
     (command_line_option)
     (title
-      (string))))
+      (str_double_quotes))))
 
 ========================================
 select-pane: Flags + Options
@@ -200,21 +200,13 @@ selectp -e -t %1 -T 'input on'
     (command_line_option)
     (command_line_option)
     (title
-      (raw_string)))
+      (str_single_quotes)))
   (select_pane_directive
     (command)
     (command_line_option)
     (command_line_option)
     (title
-      (raw_string)))
-  (select_pane_directive
-    (command)
-    (command_line_option)
-    (command_line_option)
-    (pane)
-    (command_line_option)
-    (title
-      (raw_string)))
+      (str_single_quotes)))
   (select_pane_directive
     (command)
     (command_line_option)
@@ -222,7 +214,15 @@ selectp -e -t %1 -T 'input on'
     (pane)
     (command_line_option)
     (title
-      (raw_string))))
+      (str_single_quotes)))
+  (select_pane_directive
+    (command)
+    (command_line_option)
+    (command_line_option)
+    (pane)
+    (command_line_option)
+    (title
+      (str_single_quotes))))
 
 ========================================
 select-pane: Complex
@@ -244,7 +244,7 @@ selectp -dZ -t \
     (pane)
     (command_line_option)
     (title
-      (string)))
+      (str_double_quotes)))
   (comment)
   (select_pane_directive
     (command)
@@ -253,5 +253,5 @@ selectp -dZ -t \
     (pane)
     (command_line_option)
     (title
-      (string)))
+      (str_double_quotes)))
   (comment))

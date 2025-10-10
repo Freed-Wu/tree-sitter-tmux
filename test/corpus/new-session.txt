@@ -90,30 +90,30 @@ new -P -F '#{session_name}:#{session_attached}'
   (new_session_directive
     (command)
     (command_line_option)
-    (string))
+    (str_double_quotes))
   (new_session_directive
     (command)
     (command_line_option)
-    (string))
+    (str_double_quotes))
   (new_session_directive
     (command)
     (command_line_option)
     (command_line_option)
     (format
-      (raw_string
-        (expr_raw
+      (str_single_quotes
+        (expr_single_quotes
           (variable_name))
-        (expr_raw
+        (expr_single_quotes
           (variable_name)))))
   (new_session_directive
     (command)
     (command_line_option)
     (command_line_option)
     (format
-      (raw_string
-        (expr_raw
+      (str_single_quotes
+        (expr_single_quotes
           (variable_name))
-        (expr_raw
+        (expr_single_quotes
           (variable_name))))))
 
 ========================================
@@ -175,15 +175,15 @@ new -x 180 -y 48
     (command)
     (command_line_option)
     (format
-      (raw_string
-        (expr_raw
+      (str_single_quotes
+        (expr_single_quotes
           (variable_name)))))
   (new_session_directive
     (command)
     (command_line_option)
     (format
-      (raw_string
-        (expr_raw
+      (str_single_quotes
+        (expr_single_quotes
           (variable_name)))))
   (new_session_directive
     (command)
@@ -217,7 +217,7 @@ new -e LANG=en_US.UTF-8 -e MODE=prod "bash -lc 'echo hello'"
     (window_name)
     (command_line_option)
     (start_directory)
-    (string))
+    (str_double_quotes))
   (new_session_directive
     (command)
     (command_line_option)
@@ -226,21 +226,21 @@ new -e LANG=en_US.UTF-8 -e MODE=prod "bash -lc 'echo hello'"
     (window_name)
     (command_line_option)
     (start_directory)
-    (string))
+    (str_double_quotes))
   (new_session_directive
     (command)
     (command_line_option)
     (environment)
     (command_line_option)
     (environment)
-    (string))
+    (str_double_quotes))
   (new_session_directive
     (command)
     (command_line_option)
     (environment)
     (command_line_option)
     (environment)
-    (string)))
+    (str_double_quotes)))
 
 ========================================
 new-session: Group (–t)
@@ -291,16 +291,16 @@ ci -n "workers" -c ~/proj \
     (command_line_option)
     (command_line_option)
     (format
-      (raw_string
-        (expr_raw
+      (str_single_quotes
+        (expr_single_quotes
           (variable_name))
-        (expr_raw
+        (expr_single_quotes
           (variable_name))))
     (command_line_option)
     (session_name)
     (command_line_option)
     (window_name
-      (string))
+      (str_double_quotes))
     (command_line_option)
     (start_directory)
     (command_line_option)
@@ -311,7 +311,7 @@ ci -n "workers" -c ~/proj \
     (width)
     (command_line_option)
     (height)
-    (string))
+    (str_double_quotes))
   (comment)
   (new_session_directive
     (command)
@@ -319,16 +319,16 @@ ci -n "workers" -c ~/proj \
     (command_line_option)
     (command_line_option)
     (format
-      (raw_string
-        (expr_raw
+      (str_single_quotes
+        (expr_single_quotes
           (variable_name))
-        (expr_raw
+        (expr_single_quotes
           (variable_name))))
     (command_line_option)
     (session_name)
     (command_line_option)
     (window_name
-      (string))
+      (str_double_quotes))
     (command_line_option)
     (start_directory)
     (command_line_option)
@@ -339,5 +339,5 @@ ci -n "workers" -c ~/proj \
     (width)
     (command_line_option)
     (height)
-    (string))
+    (str_double_quotes))
   (comment))

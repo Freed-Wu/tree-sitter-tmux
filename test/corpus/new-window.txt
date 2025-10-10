@@ -135,10 +135,10 @@ new-window -c /tmp -e VAR=value -e VAR2=value2 -F "#{session_name}:#{window_inde
     (command)
     (command_line_option)
     (format
-      (string
-        (expr
+      (str_double_quotes
+        (expr_double_quotes
           (variable_name))
-        (expr
+        (expr_double_quotes
           (variable_name)))))
   (new_window_directive
     (command)
@@ -158,10 +158,10 @@ new-window -c /tmp -e VAR=value -e VAR2=value2 -F "#{session_name}:#{window_inde
     (environment)
     (command_line_option)
     (format
-      (string
-        (expr
+      (str_double_quotes
+        (expr_double_quotes
           (variable_name))
-        (expr
+        (expr_double_quotes
           (variable_name))))
     (command_line_option)
     (window_name)
@@ -204,10 +204,10 @@ new-window -c /tmp -e VAR=value -e VAR2=value2 -F "#{session_name}:#{window_inde
     (command)
     (command_line_option)
     (format
-      (string
-        (expr
+      (str_double_quotes
+        (expr_double_quotes
           (variable_name))
-        (expr
+        (expr_double_quotes
           (variable_name))))
     (shell))
   (new_window_directive
@@ -230,10 +230,10 @@ new-window -c /tmp -e VAR=value -e VAR2=value2 -F "#{session_name}:#{window_inde
     (environment)
     (command_line_option)
     (format
-      (string
-        (expr
+      (str_double_quotes
+        (expr_double_quotes
           (variable_name))
-        (expr
+        (expr_double_quotes
           (variable_name))))
     (command_line_option)
     (window_name)
@@ -261,8 +261,8 @@ bind c new-window -c "#{pane_current_path}"
     (command_line_option)
     (command_line_option)
     (format
-      (string
-        (expr
+      (str_double_quotes
+        (expr_double_quotes
           (variable_name))))
     (command_line_option)
     (window_name)
@@ -287,13 +287,13 @@ bind c new-window -c "#{pane_current_path}"
     (start_directory)
     (command_line_option)
     (window)
-    (string))
+    (str_double_quotes))
   (new_window_directive
     (command)
     (command_line_option)
     (start_directory
-      (string
-        (expr
+      (str_double_quotes
+        (expr_double_quotes
           (variable_name)))))
   (bind_key_directive
     (command)
@@ -302,6 +302,6 @@ bind c new-window -c "#{pane_current_path}"
       (command)
       (command_line_option)
       (start_directory
-        (string
-          (expr
+        (str_double_quotes
+          (expr_double_quotes
             (variable_name)))))))

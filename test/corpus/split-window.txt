@@ -161,15 +161,15 @@ splitw -F '#{pane_id}'
     (command)
     (command_line_option)
     (format
-      (raw_string
-        (expr_raw
+      (str_single_quotes
+        (expr_single_quotes
           (variable_name)))))
   (split_window_directive
     (command)
     (command_line_option)
     (format
-      (raw_string
-        (expr_raw
+      (str_single_quotes
+        (expr_single_quotes
           (variable_name))))))
 
 ========================================
@@ -189,36 +189,36 @@ splitw -l 30% -t %1 "printf hello"
     (command)
     (command_line_option)
     (start_directory)
-    (string))
+    (str_double_quotes))
   (split_window_directive
     (command)
     (command_line_option)
     (start_directory)
-    (string))
+    (str_double_quotes))
   (split_window_directive
     (command)
     (command_line_option)
     (environment)
-    (string))
+    (str_double_quotes))
   (split_window_directive
     (command)
     (command_line_option)
     (environment)
-    (string))
+    (str_double_quotes))
   (split_window_directive
     (command)
     (command_line_option)
     (size)
     (command_line_option)
     (pane)
-    (string))
+    (str_double_quotes))
   (split_window_directive
     (command)
     (command_line_option)
     (size)
     (command_line_option)
     (pane)
-    (string)))
+    (str_double_quotes)))
 
 ========================================
 split-window: Flags + Options
@@ -268,10 +268,10 @@ splitw -P -F '#{pane_index}:#{pane_active}' -t %1
     (command_line_option)
     (command_line_option)
     (format
-      (raw_string
-        (expr_raw
+      (str_single_quotes
+        (expr_single_quotes
           (variable_name))
-        (expr_raw
+        (expr_single_quotes
           (variable_name))))
     (command_line_option)
     (pane))
@@ -280,10 +280,10 @@ splitw -P -F '#{pane_index}:#{pane_active}' -t %1
     (command_line_option)
     (command_line_option)
     (format
-      (raw_string
-        (expr_raw
+      (str_single_quotes
+        (expr_single_quotes
           (variable_name))
-        (expr_raw
+        (expr_single_quotes
           (variable_name))))
     (command_line_option)
     (pane)))
@@ -301,14 +301,14 @@ splitw -dI
 (file
   (split_window_directive
     (command)
-    (raw_string_quote)
+    (str_single_quote)
     (shell)
-    (raw_string_quote))
+    (str_single_quote))
   (split_window_directive
     (command)
-    (raw_string_quote)
+    (str_single_quote)
     (shell)
-    (raw_string_quote))
+    (str_single_quote))
   (split_window_directive
     (command)
     (command_line_option))
@@ -342,7 +342,7 @@ splitw -Z -h -b -l 60% -e MODE=ci -e COLOR=1 -t \
     (pane)
     (command_line_option)
     (start_directory)
-    (string))
+    (str_double_quotes))
   (split_window_directive
     (command)
     (command_line_option)
@@ -358,4 +358,4 @@ splitw -Z -h -b -l 60% -e MODE=ci -e COLOR=1 -t \
     (pane)
     (command_line_option)
     (start_directory)
-    (string)))
+    (str_double_quotes)))

@@ -12,8 +12,8 @@ set-option -g automatic-rename-format '1#{pane_title}2#{pane_current_path}3'
     (command_line_option)
     (option)
     (value
-      (raw_string
-        (expr_raw
+      (str_single_quotes
+        (expr_single_quotes
           (variable_name))
-        (expr_raw
+        (expr_single_quotes
           (variable_name))))))

@@ -119,13 +119,13 @@ module.exports = grammar({
       seq(
         alias(/\%if/, $.if_keyword),
         /\s+/,
-        alias($.string, $.condition),
+        alias($.str_double_quotes, $.condition),
         commands($),
         repeat(
           seq(
             alias(/\%elif/, $.elif_keyword),
             /\s+/,
-            alias($.string, $.condition),
+            alias($.str_double_quotes, $.condition),
             commands($),
           ),
         ),
@@ -891,23 +891,25 @@ module.exports = grammar({
       /\\(u[\da-fA-F]{4}|u[\da-fA-F]{8}|[0-7]{3}|[^;\n])/,
     variable_name_short: (_) => /[HhDPTSFIW]/,
     variable_name: (_) => /[a-z-_\d]+/,
-    expr: ($) => expr_rule($, '"'),
-    expr_raw: ($) => expr_rule($, "'"),
+    expr_single_quotes: ($) => expr_rule($, "'"),
+    expr_double_quotes: ($) => expr_rule($, '"'),
     operator: (_) => /==|!=|<|>|<=|>=|\|\||&&/,
     attribute: (_) => /[a-z-]+/,
-    raw_string_quote: (_) => "'",
-    raw_string: ($) =>
+    str_single_quote: (_) => "'",
+    str_single_quotes: ($) =>
       seq(
         "'",
-        repeat(choice($.expr_raw, $.hash_escape, $._hash, /([^#'])+/)),
+        repeat(
+          choice($.expr_single_quotes, $.hash_escape, $._hash, /([^#'])+/),
+        ),
         "'",
       ),
-    string: ($) =>
+    str_double_quotes: ($) =>
       seq(
         '"',
         repeat(
           choice(
-            $.expr,
+            $.expr_double_quotes,
             $.backslash_escape,
             $.hash_escape,
             $._hash,
@@ -920,23 +922,29 @@ module.exports = grammar({
     _string: ($) =>
       prec.left(
         repeat1(
-          choice($.backslash_escape, $.string, $.raw_string, $._word, $.block),
+          choice(
+            $.backslash_escape,
+            $.str_double_quotes,
+            $.str_single_quotes,
+            $._word,
+            $.block,
+          ),
         ),
       ),
     block: ($) => seq("{", commands($), "}"),
     _shell: ($) =>
       choice(
         $.backslash_escape,
-        $.string,
-        quoted_string("'", $.shell, $.raw_string_quote),
+        $.str_double_quotes,
+        quoted_string("'", $.shell, $.str_single_quote),
         alias($._word, $.shell),
         $.block,
       ),
     _tmux: ($) =>
       choice(
         $.backslash_escape,
-        $.string,
-        seq($.raw_string_quote, $._command, $.raw_string_quote),
+        $.str_double_quotes,
+        seq($.str_single_quote, $._command, $.str_single_quote),
         $._command,
         $.block,
       ),
@@ -1000,7 +1008,7 @@ function cmd_opts(...args) {
 }
 
 function expr_rule($, quote) {
-  const expr = quote == '"' ? $.expr : $.expr_raw;
+  const expr = quote == '"' ? $.expr_double_quotes : $.expr_single_quotes;
   return choice(
     seq(token.immediate(prec(1, "#")), $.variable_name_short),
     seq(

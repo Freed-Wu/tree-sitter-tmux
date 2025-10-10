@@ -14,7 +14,7 @@ MYVAR="value"
   (environment_assignment
     (name)
     (value
-      (string))))
+      (str_double_quotes))))
 
 ========================================
 hidden variables
@@ -34,4 +34,4 @@ hidden variables
     (hidden_keyword)
     (name)
     (value
-      (string))))
+      (str_double_quotes))))

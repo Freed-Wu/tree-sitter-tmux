@@ -1,5 +1,5 @@
 ========================================
-string: raw
+str_double_quotes: raw
 ========================================
 
 foo=\033
@@ -13,7 +13,7 @@ foo=\033
       (backslash_escape))))
 
 ========================================
-string: single quotes
+str_double_quotes: single quotes
 ========================================
 
 foo='"'
@@ -24,10 +24,10 @@ foo='"'
   (environment_assignment
     (name)
     (value
-      (raw_string))))
+      (str_single_quotes))))
 
 ========================================
-string: double quotes
+str_double_quotes: double quotes
 ========================================
 
 foo="\\u09aF\\u0123abCD\\777\\\a"
@@ -38,7 +38,7 @@ foo="\\u09aF\\u0123abCD\\777\\\a"
   (environment_assignment
     (name)
     (value
-      (string
+      (str_double_quotes
         (backslash_escape)
         (backslash_escape)
         (backslash_escape)
@@ -46,7 +46,7 @@ foo="\\u09aF\\u0123abCD\\777\\\a"
         (backslash_escape)))))
 
 ========================================
-string: mixed
+str_double_quotes: mixed
 ========================================
 
 foo=\033'1'"2"
@@ -58,11 +58,11 @@ foo=\033'1'"2"
     (name)
     (value
       (backslash_escape)
-      (raw_string)
-      (string))))
+      (str_single_quotes)
+      (str_double_quotes))))
 
 ========================================
-string: multi line
+str_double_quotes: multi line
 ========================================
 
 foo="a\
@@ -75,10 +75,10 @@ c"
   (environment_assignment
     (name)
     (value
-      (string))))
+      (str_double_quotes))))
 
 ========================================
-string: variable
+str_double_quotes: variable
 ========================================
 
 foo='#S#{var}'
@@ -89,14 +89,14 @@ foo='#S#{var}'
   (environment_assignment
     (name)
     (value
-      (raw_string
-        (expr_raw
+      (str_single_quotes
+        (expr_single_quotes
           (variable_name_short))
-        (expr_raw
+        (expr_single_quotes
           (variable_name))))))
 
 ========================================
-string: status
+str_double_quotes: status
 ========================================
 
 foo='#[bold,fg=#000000,italic]'
@@ -107,14 +107,14 @@ foo='#[bold,fg=#000000,italic]'
   (environment_assignment
     (name)
     (value
-      (raw_string
-        (expr_raw
+      (str_single_quotes
+        (expr_single_quotes
           (attribute)
           (attribute)
           (attribute))))))
 
 ========================================
-string: shell command
+str_double_quotes: shell command
 ========================================
 
 foo='#(ls)'
@@ -125,12 +125,12 @@ foo='#(ls)'
   (environment_assignment
     (name)
     (value
-      (raw_string
-        (expr_raw
+      (str_single_quotes
+        (expr_single_quotes
           (shell))))))
 
 ========================================
-string: shell command args
+str_double_quotes: shell command args
 ========================================
 
 foo='#(date --debug +%Y-%m-%d)'
@@ -141,12 +141,12 @@ foo='#(date --debug +%Y-%m-%d)'
   (environment_assignment
     (name)
     (value
-      (raw_string
-        (expr_raw
+      (str_single_quotes
+        (expr_single_quotes
           (shell))))))
 
 ========================================
-string: comparison
+str_double_quotes: comparison
 ========================================
 
 foo='#{==:#{var1}#{var2},#{var3}}'
@@ -157,18 +157,18 @@ foo='#{==:#{var1}#{var2},#{var3}}'
   (environment_assignment
     (name)
     (value
-      (raw_string
-        (expr_raw
+      (str_single_quotes
+        (expr_single_quotes
           (operator)
-          (expr_raw
+          (expr_single_quotes
             (variable_name))
-          (expr_raw
+          (expr_single_quotes
             (variable_name))
-          (expr_raw
+          (expr_single_quotes
             (variable_name)))))))
 
 ========================================
-string: comparison empty else
+str_double_quotes: comparison empty else
 ========================================
 
 foo='#{==:#{var},}'
@@ -179,14 +179,14 @@ foo='#{==:#{var},}'
   (environment_assignment
     (name)
     (value
-      (raw_string
-        (expr_raw
+      (str_single_quotes
+        (expr_single_quotes
           (operator)
-          (expr_raw
+          (expr_single_quotes
             (variable_name)))))))
 
 ========================================
-string: ternary
+str_double_quotes: ternary
 ========================================
 
 foo="#{?var1,#{var1},#{var2}}"
@@ -197,16 +197,16 @@ foo="#{?var1,#{var1},#{var2}}"
   (environment_assignment
     (name)
     (value
-      (string
-        (expr
+      (str_double_quotes
+        (expr_double_quotes
           (variable_name)
-          (expr
+          (expr_double_quotes
             (variable_name))
-          (expr
+          (expr_double_quotes
             (variable_name)))))))
 
 ========================================
-string: ternary empty if
+str_double_quotes: ternary empty if
 ========================================
 
 foo="#{?var1,,#{var2}}"
@@ -217,14 +217,14 @@ foo="#{?var1,,#{var2}}"
   (environment_assignment
     (name)
     (value
-      (string
-        (expr
+      (str_double_quotes
+        (expr_double_quotes
           (variable_name)
-          (expr
+          (expr_double_quotes
             (variable_name)))))))
 
 ========================================
-string: ternary empty else
+str_double_quotes: ternary empty else
 ========================================
 
 foo="#{?var1,#{var2},}"
@@ -235,14 +235,14 @@ foo="#{?var1,#{var2},}"
   (environment_assignment
     (name)
     (value
-      (string
-        (expr
+      (str_double_quotes
+        (expr_double_quotes
           (variable_name)
-          (expr
+          (expr_double_quotes
             (variable_name)))))))
 
 ========================================
-string: condition nested
+str_double_quotes: condition nested
 ========================================
 
 foo="#{?#{==:#{var1},},a#{var2},b#[bold,italic]}"
@@ -253,14 +253,14 @@ foo="#{?#{==:#{var1},},a#{var2},b#[bold,italic]}"
   (environment_assignment
     (name)
     (value
-      (string
-        (expr
-          (expr
+      (str_double_quotes
+        (expr_double_quotes
+          (expr_double_quotes
             (operator)
-            (expr
+            (expr_double_quotes
               (variable_name)))
-          (expr
+          (expr_double_quotes
             (variable_name))
-          (expr
+          (expr_double_quotes
             (attribute)
             (attribute)))))))
