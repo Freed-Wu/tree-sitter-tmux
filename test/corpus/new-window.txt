@@ -137,9 +137,9 @@ new-window -c /tmp -e VAR=value -e VAR2=value2 -F "#{session_name}:#{window_inde
     (format
       (str_double_quotes
         (expr_double_quotes
-          (variable_name))
+          (expr_variable_name))
         (expr_double_quotes
-          (variable_name)))))
+          (expr_variable_name)))))
   (new_window_directive
     (command)
     (command_line_option)
@@ -160,9 +160,9 @@ new-window -c /tmp -e VAR=value -e VAR2=value2 -F "#{session_name}:#{window_inde
     (format
       (str_double_quotes
         (expr_double_quotes
-          (variable_name))
+          (expr_variable_name))
         (expr_double_quotes
-          (variable_name))))
+          (expr_variable_name))))
     (command_line_option)
     (window_name)
     (command_line_option)
@@ -206,9 +206,9 @@ new-window -c /tmp -e VAR=value -e VAR2=value2 -F "#{session_name}:#{window_inde
     (format
       (str_double_quotes
         (expr_double_quotes
-          (variable_name))
+          (expr_variable_name))
         (expr_double_quotes
-          (variable_name))))
+          (expr_variable_name))))
     (shell))
   (new_window_directive
     (command)
@@ -232,9 +232,9 @@ new-window -c /tmp -e VAR=value -e VAR2=value2 -F "#{session_name}:#{window_inde
     (format
       (str_double_quotes
         (expr_double_quotes
-          (variable_name))
+          (expr_variable_name))
         (expr_double_quotes
-          (variable_name))))
+          (expr_variable_name))))
     (command_line_option)
     (window_name)
     (command_line_option)
@@ -263,7 +263,7 @@ bind c new-window -c "#{pane_current_path}"
     (format
       (str_double_quotes
         (expr_double_quotes
-          (variable_name))))
+          (expr_variable_name))))
     (command_line_option)
     (window_name)
     (shell))
@@ -294,7 +294,7 @@ bind c new-window -c "#{pane_current_path}"
     (start_directory
       (str_double_quotes
         (expr_double_quotes
-          (variable_name)))))
+          (expr_variable_name)))))
   (bind_key_directive
     (command)
     (key)
@@ -304,4 +304,4 @@ bind c new-window -c "#{pane_current_path}"
       (start_directory
         (str_double_quotes
           (expr_double_quotes
-            (variable_name)))))))
+            (expr_variable_name)))))))

@@ -102,9 +102,9 @@ new -P -F '#{session_name}:#{session_attached}'
     (format
       (str_single_quotes
         (expr_single_quotes
-          (variable_name))
+          (expr_variable_name))
         (expr_single_quotes
-          (variable_name)))))
+          (expr_variable_name)))))
   (new_session_directive
     (command)
     (command_line_option)
@@ -112,9 +112,9 @@ new -P -F '#{session_name}:#{session_attached}'
     (format
       (str_single_quotes
         (expr_single_quotes
-          (variable_name))
+          (expr_variable_name))
         (expr_single_quotes
-          (variable_name))))))
+          (expr_variable_name))))))
 
 ========================================
 new-session: Options
@@ -177,14 +177,14 @@ new -x 180 -y 48
     (format
       (str_single_quotes
         (expr_single_quotes
-          (variable_name)))))
+          (expr_variable_name)))))
   (new_session_directive
     (command)
     (command_line_option)
     (format
       (str_single_quotes
         (expr_single_quotes
-          (variable_name)))))
+          (expr_variable_name)))))
   (new_session_directive
     (command)
     (command_line_option)
@@ -293,9 +293,9 @@ ci -n "workers" -c ~/proj \
     (format
       (str_single_quotes
         (expr_single_quotes
-          (variable_name))
+          (expr_variable_name))
         (expr_single_quotes
-          (variable_name))))
+          (expr_variable_name))))
     (command_line_option)
     (session_name)
     (command_line_option)
@@ -321,9 +321,9 @@ ci -n "workers" -c ~/proj \
     (format
       (str_single_quotes
         (expr_single_quotes
-          (variable_name))
+          (expr_variable_name))
         (expr_single_quotes
-          (variable_name))))
+          (expr_variable_name))))
     (command_line_option)
     (session_name)
     (command_line_option)

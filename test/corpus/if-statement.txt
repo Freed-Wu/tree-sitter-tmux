@@ -15,7 +15,7 @@ set -g status-style bg=red
       (expr_double_quotes
         (operator)
         (expr_double_quotes
-          (variable_name))))
+          (expr_variable_name))))
     (set_option_directive
       (command)
       (command_line_option)
@@ -42,7 +42,7 @@ set -g status-style bg=blue
       (expr_double_quotes
         (operator)
         (expr_double_quotes
-          (variable_name))))
+          (expr_variable_name))))
     (set_option_directive
       (command)
       (command_line_option)
@@ -77,7 +77,7 @@ set -g status-style bg=blue
       (expr_double_quotes
         (operator)
         (expr_double_quotes
-          (variable_name))))
+          (expr_variable_name))))
     (set_option_directive
       (command)
       (command_line_option)
@@ -88,7 +88,7 @@ set -g status-style bg=blue
       (expr_double_quotes
         (operator)
         (expr_double_quotes
-          (variable_name))))
+          (expr_variable_name))))
     (set_option_directive
       (command)
       (command_line_option)
@@ -126,7 +126,7 @@ bar=6
       (expr_double_quotes
         (operator)
         (expr_double_quotes
-          (variable_name))))
+          (expr_variable_name))))
     (environment_assignment
       (name)
       (value))
@@ -138,7 +138,7 @@ bar=6
       (expr_double_quotes
         (operator)
         (expr_double_quotes
-          (variable_name))))
+          (expr_variable_name))))
     (environment_assignment
       (name)
       (value))

@@ -93,7 +93,23 @@ foo='#S#{var}'
         (expr_single_quotes
           (variable_name_short))
         (expr_single_quotes
-          (variable_name))))))
+          (expr_variable_name))))))
+
+========================================
+string: user option
+========================================
+
+foo='#{@var}'
+
+---
+
+(file
+  (environment_assignment
+    (name)
+    (value
+      (str_single_quotes
+        (expr_single_quotes
+          (expr_variable_name))))))
 
 ========================================
 string: status
@@ -161,11 +177,11 @@ foo='#{==:#{var1}#{var2},#{var3}}'
         (expr_single_quotes
           (operator)
           (expr_single_quotes
-            (variable_name))
+            (expr_variable_name))
           (expr_single_quotes
-            (variable_name))
+            (expr_variable_name))
           (expr_single_quotes
-            (variable_name)))))))
+            (expr_variable_name)))))))
 
 ========================================
 string: comparison empty else
@@ -183,7 +199,7 @@ foo='#{==:#{var},}'
         (expr_single_quotes
           (operator)
           (expr_single_quotes
-            (variable_name)))))))
+            (expr_variable_name)))))))
 
 ========================================
 string: ternary
@@ -199,11 +215,11 @@ foo="#{?var1,#{var1},#{var2}}"
     (value
       (str_double_quotes
         (expr_double_quotes
-          (variable_name)
+          (expr_variable_name)
           (expr_double_quotes
-            (variable_name))
+            (expr_variable_name))
           (expr_double_quotes
-            (variable_name)))))))
+            (expr_variable_name)))))))
 
 ========================================
 string: ternary empty if
@@ -219,9 +235,9 @@ foo="#{?var1,,#{var2}}"
     (value
       (str_double_quotes
         (expr_double_quotes
-          (variable_name)
+          (expr_variable_name)
           (expr_double_quotes
-            (variable_name)))))))
+            (expr_variable_name)))))))
 
 ========================================
 string: ternary empty else
@@ -237,9 +253,9 @@ foo="#{?var1,#{var2},}"
     (value
       (str_double_quotes
         (expr_double_quotes
-          (variable_name)
+          (expr_variable_name)
           (expr_double_quotes
-            (variable_name)))))))
+            (expr_variable_name)))))))
 
 ========================================
 string: condition nested
@@ -258,9 +274,9 @@ foo="#{?#{==:#{var1},},a#{var2},b#[bold,italic]}"
           (expr_double_quotes
             (operator)
             (expr_double_quotes
-              (variable_name)))
+              (expr_variable_name)))
           (expr_double_quotes
-            (variable_name))
+            (expr_variable_name))
           (expr_double_quotes
             (attribute)
             (attribute)))))))

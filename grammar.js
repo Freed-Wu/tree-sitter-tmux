@@ -358,11 +358,11 @@ module.exports = grammar({
         ),
         $._shell,
       ),
-    _variable_name: (_) => /[A-Za-z_][A-Za-z0-9_]*/,
+    variable_name: (_) => /[A-Za-z_][A-Za-z0-9_]*/,
     environment_assignment: ($) =>
       prec.right(
         seq(
-          field("name", alias($._variable_name, $.name)),
+          field("name", alias($.variable_name, $.name)),
           "=",
           field("value", alias($._string, $.value)),
         ),
@@ -372,7 +372,7 @@ module.exports = grammar({
         seq(
           alias(/\%hidden/, $.hidden_keyword),
           /\s+/,
-          field("name", alias($._variable_name, $.name)),
+          field("name", alias($.variable_name, $.name)),
           "=",
           field("value", alias($._string, $.value)),
         ),
@@ -889,8 +889,8 @@ module.exports = grammar({
     _hash: (_) => token.immediate(prec(1, /#[^#,{}"'HhDPTSFIW]/)),
     backslash_escape: (_) =>
       /\\(u[\da-fA-F]{4}|u[\da-fA-F]{8}|[0-7]{3}|[^;\n])/,
+    expr_variable_name: (_) => /@?[a-z-_\d]+/,
     variable_name_short: (_) => /[HhDPTSFIW]/,
-    variable_name: (_) => /[a-z-_\d]+/,
     expr_single_quotes: ($) => expr_rule($, "'"),
     expr_double_quotes: ($) => expr_rule($, '"'),
     operator: (_) => /==|!=|<|>|<=|>=|\|\||&&/,
@@ -1005,11 +1005,11 @@ function expr_rule($, quote) {
     seq(
       token.immediate(prec(1, "#{")),
       choice(
-        $.variable_name,
+        $.expr_variable_name,
         seq(
           choice(
-            seq("?", choice(expr, $.variable_name)),
-            seq(alias($.variable_name, $.function_name), ":"),
+            seq("?", choice(expr, $.expr_variable_name)),
+            seq(alias($.expr_variable_name, $.function_name), ":"),
             seq($.operator, ":"),
           ),
           commaSep1(
