@@ -54,4 +54,4 @@ bind \\ split-window -h -c "#{pane_current_path}"
       (start_directory
         (str_double_quotes
           (expr_double_quotes
-            (expr_variable_name)))))))
+            (name)))))))

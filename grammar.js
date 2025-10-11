@@ -358,11 +358,11 @@ module.exports = grammar({
         ),
         $._shell,
       ),
-    variable_name: (_) => /[A-Za-z_][A-Za-z0-9_]*/,
+    _variable_name: (_) => /[A-Za-z_][A-Za-z0-9_]*/,
     environment_assignment: ($) =>
       prec.right(
         seq(
-          field("name", alias($.variable_name, $.name)),
+          field("name", alias($._variable_name, $.name)),
           "=",
           field("value", alias($._string, $.value)),
         ),
@@ -372,7 +372,7 @@ module.exports = grammar({
         seq(
           alias(/\%hidden/, $.hidden_keyword),
           /\s+/,
-          field("name", alias($.variable_name, $.name)),
+          field("name", alias($._variable_name, $.name)),
           "=",
           field("value", alias($._string, $.value)),
         ),
@@ -889,8 +889,8 @@ module.exports = grammar({
     _hash: (_) => token.immediate(prec(1, /#[^#,{}"'HhDPTSFIW]/)),
     backslash_escape: (_) =>
       /\\(u[\da-fA-F]{4}|u[\da-fA-F]{8}|[0-7]{3}|[^;\n])/,
-    expr_variable_name: (_) => /@?[a-z-_\d]+/,
-    variable_name_short: (_) => /[HhDPTSFIW]/,
+    _expr_variable_name: (_) => /@?[a-z-_\d]+/,
+    _variable_name_short: (_) => /[HhDPTSFIW]/,
     expr_single_quotes: ($) => expr_rule($, "'"),
     expr_double_quotes: ($) => expr_rule($, '"'),
     operator: (_) => /==|!=|<|>|<=|>=|\|\||&&/,
@@ -1001,15 +1001,15 @@ function cmd_opts(...args) {
 function expr_rule($, quote) {
   const expr = quote == '"' ? $.expr_double_quotes : $.expr_single_quotes;
   return choice(
-    seq(token.immediate(prec(1, "#")), $.variable_name_short),
+    seq(token.immediate(prec(1, "#")), alias($._variable_name_short, $.name)),
     seq(
       token.immediate(prec(1, "#{")),
       choice(
-        $.expr_variable_name,
+        alias($._expr_variable_name, $.name),
         seq(
           choice(
-            seq("?", choice(expr, $.expr_variable_name)),
-            seq(alias($.expr_variable_name, $.function_name), ":"),
+            seq("?", choice(expr, alias($._expr_variable_name, $.name))),
+            seq(alias($._expr_variable_name, $.function_name), ":"),
             seq($.operator, ":"),
           ),
           commaSep1(

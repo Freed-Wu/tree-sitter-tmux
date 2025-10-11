@@ -2393,7 +2393,7 @@
         }
       ]
     },
-    "variable_name": {
+    "_variable_name": {
       "type": "PATTERN",
       "value": "[A-Za-z_][A-Za-z0-9_]*"
     },
@@ -2410,7 +2410,7 @@
               "type": "ALIAS",
               "content": {
                 "type": "SYMBOL",
-                "name": "variable_name"
+                "name": "_variable_name"
               },
               "named": true,
               "value": "name"
@@ -2462,7 +2462,7 @@
               "type": "ALIAS",
               "content": {
                 "type": "SYMBOL",
-                "name": "variable_name"
+                "name": "_variable_name"
               },
               "named": true,
               "value": "name"
@@ -6896,11 +6896,11 @@
       "type": "PATTERN",
       "value": "\\\\(u[\\da-fA-F]{4}|u[\\da-fA-F]{8}|[0-7]{3}|[^;\\n])"
     },
-    "expr_variable_name": {
+    "_expr_variable_name": {
       "type": "PATTERN",
       "value": "@?[a-z-_\\d]+"
     },
-    "variable_name_short": {
+    "_variable_name_short": {
       "type": "PATTERN",
       "value": "[HhDPTSFIW]"
     },
@@ -6922,8 +6922,13 @@
               }
             },
             {
-              "type": "SYMBOL",
-              "name": "variable_name_short"
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_variable_name_short"
+              },
+              "named": true,
+              "value": "name"
             }
           ]
         },
@@ -6945,8 +6950,13 @@
               "type": "CHOICE",
               "members": [
                 {
-                  "type": "SYMBOL",
-                  "name": "expr_variable_name"
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "_expr_variable_name"
+                  },
+                  "named": true,
+                  "value": "name"
                 },
                 {
                   "type": "SEQ",
@@ -6969,8 +6979,13 @@
                                   "name": "expr_single_quotes"
                                 },
                                 {
-                                  "type": "SYMBOL",
-                                  "name": "expr_variable_name"
+                                  "type": "ALIAS",
+                                  "content": {
+                                    "type": "SYMBOL",
+                                    "name": "_expr_variable_name"
+                                  },
+                                  "named": true,
+                                  "value": "name"
                                 }
                               ]
                             }
@@ -6983,7 +6998,7 @@
                               "type": "ALIAS",
                               "content": {
                                 "type": "SYMBOL",
-                                "name": "expr_variable_name"
+                                "name": "_expr_variable_name"
                               },
                               "named": true,
                               "value": "function_name"
@@ -7250,8 +7265,13 @@
               }
             },
             {
-              "type": "SYMBOL",
-              "name": "variable_name_short"
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_variable_name_short"
+              },
+              "named": true,
+              "value": "name"
             }
           ]
         },
@@ -7273,8 +7293,13 @@
               "type": "CHOICE",
               "members": [
                 {
-                  "type": "SYMBOL",
-                  "name": "expr_variable_name"
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "_expr_variable_name"
+                  },
+                  "named": true,
+                  "value": "name"
                 },
                 {
                   "type": "SEQ",
@@ -7297,8 +7322,13 @@
                                   "name": "expr_double_quotes"
                                 },
                                 {
-                                  "type": "SYMBOL",
-                                  "name": "expr_variable_name"
+                                  "type": "ALIAS",
+                                  "content": {
+                                    "type": "SYMBOL",
+                                    "name": "_expr_variable_name"
+                                  },
+                                  "named": true,
+                                  "value": "name"
                                 }
                               ]
                             }
@@ -7311,7 +7341,7 @@
                               "type": "ALIAS",
                               "content": {
                                 "type": "SYMBOL",
-                                "name": "expr_variable_name"
+                                "name": "_expr_variable_name"
                               },
                               "named": true,
                               "value": "function_name"

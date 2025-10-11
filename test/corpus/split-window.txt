@@ -163,14 +163,14 @@ splitw -F '#{pane_id}'
     (format
       (str_single_quotes
         (expr_single_quotes
-          (expr_variable_name)))))
+          (name)))))
   (split_window_directive
     (command)
     (command_line_option)
     (format
       (str_single_quotes
         (expr_single_quotes
-          (expr_variable_name))))))
+          (name))))))
 
 ========================================
 split-window: Options + Shell
@@ -270,9 +270,9 @@ splitw -P -F '#{pane_index}:#{pane_active}' -t %1
     (format
       (str_single_quotes
         (expr_single_quotes
-          (expr_variable_name))
+          (name))
         (expr_single_quotes
-          (expr_variable_name))))
+          (name))))
     (command_line_option)
     (pane))
   (split_window_directive
@@ -282,9 +282,9 @@ splitw -P -F '#{pane_index}:#{pane_active}' -t %1
     (format
       (str_single_quotes
         (expr_single_quotes
-          (expr_variable_name))
+          (name))
         (expr_single_quotes
-          (expr_variable_name))))
+          (name))))
     (command_line_option)
     (pane)))
 
