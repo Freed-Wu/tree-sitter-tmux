@@ -917,7 +917,7 @@ module.exports = grammar({
         ),
         '"',
       ),
-    _word: (_) => /[^"'\\\s]+/,
+    _word: (_) => /[^"';\\\s]+/,
     _string: ($) =>
       prec.left(
         repeat1(

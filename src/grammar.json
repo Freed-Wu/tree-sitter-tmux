@@ -7678,7 +7678,7 @@
     },
     "_word": {
       "type": "PATTERN",
-      "value": "[^\"'\\\\\\s]+"
+      "value": "[^\"';\\\\\\s]+"
     },
     "_string": {
       "type": "PREC_LEFT",

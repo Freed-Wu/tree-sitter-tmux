@@ -15,6 +15,22 @@ foo=1 ; bar=2
     (value)))
 
 ========================================
+command separator semicolon no space
+========================================
+
+foo=1; bar=2
+
+---
+
+(file
+  (environment_assignment
+    (name)
+    (value))
+  (environment_assignment
+    (name)
+    (value)))
+
+========================================
 command separator escaped semicolon
 ========================================
 
