@@ -26,6 +26,7 @@ bind -Tcopy-mode-vi C-v send-keys -X rectangle-toggle v M-v
   (bind_key_directive
     (command)
     (command_line_option)
+    (key_table)
     (key)
     (send_keys_directive
       (command)
@@ -55,3 +56,19 @@ bind \\ split-window -h -c "#{pane_current_path}"
         (str_double_quotes
           (expr_double_quotes
             (name)))))))
+
+========================================
+bind: -
+========================================
+
+bind - split-window -v
+
+---
+
+(file
+  (bind_key_directive
+    (command)
+    (key)
+    (split_window_directive
+      (command)
+      (command_line_option))))

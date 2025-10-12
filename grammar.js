@@ -148,8 +148,7 @@ module.exports = grammar({
         ),
       ),
     _note: ($) => option($, "N", alias($._string, $.note)),
-    _key_table: ($) => option($, "T", alias($._string, $.key_table)),
-    key: ($) => $._string,
+    _key_table: ($) => option($, "T", alias($._string_unit, $.key_table)),
     bind_key_directive: ($) =>
       command(
         $,
@@ -918,14 +917,24 @@ module.exports = grammar({
         '"',
       ),
     _word: (_) => /[^"';\\\s]+/,
-    _string: ($) =>
+    _string: ($) => prec.left(repeat1($._string_unit)),
+    _string_unit: ($) =>
+      choice(
+        $.backslash_escape,
+        $.str_double_quotes,
+        $.str_single_quotes,
+        $._word,
+        $.block,
+      ),
+    _word_key: (_) => /-|[^-"';\\\s][^"';\\\s]*/,
+    key: ($) =>
       prec.left(
         repeat1(
           choice(
             $.backslash_escape,
             $.str_double_quotes,
             $.str_single_quotes,
-            $._word,
+            $._word_key,
             $.block,
           ),
         ),
@@ -987,11 +996,8 @@ function options($, chars) {
   return alias(new RegExp("-[" + chars + "]+"), $.command_line_option);
 }
 
-function option($, char, ...arg) {
-  return choice(
-    seq(alias("-" + char, $.command_line_option), ...arg),
-    alias(new RegExp("-" + char + "\\S+"), $.command_line_option),
-  );
+function option($, char, ...args) {
+  return seq(alias("-" + char, $.command_line_option), ...args);
 }
 
 function cmd_opts(...args) {
