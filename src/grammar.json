@@ -6268,7 +6268,7 @@
         "value": 1,
         "content": {
           "type": "PATTERN",
-          "value": "#[#,}]"
+          "value": "#([#,}]|[\\dA-Fa-f]{6})"
         }
       }
     },
@@ -6547,15 +6547,32 @@
                           "value": "="
                         },
                         {
-                          "type": "IMMEDIATE_TOKEN",
-                          "content": {
-                            "type": "PREC",
-                            "value": 1,
-                            "content": {
-                              "type": "PATTERN",
-                              "value": "[^,\\]']+"
+                          "type": "CHOICE",
+                          "members": [
+                            {
+                              "type": "SYMBOL",
+                              "name": "expr_single_quotes"
+                            },
+                            {
+                              "type": "SYMBOL",
+                              "name": "hash_escape"
+                            },
+                            {
+                              "type": "SYMBOL",
+                              "name": "_hash"
+                            },
+                            {
+                              "type": "IMMEDIATE_TOKEN",
+                              "content": {
+                                "type": "PREC",
+                                "value": 1,
+                                "content": {
+                                  "type": "PATTERN",
+                                  "value": "[^,\\]'#]+"
+                                }
+                              }
                             }
-                          }
+                          ]
                         }
                       ]
                     }
@@ -6589,15 +6606,32 @@
                                 "value": "="
                               },
                               {
-                                "type": "IMMEDIATE_TOKEN",
-                                "content": {
-                                  "type": "PREC",
-                                  "value": 1,
-                                  "content": {
-                                    "type": "PATTERN",
-                                    "value": "[^,\\]']+"
+                                "type": "CHOICE",
+                                "members": [
+                                  {
+                                    "type": "SYMBOL",
+                                    "name": "expr_single_quotes"
+                                  },
+                                  {
+                                    "type": "SYMBOL",
+                                    "name": "hash_escape"
+                                  },
+                                  {
+                                    "type": "SYMBOL",
+                                    "name": "_hash"
+                                  },
+                                  {
+                                    "type": "IMMEDIATE_TOKEN",
+                                    "content": {
+                                      "type": "PREC",
+                                      "value": 1,
+                                      "content": {
+                                        "type": "PATTERN",
+                                        "value": "[^,\\]'#]+"
+                                      }
+                                    }
                                   }
-                                }
+                                ]
                               }
                             ]
                           }
@@ -6632,7 +6666,7 @@
               "type": "ALIAS",
               "content": {
                 "type": "PATTERN",
-                "value": "[^)']*"
+                "value": "[^)'#]*"
               },
               "named": true,
               "value": "shell"
@@ -6890,15 +6924,32 @@
                           "value": "="
                         },
                         {
-                          "type": "IMMEDIATE_TOKEN",
-                          "content": {
-                            "type": "PREC",
-                            "value": 1,
-                            "content": {
-                              "type": "PATTERN",
-                              "value": "[^,\\]\"]+"
+                          "type": "CHOICE",
+                          "members": [
+                            {
+                              "type": "SYMBOL",
+                              "name": "expr_double_quotes"
+                            },
+                            {
+                              "type": "SYMBOL",
+                              "name": "hash_escape"
+                            },
+                            {
+                              "type": "SYMBOL",
+                              "name": "_hash"
+                            },
+                            {
+                              "type": "IMMEDIATE_TOKEN",
+                              "content": {
+                                "type": "PREC",
+                                "value": 1,
+                                "content": {
+                                  "type": "PATTERN",
+                                  "value": "[^,\\]\"#]+"
+                                }
+                              }
                             }
-                          }
+                          ]
                         }
                       ]
                     }
@@ -6932,15 +6983,32 @@
                                 "value": "="
                               },
                               {
-                                "type": "IMMEDIATE_TOKEN",
-                                "content": {
-                                  "type": "PREC",
-                                  "value": 1,
-                                  "content": {
-                                    "type": "PATTERN",
-                                    "value": "[^,\\]\"]+"
+                                "type": "CHOICE",
+                                "members": [
+                                  {
+                                    "type": "SYMBOL",
+                                    "name": "expr_double_quotes"
+                                  },
+                                  {
+                                    "type": "SYMBOL",
+                                    "name": "hash_escape"
+                                  },
+                                  {
+                                    "type": "SYMBOL",
+                                    "name": "_hash"
+                                  },
+                                  {
+                                    "type": "IMMEDIATE_TOKEN",
+                                    "content": {
+                                      "type": "PREC",
+                                      "value": 1,
+                                      "content": {
+                                        "type": "PATTERN",
+                                        "value": "[^,\\]\"#]+"
+                                      }
+                                    }
                                   }
-                                }
+                                ]
                               }
                             ]
                           }
@@ -6975,7 +7043,7 @@
               "type": "ALIAS",
               "content": {
                 "type": "PATTERN",
-                "value": "[^)\"]+"
+                "value": "[^)\"#]+"
               },
               "named": true,
               "value": "shell"

@@ -899,7 +899,7 @@ module.exports = grammar({
 
     option: (_) => /[@A-Za-z-_\d]+/,
 
-    hash_escape: (_) => token.immediate(prec(1, /#[#,}]/)),
+    hash_escape: (_) => token.immediate(prec(1, /#([#,}]|[\dA-Fa-f]{6})/)),
     _hash: (_) => token.immediate(prec(1, /#[^#,{}"'HhDPTSFIW]/)),
     backslash_escape: (_) => BACKSLASH_ESCAPE,
     backslash_escape_immediate: (_) => token.immediate(BACKSLASH_ESCAPE),
@@ -1029,7 +1029,14 @@ function exprRule($, quote) {
           seq(
             $.attribute,
             "=",
-            token.immediate(prec(1, quote == '"' ? /[^,\]"]+/ : /[^,\]']+/)),
+            choice(
+              expr,
+              $.hash_escape,
+              $._hash,
+              token.immediate(
+                prec(1, quote == '"' ? /[^,\]"#]+/ : /[^,\]'#]+/),
+              ),
+            ),
           ),
         ),
       ),
@@ -1037,7 +1044,7 @@ function exprRule($, quote) {
     ),
     seq(
       token.immediate(prec(1, "#(")),
-      alias(quote == '"' ? /[^)"]+/ : /[^)']*/, $.shell),
+      alias(quote == '"' ? /[^)"#]+/ : /[^)'#]*/, $.shell),
       ")",
     ),
   );

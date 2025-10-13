@@ -126,7 +126,7 @@ foo='#{@var}'
           (name))))))
 
 ========================================
-string: status
+string: style
 ========================================
 
 foo='#[bold,fg=#000000,italic]'
@@ -141,6 +141,7 @@ foo='#[bold,fg=#000000,italic]'
         (expr_single_quotes
           (attribute)
           (attribute)
+          (hash_escape)
           (attribute))))))
 
 ========================================
@@ -272,10 +273,10 @@ foo="#{?var1,#{var2},}"
             (name)))))))
 
 ========================================
-string: condition nested
+string: format with format
 ========================================
 
-foo="#{?#{==:#{var1},},a#{var2},b#[bold,italic]}"
+foo="#{?#{==:#{var1},#{var2}},#{var3},#{var4}}"
 
 ---
 
@@ -288,9 +289,52 @@ foo="#{?#{==:#{var1},},a#{var2},b#[bold,italic]}"
           (expr_double_quotes
             (operator)
             (expr_double_quotes
+              (name))
+            (expr_double_quotes
               (name)))
           (expr_double_quotes
             (name))
           (expr_double_quotes
-            (attribute)
-            (attribute)))))))
+            (name)))))))
+
+========================================
+string: format with style
+========================================
+
+foo="#{?#{==:#[bold,fg=#000000,italic],},,}"
+
+---
+
+(file
+  (environment_assignment
+    (name)
+    (value
+      (str_double_quotes
+        (expr_double_quotes
+          (expr_double_quotes
+            (operator)
+            (expr_double_quotes
+              (attribute)
+              (attribute)
+              (hash_escape)
+              (attribute))))))))
+
+========================================
+string: style with format
+========================================
+
+foo="#[fg=#{?foo,#000000,#111111}]"
+
+---
+
+(file
+  (environment_assignment
+    (name)
+    (value
+      (str_double_quotes
+        (expr_double_quotes
+          (attribute)
+          (expr_double_quotes
+            (name)
+            (hash_escape)
+            (hash_escape)))))))
