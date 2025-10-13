@@ -730,7 +730,7 @@
           "type": "ALIAS",
           "content": {
             "type": "SYMBOL",
-            "name": "_string_unit"
+            "name": "_string"
           },
           "named": true,
           "value": "key_table"
@@ -6977,7 +6977,7 @@
       "value": "[^\"';\\\\\\s]+"
     },
     "_string": {
-      "type": "PREC_LEFT",
+      "type": "PREC_RIGHT",
       "value": 0,
       "content": {
         "type": "REPEAT1",
