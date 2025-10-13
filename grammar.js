@@ -943,7 +943,7 @@ module.exports = grammar({
       choice(
         $.backslash_escape,
         $.str_double_quotes,
-        seq("'", $._command, "'"),
+        seq("'", $._command, token.immediate(prec(1, "'"))),
         $._command,
         $.block,
       ),

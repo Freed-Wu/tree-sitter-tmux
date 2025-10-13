@@ -7518,8 +7518,15 @@
               "name": "_command"
             },
             {
-              "type": "STRING",
-              "value": "'"
+              "type": "IMMEDIATE_TOKEN",
+              "content": {
+                "type": "PREC",
+                "value": 1,
+                "content": {
+                  "type": "STRING",
+                  "value": "'"
+                }
+              }
             }
           ]
         },

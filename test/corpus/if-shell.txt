@@ -1,8 +1,24 @@
 ========================================
-if-shell
+if-shell: single quotes
 ========================================
 
-if '[[ -d ~/.config/foo ]]' {
+if-shell 'true' 'foo=bar'
+
+---
+
+(file
+  (if_shell_directive
+    (command)
+    (str_single_quotes)
+    (environment_assignment
+      (name)
+      (value))))
+
+========================================
+if-shell: block
+========================================
+
+if 'true' {
   foo=bar
 }
 
