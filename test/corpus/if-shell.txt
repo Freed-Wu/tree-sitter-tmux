@@ -2,7 +2,7 @@
 if-shell: single quotes
 ========================================
 
-if-shell 'true' 'foo=bar'
+if-shell 'true' 'var=1'
 
 ---
 
@@ -15,11 +15,30 @@ if-shell 'true' 'foo=bar'
       (value))))
 
 ========================================
+if-shell: single quotes else
+========================================
+
+if-shell 'true' 'var=1' 'var=2'
+
+---
+
+(file
+  (if_shell_directive
+    (command)
+    (str_single_quotes)
+    (environment_assignment
+      (name)
+      (value))
+    (environment_assignment
+      (name)
+      (value))))
+
+========================================
 if-shell: block
 ========================================
 
 if 'true' {
-  foo=bar
+  var=1
 }
 
 ---
@@ -28,6 +47,31 @@ if 'true' {
   (if_shell_directive
     (command)
     (str_single_quotes)
+    (block
+      (environment_assignment
+        (name)
+        (value)))))
+
+========================================
+if-shell: block else
+========================================
+
+if 'true' {
+  var=1
+} {
+  var=2
+}
+
+---
+
+(file
+  (if_shell_directive
+    (command)
+    (str_single_quotes)
+    (block
+      (environment_assignment
+        (name)
+        (value)))
     (block
       (environment_assignment
         (name)

@@ -2368,6 +2368,18 @@
                 "type": "BLANK"
               }
             ]
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_tmux"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
           }
         ]
       }

@@ -400,6 +400,7 @@ module.exports = grammar({
           $._shell,
           $._tmux,
           optional($._tmux),
+          optional($._tmux),
         ),
       ),
     size: ($) => $._string,
