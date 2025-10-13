@@ -139,7 +139,6 @@ module.exports = grammar({
       command(
         $,
         choice("attach-session", "attach"),
-
         cmdOpts(
           options($, "dErx"),
           $._working_directory,
