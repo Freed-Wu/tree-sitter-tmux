@@ -4121,8 +4121,16 @@
           }
         },
         {
-          "type": "SYMBOL",
-          "name": "adjustment"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "adjustment"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
@@ -4503,22 +4511,34 @@
       ]
     },
     "_target_pane_l": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "STRING",
-            "value": "-l"
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "ALIAS",
+            "content": {
+              "type": "STRING",
+              "value": "-l"
+            },
+            "named": true,
+            "value": "command_line_option"
           },
-          "named": true,
-          "value": "command_line_option"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "pane"
-        }
-      ]
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "pane"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        ]
+      }
     },
     "_src_pane": {
       "type": "SEQ",
@@ -7440,6 +7460,9 @@
     ],
     [
       "new_window_directive"
+    ],
+    [
+      "refresh_client_directive"
     ],
     [
       "resize_pane_directive"

@@ -13,6 +13,7 @@ module.exports = grammar({
   conflicts: ($) => [
     [$.new_session_directive],
     [$.new_window_directive],
+    [$.refresh_client_directive],
     [$.resize_pane_directive],
     [$.server_access_directive],
     [$.set_environment_directive],
@@ -575,7 +576,6 @@ module.exports = grammar({
     _pane_state: ($) => option($, "A", alias($._string, $.pane_state)),
     _name_what_format: ($) =>
       option($, "B", alias($._string, $.name_what_format)),
-    // TODO: -l [target-pane]
     refresh_client_directive: ($) =>
       command(
         $,
@@ -589,7 +589,7 @@ module.exports = grammar({
           $._target_pane_l,
           $._target_client,
         ),
-        $.adjustment,
+        optional($.adjustment),
       ),
     rename_session_directive: ($) =>
       command(
@@ -651,7 +651,7 @@ module.exports = grammar({
       ),
     pane: ($) => $._string,
     _target_pane: ($) => option($, "t", $.pane),
-    _target_pane_l: ($) => option($, "l", $.pane),
+    _target_pane_l: ($) => prec.right(option($, "l", optional($.pane))),
     _src_pane: ($) => option($, "s", $.pane),
     window: ($) => $._string,
     _target_window: ($) => option($, "t", $.window),
