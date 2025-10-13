@@ -976,7 +976,7 @@ function commaSep1(rule) {
 }
 
 function spaceSep1($, rule) {
-  return sep1(choice(rule, $.comment), " ");
+  return sep1(choice(rule, $.comment), token.immediate(prec(1, " ")));
 }
 
 function options($, chars) {
