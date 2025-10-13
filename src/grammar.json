@@ -730,7 +730,7 @@
           "type": "ALIAS",
           "content": {
             "type": "SYMBOL",
-            "name": "_string"
+            "name": "_string_unit"
           },
           "named": true,
           "value": "key_table"
@@ -1707,7 +1707,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "__target_session"
+                "name": "_target_session_s"
               },
               {
                 "type": "SYMBOL",
@@ -1805,7 +1805,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "__target_client"
+                "name": "_target_client_c"
               },
               {
                 "type": "SYMBOL",
@@ -1877,7 +1877,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "__target_client"
+                "name": "_target_client_c"
               },
               {
                 "type": "SYMBOL",
@@ -2058,11 +2058,11 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "__target_client"
+                "name": "_target_client_c"
               },
               {
                 "type": "SYMBOL",
-                "name": "__start_directory"
+                "name": "_start_directory_d"
               },
               {
                 "type": "SYMBOL",
@@ -2070,7 +2070,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "__height"
+                "name": "_height_h"
               },
               {
                 "type": "SYMBOL",
@@ -2090,7 +2090,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "__width"
+                "name": "_width_w"
               },
               {
                 "type": "SYMBOL",
@@ -2377,7 +2377,7 @@
         }
       ]
     },
-    "__size": {
+    "_size_s": {
       "type": "SEQ",
       "members": [
         {
@@ -3314,7 +3314,7 @@
         }
       ]
     },
-    "__start_directory": {
+    "_start_directory_d": {
       "type": "SEQ",
       "members": [
         {
@@ -3498,7 +3498,7 @@
         }
       ]
     },
-    "__width": {
+    "_width_w": {
       "type": "SEQ",
       "members": [
         {
@@ -3544,7 +3544,7 @@
         }
       ]
     },
-    "__height": {
+    "_height_h": {
       "type": "SEQ",
       "members": [
         {
@@ -4103,7 +4103,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "__size"
+                "name": "_size_s"
               },
               {
                 "type": "SYMBOL",
@@ -4111,7 +4111,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "__target_pane"
+                "name": "_target_pane_l"
               },
               {
                 "type": "SYMBOL",
@@ -4502,7 +4502,7 @@
         }
       ]
     },
-    "__target_pane": {
+    "_target_pane_l": {
       "type": "SEQ",
       "members": [
         {
@@ -4600,7 +4600,7 @@
         }
       ]
     },
-    "__target_session": {
+    "_target_session_s": {
       "type": "SEQ",
       "members": [
         {
@@ -4640,7 +4640,7 @@
         }
       ]
     },
-    "__target_client": {
+    "_target_client_c": {
       "type": "SEQ",
       "members": [
         {
@@ -5999,7 +5999,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "__target_client"
+                "name": "_target_client_c"
               },
               {
                 "type": "SYMBOL",
@@ -6977,7 +6977,7 @@
       "value": "[^\"';\\\\\\s]+"
     },
     "_string": {
-      "type": "PREC_RIGHT",
+      "type": "PREC_LEFT",
       "value": 0,
       "content": {
         "type": "REPEAT1",

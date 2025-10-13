@@ -285,7 +285,7 @@ module.exports = grammar({
         cmdOpts(
           options($, "aP"),
           $._shell_command,
-          $.__target_session,
+          $._target_session_s,
           $._target_client,
         ),
       ),
@@ -298,7 +298,7 @@ module.exports = grammar({
         choice("display-menu", "menu"),
         cmdOpts(
           options($, "O"),
-          $.__target_client,
+          $._target_client_c,
           $._target_pane,
           $._title,
           $._x,
@@ -314,7 +314,7 @@ module.exports = grammar({
         choice("display-message", "display"),
         cmdOpts(
           options($, "aINpv"),
-          $.__target_client,
+          $._target_client_c,
           $._delay,
           $._target_pane,
         ),
@@ -338,15 +338,15 @@ module.exports = grammar({
         cmdOpts(
           options($, "BCE"),
           $._border_lines,
-          $.__target_client,
-          $.__start_directory,
+          $._target_client_c,
+          $._start_directory_d,
           $._environment,
-          $.__height,
+          $._height_h,
           $._style,
           $._border_style,
           $._target_pane,
           $._title,
-          $.__width,
+          $._width_w,
           $._x,
           $._y,
         ),
@@ -394,7 +394,7 @@ module.exports = grammar({
       ),
     size: ($) => $._string,
     _size: ($) => option($, "l", $.size),
-    __size: ($) => option($, "S", $.size),
+    _size_s: ($) => option($, "S", $.size),
     join_pane_directive: ($) =>
       command(
         $,
@@ -488,7 +488,7 @@ module.exports = grammar({
       ),
     _start_directory: ($) =>
       option($, "c", alias($._string, $.start_directory)),
-    __start_directory: ($) =>
+    _start_directory_d: ($) =>
       option($, "d", alias($._string, $.start_directory)),
     _environment: ($) => option($, "e", alias($._string, $.environment)),
     _flags: ($) => option($, "f", alias($._string, $.flags)),
@@ -497,9 +497,9 @@ module.exports = grammar({
     _session_name: ($) => option($, "s", alias($._string, $.session_name)),
     _group_name: ($) => option($, "t", alias($._string, $.group_name)),
     _width: ($) => option($, "x", alias($._string, $.width)),
-    __width: ($) => option($, "w", alias($._string, $.width)),
+    _width_w: ($) => option($, "w", alias($._string, $.width)),
     _height: ($) => option($, "y", alias($._string, $.height)),
-    __height: ($) => option($, "h", alias($._string, $.height)),
+    _height_h: ($) => option($, "h", alias($._string, $.height)),
     new_session_directive: ($) =>
       command(
         $,
@@ -580,9 +580,9 @@ module.exports = grammar({
           options($, "cDLRSU"),
           $._pane_state,
           $._name_what_format,
-          $.__size,
+          $._size_s,
           $._flags,
-          $.__target_pane,
+          $._target_pane_l,
           $._target_client,
         ),
         $.adjustment,
@@ -647,17 +647,17 @@ module.exports = grammar({
       ),
     pane: ($) => $._string,
     _target_pane: ($) => option($, "t", $.pane),
-    __target_pane: ($) => option($, "l", $.pane),
+    _target_pane_l: ($) => option($, "l", $.pane),
     _src_pane: ($) => option($, "s", $.pane),
     window: ($) => $._string,
     _target_window: ($) => option($, "t", $.window),
     _src_window: ($) => option($, "s", $.window),
     session: ($) => $._string,
     _target_session: ($) => option($, "t", $.session),
-    __target_session: ($) => option($, "s", $.session),
+    _target_session_s: ($) => option($, "s", $.session),
     client: ($) => $._string,
     _target_client: ($) => option($, "t", $.client),
-    __target_client: ($) => option($, "c", $.client),
+    _target_client_c: ($) => option($, "c", $.client),
     int: (_) => /\d+/,
     _delay: ($) => option($, "d", $.int),
     run_shell_directive: ($) =>
@@ -841,7 +841,7 @@ module.exports = grammar({
         choice("switch-client", "switchc"),
         cmdOpts(
           options($, "ElnprZ"),
-          $.__target_client,
+          $._target_client_c,
           $._target_session,
           $._key_table,
         ),
