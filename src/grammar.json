@@ -7410,56 +7410,8 @@
       ]
     },
     "_shell": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "backslash_escape"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "str_double_quotes"
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "'"
-            },
-            {
-              "type": "ALIAS",
-              "content": {
-                "type": "FIELD",
-                "name": "content",
-                "content": {
-                  "type": "PATTERN",
-                  "value": "([^']|\\\\')*"
-                }
-              },
-              "named": true,
-              "value": "shell"
-            },
-            {
-              "type": "STRING",
-              "value": "'"
-            }
-          ]
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_word"
-          },
-          "named": true,
-          "value": "shell"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "block"
-        }
-      ]
+      "type": "SYMBOL",
+      "name": "_string"
     },
     "_tmux": {
       "type": "CHOICE",

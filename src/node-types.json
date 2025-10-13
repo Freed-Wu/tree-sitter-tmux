@@ -2242,18 +2242,7 @@
   {
     "type": "detach_client_directive",
     "named": true,
-    "fields": {
-      "content": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "shell",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
       "multiple": true,
       "required": true,
@@ -2283,11 +2272,11 @@
           "named": true
         },
         {
-          "type": "shell",
+          "type": "str_double_quotes",
           "named": true
         },
         {
-          "type": "str_double_quotes",
+          "type": "str_single_quotes",
           "named": true
         }
       ]
@@ -2405,18 +2394,7 @@
   {
     "type": "display_popup_directive",
     "named": true,
-    "fields": {
-      "content": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "shell",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
       "multiple": true,
       "required": true,
@@ -2466,15 +2444,15 @@
           "named": true
         },
         {
-          "type": "shell",
-          "named": true
-        },
-        {
           "type": "start_directory",
           "named": true
         },
         {
           "type": "str_double_quotes",
+          "named": true
+        },
+        {
+          "type": "str_single_quotes",
           "named": true
         },
         {
@@ -3270,18 +3248,7 @@
   {
     "type": "if_shell_directive",
     "named": true,
-    "fields": {
-      "content": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "shell",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
       "multiple": true,
       "required": true,
@@ -3611,10 +3578,6 @@
           "named": true
         },
         {
-          "type": "shell",
-          "named": true
-        },
-        {
           "type": "show_buffer_directive",
           "named": true
         },
@@ -3652,6 +3615,10 @@
         },
         {
           "type": "str_double_quotes",
+          "named": true
+        },
+        {
+          "type": "str_single_quotes",
           "named": true
         },
         {
@@ -5206,18 +5173,7 @@
   {
     "type": "new_session_directive",
     "named": true,
-    "fields": {
-      "content": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "shell",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
       "multiple": true,
       "required": true,
@@ -5263,15 +5219,15 @@
           "named": true
         },
         {
-          "type": "shell",
-          "named": true
-        },
-        {
           "type": "start_directory",
           "named": true
         },
         {
           "type": "str_double_quotes",
+          "named": true
+        },
+        {
+          "type": "str_single_quotes",
           "named": true
         },
         {
@@ -5288,18 +5244,7 @@
   {
     "type": "new_window_directive",
     "named": true,
-    "fields": {
-      "content": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "shell",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
       "multiple": true,
       "required": true,
@@ -5329,15 +5274,15 @@
           "named": true
         },
         {
-          "type": "shell",
-          "named": true
-        },
-        {
           "type": "start_directory",
           "named": true
         },
         {
           "type": "str_double_quotes",
+          "named": true
+        },
+        {
+          "type": "str_single_quotes",
           "named": true
         },
         {
@@ -5539,18 +5484,7 @@
   {
     "type": "pipe_pane_directive",
     "named": true,
-    "fields": {
-      "content": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "shell",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
       "multiple": true,
       "required": true,
@@ -5576,11 +5510,11 @@
           "named": true
         },
         {
-          "type": "shell",
+          "type": "str_double_quotes",
           "named": true
         },
         {
-          "type": "str_double_quotes",
+          "type": "str_single_quotes",
           "named": true
         }
       ]
@@ -5941,18 +5875,7 @@
   {
     "type": "respawn_pane_directive",
     "named": true,
-    "fields": {
-      "content": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "shell",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
       "multiple": true,
       "required": true,
@@ -5982,15 +5905,15 @@
           "named": true
         },
         {
-          "type": "shell",
-          "named": true
-        },
-        {
           "type": "start_directory",
           "named": true
         },
         {
           "type": "str_double_quotes",
+          "named": true
+        },
+        {
+          "type": "str_single_quotes",
           "named": true
         }
       ]
@@ -5999,18 +5922,7 @@
   {
     "type": "respawn_window_directive",
     "named": true,
-    "fields": {
-      "content": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "shell",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
       "multiple": true,
       "required": true,
@@ -6040,15 +5952,15 @@
           "named": true
         },
         {
-          "type": "shell",
-          "named": true
-        },
-        {
           "type": "start_directory",
           "named": true
         },
         {
           "type": "str_double_quotes",
+          "named": true
+        },
+        {
+          "type": "str_single_quotes",
           "named": true
         }
       ]
@@ -6080,18 +5992,7 @@
   {
     "type": "run_shell_directive",
     "named": true,
-    "fields": {
-      "content": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "shell",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
       "multiple": true,
       "required": true,
@@ -6121,15 +6022,15 @@
           "named": true
         },
         {
-          "type": "shell",
-          "named": true
-        },
-        {
           "type": "start_directory",
           "named": true
         },
         {
           "type": "str_double_quotes",
+          "named": true
+        },
+        {
+          "type": "str_single_quotes",
           "named": true
         }
       ]
@@ -7154,18 +7055,7 @@
   {
     "type": "split_window_directive",
     "named": true,
-    "fields": {
-      "content": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "shell",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
       "multiple": true,
       "required": true,
@@ -7199,10 +7089,6 @@
           "named": true
         },
         {
-          "type": "shell",
-          "named": true
-        },
-        {
           "type": "size",
           "named": true
         },
@@ -7212,6 +7098,10 @@
         },
         {
           "type": "str_double_quotes",
+          "named": true
+        },
+        {
+          "type": "str_single_quotes",
           "named": true
         }
       ]

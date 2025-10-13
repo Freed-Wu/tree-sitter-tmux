@@ -301,10 +301,10 @@ splitw -dI
 (file
   (split_window_directive
     (command)
-    (shell))
+    (str_single_quotes))
   (split_window_directive
     (command)
-    (shell))
+    (str_single_quotes))
   (split_window_directive
     (command)
     (command_line_option))

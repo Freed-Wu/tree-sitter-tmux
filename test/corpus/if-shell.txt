@@ -11,7 +11,7 @@ if '[[ -d ~/.config/foo ]]' {
 (file
   (if_shell_directive
     (command)
-    (shell)
+    (str_single_quotes)
     (block
       (environment_assignment
         (name)

@@ -933,18 +933,7 @@ module.exports = grammar({
     key: ($) => stringOrKeyRule($, false),
     block: ($) => seq("{", commands($), "}"),
     block_immediate: ($) => seq(token.immediate("{"), commands($), "}"),
-    _shell: ($) =>
-      choice(
-        $.backslash_escape,
-        $.str_double_quotes,
-        seq(
-          "'",
-          alias(field("content", new RegExp("([^']|\\\\')*")), $.shell),
-          "'",
-        ),
-        alias($._word, $.shell),
-        $.block,
-      ),
+    _shell: ($) => $._string,
     _tmux: ($) =>
       choice(
         $.backslash_escape,

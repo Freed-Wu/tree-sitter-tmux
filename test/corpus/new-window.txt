@@ -15,11 +15,9 @@ neww top
   (new_window_directive
     (command))
   (new_window_directive
-    (command)
-    (shell))
+    (command))
   (new_window_directive
-    (command)
-    (shell)))
+    (command)))
 
 ========================================
 new-window: Flags
@@ -75,32 +73,25 @@ new-window -abdkPS top
 (file
   (new_window_directive
     (command)
-    (command_line_option)
-    (shell))
+    (command_line_option))
   (new_window_directive
     (command)
-    (command_line_option)
-    (shell))
+    (command_line_option))
   (new_window_directive
     (command)
-    (command_line_option)
-    (shell))
+    (command_line_option))
   (new_window_directive
     (command)
-    (command_line_option)
-    (shell))
+    (command_line_option))
   (new_window_directive
     (command)
-    (command_line_option)
-    (shell))
+    (command_line_option))
   (new_window_directive
     (command)
-    (command_line_option)
-    (shell))
+    (command_line_option))
   (new_window_directive
     (command)
-    (command_line_option)
-    (shell)))
+    (command_line_option)))
 
 ========================================
 new-window: Options
@@ -186,20 +177,17 @@ new-window -c /tmp -e VAR=value -e VAR2=value2 -F "#{session_name}:#{window_inde
   (new_window_directive
     (command)
     (command_line_option)
-    (start_directory)
-    (shell))
+    (start_directory))
+  (new_window_directive
+    (command)
+    (command_line_option)
+    (environment))
   (new_window_directive
     (command)
     (command_line_option)
     (environment)
-    (shell))
-  (new_window_directive
-    (command)
     (command_line_option)
-    (environment)
-    (command_line_option)
-    (environment)
-    (shell))
+    (environment))
   (new_window_directive
     (command)
     (command_line_option)
@@ -208,18 +196,15 @@ new-window -c /tmp -e VAR=value -e VAR2=value2 -F "#{session_name}:#{window_inde
         (expr_double_quotes
           (name))
         (expr_double_quotes
-          (name))))
-    (shell))
+          (name)))))
   (new_window_directive
     (command)
     (command_line_option)
-    (window_name)
-    (shell))
+    (window_name))
   (new_window_directive
     (command)
     (command_line_option)
-    (window)
-    (shell))
+    (window))
   (new_window_directive
     (command)
     (command_line_option)
@@ -238,8 +223,7 @@ new-window -c /tmp -e VAR=value -e VAR2=value2 -F "#{session_name}:#{window_inde
     (command_line_option)
     (window_name)
     (command_line_option)
-    (window)
-    (shell)))
+    (window)))
 
 ========================================
 new-window: Complex
@@ -265,8 +249,7 @@ bind c new-window -c "#{pane_current_path}"
         (expr_double_quotes
           (name))))
     (command_line_option)
-    (window_name)
-    (shell))
+    (window_name))
   (new_window_directive
     (command)
     (command_line_option)
@@ -274,8 +257,7 @@ bind c new-window -c "#{pane_current_path}"
     (command_line_option)
     (environment)
     (command_line_option)
-    (window_name)
-    (shell))
+    (window_name))
   (new_window_directive
     (command)
     (command_line_option)
