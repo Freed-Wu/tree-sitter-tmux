@@ -222,7 +222,11 @@ module.exports = grammar({
     choose_tree_directive: ($) =>
       command(
         $,
-        "choose-tree",
+        choice(
+          "choose-tree",
+          "choose-window", // Alias to `choose-tree -w`
+          "choose-session", // Alias to `choose-tree -s`
+        ),
         cmdOpts(
           options($, "GNrswZ"),
           $._format,
@@ -780,7 +784,12 @@ module.exports = grammar({
     show_messages_directive: ($) =>
       command(
         $,
-        choice("show-messages", "showmsgs"),
+        choice(
+          "show-messages",
+          "showmsgs",
+          "server-info", // Alias to `show-messages -JT`
+          "info", // Alias to `show-messages -JT`
+        ),
         cmdOpts(options($, "JT"), $._target_client),
       ),
     show_options_directive: ($) =>
@@ -809,7 +818,12 @@ module.exports = grammar({
     split_window_directive: ($) =>
       command(
         $,
-        choice("split-window", "splitw"),
+        choice(
+          "split-window",
+          "splitw",
+          "split-pane", // Alias to `split-window`
+          "splitp", // Alias to `split-window`
+        ),
         cmdOpts(
           options($, "bdfhIvPZ"),
           $._start_directory,

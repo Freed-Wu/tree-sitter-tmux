@@ -1178,8 +1178,21 @@
         {
           "type": "ALIAS",
           "content": {
-            "type": "STRING",
-            "value": "choose-tree"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "choose-tree"
+              },
+              {
+                "type": "STRING",
+                "value": "choose-window"
+              },
+              {
+                "type": "STRING",
+                "value": "choose-session"
+              }
+            ]
           },
           "named": true,
           "value": "command"
@@ -5596,6 +5609,14 @@
               {
                 "type": "STRING",
                 "value": "showmsgs"
+              },
+              {
+                "type": "STRING",
+                "value": "server-info"
+              },
+              {
+                "type": "STRING",
+                "value": "info"
               }
             ]
           },
@@ -5771,6 +5792,14 @@
               {
                 "type": "STRING",
                 "value": "splitw"
+              },
+              {
+                "type": "STRING",
+                "value": "split-pane"
+              },
+              {
+                "type": "STRING",
+                "value": "splitp"
               }
             ]
           },
