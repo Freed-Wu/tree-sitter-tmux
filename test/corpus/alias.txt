@@ -1,0 +1,18 @@
+========================================
+alias: unknown command
+========================================
+
+some-alias -a -b cc "dd" ; var="ee"
+
+---
+
+(file
+  (alias_directive
+    (command)
+    (command_line_option)
+    (command_line_option)
+    (str_double_quotes))
+  (environment_assignment
+    (name)
+    (value
+      (str_double_quotes))))

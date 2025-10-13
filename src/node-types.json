@@ -27,6 +27,41 @@
     }
   },
   {
+    "type": "alias_directive",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "backslash_escape",
+          "named": true
+        },
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "command",
+          "named": true
+        },
+        {
+          "type": "command_line_option",
+          "named": true
+        },
+        {
+          "type": "str_double_quotes",
+          "named": true
+        },
+        {
+          "type": "str_single_quotes",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "attach_session_directive",
     "named": true,
     "fields": {},
@@ -58,6 +93,11 @@
     }
   },
   {
+    "type": "attribute",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "bind_key_directive",
     "named": true,
     "fields": {},
@@ -65,6 +105,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "alias_directive",
+          "named": true
+        },
         {
           "type": "attach_session_directive",
           "named": true
@@ -472,6 +516,10 @@
       "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "alias_directive",
+          "named": true
+        },
         {
           "type": "attach_session_directive",
           "named": true
@@ -1247,6 +1295,10 @@
       "required": true,
       "types": [
         {
+          "type": "alias_directive",
+          "named": true
+        },
+        {
           "type": "attach_session_directive",
           "named": true
         },
@@ -1680,6 +1732,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "alias_directive",
+          "named": true
+        },
         {
           "type": "attach_session_directive",
           "named": true
@@ -2604,6 +2660,10 @@
       "required": false,
       "types": [
         {
+          "type": "alias_directive",
+          "named": true
+        },
+        {
           "type": "attach_session_directive",
           "named": true
         },
@@ -3227,6 +3287,10 @@
       "required": true,
       "types": [
         {
+          "type": "alias_directive",
+          "named": true
+        },
+        {
           "type": "attach_session_directive",
           "named": true
         },
@@ -3629,6 +3693,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "alias_directive",
+          "named": true
+        },
         {
           "type": "attach_session_directive",
           "named": true
@@ -4397,6 +4465,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "alias_directive",
+          "named": true
+        },
         {
           "type": "attach_session_directive",
           "named": true
@@ -6400,6 +6472,10 @@
       "required": true,
       "types": [
         {
+          "type": "alias_directive",
+          "named": true
+        },
+        {
           "type": "attach_session_directive",
           "named": true
         },
@@ -7743,10 +7819,6 @@
   {
     "type": "]",
     "named": false
-  },
-  {
-    "type": "attribute",
-    "named": true
   },
   {
     "type": "backslash_escape",
