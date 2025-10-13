@@ -1,5 +1,9 @@
 /// <reference types="tree-sitter-cli/dsl" />
 
+const BACKSLASH_ESCAPE = /\\(u[\da-fA-F]{4}|u[\da-fA-F]{8}|[0-7]{3}|[^;\n])/;
+const WORD = /[^"';\\\s]+/;
+const WORD_KEY = /-|[^-"';\\\s][^"';\\\s]*/;
+
 module.exports = grammar({
   name: "tmux",
 
@@ -147,7 +151,7 @@ module.exports = grammar({
         ),
       ),
     _note: ($) => option($, "N", alias($._string, $.note)),
-    _key_table: ($) => option($, "T", alias($._string_unit, $.key_table)),
+    _key_table: ($) => option($, "T", alias($._string, $.key_table)),
     bind_key_directive: ($) =>
       command(
         $,
@@ -872,60 +876,38 @@ module.exports = grammar({
 
     hash_escape: (_) => token.immediate(prec(1, /#[#,}]/)),
     _hash: (_) => token.immediate(prec(1, /#[^#,{}"'HhDPTSFIW]/)),
-    backslash_escape: (_) =>
-      /\\(u[\da-fA-F]{4}|u[\da-fA-F]{8}|[0-7]{3}|[^;\n])/,
+    backslash_escape: (_) => BACKSLASH_ESCAPE,
+    backslash_escape_immediate: (_) => token.immediate(BACKSLASH_ESCAPE),
     _expr_variable_name: (_) => /@?[a-z-_\d]+/,
     _variable_name_short: (_) => /[HhDPTSFIW]/,
     expr_single_quotes: ($) => exprRule($, "'"),
     expr_double_quotes: ($) => exprRule($, '"'),
     operator: (_) => /==|!=|<|>|<=|>=|\|\||&&/,
     attribute: (_) => /[a-z-]+/,
-    str_single_quotes: ($) =>
-      seq(
-        "'",
-        repeat(
-          choice($.expr_single_quotes, $.hash_escape, $._hash, /([^#'])+/),
-        ),
-        "'",
-      ),
-    str_double_quotes: ($) =>
-      seq(
-        '"',
-        repeat(
-          choice(
-            $.expr_double_quotes,
-            $.backslash_escape,
-            $.hash_escape,
-            $._hash,
-            /([^#"\\]|\\\r?\n)+/,
-          ),
-        ),
-        '"',
-      ),
-    _word: (_) => /[^"';\\\s]+/,
-    _string: ($) => prec.left(repeat1($._string_unit)),
-    _string_unit: ($) =>
+    _str_single_quotes_inner: ($) =>
+      choice($.expr_single_quotes, $.hash_escape, $._hash, /([^#'])+/),
+    str_single_quotes: ($) => seq("'", repeat($._str_single_quotes_inner), "'"),
+    str_single_quotes_immediate: ($) =>
+      seq(token.immediate("'"), repeat($._str_single_quotes_inner), "'"),
+    _str_double_quotes_inner: ($) =>
       choice(
+        $.expr_double_quotes,
         $.backslash_escape,
-        $.str_double_quotes,
-        $.str_single_quotes,
-        $._word,
-        $.block,
+        $.hash_escape,
+        $._hash,
+        /([^#"\\]|\\\r?\n)+/,
       ),
-    _word_key: (_) => /-|[^-"';\\\s][^"';\\\s]*/,
-    key: ($) =>
-      prec.left(
-        repeat1(
-          choice(
-            $.backslash_escape,
-            $.str_double_quotes,
-            $.str_single_quotes,
-            $._word_key,
-            $.block,
-          ),
-        ),
-      ),
+    str_double_quotes: ($) => seq('"', repeat($._str_double_quotes_inner), '"'),
+    str_double_quotes_immediate: ($) =>
+      seq(token.immediate('"'), repeat($._str_double_quotes_inner), '"'),
+    _word: (_) => WORD,
+    _word_immediate: (_) => token.immediate(WORD),
+    _string: ($) => stringOrKeyRule($, true),
+    _word_key: (_) => WORD_KEY,
+    _word_key_immediate: (_) => token.immediate(WORD_KEY),
+    key: ($) => stringOrKeyRule($, false),
     block: ($) => seq("{", commands($), "}"),
+    block_immediate: ($) => seq(token.immediate("{"), commands($), "}"),
     _shell: ($) =>
       choice(
         $.backslash_escape,
@@ -1038,6 +1020,29 @@ function exprRule($, quote) {
       token.immediate(prec(1, "#(")),
       alias(quote == '"' ? /[^)"]+/ : /[^)']*/, $.shell),
       ")",
+    ),
+  );
+}
+
+function stringOrKeyRule($, isString) {
+  return prec.left(
+    seq(
+      choice(
+        $.backslash_escape,
+        $.str_double_quotes,
+        $.str_single_quotes,
+        isString ? $._word : $._word_key,
+        $.block,
+      ),
+      repeat(
+        choice(
+          alias($.backslash_escape_immediate, $.backslash_escape),
+          alias($.str_double_quotes_immediate, $.str_double_quotes),
+          alias($.str_single_quotes_immediate, $.str_single_quotes),
+          isString ? $._word_immediate : $._word_key_immediate,
+          alias($.block_immediate, $.block),
+        ),
+      ),
     ),
   );
 }

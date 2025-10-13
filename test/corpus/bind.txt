@@ -72,3 +72,24 @@ bind - split-window -v
     (split_window_directive
       (command)
       (command_line_option))))
+
+========================================
+bind: table with mixed string
+========================================
+
+bind -T\033'1'"2" v split-window -h
+
+---
+
+(file
+  (bind_key_directive
+    (command)
+    (command_line_option)
+    (key_table
+      (backslash_escape)
+      (str_single_quotes)
+      (str_double_quotes))
+    (key)
+    (split_window_directive
+      (command)
+      (command_line_option))))
