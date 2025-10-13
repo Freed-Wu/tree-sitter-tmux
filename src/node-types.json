@@ -1720,6 +1720,10 @@
         {
           "type": "hash_escape",
           "named": true
+        },
+        {
+          "type": "hash_rgb",
+          "named": true
         }
       ]
     }
@@ -2575,6 +2579,10 @@
           "named": true
         },
         {
+          "type": "hash_rgb",
+          "named": true
+        },
+        {
           "type": "name",
           "named": true
         },
@@ -2611,6 +2619,10 @@
         },
         {
           "type": "hash_escape",
+          "named": true
+        },
+        {
+          "type": "hash_rgb",
           "named": true
         },
         {
@@ -7195,6 +7207,10 @@
         {
           "type": "hash_escape",
           "named": true
+        },
+        {
+          "type": "hash_rgb",
+          "named": true
         }
       ]
     }
@@ -7213,6 +7229,10 @@
         },
         {
           "type": "hash_escape",
+          "named": true
+        },
+        {
+          "type": "hash_rgb",
           "named": true
         }
       ]
@@ -7745,6 +7765,10 @@
   },
   {
     "type": "hash_escape",
+    "named": true
+  },
+  {
+    "type": "hash_rgb",
     "named": true
   },
   {

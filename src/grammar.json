@@ -6287,7 +6287,7 @@
         "value": 1,
         "content": {
           "type": "PATTERN",
-          "value": "#([#,}]|[\\dA-Fa-f]{6})"
+          "value": "#[#,}]"
         }
       }
     },
@@ -6301,6 +6301,45 @@
           "value": "#[^#,{}\"'HhDPTSFIW]"
         }
       }
+    },
+    "hash_rgb": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 1,
+        "content": {
+          "type": "PATTERN",
+          "value": "#[\\dA-Fa-f]{6}"
+        }
+      }
+    },
+    "_hash_rules": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "hash_escape"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_hash"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "hash_rgb"
+        },
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "PREC",
+            "value": 1,
+            "content": {
+              "type": "PATTERN",
+              "value": "#[\\dA-Fa-f]{1,5}"
+            }
+          }
+        }
+      ]
     },
     "backslash_escape": {
       "type": "PATTERN",
@@ -6455,11 +6494,7 @@
                               },
                               {
                                 "type": "SYMBOL",
-                                "name": "hash_escape"
-                              },
-                              {
-                                "type": "SYMBOL",
-                                "name": "_hash"
+                                "name": "_hash_rules"
                               },
                               {
                                 "type": "IMMEDIATE_TOKEN",
@@ -6495,11 +6530,7 @@
                                     },
                                     {
                                       "type": "SYMBOL",
-                                      "name": "hash_escape"
-                                    },
-                                    {
-                                      "type": "SYMBOL",
-                                      "name": "_hash"
+                                      "name": "_hash_rules"
                                     },
                                     {
                                       "type": "IMMEDIATE_TOKEN",
@@ -6574,11 +6605,7 @@
                             },
                             {
                               "type": "SYMBOL",
-                              "name": "hash_escape"
-                            },
-                            {
-                              "type": "SYMBOL",
-                              "name": "_hash"
+                              "name": "_hash_rules"
                             },
                             {
                               "type": "IMMEDIATE_TOKEN",
@@ -6633,11 +6660,7 @@
                                   },
                                   {
                                     "type": "SYMBOL",
-                                    "name": "hash_escape"
-                                  },
-                                  {
-                                    "type": "SYMBOL",
-                                    "name": "_hash"
+                                    "name": "_hash_rules"
                                   },
                                   {
                                     "type": "IMMEDIATE_TOKEN",
@@ -6832,11 +6855,7 @@
                               },
                               {
                                 "type": "SYMBOL",
-                                "name": "hash_escape"
-                              },
-                              {
-                                "type": "SYMBOL",
-                                "name": "_hash"
+                                "name": "_hash_rules"
                               },
                               {
                                 "type": "IMMEDIATE_TOKEN",
@@ -6872,11 +6891,7 @@
                                     },
                                     {
                                       "type": "SYMBOL",
-                                      "name": "hash_escape"
-                                    },
-                                    {
-                                      "type": "SYMBOL",
-                                      "name": "_hash"
+                                      "name": "_hash_rules"
                                     },
                                     {
                                       "type": "IMMEDIATE_TOKEN",
@@ -6951,11 +6966,7 @@
                             },
                             {
                               "type": "SYMBOL",
-                              "name": "hash_escape"
-                            },
-                            {
-                              "type": "SYMBOL",
-                              "name": "_hash"
+                              "name": "_hash_rules"
                             },
                             {
                               "type": "IMMEDIATE_TOKEN",
@@ -7010,11 +7021,7 @@
                                   },
                                   {
                                     "type": "SYMBOL",
-                                    "name": "hash_escape"
-                                  },
-                                  {
-                                    "type": "SYMBOL",
-                                    "name": "_hash"
+                                    "name": "_hash_rules"
                                   },
                                   {
                                     "type": "IMMEDIATE_TOKEN",
@@ -7092,11 +7099,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "hash_escape"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_hash"
+          "name": "_hash_rules"
         },
         {
           "type": "PATTERN",
@@ -7167,11 +7170,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "hash_escape"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_hash"
+          "name": "_hash_rules"
         },
         {
           "type": "PATTERN",

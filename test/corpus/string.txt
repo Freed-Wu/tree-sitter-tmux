@@ -41,6 +41,34 @@ foo='#'
       (str_single_quotes))))
 
 ========================================
+string: single quotes hash sign 1
+========================================
+
+foo='#1'
+
+---
+
+(file
+  (environment_assignment
+    (name)
+    (value
+      (str_single_quotes))))
+
+========================================
+string: single quotes hash sign 2
+========================================
+
+foo='#12'
+
+---
+
+(file
+  (environment_assignment
+    (name)
+    (value
+      (str_single_quotes))))
+
+========================================
 string: double quotes
 ========================================
 
@@ -141,7 +169,7 @@ foo='#[bold,fg=#000000,italic]'
         (expr_single_quotes
           (attribute)
           (attribute)
-          (hash_escape)
+          (hash_rgb)
           (attribute))))))
 
 ========================================
@@ -316,7 +344,7 @@ foo="#{?#{==:#[bold,fg=#000000,italic],},,}"
             (expr_double_quotes
               (attribute)
               (attribute)
-              (hash_escape)
+              (hash_rgb)
               (attribute))))))))
 
 ========================================
@@ -336,5 +364,5 @@ foo="#[fg=#{?foo,#000000,#111111}]"
           (attribute)
           (expr_double_quotes
             (name)
-            (hash_escape)
-            (hash_escape)))))))
+            (hash_rgb)
+            (hash_rgb)))))))

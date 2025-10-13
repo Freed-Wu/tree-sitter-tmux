@@ -900,8 +900,16 @@ module.exports = grammar({
 
     option: (_) => /[@A-Za-z-_\d]+/,
 
-    hash_escape: (_) => token.immediate(prec(1, /#([#,}]|[\dA-Fa-f]{6})/)),
+    hash_escape: (_) => token.immediate(prec(1, /#[#,}]/)),
     _hash: (_) => token.immediate(prec(1, /#[^#,{}"'HhDPTSFIW]/)),
+    hash_rgb: (_) => token.immediate(prec(1, /#[\dA-Fa-f]{6}/)),
+    _hash_rules: ($) =>
+      choice(
+        $.hash_escape,
+        $._hash,
+        $.hash_rgb,
+        token.immediate(prec(1, /#[\dA-Fa-f]{1,5}/)),
+      ),
     backslash_escape: (_) => BACKSLASH_ESCAPE,
     backslash_escape_immediate: (_) => token.immediate(BACKSLASH_ESCAPE),
     _expr_variable_name: (_) => /@?[a-z-_\d]+/,
@@ -911,7 +919,7 @@ module.exports = grammar({
     operator: (_) => /==|!=|<|>|<=|>=|\|\||&&/,
     attribute: (_) => /[a-z-]+/,
     _str_single_quotes_inner: ($) =>
-      choice($.expr_single_quotes, $.hash_escape, $._hash, /([^#'])+/),
+      choice($.expr_single_quotes, $._hash_rules, /([^#'])+/),
     str_single_quotes: ($) =>
       seq(
         "'",
@@ -924,8 +932,7 @@ module.exports = grammar({
       choice(
         $.expr_double_quotes,
         $.backslash_escape,
-        $.hash_escape,
-        $._hash,
+        $._hash_rules,
         /([^#"\\]|\\\r?\n)+/,
       ),
     str_double_quotes: ($) => seq('"', repeat($._str_double_quotes_inner), '"'),
@@ -1010,8 +1017,7 @@ function exprRule($, quote) {
             repeat(
               choice(
                 expr,
-                $.hash_escape,
-                $._hash,
+                $._hash_rules,
                 token.immediate(
                   prec(1, quote == '"' ? /[^,}"#]+/ : /[^,}'#]+/),
                 ),
@@ -1032,8 +1038,7 @@ function exprRule($, quote) {
             "=",
             choice(
               expr,
-              $.hash_escape,
-              $._hash,
+              $._hash_rules,
               token.immediate(
                 prec(1, quote == '"' ? /[^,\]"#]+/ : /[^,\]'#]+/),
               ),
