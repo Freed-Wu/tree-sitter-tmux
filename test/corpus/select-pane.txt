@@ -1,5 +1,5 @@
 ========================================
-select-pane: Simple
+select-pane: simple
 ========================================
 select-pane
 selectp
@@ -13,7 +13,7 @@ selectp
     (command)))
 
 ========================================
-select-pane: Flags
+select-pane: flags
 ========================================
 select-pane -D
 selectp -D
@@ -109,7 +109,7 @@ selectp -LR
     (command_line_option)))
 
 ========================================
-select-pane: Options
+select-pane: options
 ========================================
 select-pane -t %3
 selectp -t %3
@@ -161,7 +161,7 @@ selectp -T "build #2"
       (str_double_quotes))))
 
 ========================================
-select-pane: Flags + Options
+select-pane: flags + options
 ========================================
 select-pane -R -t %5
 selectp -R -t %5
@@ -225,7 +225,7 @@ selectp -e -t %1 -T 'input on'
       (str_single_quotes))))
 
 ========================================
-select-pane: Complex
+select-pane: complex
 ========================================
 # mixed ordering, bundled flags, continuation, and trailing comment
 select-pane -dZ -t \

@@ -1,5 +1,5 @@
 ========================================
-command separator semicolon
+command separator: semicolon
 ========================================
 
 foo=1 ; bar=2
@@ -15,7 +15,7 @@ foo=1 ; bar=2
     (value)))
 
 ========================================
-command separator semicolon no space
+command separator: semicolon no space
 ========================================
 
 foo=1; bar=2
@@ -31,7 +31,7 @@ foo=1; bar=2
     (value)))
 
 ========================================
-command separator escaped semicolon
+command separator: escaped semicolon
 ========================================
 
 foo=1 \; bar=2
@@ -47,7 +47,7 @@ foo=1 \; bar=2
     (value)))
 
 ========================================
-command separator quoted semicolon
+command separator: quoted semicolon
 ========================================
 
 foo=1 ';' bar=2
@@ -63,7 +63,7 @@ foo=1 ';' bar=2
     (value)))
 
 ========================================
-command separator newline
+command separator: newline
 ========================================
 
 foo=1

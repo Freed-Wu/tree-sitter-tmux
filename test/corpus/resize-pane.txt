@@ -1,5 +1,5 @@
 ========================================
-resize-pane: Simple
+resize-pane: simple
 ========================================
 
 resize-pane
@@ -14,7 +14,7 @@ resizep
     (command)))
 
 ========================================
-resize-pane: Simple flags
+resize-pane: simple flags
 ========================================
 
 resize-pane -D 5

@@ -1,5 +1,5 @@
 ========================================
-new-session: Simple
+new-session: simple
 ========================================
 new-session
 new
@@ -13,7 +13,7 @@ new
     (command)))
 
 ========================================
-new-session: Flags
+new-session: flags
 ========================================
 new-session -d
 new -d
@@ -77,7 +77,7 @@ new -dP
     (command_line_option)))
 
 ========================================
-new-session: Flags + Shell
+new-session: flags + shell
 ========================================
 new-session -d "top"
 new -d "top"
@@ -117,7 +117,7 @@ new -P -F '#{session_name}:#{session_attached}'
           (name))))))
 
 ========================================
-new-session: Options
+new-session: options
 ========================================
 new-session -s dev
 new -s dev
@@ -199,7 +199,7 @@ new -x 180 -y 48
     (height)))
 
 ========================================
-new-session: Options + Shell
+new-session: options + shell
 ========================================
 new-session -s build -n logs -c ~/proj "npm run start"
 new -s build -n logs -c ~/proj "npm run start"
@@ -243,7 +243,7 @@ new -e LANG=en_US.UTF-8 -e MODE=prod "bash -lc 'echo hello'"
     (str_double_quotes)))
 
 ========================================
-new-session: Group (–t)
+new-session: group (–t)
 ========================================
 new-session -t mygroup
 new -t mygroup
@@ -271,7 +271,7 @@ new -t existing:session
     (group_name)))
 
 ========================================
-new-session: Complex
+new-session: complex
 ========================================
 # line continuations, many options, and a trailing comment
 new-session -d -P -F '#{session_name}:#{session_windows}' -s \

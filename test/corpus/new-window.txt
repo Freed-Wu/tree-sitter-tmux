@@ -1,5 +1,5 @@
 ========================================
-new-window: Simple
+new-window: simple
 ========================================
 
 new-window
@@ -20,7 +20,7 @@ neww top
     (command)))
 
 ========================================
-new-window: Flags
+new-window: flags
 ========================================
 
 new-window -a
@@ -57,7 +57,7 @@ new-window -abdkPS
     (command_line_option)))
 
 ========================================
-new-window: Flags + Shell
+new-window: flags + shell
 ========================================
 
 new-window -a top
@@ -94,7 +94,7 @@ new-window -abdkPS top
     (command_line_option)))
 
 ========================================
-new-window: Options
+new-window: options
 ========================================
 
 new-window -c /tmp
@@ -160,7 +160,7 @@ new-window -c /tmp -e VAR=value -e VAR2=value2 -F "#{session_name}:#{window_inde
     (window)))
 
 ========================================
-new-window: Options + Shell
+new-window: options + shell
 ========================================
 
 new-window -c /tmp top
@@ -226,7 +226,7 @@ new-window -c /tmp -e VAR=value -e VAR2=value2 -F "#{session_name}:#{window_inde
     (window)))
 
 ========================================
-new-window: Complex
+new-window: complex
 ========================================
 
 new-window -P -F "#{window_id}" -n scratch vim
