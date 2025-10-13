@@ -911,7 +911,12 @@ module.exports = grammar({
     attribute: (_) => /[a-z-]+/,
     _str_single_quotes_inner: ($) =>
       choice($.expr_single_quotes, $.hash_escape, $._hash, /([^#'])+/),
-    str_single_quotes: ($) => seq("'", repeat($._str_single_quotes_inner), "'"),
+    str_single_quotes: ($) =>
+      seq(
+        "'",
+        repeat($._str_single_quotes_inner),
+        token.immediate(prec(1, /#'|'/)),
+      ),
     str_single_quotes_immediate: ($) =>
       seq(token.immediate("'"), repeat($._str_single_quotes_inner), "'"),
     _str_double_quotes_inner: ($) =>

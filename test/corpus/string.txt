@@ -27,6 +27,20 @@ foo='"'
       (str_single_quotes))))
 
 ========================================
+string: single quotes hash sign
+========================================
+
+foo='#'
+
+---
+
+(file
+  (environment_assignment
+    (name)
+    (value
+      (str_single_quotes))))
+
+========================================
 string: double quotes
 ========================================
 
