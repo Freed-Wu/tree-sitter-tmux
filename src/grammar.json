@@ -6252,20 +6252,17 @@
           {
             "type": "REPEAT",
             "content": {
-              "type": "ALIAS",
-              "content": {
-                "type": "PATTERN",
-                "value": "-\\w+"
-              },
-              "named": true,
-              "value": "command_line_option"
-            }
-          },
-          {
-            "type": "REPEAT",
-            "content": {
               "type": "CHOICE",
               "members": [
+                {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "PATTERN",
+                    "value": "-\\w+"
+                  },
+                  "named": true,
+                  "value": "command_line_option"
+                },
                 {
                   "type": "SYMBOL",
                   "name": "_string"

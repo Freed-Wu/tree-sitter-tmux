@@ -2,7 +2,7 @@
 alias: unknown command
 ========================================
 
-some-alias -a -b cc "dd" ; var="ee"
+some-alias -a bb -c dd "ee" ; var="ff"
 
 ---
 

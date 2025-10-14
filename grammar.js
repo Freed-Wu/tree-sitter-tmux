@@ -893,8 +893,7 @@ module.exports = grammar({
         command(
           $,
           /[a-z-]+/,
-          repeat(alias(/-\w+/, $.command_line_option)),
-          repeat(choice($._string)),
+          repeat(choice(alias(/-\w+/, $.command_line_option), $._string)),
         ),
       ),
 
