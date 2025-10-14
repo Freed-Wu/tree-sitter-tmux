@@ -6275,7 +6275,7 @@
     },
     "option": {
       "type": "PATTERN",
-      "value": "[@A-Za-z-_\\d]+"
+      "value": "@?[A-Za-z-_\\d]+"
     },
     "hash_escape": {
       "type": "IMMEDIATE_TOKEN",

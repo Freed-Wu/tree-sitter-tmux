@@ -897,7 +897,7 @@ module.exports = grammar({
         ),
       ),
 
-    option: (_) => /[@A-Za-z-_\d]+/,
+    option: (_) => /@?[A-Za-z-_\d]+/,
 
     hash_escape: (_) => token.immediate(prec(1, /#[#,}]/)),
     _hash: (_) => token.immediate(prec(1, /#[^#,{}"'HhDPTSFIW]/)),
