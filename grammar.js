@@ -969,7 +969,7 @@ module.exports = grammar({
       ),
 
     comment: (_) => /#[^\n]*/,
-    _space: (_) => prec(1, repeat1(/[ \t]/)),
+    _space: (_) => prec(-1, repeat1(/[ \t]/)),
   },
 });
 
