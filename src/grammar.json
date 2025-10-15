@@ -2150,8 +2150,11 @@
             }
           },
           {
-            "type": "STRING",
-            "value": "="
+            "type": "IMMEDIATE_TOKEN",
+            "content": {
+              "type": "STRING",
+              "value": "="
+            }
           },
           {
             "type": "FIELD",
@@ -2160,7 +2163,7 @@
               "type": "ALIAS",
               "content": {
                 "type": "SYMBOL",
-                "name": "_string"
+                "name": "_string_immediate"
               },
               "named": true,
               "value": "value"
@@ -2202,8 +2205,11 @@
             }
           },
           {
-            "type": "STRING",
-            "value": "="
+            "type": "IMMEDIATE_TOKEN",
+            "content": {
+              "type": "STRING",
+              "value": "="
+            }
           },
           {
             "type": "FIELD",
@@ -2212,7 +2218,7 @@
               "type": "ALIAS",
               "content": {
                 "type": "SYMBOL",
-                "name": "_string"
+                "name": "_string_immediate"
               },
               "named": true,
               "value": "value"
@@ -7149,8 +7155,15 @@
           }
         },
         {
-          "type": "STRING",
-          "value": "'"
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "PREC",
+            "value": 1,
+            "content": {
+              "type": "PATTERN",
+              "value": "#'|'"
+            }
+          }
         }
       ]
     },
@@ -7307,6 +7320,45 @@
                 }
               ]
             }
+          }
+        ]
+      }
+    },
+    "_string_immediate": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "backslash_escape_immediate"
+            },
+            "named": true,
+            "value": "backslash_escape"
+          },
+          {
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "str_double_quotes_immediate"
+            },
+            "named": true,
+            "value": "str_double_quotes"
+          },
+          {
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "str_single_quotes_immediate"
+            },
+            "named": true,
+            "value": "str_single_quotes"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_word_immediate"
           }
         ]
       }

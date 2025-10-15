@@ -367,8 +367,8 @@ module.exports = grammar({
       prec.right(
         seq(
           field("name", alias($._variable_name, $.name)),
-          "=",
-          field("value", alias($._string, $.value)),
+          token.immediate("="),
+          field("value", alias($._string_immediate, $.value)),
         ),
       ),
     hidden_assignment: ($) =>
@@ -377,8 +377,8 @@ module.exports = grammar({
           alias(/\%hidden/, $.hidden_keyword),
           /\s+/,
           field("name", alias($._variable_name, $.name)),
-          "=",
-          field("value", alias($._string, $.value)),
+          token.immediate("="),
+          field("value", alias($._string_immediate, $.value)),
         ),
       ),
     find_window_directive: ($) =>
@@ -926,7 +926,11 @@ module.exports = grammar({
         token.immediate(prec(1, /#'|'/)),
       ),
     str_single_quotes_immediate: ($) =>
-      seq(token.immediate("'"), repeat($._str_single_quotes_inner), "'"),
+      seq(
+        token.immediate("'"),
+        repeat($._str_single_quotes_inner),
+        token.immediate(prec(1, /#'|'/)),
+      ),
     _str_double_quotes_inner: ($) =>
       choice(
         $.expr_double_quotes,
@@ -940,6 +944,15 @@ module.exports = grammar({
     _word: (_) => WORD,
     _word_immediate: (_) => token.immediate(WORD),
     _string: ($) => stringOrKeyRule($, true),
+    _string_immediate: ($) =>
+      repeat1(
+        choice(
+          alias($.backslash_escape_immediate, $.backslash_escape),
+          alias($.str_double_quotes_immediate, $.str_double_quotes),
+          alias($.str_single_quotes_immediate, $.str_single_quotes),
+          $._word_immediate,
+        ),
+      ),
     _word_key: (_) => WORD_KEY,
     _word_key_immediate: (_) => token.immediate(WORD_KEY),
     key: ($) => stringOrKeyRule($, false),
