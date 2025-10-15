@@ -117,7 +117,6 @@ module.exports = grammar({
         $.unbind_key_directive,
         $.unlink_window_directive,
         $.wait_for_directive,
-        $.alias_directive,
       ),
     _command_separator: (_) => choice(";", "\\;", "';'", /\r?\n/),
 
@@ -886,15 +885,6 @@ module.exports = grammar({
         choice("wait-for", "wait"),
         optional(choice("-L", "-S", "-U")),
         $.channel,
-      ),
-
-    alias_directive: ($) =>
-      prec.left(
-        command(
-          $,
-          /[a-z-]+/,
-          repeat(choice(alias(/-\w+/, $.command_line_option), $._string)),
-        ),
       ),
 
     option: (_) => /@?[A-Za-z-_\d]+/,

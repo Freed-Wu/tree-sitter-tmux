@@ -401,10 +401,6 @@
         {
           "type": "SYMBOL",
           "name": "wait_for_directive"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "alias_directive"
         }
       ]
     },
@@ -6239,45 +6235,6 @@
           "name": "channel"
         }
       ]
-    },
-    "alias_directive": {
-      "type": "PREC_LEFT",
-      "value": 0,
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "ALIAS",
-            "content": {
-              "type": "PATTERN",
-              "value": "[a-z-]+"
-            },
-            "named": true,
-            "value": "command"
-          },
-          {
-            "type": "REPEAT",
-            "content": {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "-\\w+"
-                  },
-                  "named": true,
-                  "value": "command_line_option"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_string"
-                }
-              ]
-            }
-          }
-        ]
-      }
     },
     "option": {
       "type": "PATTERN",
