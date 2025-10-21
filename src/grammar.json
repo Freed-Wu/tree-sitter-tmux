@@ -1460,8 +1460,16 @@
           }
         },
         {
-          "type": "SYMBOL",
-          "name": "_tmux"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_tmux"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
@@ -7596,6 +7604,9 @@
     }
   ],
   "conflicts": [
+    [
+      "command_prompt_directive"
+    ],
     [
       "list_keys_directive"
     ],

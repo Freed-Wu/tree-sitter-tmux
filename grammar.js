@@ -11,6 +11,7 @@ module.exports = grammar({
 
   // final argument is optional
   conflicts: ($) => [
+    [$.command_prompt_directive],
     [$.list_keys_directive],
     [$.new_session_directive],
     [$.new_window_directive],
@@ -262,7 +263,7 @@ module.exports = grammar({
           $._target_client,
           $._prompt_type,
         ),
-        $._tmux,
+        optional($._tmux),
       ),
     _prompt: ($) => option($, "p", alias($._string, $.prompt)),
     confirm_before_directive: ($) =>
