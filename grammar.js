@@ -903,7 +903,7 @@ module.exports = grammar({
       ),
     backslash_escape: (_) => BACKSLASH_ESCAPE,
     backslash_escape_immediate: (_) => token.immediate(BACKSLASH_ESCAPE),
-    _expr_variable_name: (_) => /@?[a-z-_\d]+/,
+    _expr_variable_name: (_) => /@?[A-Za-z][A-Za-z-_\d]+/,
     _variable_name_short: (_) => /[HhDPTSFIW]/,
     expr_single_quotes: ($) => exprRule($, "'"),
     expr_double_quotes: ($) => exprRule($, '"'),

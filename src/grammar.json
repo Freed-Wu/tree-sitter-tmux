@@ -6330,7 +6330,7 @@
     },
     "_expr_variable_name": {
       "type": "PATTERN",
-      "value": "@?[a-z-_\\d]+"
+      "value": "@?[A-Za-z][A-Za-z-_\\d]+"
     },
     "_variable_name_short": {
       "type": "PATTERN",
