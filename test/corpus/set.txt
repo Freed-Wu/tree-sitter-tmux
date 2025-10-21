@@ -43,3 +43,17 @@ set-option -g automatic-rename on
     (command_line_option)
     (option)
     (value)))
+
+========================================
+set: set-option optional value
+========================================
+
+set -g status-position
+
+---
+
+(file
+  (set_option_directive
+    (command)
+    (command_line_option)
+    (option)))

@@ -5460,8 +5460,16 @@
           "name": "option"
         },
         {
-          "type": "SYMBOL",
-          "name": "value"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "value"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
@@ -5508,8 +5516,16 @@
           "name": "option"
         },
         {
-          "type": "SYMBOL",
-          "name": "value"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "value"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
@@ -7631,6 +7647,12 @@
     ],
     [
       "set_environment_directive"
+    ],
+    [
+      "set_option_directive"
+    ],
+    [
+      "set_window_option_directive"
     ],
     [
       "show_environment_directive"

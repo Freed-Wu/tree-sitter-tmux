@@ -19,6 +19,8 @@ module.exports = grammar({
     [$.resize_pane_directive],
     [$.server_access_directive],
     [$.set_environment_directive],
+    [$.set_option_directive],
+    [$.set_window_option_directive],
     [$.show_environment_directive],
     [$.split_window_directive],
   ],
@@ -762,7 +764,7 @@ module.exports = grammar({
         choice("set-option", "set"),
         cmdOpts(options($, "aFgopqsuUw"), $._target_pane),
         $.option,
-        $.value,
+        optional($.value),
       ),
     set_window_option_directive: ($) =>
       command(
@@ -770,7 +772,7 @@ module.exports = grammar({
         choice("set-window-option", "setw"),
         optional(options($, "aFgoqu")),
         $.option,
-        $.value,
+        optional($.value),
       ),
 
     show_buffer_directive: ($) =>
