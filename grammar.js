@@ -1,6 +1,6 @@
 /// <reference types="tree-sitter-cli/dsl" />
 
-const BACKSLASH_ESCAPE = /\\(u[\da-fA-F]{4}|u[\da-fA-F]{8}|[0-7]{3}|[^;\n])/;
+const BACKSLASH_ESCAPE = /\\(u[\da-fA-F]{4}|u[\da-fA-F]{8}|[0-7]{3}|[^\n])/;
 const WORD = /[^"';\\\s]+/;
 const WORD_KEY = /-|[^-"';\\\s][^"';\\\s]*/;
 

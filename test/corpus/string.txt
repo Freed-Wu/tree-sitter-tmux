@@ -72,7 +72,7 @@ foo='#12'
 string: double quotes
 ========================================
 
-foo="\\u09aF\\u0123abCD\\777\\\a"
+foo="\u09aF\u0123abCD\777\;\\\a"
 
 ---
 
@@ -81,6 +81,7 @@ foo="\\u09aF\\u0123abCD\\777\\\a"
     (name)
     (value
       (str_double_quotes
+        (backslash_escape)
         (backslash_escape)
         (backslash_escape)
         (backslash_escape)

@@ -6311,13 +6311,13 @@
     },
     "backslash_escape": {
       "type": "PATTERN",
-      "value": "\\\\(u[\\da-fA-F]{4}|u[\\da-fA-F]{8}|[0-7]{3}|[^;\\n])"
+      "value": "\\\\(u[\\da-fA-F]{4}|u[\\da-fA-F]{8}|[0-7]{3}|[^\\n])"
     },
     "backslash_escape_immediate": {
       "type": "IMMEDIATE_TOKEN",
       "content": {
         "type": "PATTERN",
-        "value": "\\\\(u[\\da-fA-F]{4}|u[\\da-fA-F]{8}|[0-7]{3}|[^;\\n])"
+        "value": "\\\\(u[\\da-fA-F]{4}|u[\\da-fA-F]{8}|[0-7]{3}|[^\\n])"
       }
     },
     "_expr_variable_name": {
