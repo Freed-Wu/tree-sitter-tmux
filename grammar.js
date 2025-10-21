@@ -11,6 +11,7 @@ module.exports = grammar({
 
   // final argument is optional
   conflicts: ($) => [
+    [$.list_keys_directive],
     [$.new_session_directive],
     [$.new_window_directive],
     [$.refresh_client_directive],
@@ -456,7 +457,7 @@ module.exports = grammar({
         $,
         choice("list-keys", "lsk"),
         cmdOpts(options($, "1aN"), $._prefix_string, $._key_table),
-        $.key,
+        optional($.key),
       ),
     list_panes_directive: ($) =>
       command(

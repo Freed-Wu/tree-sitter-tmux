@@ -2929,8 +2929,16 @@
           }
         },
         {
-          "type": "SYMBOL",
-          "name": "key"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "key"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
@@ -7588,6 +7596,9 @@
     }
   ],
   "conflicts": [
+    [
+      "list_keys_directive"
+    ],
     [
       "new_session_directive"
     ],
