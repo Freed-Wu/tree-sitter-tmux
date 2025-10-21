@@ -5435,21 +5435,25 @@
           "value": "command"
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "ALIAS",
-              "content": {
-                "type": "PATTERN",
-                "value": "-[aFgopqsuUw]+"
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "PATTERN",
+                  "value": "-[aFgopqsuUw]+"
+                },
+                "named": true,
+                "value": "command_line_option"
               },
-              "named": true,
-              "value": "command_line_option"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
+              {
+                "type": "SYMBOL",
+                "name": "_target_pane"
+              }
+            ]
+          }
         },
         {
           "type": "SYMBOL",

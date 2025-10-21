@@ -6732,6 +6732,10 @@
           "named": true
         },
         {
+          "type": "pane",
+          "named": true
+        },
+        {
           "type": "value",
           "named": true
         }

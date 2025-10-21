@@ -760,7 +760,7 @@ module.exports = grammar({
       command(
         $,
         choice("set-option", "set"),
-        optional(options($, "aFgopqsuUw")),
+        cmdOpts(options($, "aFgopqsuUw"), $._target_pane),
         $.option,
         $.value,
       ),
