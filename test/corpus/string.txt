@@ -302,6 +302,23 @@ foo="#{?var1,#{var2},}"
             (name)))))))
 
 ========================================
+string: format hash escape
+========================================
+
+foo='#[foo=a#,bar=b]'
+
+---
+
+(file
+  (environment_assignment
+    (name)
+    (value
+      (str_single_quotes
+        (expr_single_quotes
+          (attribute)
+          (attribute))))))
+
+========================================
 string: format with format
 ========================================
 
@@ -330,7 +347,7 @@ foo="#{?#{==:#{var1},#{var2}},#{var3},#{var4}}"
 string: format with style
 ========================================
 
-foo="#{?#{==:#[bold,fg=#000000,italic],},,}"
+foo="#{?#{==:#[bold#,fg=#000000,italic],},,}"
 
 ---
 

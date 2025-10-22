@@ -2519,7 +2519,7 @@
           "named": true
         },
         {
-          "type": "hash_escape",
+          "type": "hash_escape_no_comma",
           "named": true
         },
         {
@@ -2562,7 +2562,7 @@
           "named": true
         },
         {
-          "type": "hash_escape",
+          "type": "hash_escape_no_comma",
           "named": true
         },
         {
@@ -7595,6 +7595,10 @@
     "named": false
   },
   {
+    "type": "#,",
+    "named": false
+  },
+  {
     "type": "#[",
     "named": false
   },
@@ -7697,6 +7701,10 @@
   },
   {
     "type": "hash_escape",
+    "named": true
+  },
+  {
+    "type": "hash_escape_no_comma",
     "named": true
   },
   {

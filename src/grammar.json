@@ -6303,6 +6303,17 @@
         }
       }
     },
+    "hash_escape_no_comma": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 1,
+        "content": {
+          "type": "PATTERN",
+          "value": "#[#}]"
+        }
+      }
+    },
     "_hash": {
       "type": "IMMEDIATE_TOKEN",
       "content": {
@@ -6324,34 +6335,6 @@
           "value": "#[\\dA-Fa-f]{6}"
         }
       }
-    },
-    "_hash_rules": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "hash_escape"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_hash"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "hash_rgb"
-        },
-        {
-          "type": "IMMEDIATE_TOKEN",
-          "content": {
-            "type": "PREC",
-            "value": 1,
-            "content": {
-              "type": "PATTERN",
-              "value": "#[\\dA-Fa-f]{1,5}"
-            }
-          }
-        }
-      ]
     },
     "backslash_escape": {
       "type": "PATTERN",
@@ -6505,8 +6488,32 @@
                                 "name": "expr_single_quotes"
                               },
                               {
-                                "type": "SYMBOL",
-                                "name": "_hash_rules"
+                                "type": "CHOICE",
+                                "members": [
+                                  {
+                                    "type": "SYMBOL",
+                                    "name": "hash_escape_no_comma"
+                                  },
+                                  {
+                                    "type": "SYMBOL",
+                                    "name": "_hash"
+                                  },
+                                  {
+                                    "type": "SYMBOL",
+                                    "name": "hash_rgb"
+                                  },
+                                  {
+                                    "type": "IMMEDIATE_TOKEN",
+                                    "content": {
+                                      "type": "PREC",
+                                      "value": 1,
+                                      "content": {
+                                        "type": "PATTERN",
+                                        "value": "#[\\dA-Fa-f]{1,5}"
+                                      }
+                                    }
+                                  }
+                                ]
                               },
                               {
                                 "type": "IMMEDIATE_TOKEN",
@@ -6528,8 +6535,31 @@
                             "type": "SEQ",
                             "members": [
                               {
-                                "type": "STRING",
-                                "value": ","
+                                "type": "CHOICE",
+                                "members": [
+                                  {
+                                    "type": "IMMEDIATE_TOKEN",
+                                    "content": {
+                                      "type": "PREC",
+                                      "value": 1,
+                                      "content": {
+                                        "type": "STRING",
+                                        "value": "#,"
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "type": "IMMEDIATE_TOKEN",
+                                    "content": {
+                                      "type": "PREC",
+                                      "value": 1,
+                                      "content": {
+                                        "type": "STRING",
+                                        "value": ","
+                                      }
+                                    }
+                                  }
+                                ]
                               },
                               {
                                 "type": "REPEAT",
@@ -6541,8 +6571,32 @@
                                       "name": "expr_single_quotes"
                                     },
                                     {
-                                      "type": "SYMBOL",
-                                      "name": "_hash_rules"
+                                      "type": "CHOICE",
+                                      "members": [
+                                        {
+                                          "type": "SYMBOL",
+                                          "name": "hash_escape_no_comma"
+                                        },
+                                        {
+                                          "type": "SYMBOL",
+                                          "name": "_hash"
+                                        },
+                                        {
+                                          "type": "SYMBOL",
+                                          "name": "hash_rgb"
+                                        },
+                                        {
+                                          "type": "IMMEDIATE_TOKEN",
+                                          "content": {
+                                            "type": "PREC",
+                                            "value": 1,
+                                            "content": {
+                                              "type": "PATTERN",
+                                              "value": "#[\\dA-Fa-f]{1,5}"
+                                            }
+                                          }
+                                        }
+                                      ]
                                     },
                                     {
                                       "type": "IMMEDIATE_TOKEN",
@@ -6591,79 +6645,25 @@
               "type": "SEQ",
               "members": [
                 {
-                  "type": "CHOICE",
+                  "type": "SEQ",
                   "members": [
                     {
                       "type": "SYMBOL",
                       "name": "attribute"
                     },
                     {
-                      "type": "SEQ",
+                      "type": "CHOICE",
                       "members": [
                         {
-                          "type": "SYMBOL",
-                          "name": "attribute"
-                        },
-                        {
-                          "type": "STRING",
-                          "value": "="
-                        },
-                        {
-                          "type": "CHOICE",
+                          "type": "SEQ",
                           "members": [
                             {
-                              "type": "SYMBOL",
-                              "name": "expr_single_quotes"
+                              "type": "STRING",
+                              "value": "="
                             },
                             {
-                              "type": "SYMBOL",
-                              "name": "_hash_rules"
-                            },
-                            {
-                              "type": "IMMEDIATE_TOKEN",
+                              "type": "REPEAT",
                               "content": {
-                                "type": "PREC",
-                                "value": 1,
-                                "content": {
-                                  "type": "PATTERN",
-                                  "value": "[^,\\]'#]+"
-                                }
-                              }
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "REPEAT",
-                  "content": {
-                    "type": "SEQ",
-                    "members": [
-                      {
-                        "type": "STRING",
-                        "value": ","
-                      },
-                      {
-                        "type": "CHOICE",
-                        "members": [
-                          {
-                            "type": "SYMBOL",
-                            "name": "attribute"
-                          },
-                          {
-                            "type": "SEQ",
-                            "members": [
-                              {
-                                "type": "SYMBOL",
-                                "name": "attribute"
-                              },
-                              {
-                                "type": "STRING",
-                                "value": "="
-                              },
-                              {
                                 "type": "CHOICE",
                                 "members": [
                                   {
@@ -6671,8 +6671,32 @@
                                     "name": "expr_single_quotes"
                                   },
                                   {
-                                    "type": "SYMBOL",
-                                    "name": "_hash_rules"
+                                    "type": "CHOICE",
+                                    "members": [
+                                      {
+                                        "type": "SYMBOL",
+                                        "name": "hash_escape_no_comma"
+                                      },
+                                      {
+                                        "type": "SYMBOL",
+                                        "name": "_hash"
+                                      },
+                                      {
+                                        "type": "SYMBOL",
+                                        "name": "hash_rgb"
+                                      },
+                                      {
+                                        "type": "IMMEDIATE_TOKEN",
+                                        "content": {
+                                          "type": "PREC",
+                                          "value": 1,
+                                          "content": {
+                                            "type": "PATTERN",
+                                            "value": "#[\\dA-Fa-f]{1,5}"
+                                          }
+                                        }
+                                      }
+                                    ]
                                   },
                                   {
                                     "type": "IMMEDIATE_TOKEN",
@@ -6686,6 +6710,121 @@
                                     }
                                   }
                                 ]
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BLANK"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "REPEAT",
+                  "content": {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "CHOICE",
+                        "members": [
+                          {
+                            "type": "IMMEDIATE_TOKEN",
+                            "content": {
+                              "type": "PREC",
+                              "value": 1,
+                              "content": {
+                                "type": "STRING",
+                                "value": "#,"
+                              }
+                            }
+                          },
+                          {
+                            "type": "IMMEDIATE_TOKEN",
+                            "content": {
+                              "type": "PREC",
+                              "value": 1,
+                              "content": {
+                                "type": "STRING",
+                                "value": ","
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "SEQ",
+                        "members": [
+                          {
+                            "type": "SYMBOL",
+                            "name": "attribute"
+                          },
+                          {
+                            "type": "CHOICE",
+                            "members": [
+                              {
+                                "type": "SEQ",
+                                "members": [
+                                  {
+                                    "type": "STRING",
+                                    "value": "="
+                                  },
+                                  {
+                                    "type": "REPEAT",
+                                    "content": {
+                                      "type": "CHOICE",
+                                      "members": [
+                                        {
+                                          "type": "SYMBOL",
+                                          "name": "expr_single_quotes"
+                                        },
+                                        {
+                                          "type": "CHOICE",
+                                          "members": [
+                                            {
+                                              "type": "SYMBOL",
+                                              "name": "hash_escape_no_comma"
+                                            },
+                                            {
+                                              "type": "SYMBOL",
+                                              "name": "_hash"
+                                            },
+                                            {
+                                              "type": "SYMBOL",
+                                              "name": "hash_rgb"
+                                            },
+                                            {
+                                              "type": "IMMEDIATE_TOKEN",
+                                              "content": {
+                                                "type": "PREC",
+                                                "value": 1,
+                                                "content": {
+                                                  "type": "PATTERN",
+                                                  "value": "#[\\dA-Fa-f]{1,5}"
+                                                }
+                                              }
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "type": "IMMEDIATE_TOKEN",
+                                          "content": {
+                                            "type": "PREC",
+                                            "value": 1,
+                                            "content": {
+                                              "type": "PATTERN",
+                                              "value": "[^,\\]'#]+"
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "BLANK"
                               }
                             ]
                           }
@@ -6866,8 +7005,32 @@
                                 "name": "expr_double_quotes"
                               },
                               {
-                                "type": "SYMBOL",
-                                "name": "_hash_rules"
+                                "type": "CHOICE",
+                                "members": [
+                                  {
+                                    "type": "SYMBOL",
+                                    "name": "hash_escape_no_comma"
+                                  },
+                                  {
+                                    "type": "SYMBOL",
+                                    "name": "_hash"
+                                  },
+                                  {
+                                    "type": "SYMBOL",
+                                    "name": "hash_rgb"
+                                  },
+                                  {
+                                    "type": "IMMEDIATE_TOKEN",
+                                    "content": {
+                                      "type": "PREC",
+                                      "value": 1,
+                                      "content": {
+                                        "type": "PATTERN",
+                                        "value": "#[\\dA-Fa-f]{1,5}"
+                                      }
+                                    }
+                                  }
+                                ]
                               },
                               {
                                 "type": "IMMEDIATE_TOKEN",
@@ -6889,8 +7052,31 @@
                             "type": "SEQ",
                             "members": [
                               {
-                                "type": "STRING",
-                                "value": ","
+                                "type": "CHOICE",
+                                "members": [
+                                  {
+                                    "type": "IMMEDIATE_TOKEN",
+                                    "content": {
+                                      "type": "PREC",
+                                      "value": 1,
+                                      "content": {
+                                        "type": "STRING",
+                                        "value": "#,"
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "type": "IMMEDIATE_TOKEN",
+                                    "content": {
+                                      "type": "PREC",
+                                      "value": 1,
+                                      "content": {
+                                        "type": "STRING",
+                                        "value": ","
+                                      }
+                                    }
+                                  }
+                                ]
                               },
                               {
                                 "type": "REPEAT",
@@ -6902,8 +7088,32 @@
                                       "name": "expr_double_quotes"
                                     },
                                     {
-                                      "type": "SYMBOL",
-                                      "name": "_hash_rules"
+                                      "type": "CHOICE",
+                                      "members": [
+                                        {
+                                          "type": "SYMBOL",
+                                          "name": "hash_escape_no_comma"
+                                        },
+                                        {
+                                          "type": "SYMBOL",
+                                          "name": "_hash"
+                                        },
+                                        {
+                                          "type": "SYMBOL",
+                                          "name": "hash_rgb"
+                                        },
+                                        {
+                                          "type": "IMMEDIATE_TOKEN",
+                                          "content": {
+                                            "type": "PREC",
+                                            "value": 1,
+                                            "content": {
+                                              "type": "PATTERN",
+                                              "value": "#[\\dA-Fa-f]{1,5}"
+                                            }
+                                          }
+                                        }
+                                      ]
                                     },
                                     {
                                       "type": "IMMEDIATE_TOKEN",
@@ -6952,79 +7162,25 @@
               "type": "SEQ",
               "members": [
                 {
-                  "type": "CHOICE",
+                  "type": "SEQ",
                   "members": [
                     {
                       "type": "SYMBOL",
                       "name": "attribute"
                     },
                     {
-                      "type": "SEQ",
+                      "type": "CHOICE",
                       "members": [
                         {
-                          "type": "SYMBOL",
-                          "name": "attribute"
-                        },
-                        {
-                          "type": "STRING",
-                          "value": "="
-                        },
-                        {
-                          "type": "CHOICE",
+                          "type": "SEQ",
                           "members": [
                             {
-                              "type": "SYMBOL",
-                              "name": "expr_double_quotes"
+                              "type": "STRING",
+                              "value": "="
                             },
                             {
-                              "type": "SYMBOL",
-                              "name": "_hash_rules"
-                            },
-                            {
-                              "type": "IMMEDIATE_TOKEN",
+                              "type": "REPEAT",
                               "content": {
-                                "type": "PREC",
-                                "value": 1,
-                                "content": {
-                                  "type": "PATTERN",
-                                  "value": "[^,\\]\"#]+"
-                                }
-                              }
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "REPEAT",
-                  "content": {
-                    "type": "SEQ",
-                    "members": [
-                      {
-                        "type": "STRING",
-                        "value": ","
-                      },
-                      {
-                        "type": "CHOICE",
-                        "members": [
-                          {
-                            "type": "SYMBOL",
-                            "name": "attribute"
-                          },
-                          {
-                            "type": "SEQ",
-                            "members": [
-                              {
-                                "type": "SYMBOL",
-                                "name": "attribute"
-                              },
-                              {
-                                "type": "STRING",
-                                "value": "="
-                              },
-                              {
                                 "type": "CHOICE",
                                 "members": [
                                   {
@@ -7032,8 +7188,32 @@
                                     "name": "expr_double_quotes"
                                   },
                                   {
-                                    "type": "SYMBOL",
-                                    "name": "_hash_rules"
+                                    "type": "CHOICE",
+                                    "members": [
+                                      {
+                                        "type": "SYMBOL",
+                                        "name": "hash_escape_no_comma"
+                                      },
+                                      {
+                                        "type": "SYMBOL",
+                                        "name": "_hash"
+                                      },
+                                      {
+                                        "type": "SYMBOL",
+                                        "name": "hash_rgb"
+                                      },
+                                      {
+                                        "type": "IMMEDIATE_TOKEN",
+                                        "content": {
+                                          "type": "PREC",
+                                          "value": 1,
+                                          "content": {
+                                            "type": "PATTERN",
+                                            "value": "#[\\dA-Fa-f]{1,5}"
+                                          }
+                                        }
+                                      }
+                                    ]
                                   },
                                   {
                                     "type": "IMMEDIATE_TOKEN",
@@ -7047,6 +7227,121 @@
                                     }
                                   }
                                 ]
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BLANK"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "REPEAT",
+                  "content": {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "CHOICE",
+                        "members": [
+                          {
+                            "type": "IMMEDIATE_TOKEN",
+                            "content": {
+                              "type": "PREC",
+                              "value": 1,
+                              "content": {
+                                "type": "STRING",
+                                "value": "#,"
+                              }
+                            }
+                          },
+                          {
+                            "type": "IMMEDIATE_TOKEN",
+                            "content": {
+                              "type": "PREC",
+                              "value": 1,
+                              "content": {
+                                "type": "STRING",
+                                "value": ","
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "SEQ",
+                        "members": [
+                          {
+                            "type": "SYMBOL",
+                            "name": "attribute"
+                          },
+                          {
+                            "type": "CHOICE",
+                            "members": [
+                              {
+                                "type": "SEQ",
+                                "members": [
+                                  {
+                                    "type": "STRING",
+                                    "value": "="
+                                  },
+                                  {
+                                    "type": "REPEAT",
+                                    "content": {
+                                      "type": "CHOICE",
+                                      "members": [
+                                        {
+                                          "type": "SYMBOL",
+                                          "name": "expr_double_quotes"
+                                        },
+                                        {
+                                          "type": "CHOICE",
+                                          "members": [
+                                            {
+                                              "type": "SYMBOL",
+                                              "name": "hash_escape_no_comma"
+                                            },
+                                            {
+                                              "type": "SYMBOL",
+                                              "name": "_hash"
+                                            },
+                                            {
+                                              "type": "SYMBOL",
+                                              "name": "hash_rgb"
+                                            },
+                                            {
+                                              "type": "IMMEDIATE_TOKEN",
+                                              "content": {
+                                                "type": "PREC",
+                                                "value": 1,
+                                                "content": {
+                                                  "type": "PATTERN",
+                                                  "value": "#[\\dA-Fa-f]{1,5}"
+                                                }
+                                              }
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "type": "IMMEDIATE_TOKEN",
+                                          "content": {
+                                            "type": "PREC",
+                                            "value": 1,
+                                            "content": {
+                                              "type": "PATTERN",
+                                              "value": "[^,\\]\"#]+"
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "BLANK"
                               }
                             ]
                           }
@@ -7110,8 +7405,32 @@
           "name": "expr_single_quotes"
         },
         {
-          "type": "SYMBOL",
-          "name": "_hash_rules"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "hash_escape"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_hash"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "hash_rgb"
+            },
+            {
+              "type": "IMMEDIATE_TOKEN",
+              "content": {
+                "type": "PREC",
+                "value": 1,
+                "content": {
+                  "type": "PATTERN",
+                  "value": "#[\\dA-Fa-f]{1,5}"
+                }
+              }
+            }
+          ]
         },
         {
           "type": "PATTERN",
@@ -7188,8 +7507,32 @@
           "name": "backslash_escape"
         },
         {
-          "type": "SYMBOL",
-          "name": "_hash_rules"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "hash_escape"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_hash"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "hash_rgb"
+            },
+            {
+              "type": "IMMEDIATE_TOKEN",
+              "content": {
+                "type": "PREC",
+                "value": 1,
+                "content": {
+                  "type": "PATTERN",
+                  "value": "#[\\dA-Fa-f]{1,5}"
+                }
+              }
+            }
+          ]
         },
         {
           "type": "PATTERN",

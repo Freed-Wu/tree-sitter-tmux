@@ -896,15 +896,9 @@ module.exports = grammar({
     option: (_) => /@?[A-Za-z-_\d]+/,
 
     hash_escape: (_) => token.immediate(prec(1, /#[#,}]/)),
+    hash_escape_no_comma: (_) => token.immediate(prec(1, /#[#}]/)),
     _hash: (_) => token.immediate(prec(1, /#[^#,{}"'HhDPTSFIW]/)),
     hash_rgb: (_) => token.immediate(prec(1, /#[\dA-Fa-f]{6}/)),
-    _hash_rules: ($) =>
-      choice(
-        $.hash_escape,
-        $._hash,
-        $.hash_rgb,
-        token.immediate(prec(1, /#[\dA-Fa-f]{1,5}/)),
-      ),
     backslash_escape: (_) => BACKSLASH_ESCAPE,
     backslash_escape_immediate: (_) => token.immediate(BACKSLASH_ESCAPE),
     _expr_variable_name: (_) => /@?[A-Za-z][A-Za-z-_\d]+/,
@@ -914,7 +908,7 @@ module.exports = grammar({
     operator: (_) => /==|!=|<|>|<=|>=|\|\||&&/,
     attribute: (_) => /[a-z-]+/,
     _str_single_quotes_inner: ($) =>
-      choice($.expr_single_quotes, $._hash_rules, /([^#'])+/),
+      choice($.expr_single_quotes, hash_rules($, true), /([^#'])+/),
     str_single_quotes: ($) =>
       seq(
         "'",
@@ -931,7 +925,7 @@ module.exports = grammar({
       choice(
         $.expr_double_quotes,
         $.backslash_escape,
-        $._hash_rules,
+        hash_rules($, true),
         /([^#"\\]|\\\r?\n)+/,
       ),
     str_double_quotes: ($) => seq('"', repeat($._str_double_quotes_inner), '"'),
@@ -988,10 +982,6 @@ function sep1(rule, separator) {
   return seq(rule, repeat(seq(separator, rule)));
 }
 
-function commaSep1(rule) {
-  return sep1(rule, ",");
-}
-
 function spaceSep1($, rule) {
   return sep1(choice(rule, $.comment), token.immediate(prec(1, " ")));
 }
@@ -1008,6 +998,15 @@ function cmdOpts(...args) {
   return repeat(choice(...args));
 }
 
+function hash_rules($, comma) {
+  return choice(
+    comma ? $.hash_escape : $.hash_escape_no_comma,
+    $._hash,
+    $.hash_rgb,
+    token.immediate(prec(1, /#[\dA-Fa-f]{1,5}/)),
+  );
+}
+
 function exprRule($, quote) {
   const expr = quote == '"' ? $.expr_double_quotes : $.expr_single_quotes;
   return choice(
@@ -1022,15 +1021,19 @@ function exprRule($, quote) {
             seq(alias($._expr_variable_name, $.function_name), ":"),
             seq($.operator, ":"),
           ),
-          commaSep1(
+          sep1(
             repeat(
               choice(
                 expr,
-                $._hash_rules,
+                hash_rules($, false),
                 token.immediate(
                   prec(1, quote == '"' ? /[^,}"#]+/ : /[^,}'#]+/),
                 ),
               ),
+            ),
+            choice(
+              token.immediate(prec(1, "#,")),
+              token.immediate(prec(1, ",")),
             ),
           ),
         ),
@@ -1039,21 +1042,25 @@ function exprRule($, quote) {
     ),
     seq(
       token.immediate(prec(1, "#[")),
-      commaSep1(
-        choice(
+      sep1(
+        seq(
           $.attribute,
-          seq(
-            $.attribute,
-            "=",
-            choice(
-              expr,
-              $._hash_rules,
-              token.immediate(
-                prec(1, quote == '"' ? /[^,\]"#]+/ : /[^,\]'#]+/),
+          optional(
+            seq(
+              "=",
+              repeat(
+                choice(
+                  expr,
+                  hash_rules($, false),
+                  token.immediate(
+                    prec(1, quote == '"' ? /[^,\]"#]+/ : /[^,\]'#]+/),
+                  ),
+                ),
               ),
             ),
           ),
         ),
+        choice(token.immediate(prec(1, "#,")), token.immediate(prec(1, ","))),
       ),
       "]",
     ),
