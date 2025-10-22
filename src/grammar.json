@@ -3693,7 +3693,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "_shell"
+              "name": "_shell_rest"
             },
             {
               "type": "BLANK"
@@ -3765,7 +3765,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "_shell"
+              "name": "_shell_rest"
             },
             {
               "type": "BLANK"
@@ -4430,8 +4430,16 @@
           }
         },
         {
-          "type": "SYMBOL",
-          "name": "_shell"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_shell_rest"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
@@ -4486,8 +4494,16 @@
           }
         },
         {
-          "type": "SYMBOL",
-          "name": "_shell"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_shell_rest"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
@@ -5909,7 +5925,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "_shell"
+              "name": "_shell_rest"
             },
             {
               "type": "BLANK"
@@ -7548,6 +7564,13 @@
       "type": "SYMBOL",
       "name": "_string"
     },
+    "_shell_rest": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "SYMBOL",
+        "name": "_string"
+      }
+    },
     "_tmux": {
       "type": "CHOICE",
       "members": [
@@ -7641,6 +7664,12 @@
     ],
     [
       "resize_pane_directive"
+    ],
+    [
+      "respawn_pane_directive"
+    ],
+    [
+      "respawn_window_directive"
     ],
     [
       "server_access_directive"

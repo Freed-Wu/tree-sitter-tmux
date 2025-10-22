@@ -17,6 +17,8 @@ module.exports = grammar({
     [$.new_window_directive],
     [$.refresh_client_directive],
     [$.resize_pane_directive],
+    [$.respawn_pane_directive],
+    [$.respawn_window_directive],
     [$.server_access_directive],
     [$.set_environment_directive],
     [$.set_option_directive],
@@ -530,7 +532,7 @@ module.exports = grammar({
           $._width,
           $._height,
         ),
-        optional($._shell),
+        optional($._shell_rest),
       ),
     new_window_directive: ($) =>
       command(
@@ -544,7 +546,7 @@ module.exports = grammar({
           $._window_name,
           $._target_window,
         ),
-        optional($._shell),
+        optional($._shell_rest),
       ),
     next_layout_directive: ($) =>
       command($, choice("next-layout", "nextl"), cmdOpts($._target_window)),
@@ -638,7 +640,7 @@ module.exports = grammar({
           $._environment,
           $._target_pane,
         ),
-        $._shell,
+        optional($._shell_rest),
       ),
     respawn_window_directive: ($) =>
       command(
@@ -650,7 +652,7 @@ module.exports = grammar({
           $._environment,
           $._target_pane,
         ),
-        $._shell,
+        optional($._shell_rest),
       ),
     rotate_window_directive: ($) =>
       command(
@@ -837,7 +839,7 @@ module.exports = grammar({
           $._target_pane,
           $._format,
         ),
-        optional($._shell),
+        optional($._shell_rest),
       ),
     start_server_directive: ($) => command($, choice("start-server", "start")),
     suspend_client_directive: ($) =>
@@ -953,6 +955,7 @@ module.exports = grammar({
     block: ($) => seq("{", commands($), "}"),
     block_immediate: ($) => seq(token.immediate("{"), commands($), "}"),
     _shell: ($) => $._string,
+    _shell_rest: ($) => repeat1($._string),
     _tmux: ($) =>
       choice(
         $.backslash_escape,
