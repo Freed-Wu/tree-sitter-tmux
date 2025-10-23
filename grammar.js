@@ -1043,17 +1043,20 @@ function exprRule($, quote) {
     seq(
       token.immediate(prec(1, "#[")),
       sep1(
-        seq(
-          $.attribute,
-          optional(
-            seq(
-              "=",
-              repeat(
-                choice(
-                  expr,
-                  hash_rules($, false),
-                  token.immediate(
-                    prec(1, quote == '"' ? /[^,\]"#]+/ : /[^,\]'#]+/),
+        choice(
+          expr,
+          seq(
+            $.attribute,
+            optional(
+              seq(
+                "=",
+                repeat(
+                  choice(
+                    expr,
+                    hash_rules($, false),
+                    token.immediate(
+                      prec(1, quote == '"' ? /[^,\]"#]+/ : /[^,\]'#]+/),
+                    ),
                   ),
                 ),
               ),

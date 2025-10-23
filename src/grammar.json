@@ -6645,45 +6645,65 @@
               "type": "SEQ",
               "members": [
                 {
-                  "type": "SEQ",
+                  "type": "CHOICE",
                   "members": [
                     {
                       "type": "SYMBOL",
-                      "name": "attribute"
+                      "name": "expr_single_quotes"
                     },
                     {
-                      "type": "CHOICE",
+                      "type": "SEQ",
                       "members": [
                         {
-                          "type": "SEQ",
+                          "type": "SYMBOL",
+                          "name": "attribute"
+                        },
+                        {
+                          "type": "CHOICE",
                           "members": [
                             {
-                              "type": "STRING",
-                              "value": "="
-                            },
-                            {
-                              "type": "REPEAT",
-                              "content": {
-                                "type": "CHOICE",
-                                "members": [
-                                  {
-                                    "type": "SYMBOL",
-                                    "name": "expr_single_quotes"
-                                  },
-                                  {
+                              "type": "SEQ",
+                              "members": [
+                                {
+                                  "type": "STRING",
+                                  "value": "="
+                                },
+                                {
+                                  "type": "REPEAT",
+                                  "content": {
                                     "type": "CHOICE",
                                     "members": [
                                       {
                                         "type": "SYMBOL",
-                                        "name": "hash_escape_no_comma"
+                                        "name": "expr_single_quotes"
                                       },
                                       {
-                                        "type": "SYMBOL",
-                                        "name": "_hash"
-                                      },
-                                      {
-                                        "type": "SYMBOL",
-                                        "name": "hash_rgb"
+                                        "type": "CHOICE",
+                                        "members": [
+                                          {
+                                            "type": "SYMBOL",
+                                            "name": "hash_escape_no_comma"
+                                          },
+                                          {
+                                            "type": "SYMBOL",
+                                            "name": "_hash"
+                                          },
+                                          {
+                                            "type": "SYMBOL",
+                                            "name": "hash_rgb"
+                                          },
+                                          {
+                                            "type": "IMMEDIATE_TOKEN",
+                                            "content": {
+                                              "type": "PREC",
+                                              "value": 1,
+                                              "content": {
+                                                "type": "PATTERN",
+                                                "value": "#[\\dA-Fa-f]{1,5}"
+                                              }
+                                            }
+                                          }
+                                        ]
                                       },
                                       {
                                         "type": "IMMEDIATE_TOKEN",
@@ -6692,30 +6712,19 @@
                                           "value": 1,
                                           "content": {
                                             "type": "PATTERN",
-                                            "value": "#[\\dA-Fa-f]{1,5}"
+                                            "value": "[^,\\]'#]+"
                                           }
                                         }
                                       }
                                     ]
-                                  },
-                                  {
-                                    "type": "IMMEDIATE_TOKEN",
-                                    "content": {
-                                      "type": "PREC",
-                                      "value": 1,
-                                      "content": {
-                                        "type": "PATTERN",
-                                        "value": "[^,\\]'#]+"
-                                      }
-                                    }
                                   }
-                                ]
-                              }
+                                }
+                              ]
+                            },
+                            {
+                              "type": "BLANK"
                             }
                           ]
-                        },
-                        {
-                          "type": "BLANK"
                         }
                       ]
                     }
@@ -6754,45 +6763,65 @@
                         ]
                       },
                       {
-                        "type": "SEQ",
+                        "type": "CHOICE",
                         "members": [
                           {
                             "type": "SYMBOL",
-                            "name": "attribute"
+                            "name": "expr_single_quotes"
                           },
                           {
-                            "type": "CHOICE",
+                            "type": "SEQ",
                             "members": [
                               {
-                                "type": "SEQ",
+                                "type": "SYMBOL",
+                                "name": "attribute"
+                              },
+                              {
+                                "type": "CHOICE",
                                 "members": [
                                   {
-                                    "type": "STRING",
-                                    "value": "="
-                                  },
-                                  {
-                                    "type": "REPEAT",
-                                    "content": {
-                                      "type": "CHOICE",
-                                      "members": [
-                                        {
-                                          "type": "SYMBOL",
-                                          "name": "expr_single_quotes"
-                                        },
-                                        {
+                                    "type": "SEQ",
+                                    "members": [
+                                      {
+                                        "type": "STRING",
+                                        "value": "="
+                                      },
+                                      {
+                                        "type": "REPEAT",
+                                        "content": {
                                           "type": "CHOICE",
                                           "members": [
                                             {
                                               "type": "SYMBOL",
-                                              "name": "hash_escape_no_comma"
+                                              "name": "expr_single_quotes"
                                             },
                                             {
-                                              "type": "SYMBOL",
-                                              "name": "_hash"
-                                            },
-                                            {
-                                              "type": "SYMBOL",
-                                              "name": "hash_rgb"
+                                              "type": "CHOICE",
+                                              "members": [
+                                                {
+                                                  "type": "SYMBOL",
+                                                  "name": "hash_escape_no_comma"
+                                                },
+                                                {
+                                                  "type": "SYMBOL",
+                                                  "name": "_hash"
+                                                },
+                                                {
+                                                  "type": "SYMBOL",
+                                                  "name": "hash_rgb"
+                                                },
+                                                {
+                                                  "type": "IMMEDIATE_TOKEN",
+                                                  "content": {
+                                                    "type": "PREC",
+                                                    "value": 1,
+                                                    "content": {
+                                                      "type": "PATTERN",
+                                                      "value": "#[\\dA-Fa-f]{1,5}"
+                                                    }
+                                                  }
+                                                }
+                                              ]
                                             },
                                             {
                                               "type": "IMMEDIATE_TOKEN",
@@ -6801,30 +6830,19 @@
                                                 "value": 1,
                                                 "content": {
                                                   "type": "PATTERN",
-                                                  "value": "#[\\dA-Fa-f]{1,5}"
+                                                  "value": "[^,\\]'#]+"
                                                 }
                                               }
                                             }
                                           ]
-                                        },
-                                        {
-                                          "type": "IMMEDIATE_TOKEN",
-                                          "content": {
-                                            "type": "PREC",
-                                            "value": 1,
-                                            "content": {
-                                              "type": "PATTERN",
-                                              "value": "[^,\\]'#]+"
-                                            }
-                                          }
                                         }
-                                      ]
-                                    }
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "BLANK"
                                   }
                                 ]
-                              },
-                              {
-                                "type": "BLANK"
                               }
                             ]
                           }
@@ -7162,45 +7180,65 @@
               "type": "SEQ",
               "members": [
                 {
-                  "type": "SEQ",
+                  "type": "CHOICE",
                   "members": [
                     {
                       "type": "SYMBOL",
-                      "name": "attribute"
+                      "name": "expr_double_quotes"
                     },
                     {
-                      "type": "CHOICE",
+                      "type": "SEQ",
                       "members": [
                         {
-                          "type": "SEQ",
+                          "type": "SYMBOL",
+                          "name": "attribute"
+                        },
+                        {
+                          "type": "CHOICE",
                           "members": [
                             {
-                              "type": "STRING",
-                              "value": "="
-                            },
-                            {
-                              "type": "REPEAT",
-                              "content": {
-                                "type": "CHOICE",
-                                "members": [
-                                  {
-                                    "type": "SYMBOL",
-                                    "name": "expr_double_quotes"
-                                  },
-                                  {
+                              "type": "SEQ",
+                              "members": [
+                                {
+                                  "type": "STRING",
+                                  "value": "="
+                                },
+                                {
+                                  "type": "REPEAT",
+                                  "content": {
                                     "type": "CHOICE",
                                     "members": [
                                       {
                                         "type": "SYMBOL",
-                                        "name": "hash_escape_no_comma"
+                                        "name": "expr_double_quotes"
                                       },
                                       {
-                                        "type": "SYMBOL",
-                                        "name": "_hash"
-                                      },
-                                      {
-                                        "type": "SYMBOL",
-                                        "name": "hash_rgb"
+                                        "type": "CHOICE",
+                                        "members": [
+                                          {
+                                            "type": "SYMBOL",
+                                            "name": "hash_escape_no_comma"
+                                          },
+                                          {
+                                            "type": "SYMBOL",
+                                            "name": "_hash"
+                                          },
+                                          {
+                                            "type": "SYMBOL",
+                                            "name": "hash_rgb"
+                                          },
+                                          {
+                                            "type": "IMMEDIATE_TOKEN",
+                                            "content": {
+                                              "type": "PREC",
+                                              "value": 1,
+                                              "content": {
+                                                "type": "PATTERN",
+                                                "value": "#[\\dA-Fa-f]{1,5}"
+                                              }
+                                            }
+                                          }
+                                        ]
                                       },
                                       {
                                         "type": "IMMEDIATE_TOKEN",
@@ -7209,30 +7247,19 @@
                                           "value": 1,
                                           "content": {
                                             "type": "PATTERN",
-                                            "value": "#[\\dA-Fa-f]{1,5}"
+                                            "value": "[^,\\]\"#]+"
                                           }
                                         }
                                       }
                                     ]
-                                  },
-                                  {
-                                    "type": "IMMEDIATE_TOKEN",
-                                    "content": {
-                                      "type": "PREC",
-                                      "value": 1,
-                                      "content": {
-                                        "type": "PATTERN",
-                                        "value": "[^,\\]\"#]+"
-                                      }
-                                    }
                                   }
-                                ]
-                              }
+                                }
+                              ]
+                            },
+                            {
+                              "type": "BLANK"
                             }
                           ]
-                        },
-                        {
-                          "type": "BLANK"
                         }
                       ]
                     }
@@ -7271,45 +7298,65 @@
                         ]
                       },
                       {
-                        "type": "SEQ",
+                        "type": "CHOICE",
                         "members": [
                           {
                             "type": "SYMBOL",
-                            "name": "attribute"
+                            "name": "expr_double_quotes"
                           },
                           {
-                            "type": "CHOICE",
+                            "type": "SEQ",
                             "members": [
                               {
-                                "type": "SEQ",
+                                "type": "SYMBOL",
+                                "name": "attribute"
+                              },
+                              {
+                                "type": "CHOICE",
                                 "members": [
                                   {
-                                    "type": "STRING",
-                                    "value": "="
-                                  },
-                                  {
-                                    "type": "REPEAT",
-                                    "content": {
-                                      "type": "CHOICE",
-                                      "members": [
-                                        {
-                                          "type": "SYMBOL",
-                                          "name": "expr_double_quotes"
-                                        },
-                                        {
+                                    "type": "SEQ",
+                                    "members": [
+                                      {
+                                        "type": "STRING",
+                                        "value": "="
+                                      },
+                                      {
+                                        "type": "REPEAT",
+                                        "content": {
                                           "type": "CHOICE",
                                           "members": [
                                             {
                                               "type": "SYMBOL",
-                                              "name": "hash_escape_no_comma"
+                                              "name": "expr_double_quotes"
                                             },
                                             {
-                                              "type": "SYMBOL",
-                                              "name": "_hash"
-                                            },
-                                            {
-                                              "type": "SYMBOL",
-                                              "name": "hash_rgb"
+                                              "type": "CHOICE",
+                                              "members": [
+                                                {
+                                                  "type": "SYMBOL",
+                                                  "name": "hash_escape_no_comma"
+                                                },
+                                                {
+                                                  "type": "SYMBOL",
+                                                  "name": "_hash"
+                                                },
+                                                {
+                                                  "type": "SYMBOL",
+                                                  "name": "hash_rgb"
+                                                },
+                                                {
+                                                  "type": "IMMEDIATE_TOKEN",
+                                                  "content": {
+                                                    "type": "PREC",
+                                                    "value": 1,
+                                                    "content": {
+                                                      "type": "PATTERN",
+                                                      "value": "#[\\dA-Fa-f]{1,5}"
+                                                    }
+                                                  }
+                                                }
+                                              ]
                                             },
                                             {
                                               "type": "IMMEDIATE_TOKEN",
@@ -7318,30 +7365,19 @@
                                                 "value": 1,
                                                 "content": {
                                                   "type": "PATTERN",
-                                                  "value": "#[\\dA-Fa-f]{1,5}"
+                                                  "value": "[^,\\]\"#]+"
                                                 }
                                               }
                                             }
                                           ]
-                                        },
-                                        {
-                                          "type": "IMMEDIATE_TOKEN",
-                                          "content": {
-                                            "type": "PREC",
-                                            "value": 1,
-                                            "content": {
-                                              "type": "PATTERN",
-                                              "value": "[^,\\]\"#]+"
-                                            }
-                                          }
                                         }
-                                      ]
-                                    }
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "BLANK"
                                   }
                                 ]
-                              },
-                              {
-                                "type": "BLANK"
                               }
                             ]
                           }

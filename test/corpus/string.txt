@@ -369,6 +369,24 @@ foo="#{?#{==:#[bold#,fg=#000000,italic],},,}"
 string: style with format
 ========================================
 
+foo='#[#{?foo,fg=#000000,}]'
+
+---
+
+(file
+  (environment_assignment
+    (name)
+    (value
+      (str_single_quotes
+        (expr_single_quotes
+          (expr_single_quotes
+            (name)
+            (hash_rgb)))))))
+
+========================================
+string: style with format value
+========================================
+
 foo="#[fg=#{?foo,#000000,#111111}]"
 
 ---
