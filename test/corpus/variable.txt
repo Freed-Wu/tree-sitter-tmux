@@ -9,12 +9,13 @@ MYVAR="value"
 
 (file
   (environment_assignment
-    (name)
-    (value))
-  (environment_assignment
-    (name)
+    (variable_name)
     (value
-      (str_double_quotes))))
+      (string)))
+  (environment_assignment
+    (variable_name)
+    (value
+      (string))))
 
 ========================================
 variable: hidden
@@ -28,10 +29,11 @@ variable: hidden
 (file
   (hidden_assignment
     (hidden_keyword)
-    (name)
-    (value))
+    (variable_name)
+    (value
+      (string)))
   (hidden_assignment
     (hidden_keyword)
-    (name)
+    (variable_name)
     (value
-      (str_double_quotes))))
+      (string))))

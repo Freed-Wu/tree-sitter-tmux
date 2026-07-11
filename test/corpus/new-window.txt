@@ -15,9 +15,11 @@ neww top
   (new_window_directive
     (command))
   (new_window_directive
-    (command))
+    (command)
+    (string))
   (new_window_directive
-    (command)))
+    (command)
+    (string)))
 
 ========================================
 new-window: flags
@@ -73,25 +75,32 @@ new-window -abdkPS top
 (file
   (new_window_directive
     (command)
-    (command_line_option))
+    (command_line_option)
+    (string))
   (new_window_directive
     (command)
-    (command_line_option))
+    (command_line_option)
+    (string))
   (new_window_directive
     (command)
-    (command_line_option))
+    (command_line_option)
+    (string))
   (new_window_directive
     (command)
-    (command_line_option))
+    (command_line_option)
+    (string))
   (new_window_directive
     (command)
-    (command_line_option))
+    (command_line_option)
+    (string))
   (new_window_directive
     (command)
-    (command_line_option))
+    (command_line_option)
+    (string))
   (new_window_directive
     (command)
-    (command_line_option)))
+    (command_line_option)
+    (string)))
 
 ========================================
 new-window: options
@@ -111,53 +120,56 @@ new-window -c /tmp -e VAR=value -e VAR2=value2 -F "#{session_name}:#{window_inde
   (new_window_directive
     (command)
     (command_line_option)
-    (start_directory))
+    (start_directory
+      (string)))
   (new_window_directive
     (command)
     (command_line_option)
-    (environment))
+    (environment
+      (string)))
   (new_window_directive
     (command)
     (command_line_option)
-    (environment)
+    (environment
+      (string))
     (command_line_option)
-    (environment))
+    (environment
+      (string)))
   (new_window_directive
     (command)
     (command_line_option)
     (format
-      (str_double_quotes
-        (expr_double_quotes
-          (name))
-        (expr_double_quotes
-          (name)))))
+      (string)))
   (new_window_directive
     (command)
     (command_line_option)
-    (window_name))
+    (window_name
+      (string)))
   (new_window_directive
     (command)
     (command_line_option)
-    (window))
+    (window
+      (string)))
   (new_window_directive
     (command)
     (command_line_option)
-    (start_directory)
+    (start_directory
+      (string))
     (command_line_option)
-    (environment)
+    (environment
+      (string))
     (command_line_option)
-    (environment)
+    (environment
+      (string))
     (command_line_option)
     (format
-      (str_double_quotes
-        (expr_double_quotes
-          (name))
-        (expr_double_quotes
-          (name))))
+      (string))
     (command_line_option)
-    (window_name)
+    (window_name
+      (string))
     (command_line_option)
-    (window)))
+    (window
+      (string))))
 
 ========================================
 new-window: options + shell
@@ -177,53 +189,63 @@ new-window -c /tmp -e VAR=value -e VAR2=value2 -F "#{session_name}:#{window_inde
   (new_window_directive
     (command)
     (command_line_option)
-    (start_directory))
+    (start_directory
+      (string))
+    (string))
   (new_window_directive
     (command)
     (command_line_option)
-    (environment))
+    (environment
+      (string))
+    (string))
   (new_window_directive
     (command)
     (command_line_option)
-    (environment)
+    (environment
+      (string))
     (command_line_option)
-    (environment))
+    (environment
+      (string))
+    (string))
   (new_window_directive
     (command)
     (command_line_option)
     (format
-      (str_double_quotes
-        (expr_double_quotes
-          (name))
-        (expr_double_quotes
-          (name)))))
+      (string))
+    (string))
   (new_window_directive
     (command)
     (command_line_option)
-    (window_name))
+    (window_name
+      (string))
+    (string))
   (new_window_directive
     (command)
     (command_line_option)
-    (window))
+    (window
+      (string))
+    (string))
   (new_window_directive
     (command)
     (command_line_option)
-    (start_directory)
+    (start_directory
+      (string))
     (command_line_option)
-    (environment)
+    (environment
+      (string))
     (command_line_option)
-    (environment)
+    (environment
+      (string))
     (command_line_option)
     (format
-      (str_double_quotes
-        (expr_double_quotes
-          (name))
-        (expr_double_quotes
-          (name))))
+      (string))
     (command_line_option)
-    (window_name)
+    (window_name
+      (string))
     (command_line_option)
-    (window)))
+    (window
+      (string))
+    (string)))
 
 ========================================
 new-window: complex
@@ -245,45 +267,49 @@ bind c new-window -c "#{pane_current_path}"
     (command_line_option)
     (command_line_option)
     (format
-      (str_double_quotes
-        (expr_double_quotes
-          (name))))
+      (string))
     (command_line_option)
-    (window_name))
+    (window_name
+      (string))
+    (string))
   (new_window_directive
     (command)
     (command_line_option)
-    (environment)
+    (environment
+      (string))
     (command_line_option)
-    (environment)
+    (environment
+      (string))
     (command_line_option)
-    (window_name))
+    (window_name
+      (string))
+    (string))
   (new_window_directive
     (command)
     (command_line_option)
     (command_line_option)
-    (window))
-  (new_window_directive
-    (command)
-    (command_line_option)
-    (start_directory)
-    (command_line_option)
-    (window)
-    (str_double_quotes))
+    (window
+      (string)))
   (new_window_directive
     (command)
     (command_line_option)
     (start_directory
-      (str_double_quotes
-        (expr_double_quotes
-          (name)))))
+      (string))
+    (command_line_option)
+    (window
+      (string))
+    (string))
+  (new_window_directive
+    (command)
+    (command_line_option)
+    (start_directory
+      (string)))
   (bind_key_directive
     (command)
-    (key)
+    (key
+      (string))
     (new_window_directive
       (command)
       (command_line_option)
       (start_directory
-        (str_double_quotes
-          (expr_double_quotes
-            (name)))))))
+        (string)))))

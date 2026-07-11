@@ -10,14 +10,19 @@ unbind-key -T copy-mode-vi v ; bind-key -T copy-mode-vi v send-keys -X begin-sel
   (unbind_key_directive
     (command)
     (command_line_option)
-    (key_table)
-    (key))
+    (key_table
+      (string))
+    (key
+      (string)))
   (bind_key_directive
     (command)
     (command_line_option)
-    (key_table)
-    (key)
+    (key_table
+      (string))
+    (key
+      (string))
     (send_keys_directive
       (command)
       (command_line_option)
-      (key))))
+      (key
+        (string)))))

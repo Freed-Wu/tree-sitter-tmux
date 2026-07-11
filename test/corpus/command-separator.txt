@@ -8,11 +8,13 @@ foo=1 ; bar=2
 
 (file
   (environment_assignment
-    (name)
-    (value))
+    (variable_name)
+    (value
+      (string)))
   (environment_assignment
-    (name)
-    (value)))
+    (variable_name)
+    (value
+      (string))))
 
 ========================================
 command separator: semicolon no space
@@ -24,11 +26,13 @@ foo=1; bar=2
 
 (file
   (environment_assignment
-    (name)
-    (value))
+    (variable_name)
+    (value
+      (string)))
   (environment_assignment
-    (name)
-    (value)))
+    (variable_name)
+    (value
+      (string))))
 
 ========================================
 command separator: escaped semicolon
@@ -40,11 +44,13 @@ foo=1 \; bar=2
 
 (file
   (environment_assignment
-    (name)
-    (value))
+    (variable_name)
+    (value
+      (string)))
   (environment_assignment
-    (name)
-    (value)))
+    (variable_name)
+    (value
+      (string))))
 
 ========================================
 command separator: quoted semicolon
@@ -56,11 +62,13 @@ foo=1 ';' bar=2
 
 (file
   (environment_assignment
-    (name)
-    (value))
+    (variable_name)
+    (value
+      (string)))
   (environment_assignment
-    (name)
-    (value)))
+    (variable_name)
+    (value
+      (string))))
 
 ========================================
 command separator: newline
@@ -73,8 +81,10 @@ bar=2
 
 (file
   (environment_assignment
-    (name)
-    (value))
+    (variable_name)
+    (value
+      (string)))
   (environment_assignment
-    (name)
-    (value)))
+    (variable_name)
+    (value
+      (string))))

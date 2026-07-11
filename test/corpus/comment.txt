@@ -31,9 +31,13 @@ bind a # Foo
 ---
 
 (file
-  (ERROR
-    (command))
-  (comment))
+  (bind_key_directive
+    (command)
+    (key
+      (string))
+    (comment)
+    (attach_session_directive
+      (MISSING command))))
 
 ========================================
 comment: end of line
@@ -46,8 +50,10 @@ bind a send-keys a # Foo
 (file
   (bind_key_directive
     (command)
-    (key)
+    (key
+      (string))
     (send_keys_directive
       (command)
-      (key)
-      (comment))))
+      (key
+        (string))))
+  (comment))

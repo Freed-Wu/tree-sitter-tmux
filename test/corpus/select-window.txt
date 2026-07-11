@@ -88,45 +88,53 @@ selectw -t 'proj alpha:4'
   (select_window_directive
     (command)
     (command_line_option)
-    (window))
-  (select_window_directive
-    (command)
-    (command_line_option)
-    (window))
-  (select_window_directive
-    (command)
-    (command_line_option)
-    (window))
-  (select_window_directive
-    (command)
-    (command_line_option)
-    (window))
-  (select_window_directive
-    (command)
-    (command_line_option)
-    (window))
-  (select_window_directive
-    (command)
-    (command_line_option)
-    (window))
-  (select_window_directive
-    (command)
-    (command_line_option)
-    (window))
-  (select_window_directive
-    (command)
-    (command_line_option)
-    (window))
+    (window
+      (string)))
   (select_window_directive
     (command)
     (command_line_option)
     (window
-      (str_single_quotes)))
+      (string)))
   (select_window_directive
     (command)
     (command_line_option)
     (window
-      (str_single_quotes))))
+      (string)))
+  (select_window_directive
+    (command)
+    (command_line_option)
+    (window
+      (string)))
+  (select_window_directive
+    (command)
+    (command_line_option)
+    (window
+      (string)))
+  (select_window_directive
+    (command)
+    (command_line_option)
+    (window
+      (string)))
+  (select_window_directive
+    (command)
+    (command_line_option)
+    (window
+      (string)))
+  (select_window_directive
+    (command)
+    (command_line_option)
+    (window
+      (string)))
+  (select_window_directive
+    (command)
+    (command_line_option)
+    (window
+      (string)))
+  (select_window_directive
+    (command)
+    (command_line_option)
+    (window
+      (string))))
 
 ========================================
 select-window: flags + options
@@ -147,42 +155,50 @@ selectw -T -t @5
     (command)
     (command_line_option)
     (command_line_option)
-    (window))
+    (window
+      (string)))
   (select_window_directive
     (command)
     (command_line_option)
     (command_line_option)
-    (window))
+    (window
+      (string)))
   (select_window_directive
     (command)
     (command_line_option)
-    (window)
+    (window
+      (string))
     (command_line_option))
   (select_window_directive
     (command)
     (command_line_option)
-    (window)
+    (window
+      (string))
     (command_line_option))
   (select_window_directive
     (command)
     (command_line_option)
     (command_line_option)
-    (window))
+    (window
+      (string)))
   (select_window_directive
     (command)
     (command_line_option)
     (command_line_option)
-    (window))
+    (window
+      (string)))
   (select_window_directive
     (command)
     (command_line_option)
     (command_line_option)
-    (window))
+    (window
+      (string)))
   (select_window_directive
     (command)
     (command_line_option)
     (command_line_option)
-    (window)))
+    (window
+      (string))))
 
 ========================================
 select-window: complex
@@ -198,12 +214,14 @@ selectw -t \
   (select_window_directive
     (command)
     (command_line_option)
-    (window)
+    (window
+      (string))
     (command_line_option))
   (comment)
   (select_window_directive
     (command)
     (command_line_option)
-    (window)
+    (window
+      (string))
     (command_line_option))
   (comment))
