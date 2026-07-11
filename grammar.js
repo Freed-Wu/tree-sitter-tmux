@@ -28,8 +28,10 @@ module.exports = grammar({
   ],
 
   rules: {
-    file: ($) => commands($),
-
+    file: ($) => $._commands,
+    _commands: ($) => repeat1(
+      seq(optional(choice($._command, $.if_statement)), $._command_separator),
+    ),
     _command: ($) =>
       choice(
         $.attach_session_directive,
@@ -131,16 +133,16 @@ module.exports = grammar({
         alias(/\%if/, $.if_keyword),
         /\s+/,
         alias($.str_double_quotes, $.condition),
-        commands($),
+        $._commands,
         repeat(
           seq(
             alias(/\%elif/, $.elif_keyword),
             /\s+/,
             alias($.str_double_quotes, $.condition),
-            commands($),
+            $._commands,
           ),
         ),
-        optional(seq(alias(/\%else/, $.else_keyword), /\s+/, commands($))),
+        optional(seq(alias(/\%else/, $.else_keyword), /\s+/, $._commands)),
         alias(/%endif/, $.endif_keyword),
       ),
 
@@ -946,8 +948,8 @@ module.exports = grammar({
     _word_key: (_) => WORD_KEY,
     _word_key_immediate: (_) => token.immediate(WORD_KEY),
     key: ($) => stringOrKeyRule($, false),
-    block: ($) => seq("{", commands($), "}"),
-    block_immediate: ($) => seq(token.immediate("{"), commands($), "}"),
+    block: ($) => seq("{", $._commands, "}"),
+    block_immediate: ($) => seq(token.immediate("{"), $._commands, "}"),
     _shell: ($) => $._string,
     _shell_rest: ($) => repeat1($._string),
     _tmux: ($) =>
@@ -966,16 +968,6 @@ module.exports = grammar({
 
 function command($, cmd, ...args) {
   return seq(alias(cmd, $.command), ...args);
-}
-
-function commands($) {
-  return repeat(
-    seq(optional(choice($._command, $.if_statement)), $._command_separator),
-  );
-}
-
-function sep0(rule, separator) {
-  return choice(rule, sep1(rule, separator));
 }
 
 function sep1(rule, separator) {

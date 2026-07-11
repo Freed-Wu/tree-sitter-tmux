@@ -3,7 +3,11 @@
   "name": "tmux",
   "rules": {
     "file": {
-      "type": "REPEAT",
+      "type": "SYMBOL",
+      "name": "_commands"
+    },
+    "_commands": {
+      "type": "REPEAT1",
       "content": {
         "type": "SEQ",
         "members": [
@@ -451,37 +455,8 @@
           "value": "condition"
         },
         {
-          "type": "REPEAT",
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "CHOICE",
-                "members": [
-                  {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "SYMBOL",
-                        "name": "_command"
-                      },
-                      {
-                        "type": "SYMBOL",
-                        "name": "if_statement"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "BLANK"
-                  }
-                ]
-              },
-              {
-                "type": "SYMBOL",
-                "name": "_command_separator"
-              }
-            ]
-          }
+          "type": "SYMBOL",
+          "name": "_commands"
         },
         {
           "type": "REPEAT",
@@ -511,37 +486,8 @@
                 "value": "condition"
               },
               {
-                "type": "REPEAT",
-                "content": {
-                  "type": "SEQ",
-                  "members": [
-                    {
-                      "type": "CHOICE",
-                      "members": [
-                        {
-                          "type": "CHOICE",
-                          "members": [
-                            {
-                              "type": "SYMBOL",
-                              "name": "_command"
-                            },
-                            {
-                              "type": "SYMBOL",
-                              "name": "if_statement"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "BLANK"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "SYMBOL",
-                      "name": "_command_separator"
-                    }
-                  ]
-                }
+                "type": "SYMBOL",
+                "name": "_commands"
               }
             ]
           }
@@ -566,37 +512,8 @@
                   "value": "\\s+"
                 },
                 {
-                  "type": "REPEAT",
-                  "content": {
-                    "type": "SEQ",
-                    "members": [
-                      {
-                        "type": "CHOICE",
-                        "members": [
-                          {
-                            "type": "CHOICE",
-                            "members": [
-                              {
-                                "type": "SYMBOL",
-                                "name": "_command"
-                              },
-                              {
-                                "type": "SYMBOL",
-                                "name": "if_statement"
-                              }
-                            ]
-                          },
-                          {
-                            "type": "BLANK"
-                          }
-                        ]
-                      },
-                      {
-                        "type": "SYMBOL",
-                        "name": "_command_separator"
-                      }
-                    ]
-                  }
+                  "type": "SYMBOL",
+                  "name": "_commands"
                 }
               ]
             },
@@ -7852,37 +7769,8 @@
           "value": "{"
         },
         {
-          "type": "REPEAT",
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "CHOICE",
-                "members": [
-                  {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "SYMBOL",
-                        "name": "_command"
-                      },
-                      {
-                        "type": "SYMBOL",
-                        "name": "if_statement"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "BLANK"
-                  }
-                ]
-              },
-              {
-                "type": "SYMBOL",
-                "name": "_command_separator"
-              }
-            ]
-          }
+          "type": "SYMBOL",
+          "name": "_commands"
         },
         {
           "type": "STRING",
@@ -7901,37 +7789,8 @@
           }
         },
         {
-          "type": "REPEAT",
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "CHOICE",
-                "members": [
-                  {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "SYMBOL",
-                        "name": "_command"
-                      },
-                      {
-                        "type": "SYMBOL",
-                        "name": "if_statement"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "BLANK"
-                  }
-                ]
-              },
-              {
-                "type": "SYMBOL",
-                "name": "_command_separator"
-              }
-            ]
-          }
+          "type": "SYMBOL",
+          "name": "_commands"
         },
         {
           "type": "STRING",
