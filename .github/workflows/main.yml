@@ -28,10 +28,10 @@ jobs:
           registry-url: https://registry.npmjs.org
       - name: Install dependencies
         run: |
-          yarn
+          npm install -g tree-sitter-cli
       - name: Test
         run: |
-          npm test
+          tree-sitter test
 
   deploy-npm:
     runs-on: ubuntu-latest
@@ -51,7 +51,7 @@ jobs:
           yarn pack
         env:
           NODE_ENV: production
-      - uses: softprops/action-gh-release@v1
+      - uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: "*.tgz"
@@ -74,7 +74,7 @@ jobs:
       - name: Build
         run: |
           cargo package
-      - uses: softprops/action-gh-release@v1
+      - uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: "target/package/*.crate"
@@ -82,6 +82,36 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         run: |
           cargo publish --token ${{secrets.CARGO_TOKEN}}
+
+  deploy-luarocks:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leafo/gh-actions-lua@v12
+        with:
+          luaVersion: "5.1"
+      - uses: leafo/gh-actions-luarocks@v6
+      - name: Install dependencies
+        run: |
+          luarocks install tree-sitter-cli
+      - uses: lumen-oss/luarocks-tag-release@v7
+        env:
+          LUAROCKS_API_KEY: ${{secrets.LUAROCKS_API_KEY}}
+        if: "! startsWith(github.ref, 'refs/tags/')"
+        with:
+          extra_luarocks_args: |
+            --force
+          version: scm
+          template: tree-sitter-tmux-scm-1.rockspec
+      - uses: lumen-oss/luarocks-tag-release@v7
+        env:
+          LUAROCKS_API_KEY: ${{secrets.LUAROCKS_API_KEY}}
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          extra_luarocks_args: |
+            --force
+          template: tree-sitter-tmux-scm-1.rockspec
 
   build-wheels:
     needs: test
@@ -110,7 +140,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: ${{env.python-version}}
           cache: ${{env.cache}}
@@ -130,7 +160,7 @@ jobs:
           pattern: artifact-*
           merge-multiple: true
           path: dist
-      - uses: softprops/action-gh-release@v1
+      - uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
           # body_path: build/CHANGELOG.md
@@ -140,26 +170,3 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         with:
           password: ${{secrets.PYPI_API_TOKEN}}
-
-  deploy-aur:
-    needs: build
-    runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/')
-    steps:
-      - uses: Freed-Wu/update-aur-package@v1.0.11
-        if: startsWith(github.ref, 'refs/tags/')
-        with:
-          package_name: python-tree-sitter-tmux
-          ssh_private_key: ${{secrets.AUR_SSH_PRIVATE_KEY}}
-
-  deploy-nur:
-    needs: build
-    runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/')
-    steps:
-      - name: Trigger Workflow
-        run: >
-          curl -X POST -d '{"ref": "main"}'
-          -H "Accept: application/vnd.github.v3+json"
-          -H "Authorization: Bearer ${{secrets.GH_TOKEN}}"
-          https://api.github.com/repos/Freed-Wu/nur-packages/actions/workflows/version.yml/dispatches
