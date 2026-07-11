@@ -9,10 +9,8 @@ if-shell 'true' 'var=1'
 (file
   (if_shell_directive
     (command)
-    (str_single_quotes)
-    (environment_assignment
-      (name)
-      (value))))
+    (shell)
+    (_statement)))
 
 ========================================
 if-shell: single quotes else
@@ -25,13 +23,9 @@ if-shell 'true' 'var=1' 'var=2'
 (file
   (if_shell_directive
     (command)
-    (str_single_quotes)
-    (environment_assignment
-      (name)
-      (value))
-    (environment_assignment
-      (name)
-      (value))))
+    (shell)
+    (_statement)
+    (_statement)))
 
 ========================================
 if-shell: block
@@ -46,11 +40,12 @@ if 'true' {
 (file
   (if_shell_directive
     (command)
-    (str_single_quotes)
+    (shell)
     (block
       (environment_assignment
-        (name)
-        (value)))))
+        (variable_name)
+        (value
+          (string))))))
 
 ========================================
 if-shell: block else
@@ -67,12 +62,14 @@ if 'true' {
 (file
   (if_shell_directive
     (command)
-    (str_single_quotes)
+    (shell)
     (block
       (environment_assignment
-        (name)
-        (value)))
+        (variable_name)
+        (value
+          (string))))
     (block
       (environment_assignment
-        (name)
-        (value)))))
+        (variable_name)
+        (value
+          (string))))))

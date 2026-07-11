@@ -12,15 +12,13 @@ set -g status-style bg=red
   (if_statement
     (if_keyword)
     (condition
-      (expr_double_quotes
-        (operator)
-        (expr_double_quotes
-          (name))))
+      (string))
     (set_option_directive
       (command)
       (command_line_option)
       (option)
-      (value))
+      (value
+        (string)))
     (endif_keyword)))
 
 ========================================
@@ -39,21 +37,20 @@ set -g status-style bg=blue
   (if_statement
     (if_keyword)
     (condition
-      (expr_double_quotes
-        (operator)
-        (expr_double_quotes
-          (name))))
+      (string))
     (set_option_directive
       (command)
       (command_line_option)
       (option)
-      (value))
+      (value
+        (string)))
     (else_keyword)
     (set_option_directive
       (command)
       (command_line_option)
       (option)
-      (value))
+      (value
+        (string)))
     (endif_keyword)))
 
 ========================================
@@ -74,32 +71,29 @@ set -g status-style bg=blue
   (if_statement
     (if_keyword)
     (condition
-      (expr_double_quotes
-        (operator)
-        (expr_double_quotes
-          (name))))
+      (string))
     (set_option_directive
       (command)
       (command_line_option)
       (option)
-      (value))
+      (value
+        (string)))
     (elif_keyword)
     (condition
-      (expr_double_quotes
-        (operator)
-        (expr_double_quotes
-          (name))))
+      (string))
     (set_option_directive
       (command)
       (command_line_option)
       (option)
-      (value))
+      (value
+        (string)))
     (else_keyword)
     (set_option_directive
       (command)
       (command_line_option)
       (option)
-      (value))
+      (value
+        (string)))
     (endif_keyword)))
 
 ========================================
@@ -123,33 +117,33 @@ bar=6
   (if_statement
     (if_keyword)
     (condition
-      (expr_double_quotes
-        (operator)
-        (expr_double_quotes
-          (name))))
+      (string))
     (environment_assignment
-      (name)
-      (value))
+      (variable_name)
+      (value
+        (string)))
     (environment_assignment
-      (name)
-      (value))
+      (variable_name)
+      (value
+        (string)))
     (elif_keyword)
     (condition
-      (expr_double_quotes
-        (operator)
-        (expr_double_quotes
-          (name))))
+      (string))
     (environment_assignment
-      (name)
-      (value))
+      (variable_name)
+      (value
+        (string)))
     (environment_assignment
-      (name)
-      (value))
+      (variable_name)
+      (value
+        (string)))
     (else_keyword)
     (environment_assignment
-      (name)
-      (value))
+      (variable_name)
+      (value
+        (string)))
     (environment_assignment
-      (name)
-      (value))
+      (variable_name)
+      (value
+        (string)))
     (endif_keyword)))

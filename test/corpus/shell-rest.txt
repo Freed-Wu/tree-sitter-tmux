@@ -9,6 +9,10 @@ new-window foo -a --flag arg1 'arg2' \; start-server
 (file
   (new_window_directive
     (command)
-    (str_single_quotes))
+    (string)
+    (string)
+    (string)
+    (string)
+    (string))
   (start_server_directive
     (command)))

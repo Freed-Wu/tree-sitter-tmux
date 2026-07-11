@@ -10,7 +10,9 @@ send a
 (file
   (send_keys_directive
     (command)
-    (key))
+    (key
+      (string)))
   (send_keys_directive
     (command)
-    (key)))
+    (key
+      (string))))

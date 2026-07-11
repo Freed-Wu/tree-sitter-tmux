@@ -30,27 +30,33 @@ resize-pane -U 5
   (resize_pane_directive
     (command)
     (command_line_option)
-    (adjustment))
+    (adjustment
+      (string)))
   (resize_pane_directive
     (command)
     (command_line_option)
-    (adjustment))
+    (adjustment
+      (string)))
   (resize_pane_directive
     (command)
     (command_line_option)
-    (adjustment))
+    (adjustment
+      (string)))
   (resize_pane_directive
     (command)
     (command_line_option)
-    (adjustment))
+    (adjustment
+      (string)))
   (resize_pane_directive
     (command)
     (command_line_option)
-    (adjustment))
+    (adjustment
+      (string)))
   (resize_pane_directive
     (command)
     (command_line_option)
-    (adjustment)))
+    (adjustment
+      (string))))
 
 ========================================
 resize-pane: x, y
@@ -66,17 +72,21 @@ resize-pane -x 1 -y 1
   (resize_pane_directive
     (command)
     (command_line_option)
-    (width))
+    (width
+      (string)))
   (resize_pane_directive
     (command)
     (command_line_option)
-    (height))
+    (height
+      (string)))
   (resize_pane_directive
     (command)
     (command_line_option)
-    (width)
+    (width
+      (string))
     (command_line_option)
-    (height)))
+    (height
+      (string))))
 
 ========================================
 resize-pane: target pane
@@ -92,29 +102,38 @@ resize-pane -t 1 -D 5
   (resize_pane_directive
     (command)
     (command_line_option)
-    (pane)
+    (pane
+      (string))
     (command_line_option)
-    (width))
+    (width
+      (string)))
   (resize_pane_directive
     (command)
     (command_line_option)
-    (pane)
+    (pane
+      (string))
     (command_line_option)
-    (height))
+    (height
+      (string)))
   (resize_pane_directive
     (command)
     (command_line_option)
-    (pane)
+    (pane
+      (string))
     (command_line_option)
-    (width)
+    (width
+      (string))
     (command_line_option)
-    (height))
+    (height
+      (string)))
   (resize_pane_directive
     (command)
     (command_line_option)
-    (pane)
+    (pane
+      (string))
     (command_line_option)
-    (adjustment)))
+    (adjustment
+      (string))))
 
 ========================================
 resize-pane: Z takes no argument

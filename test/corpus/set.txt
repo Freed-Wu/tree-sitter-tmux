@@ -11,7 +11,8 @@ set -g @plugin tmux-plugins/tpm
     (command)
     (command_line_option)
     (option)
-    (value)))
+    (value
+      (string))))
 
 ========================================
 set: single quote
@@ -27,7 +28,7 @@ set -g word-separators ' -_@'
     (command_line_option)
     (option)
     (value
-      (str_single_quotes))))
+      (string))))
 
 ========================================
 set: set-option
@@ -42,7 +43,8 @@ set-option -g automatic-rename on
     (command)
     (command_line_option)
     (option)
-    (value)))
+    (value
+      (string))))
 
 ========================================
 set: set-option optional value

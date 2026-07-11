@@ -108,69 +108,79 @@ splitw -F '#{pane_id}'
   (split_window_directive
     (command)
     (command_line_option)
-    (size))
+    (size
+      (string)))
   (split_window_directive
     (command)
     (command_line_option)
-    (size))
+    (size
+      (string)))
   (split_window_directive
     (command)
     (command_line_option)
-    (size))
+    (size
+      (string)))
   (split_window_directive
     (command)
     (command_line_option)
-    (size))
+    (size
+      (string)))
   (split_window_directive
     (command)
     (command_line_option)
-    (pane))
+    (pane
+      (string)))
   (split_window_directive
     (command)
     (command_line_option)
-    (pane))
+    (pane
+      (string)))
   (split_window_directive
     (command)
     (command_line_option)
-    (pane))
+    (pane
+      (string)))
   (split_window_directive
     (command)
     (command_line_option)
-    (pane))
+    (pane
+      (string)))
   (split_window_directive
     (command)
     (command_line_option)
-    (start_directory))
+    (start_directory
+      (string)))
   (split_window_directive
     (command)
     (command_line_option)
-    (start_directory))
+    (start_directory
+      (string)))
   (split_window_directive
     (command)
     (command_line_option)
-    (environment)
+    (environment
+      (string))
     (command_line_option)
-    (environment))
+    (environment
+      (string)))
   (split_window_directive
     (command)
     (command_line_option)
-    (environment)
+    (environment
+      (string))
     (command_line_option)
-    (environment))
+    (environment
+      (string)))
   (split_window_directive
     (command)
     (command_line_option)
     (format
-      (str_single_quotes
-        (expr_single_quotes
-          (name)))))
+      (string)))
   (split_window_directive
     (command)
     (command_line_option)
     (format
-      (str_single_quotes
-        (expr_single_quotes
-          (name))))))
+      (string))))
 
 ========================================
 split-window: options + shell
@@ -188,37 +198,45 @@ splitw -l 30% -t %1 "printf hello"
   (split_window_directive
     (command)
     (command_line_option)
-    (start_directory)
-    (str_double_quotes))
+    (start_directory
+      (string))
+    (string))
   (split_window_directive
     (command)
     (command_line_option)
-    (start_directory)
-    (str_double_quotes))
+    (start_directory
+      (string))
+    (string))
   (split_window_directive
     (command)
     (command_line_option)
-    (environment)
-    (str_double_quotes))
+    (environment
+      (string))
+    (string))
   (split_window_directive
     (command)
     (command_line_option)
-    (environment)
-    (str_double_quotes))
+    (environment
+      (string))
+    (string))
   (split_window_directive
     (command)
     (command_line_option)
-    (size)
+    (size
+      (string))
     (command_line_option)
-    (pane)
-    (str_double_quotes))
+    (pane
+      (string))
+    (string))
   (split_window_directive
     (command)
     (command_line_option)
-    (size)
+    (size
+      (string))
     (command_line_option)
-    (pane)
-    (str_double_quotes)))
+    (pane
+      (string))
+    (string)))
 
 ========================================
 split-window: flags + options
@@ -238,55 +256,55 @@ splitw -P -F '#{pane_index}:#{pane_active}' -t %1
     (command_line_option)
     (command_line_option)
     (command_line_option)
-    (size)
+    (size
+      (string))
     (command_line_option)
-    (pane))
+    (pane
+      (string)))
   (split_window_directive
     (command)
     (command_line_option)
     (command_line_option)
     (command_line_option)
-    (size)
+    (size
+      (string))
     (command_line_option)
-    (pane))
+    (pane
+      (string)))
   (split_window_directive
     (command)
     (command_line_option)
     (command_line_option)
     (command_line_option)
     (command_line_option)
-    (pane))
+    (pane
+      (string)))
   (split_window_directive
     (command)
     (command_line_option)
     (command_line_option)
     (command_line_option)
     (command_line_option)
-    (pane))
-  (split_window_directive
-    (command)
-    (command_line_option)
-    (command_line_option)
-    (format
-      (str_single_quotes
-        (expr_single_quotes
-          (name))
-        (expr_single_quotes
-          (name))))
-    (command_line_option)
-    (pane))
+    (pane
+      (string)))
   (split_window_directive
     (command)
     (command_line_option)
     (command_line_option)
     (format
-      (str_single_quotes
-        (expr_single_quotes
-          (name))
-        (expr_single_quotes
-          (name))))
+      (string))
     (command_line_option)
-    (pane)))
+    (pane
+      (string)))
+  (split_window_directive
+    (command)
+    (command_line_option)
+    (command_line_option)
+    (format
+      (string))
+    (command_line_option)
+    (pane
+      (string))))
 
 ========================================
 split-window: empty shell and stdin
@@ -301,10 +319,10 @@ splitw -dI
 (file
   (split_window_directive
     (command)
-    (str_single_quotes))
+    (string))
   (split_window_directive
     (command)
-    (str_single_quotes))
+    (string))
   (split_window_directive
     (command)
     (command_line_option))
@@ -315,10 +333,8 @@ splitw -dI
 ========================================
 split-window: complex
 ========================================
-split-window -Z -h -b -l 60% -e MODE=ci -e COLOR=1 -t \
-:3.1 -c ~/proj "bash -lc 'make 2>&1 | tee /tmp/build.log'"
-splitw -Z -h -b -l 60% -e MODE=ci -e COLOR=1 -t \
-:3.1 -c ~/proj "bash -lc 'make 2>&1 | tee /tmp/build.log'"
+split-window -Z -h -b -l 60% -e MODE=ci -e COLOR=1 -t :3.1 -c ~/proj "bash -lc 'make 2>&1 | tee /tmp/build.log'"
+splitw -Z -h -b -l 60% -e MODE=ci -e COLOR=1 -t :3.1 -c ~/proj "bash -lc 'make 2>&1 | tee /tmp/build.log'"
 
 ---
 
@@ -329,29 +345,39 @@ splitw -Z -h -b -l 60% -e MODE=ci -e COLOR=1 -t \
     (command_line_option)
     (command_line_option)
     (command_line_option)
-    (size)
+    (size
+      (string))
     (command_line_option)
-    (environment)
+    (environment
+      (string))
     (command_line_option)
-    (environment)
+    (environment
+      (string))
     (command_line_option)
-    (pane)
+    (pane
+      (string))
     (command_line_option)
-    (start_directory)
-    (str_double_quotes))
+    (start_directory
+      (string))
+    (string))
   (split_window_directive
     (command)
     (command_line_option)
     (command_line_option)
     (command_line_option)
     (command_line_option)
-    (size)
+    (size
+      (string))
     (command_line_option)
-    (environment)
+    (environment
+      (string))
     (command_line_option)
-    (environment)
+    (environment
+      (string))
     (command_line_option)
-    (pane)
+    (pane
+      (string))
     (command_line_option)
-    (start_directory)
-    (str_double_quotes)))
+    (start_directory
+      (string))
+    (string)))

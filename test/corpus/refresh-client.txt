@@ -11,7 +11,8 @@ refresh-client -l -t client
     (command)
     (command_line_option)
     (command_line_option)
-    (client)))
+    (client
+      (string))))
 
 ========================================
 refresh-client: target pane
@@ -25,6 +26,8 @@ refresh-client -l pane -t client
   (refresh_client_directive
     (command)
     (command_line_option)
-    (pane)
+    (pane
+      (string))
     (command_line_option)
-    (client)))
+    (client
+      (string))))

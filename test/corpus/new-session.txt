@@ -90,31 +90,23 @@ new -P -F '#{session_name}:#{session_attached}'
   (new_session_directive
     (command)
     (command_line_option)
-    (str_double_quotes))
+    (string))
   (new_session_directive
     (command)
     (command_line_option)
-    (str_double_quotes))
-  (new_session_directive
-    (command)
-    (command_line_option)
-    (command_line_option)
-    (format
-      (str_single_quotes
-        (expr_single_quotes
-          (name))
-        (expr_single_quotes
-          (name)))))
+    (string))
   (new_session_directive
     (command)
     (command_line_option)
     (command_line_option)
     (format
-      (str_single_quotes
-        (expr_single_quotes
-          (name))
-        (expr_single_quotes
-          (name))))))
+      (string)))
+  (new_session_directive
+    (command)
+    (command_line_option)
+    (command_line_option)
+    (format
+      (string))))
 
 ========================================
 new-session: options
@@ -138,65 +130,75 @@ new -x 180 -y 48
   (new_session_directive
     (command)
     (command_line_option)
-    (session_name))
+    (session_name
+      (string)))
   (new_session_directive
     (command)
     (command_line_option)
-    (session_name))
+    (session_name
+      (string)))
   (new_session_directive
     (command)
     (command_line_option)
-    (window_name))
+    (window_name
+      (string)))
   (new_session_directive
     (command)
     (command_line_option)
-    (window_name))
+    (window_name
+      (string)))
   (new_session_directive
     (command)
     (command_line_option)
-    (start_directory))
+    (start_directory
+      (string)))
   (new_session_directive
     (command)
     (command_line_option)
-    (start_directory))
+    (start_directory
+      (string)))
   (new_session_directive
     (command)
     (command_line_option)
-    (environment)
+    (environment
+      (string))
     (command_line_option)
-    (environment))
+    (environment
+      (string)))
   (new_session_directive
     (command)
     (command_line_option)
-    (environment)
+    (environment
+      (string))
     (command_line_option)
-    (environment))
+    (environment
+      (string)))
   (new_session_directive
     (command)
     (command_line_option)
     (format
-      (str_single_quotes
-        (expr_single_quotes
-          (name)))))
+      (string)))
   (new_session_directive
     (command)
     (command_line_option)
     (format
-      (str_single_quotes
-        (expr_single_quotes
-          (name)))))
+      (string)))
   (new_session_directive
     (command)
     (command_line_option)
-    (width)
+    (width
+      (string))
     (command_line_option)
-    (height))
+    (height
+      (string)))
   (new_session_directive
     (command)
     (command_line_option)
-    (width)
+    (width
+      (string))
     (command_line_option)
-    (height)))
+    (height
+      (string))))
 
 ========================================
 new-session: options + shell
@@ -212,35 +214,45 @@ new -e LANG=en_US.UTF-8 -e MODE=prod "bash -lc 'echo hello'"
   (new_session_directive
     (command)
     (command_line_option)
-    (session_name)
+    (session_name
+      (string))
     (command_line_option)
-    (window_name)
+    (window_name
+      (string))
     (command_line_option)
-    (start_directory)
-    (str_double_quotes))
+    (start_directory
+      (string))
+    (string))
   (new_session_directive
     (command)
     (command_line_option)
-    (session_name)
+    (session_name
+      (string))
     (command_line_option)
-    (window_name)
+    (window_name
+      (string))
     (command_line_option)
-    (start_directory)
-    (str_double_quotes))
+    (start_directory
+      (string))
+    (string))
   (new_session_directive
     (command)
     (command_line_option)
-    (environment)
+    (environment
+      (string))
     (command_line_option)
-    (environment)
-    (str_double_quotes))
+    (environment
+      (string))
+    (string))
   (new_session_directive
     (command)
     (command_line_option)
-    (environment)
+    (environment
+      (string))
     (command_line_option)
-    (environment)
-    (str_double_quotes)))
+    (environment
+      (string))
+    (string)))
 
 ========================================
 new-session: group (–t)
@@ -256,19 +268,23 @@ new -t existing:session
   (new_session_directive
     (command)
     (command_line_option)
-    (group_name))
+    (group_name
+      (string)))
   (new_session_directive
     (command)
     (command_line_option)
-    (group_name))
+    (group_name
+      (string)))
   (new_session_directive
     (command)
     (command_line_option)
-    (group_name))
+    (group_name
+      (string)))
   (new_session_directive
     (command)
     (command_line_option)
-    (group_name)))
+    (group_name
+      (string))))
 
 ========================================
 new-session: complex
@@ -291,27 +307,29 @@ ci -n "workers" -c ~/proj \
     (command_line_option)
     (command_line_option)
     (format
-      (str_single_quotes
-        (expr_single_quotes
-          (name))
-        (expr_single_quotes
-          (name))))
+      (string))
     (command_line_option)
-    (session_name)
+    (session_name
+      (string))
     (command_line_option)
     (window_name
-      (str_double_quotes))
+      (string))
     (command_line_option)
-    (start_directory)
+    (start_directory
+      (string))
     (command_line_option)
-    (environment)
+    (environment
+      (string))
     (command_line_option)
-    (environment)
+    (environment
+      (string))
     (command_line_option)
-    (width)
+    (width
+      (string))
     (command_line_option)
-    (height)
-    (str_double_quotes))
+    (height
+      (string))
+    (string))
   (comment)
   (new_session_directive
     (command)
@@ -319,25 +337,27 @@ ci -n "workers" -c ~/proj \
     (command_line_option)
     (command_line_option)
     (format
-      (str_single_quotes
-        (expr_single_quotes
-          (name))
-        (expr_single_quotes
-          (name))))
+      (string))
     (command_line_option)
-    (session_name)
+    (session_name
+      (string))
     (command_line_option)
     (window_name
-      (str_double_quotes))
+      (string))
     (command_line_option)
-    (start_directory)
+    (start_directory
+      (string))
     (command_line_option)
-    (environment)
+    (environment
+      (string))
     (command_line_option)
-    (environment)
+    (environment
+      (string))
     (command_line_option)
-    (width)
+    (width
+      (string))
     (command_line_option)
-    (height)
-    (str_double_quotes))
+    (height
+      (string))
+    (string))
   (comment))

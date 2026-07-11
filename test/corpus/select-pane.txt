@@ -126,39 +126,43 @@ selectp -T "build #2"
   (select_pane_directive
     (command)
     (command_line_option)
-    (pane))
+    (pane
+      (string)))
   (select_pane_directive
     (command)
     (command_line_option)
-    (pane))
+    (pane
+      (string)))
   (select_pane_directive
     (command)
     (command_line_option)
-    (pane))
+    (pane
+      (string)))
   (select_pane_directive
     (command)
     (command_line_option)
-    (pane))
-  (select_pane_directive
-    (command)
-    (command_line_option)
-    (title
-      (str_single_quotes)))
-  (select_pane_directive
-    (command)
-    (command_line_option)
-    (title
-      (str_single_quotes)))
+    (pane
+      (string)))
   (select_pane_directive
     (command)
     (command_line_option)
     (title
-      (str_double_quotes)))
+      (string)))
   (select_pane_directive
     (command)
     (command_line_option)
     (title
-      (str_double_quotes))))
+      (string)))
+  (select_pane_directive
+    (command)
+    (command_line_option)
+    (title
+      (string)))
+  (select_pane_directive
+    (command)
+    (command_line_option)
+    (title
+      (string))))
 
 ========================================
 select-pane: flags + options
@@ -179,50 +183,56 @@ selectp -e -t %1 -T 'input on'
     (command)
     (command_line_option)
     (command_line_option)
-    (pane))
+    (pane
+      (string)))
   (select_pane_directive
     (command)
     (command_line_option)
     (command_line_option)
-    (pane))
+    (pane
+      (string)))
   (select_pane_directive
     (command)
     (command_line_option)
     (command_line_option)
-    (pane))
+    (pane
+      (string)))
   (select_pane_directive
     (command)
     (command_line_option)
     (command_line_option)
-    (pane))
+    (pane
+      (string)))
   (select_pane_directive
     (command)
     (command_line_option)
     (command_line_option)
     (title
-      (str_single_quotes)))
+      (string)))
   (select_pane_directive
     (command)
     (command_line_option)
     (command_line_option)
     (title
-      (str_single_quotes)))
+      (string)))
   (select_pane_directive
     (command)
     (command_line_option)
     (command_line_option)
-    (pane)
+    (pane
+      (string))
     (command_line_option)
     (title
-      (str_single_quotes)))
+      (string)))
   (select_pane_directive
     (command)
     (command_line_option)
     (command_line_option)
-    (pane)
+    (pane
+      (string))
     (command_line_option)
     (title
-      (str_single_quotes))))
+      (string))))
 
 ========================================
 select-pane: complex
@@ -241,17 +251,19 @@ selectp -dZ -t \
     (command)
     (command_line_option)
     (command_line_option)
-    (pane)
+    (pane
+      (string))
     (command_line_option)
     (title
-      (str_double_quotes)))
+      (string)))
   (comment)
   (select_pane_directive
     (command)
     (command_line_option)
     (command_line_option)
-    (pane)
+    (pane
+      (string))
     (command_line_option)
     (title
-      (str_double_quotes)))
+      (string)))
   (comment))
