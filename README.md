@@ -43,6 +43,9 @@
 [tmux grammar](https://man.archlinux.org/man/tmux.1.en) for
 [tree-sitter](https://github.com/tree-sitter/tree-sitter).
 
+For tmux format string, install
+[tree-sitter-tmuxf](https://github.com/Freed-Wu/tree-sitter-tmuxf).
+
 It can be used by:
 
 - Syntax highlight
