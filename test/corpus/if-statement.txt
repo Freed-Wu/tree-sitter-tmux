@@ -13,12 +13,13 @@ set -g status-style bg=red
     (if_keyword)
     (condition
       (string))
-    (set_option_directive
-      (command)
-      (command_line_option)
-      (option)
-      (value
-        (string)))
+    (body
+      (set_option_directive
+        (command)
+        (command_line_option)
+        (option)
+        (value
+          (string))))
     (endif_keyword)))
 
 ========================================
@@ -38,19 +39,21 @@ set -g status-style bg=blue
     (if_keyword)
     (condition
       (string))
-    (set_option_directive
-      (command)
-      (command_line_option)
-      (option)
-      (value
-        (string)))
+    (body
+      (set_option_directive
+        (command)
+        (command_line_option)
+        (option)
+        (value
+          (string))))
     (else_keyword)
-    (set_option_directive
-      (command)
-      (command_line_option)
-      (option)
-      (value
-        (string)))
+    (body
+      (set_option_directive
+        (command)
+        (command_line_option)
+        (option)
+        (value
+          (string))))
     (endif_keyword)))
 
 ========================================
@@ -72,28 +75,31 @@ set -g status-style bg=blue
     (if_keyword)
     (condition
       (string))
-    (set_option_directive
-      (command)
-      (command_line_option)
-      (option)
-      (value
-        (string)))
+    (body
+      (set_option_directive
+        (command)
+        (command_line_option)
+        (option)
+        (value
+          (string))))
     (elif_keyword)
     (condition
       (string))
-    (set_option_directive
-      (command)
-      (command_line_option)
-      (option)
-      (value
-        (string)))
+    (body
+      (set_option_directive
+        (command)
+        (command_line_option)
+        (option)
+        (value
+          (string))))
     (else_keyword)
-    (set_option_directive
-      (command)
-      (command_line_option)
-      (option)
-      (value
-        (string)))
+    (body
+      (set_option_directive
+        (command)
+        (command_line_option)
+        (option)
+        (value
+          (string))))
     (endif_keyword)))
 
 ========================================
@@ -118,32 +124,35 @@ bar=6
     (if_keyword)
     (condition
       (string))
-    (environment_assignment
-      (variable_name)
-      (value
-        (string)))
-    (environment_assignment
-      (variable_name)
-      (value
-        (string)))
+    (body
+      (environment_assignment
+        (variable_name)
+        (value
+          (string)))
+      (environment_assignment
+        (variable_name)
+        (value
+          (string))))
     (elif_keyword)
     (condition
       (string))
-    (environment_assignment
-      (variable_name)
-      (value
-        (string)))
-    (environment_assignment
-      (variable_name)
-      (value
-        (string)))
+    (body
+      (environment_assignment
+        (variable_name)
+        (value
+          (string)))
+      (environment_assignment
+        (variable_name)
+        (value
+          (string))))
     (else_keyword)
-    (environment_assignment
-      (variable_name)
-      (value
-        (string)))
-    (environment_assignment
-      (variable_name)
-      (value
-        (string)))
+    (body
+      (environment_assignment
+        (variable_name)
+        (value
+          (string)))
+      (environment_assignment
+        (variable_name)
+        (value
+          (string))))
     (endif_keyword)))

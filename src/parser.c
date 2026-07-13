@@ -18,13 +18,13 @@
 #define STATE_COUNT 1759
 #define LARGE_STATE_COUNT 53
 #define SYMBOL_COUNT 525
-#define ALIAS_COUNT 33
+#define ALIAS_COUNT 34
 #define TOKEN_COUNT 284
 #define EXTERNAL_TOKEN_COUNT 0
 #define FIELD_COUNT 3
 #define MAX_ALIAS_SEQUENCE_LENGTH 9
 #define MAX_RESERVED_WORD_SET_SIZE 0
-#define PRODUCTION_ID_COUNT 51
+#define PRODUCTION_ID_COUNT 53
 #define SUPERTYPE_COUNT 0
 
 enum ts_symbol_identifiers {
@@ -552,39 +552,40 @@ enum ts_symbol_identifiers {
   aux_sym_switch_client_directive_repeat1 = 522,
   aux_sym_unbind_key_directive_repeat1 = 523,
   aux_sym_unlink_window_directive_repeat1 = 524,
-  alias_sym_border_lines = 525,
-  alias_sym_border_style = 526,
-  alias_sym_buffer_name = 527,
-  alias_sym_condition = 528,
-  alias_sym_end_line = 529,
-  alias_sym_environment = 530,
-  alias_sym_filter = 531,
-  alias_sym_flags = 532,
-  alias_sym_format = 533,
-  alias_sym_group_name = 534,
-  alias_sym_height = 535,
-  alias_sym_inputs = 536,
-  alias_sym_key_format = 537,
-  alias_sym_key_table = 538,
-  alias_sym_name_what_format = 539,
-  alias_sym_note = 540,
-  alias_sym_pane_state = 541,
-  alias_sym_position = 542,
-  alias_sym_prefix_string = 543,
-  alias_sym_prompt = 544,
-  alias_sym_prompt_type = 545,
-  alias_sym_prompts = 546,
-  alias_sym_separator = 547,
-  alias_sym_session_name = 548,
-  alias_sym_shell = 549,
-  alias_sym_sort_order = 550,
-  alias_sym_start_directory = 551,
-  alias_sym_start_line = 552,
-  alias_sym_style = 553,
-  alias_sym_title = 554,
-  alias_sym_width = 555,
-  alias_sym_window_name = 556,
-  alias_sym_working_directory = 557,
+  alias_sym_body = 525,
+  alias_sym_border_lines = 526,
+  alias_sym_border_style = 527,
+  alias_sym_buffer_name = 528,
+  alias_sym_condition = 529,
+  alias_sym_end_line = 530,
+  alias_sym_environment = 531,
+  alias_sym_filter = 532,
+  alias_sym_flags = 533,
+  alias_sym_format = 534,
+  alias_sym_group_name = 535,
+  alias_sym_height = 536,
+  alias_sym_inputs = 537,
+  alias_sym_key_format = 538,
+  alias_sym_key_table = 539,
+  alias_sym_name_what_format = 540,
+  alias_sym_note = 541,
+  alias_sym_pane_state = 542,
+  alias_sym_position = 543,
+  alias_sym_prefix_string = 544,
+  alias_sym_prompt = 545,
+  alias_sym_prompt_type = 546,
+  alias_sym_prompts = 547,
+  alias_sym_separator = 548,
+  alias_sym_session_name = 549,
+  alias_sym_shell = 550,
+  alias_sym_sort_order = 551,
+  alias_sym_start_directory = 552,
+  alias_sym_start_line = 553,
+  alias_sym_style = 554,
+  alias_sym_title = 555,
+  alias_sym_width = 556,
+  alias_sym_window_name = 557,
+  alias_sym_working_directory = 558,
 };
 
 static const char * const ts_symbol_names[] = {
@@ -1113,6 +1114,7 @@ static const char * const ts_symbol_names[] = {
   [aux_sym_switch_client_directive_repeat1] = "switch_client_directive_repeat1",
   [aux_sym_unbind_key_directive_repeat1] = "unbind_key_directive_repeat1",
   [aux_sym_unlink_window_directive_repeat1] = "unlink_window_directive_repeat1",
+  [alias_sym_body] = "body",
   [alias_sym_border_lines] = "border_lines",
   [alias_sym_border_style] = "border_style",
   [alias_sym_buffer_name] = "buffer_name",
@@ -1674,6 +1676,7 @@ static const TSSymbol ts_symbol_map[] = {
   [aux_sym_switch_client_directive_repeat1] = aux_sym_switch_client_directive_repeat1,
   [aux_sym_unbind_key_directive_repeat1] = aux_sym_unbind_key_directive_repeat1,
   [aux_sym_unlink_window_directive_repeat1] = aux_sym_unlink_window_directive_repeat1,
+  [alias_sym_body] = alias_sym_body,
   [alias_sym_border_lines] = alias_sym_border_lines,
   [alias_sym_border_style] = alias_sym_border_style,
   [alias_sym_buffer_name] = alias_sym_buffer_name,
@@ -3810,6 +3813,10 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = false,
     .named = false,
   },
+  [alias_sym_body] = {
+    .visible = true,
+    .named = true,
+  },
   [alias_sym_border_lines] = {
     .visible = true,
     .named = true,
@@ -4006,6 +4013,8 @@ static const TSMapSlice ts_field_map_slices[PRODUCTION_ID_COUNT] = {
   [48] = {.index = 20, .length = 3},
   [49] = {.index = 23, .length = 1},
   [50] = {.index = 24, .length = 1},
+  [51] = {.index = 2, .length = 1},
+  [52] = {.index = 2, .length = 1},
 };
 
 static const TSFieldMapEntry ts_field_map_entries[] = {
@@ -4164,13 +4173,27 @@ static const TSSymbol ts_alias_sequences[PRODUCTION_ID_COUNT][MAX_ALIAS_SEQUENCE
   },
   [46] = {
     [2] = alias_sym_condition,
+    [3] = alias_sym_body,
   },
   [47] = {
     [4] = sym_value,
   },
+  [51] = {
+    [2] = alias_sym_condition,
+    [3] = alias_sym_body,
+    [6] = alias_sym_body,
+  },
+  [52] = {
+    [2] = alias_sym_condition,
+    [3] = alias_sym_body,
+    [7] = alias_sym_body,
+  },
 };
 
 static const uint16_t ts_non_terminal_alias_map[] = {
+  sym__statements, 2,
+    sym__statements,
+    alias_sym_body,
   sym__string, 34,
     sym__string,
     alias_sym_border_lines,
@@ -77467,10 +77490,10 @@ static const TSParseActionEntry ts_parse_actions[] = {
   [4150] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_select_layout_directive, 2, 0, 0),
   [4152] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_set_hook_directive, 7, 0, 50),
   [4154] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_set_hook_directive, 7, 0, 50),
-  [4156] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_if_statement, 8, 0, 46),
-  [4158] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_if_statement, 8, 0, 46),
-  [4160] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_if_statement, 9, 0, 46),
-  [4162] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_if_statement, 9, 0, 46),
+  [4156] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_if_statement, 8, 0, 51),
+  [4158] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_if_statement, 8, 0, 51),
+  [4160] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_if_statement, 9, 0, 52),
+  [4162] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_if_statement, 9, 0, 52),
   [4164] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_layout_name, 1, 0, 1),
   [4166] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_layout_name, 1, 0, 1),
   [4168] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_display_popup_directive, 2, 0, 2),

@@ -117,18 +117,19 @@ module.exports = grammar({
     if_statement: $ =>
       seq(
         alias(/\%if/, $.if_keyword),
-        /\s+/,
         alias($._string, $.condition),
-        $._statements,
+        alias($._statements, $.body),
         repeat(
           seq(
             alias(/\%elif/, $.elif_keyword),
-            /\s+/,
             alias($._string, $.condition),
-            $._statements,
+            alias($._statements, $.body),
           ),
         ),
-        optional(seq(alias(/\%else/, $.else_keyword), /\s+/, $._statements)),
+        optional(seq(
+          alias(/\%else/, $.else_keyword),
+          alias($._statements, $.body),
+        )),
         alias(/%endif/, $.endif_keyword),
       ),
 

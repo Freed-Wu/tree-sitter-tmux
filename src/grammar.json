@@ -471,8 +471,13 @@
           "value": "condition"
         },
         {
-          "type": "SYMBOL",
-          "name": "_statements"
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_statements"
+          },
+          "named": true,
+          "value": "body"
         },
         {
           "type": "REPEAT",
@@ -502,8 +507,13 @@
                 "value": "condition"
               },
               {
-                "type": "SYMBOL",
-                "name": "_statements"
+                "type": "ALIAS",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_statements"
+                },
+                "named": true,
+                "value": "body"
               }
             ]
           }
@@ -528,8 +538,13 @@
                   "value": "\\s+"
                 },
                 {
-                  "type": "SYMBOL",
-                  "name": "_statements"
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "_statements"
+                  },
+                  "named": true,
+                  "value": "body"
                 }
               ]
             },
