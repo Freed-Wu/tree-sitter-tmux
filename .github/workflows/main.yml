@@ -29,6 +29,12 @@ jobs:
       - name: Test
         run: |
           tree-sitter test
+          rm .gitignore
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          branch: release
+          commit_message: 'chore: update generated artifacts'
+          file_pattern: src
 
   deploy-npm:
     runs-on: ubuntu-latest
