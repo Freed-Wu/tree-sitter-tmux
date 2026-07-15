@@ -1,6 +1,6 @@
 /// <reference types="tree-sitter-cli/dsl" />
 
-module.exports = grammar({
+export default grammar({
   name: "tmux",
 
   extras: $ => [/\s/, /\\\r?\n/, $.comment, /\\( |\t|\v|\f)/],

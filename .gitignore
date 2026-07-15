@@ -1,0 +1,14 @@
+/*
+
+!/.gitignore
+!/LICENCE
+!/README.md
+!/.github/
+!/shell.nix
+
+!/grammar.js
+!/queries/
+!/test/
+!/tree-sitter.json
+
+!/*.rockspec
