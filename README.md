@@ -40,47 +40,13 @@
 
 [![Crates.io (recent)](https://img.shields.io/crates/dr/tree-sitter-tmux)](https://crates.io/crates/tree-sitter-tmux)
 
+[![luarocks](https://img.shields.io/luarocks/v/Freed-Wu/tree-sitter-tmux)](https://luarocks.org/modules/Freed-Wu/tree-sitter-tmux)
+
 [tmux grammar](https://man.archlinux.org/man/tmux.1.en) for
 [tree-sitter](https://github.com/tree-sitter/tree-sitter).
 
 For tmux format string, install
 [tree-sitter-tmuxf](https://github.com/Freed-Wu/tree-sitter-tmuxf).
 
-It can be used by:
-
-- Syntax highlight
-  - editors
-    - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter): for
-      [neovim](https://github.com/neovim/neovim)
-    - [tree-sitter-langs](https://github.com/emacs-tree-sitter/tree-sitter-langs):
-      for [emacs](https://www.gnu.org/software/emacs/)
-    - [kak-tree-sitter](https://github.com/phaazon/kak-tree-sitter): for
-      [kakoune](https://kakoune.org/)
-    - [helix](https://helix-editor.com/)
-    - [zed](https://zed.dev)
-    - [atom](https://github.com/atom/atom)
-    - [syntax-highlighter](https://github.com/EvgeniyPeshkov/syntax-highlighter):
-      for [VS Code](https://github.com/microsoft/vscode)
-  - pagers
-    - [syncat](https://github.com/foxfriends/syncat)
-    - [`tree-sitter highlight`](https://tree-sitter.github.io/tree-sitter/syntax-highlighting):
-      Make sure `/the/parent/directory/of/this/repo` in `parser-directories` of
-      your `~/.config/tree-sitter/config.json`
-- Language servers
-  - [tmux-language-server](https://github.com/Freed-Wu/tmux-language-server)
-  - [vscode-anycode](https://github.com/microsoft/vscode-anycode)
-  - [Navigating code on GitHub](https://docs.github.com/en/repositories/working-with-files/using-files/navigating-code-on-github):
-    supported by [semantic](https://github.com/github/semantic)
-- Libraries
-  - [tree-sitter-tmux](https://www.npmjs.com/package/tree-sitter-tmux):
-    for node
-  - [tree-sitter-tmux](https://crates.io/crates/tree-sitter-tmux):
-    for rust
-  - [tree-sitter-tmux](https://pypi.org/project/tree-sitter-tmux):
-    for python
-  - [tree-sitter-languages](https://github.com/grantjenks/py-tree-sitter-languages):
-    for python
-
-## Related Projects
-
-- [vim-tmux](https://github.com/tmux-plugins/vim-tmux): vim syntax
+If you don't want to install nodejs to generate `src/grammar.json`,
+use [release](https://github.com/Freed-Wu/tree-sitter-tmux/tree/release)
