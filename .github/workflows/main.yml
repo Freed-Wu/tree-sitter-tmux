@@ -45,6 +45,8 @@ jobs:
           tree-sitter init -u
           tree-sitter generate
           bun install --ignore-scripts
+          # https://github.com/tree-sitter/tree-sitter/issues/5752
+          perl -pi -es/freed-wu/Freed-Wu/ package.json
       - name: Build
         run: |
           npm pack
