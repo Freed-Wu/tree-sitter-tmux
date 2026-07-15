@@ -49,4 +49,4 @@ For tmux format string, install
 [tree-sitter-tmuxf](https://github.com/Freed-Wu/tree-sitter-tmuxf).
 
 If you don't want to install nodejs to generate `src/grammar.json`,
-use [release](https://github.com/Freed-Wu/tree-sitter-tmux/tree/release)
+use [release](https://github.com/Freed-Wu/tree-sitter-tmux/tree/release).
