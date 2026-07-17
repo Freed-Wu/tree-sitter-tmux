@@ -4,6 +4,7 @@
 !/LICENCE
 !/README.md
 !/.github/
+!/scripts/
 !/shell.nix
 
 !/grammar.js
