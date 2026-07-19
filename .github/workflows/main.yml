@@ -154,6 +154,7 @@ jobs:
           luaVersion: "5.1"
       - uses: leafo/gh-actions-luarocks@v6
       - run: |
+          luarocks install tree-sitter-cli
           luarocks install tree-sitter-tmux
           luarocks pack tree-sitter-tmux
           scripts/upload.sh ./*.rock
