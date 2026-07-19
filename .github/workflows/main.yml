@@ -205,13 +205,9 @@ jobs:
           npm install -g tree-sitter-cli
           tree-sitter init -u
           tree-sitter generate
-      - uses: actions/setup-python@v5
-        with:
-          python-version: 3.x
-          cache: pip
+      - uses: astral-sh/setup-uv@v8.3.2
       - name: Build
         run: |
-          pip install uv
           uv build --sdist
       - uses: actions/upload-artifact@v4
         if: "! startsWith(github.ref, 'refs/tags/')"
@@ -234,3 +230,26 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         with:
           password: ${{secrets.PYPI_API_TOKEN}}
+
+  deploy-aur:
+    needs: build
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/')
+    steps:
+      - uses: Freed-Wu/update-aur-package@v1.0.11
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          package_name: python-tree-sitter-tmux
+          ssh_private_key: ${{secrets.AUR_SSH_PRIVATE_KEY}}
+
+  deploy-nur:
+    needs: build
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/')
+    steps:
+      - name: Trigger Workflow
+        run: >
+          curl -X POST -d '{"ref":"main"}'
+          -H "Accept: application/vnd.github.v3+json"
+          -H "Authorization: Bearer ${{secrets.GH_TOKEN}}"
+          https://api.github.com/repos/Freed-Wu/nur-packages/actions/workflows/version.yml/dispatches
