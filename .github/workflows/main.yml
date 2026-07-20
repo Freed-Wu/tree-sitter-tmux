@@ -31,16 +31,16 @@ jobs:
           tree-sitter test
       - uses: actions/checkout@v4
         with:
-          ref: release
-          path: release
-      - name: Release
+          ref: main
+          path: main
+      - name: main
         run: |
-          rm -rf release/src
-          cp -r src release
+          rm -rf main/src
+          cp -r src main
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          repository: release
-          branch: release
+          repository: main
+          branch: main
           commit_message: 'chore: update generated artifacts'
           file_pattern: src
           add_options: -f
