@@ -45,8 +45,20 @@
 [tmux grammar](https://man.archlinux.org/man/tmux.1.en) for
 [tree-sitter](https://github.com/tree-sitter/tree-sitter).
 
-For tmux format string, install
-[tree-sitter-tmuxf](https://github.com/Freed-Wu/tree-sitter-tmuxf).
+Created for [tmux-language-server](https://github.com/Freed-Wu/tmux-language-server).
 
-If you don't want to install nodejs to generate `src/grammar.json`,
-use branch [main](https://github.com/Freed-Wu/tree-sitter-tmux/tree/main).
+## Usage
+
+### [rocks.nvim](https://github.com/lumen-oss/rocks.nvim)
+
+```toml
+[plugins]
+"rocks-treesitter.nvim" = "VERSION"
+tree-sitter-tmux = "VERSION"
+# optional
+tree-sitter-tmuxf = "VERSION"
+```
+
+### [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+
+Use branch [main](https://github.com/Freed-Wu/tree-sitter-tmux/tree/main).

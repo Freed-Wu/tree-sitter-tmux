@@ -149,6 +149,7 @@ jobs:
     runs-on: macos-latest
     if: startsWith(github.ref, 'refs/tags/')
     steps:
+      - uses: actions/checkout@v4
       - uses: leafo/gh-actions-lua@v12
         with:
           luaVersion: "5.1"
