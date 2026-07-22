@@ -52,6 +52,9 @@ Created for [tmux-language-server](https://github.com/Freed-Wu/tmux-language-ser
 ### [rocks.nvim](https://github.com/lumen-oss/rocks.nvim)
 
 ```toml
+[treesitter]
+auto_highlight = "all"
+
 [plugins]
 "rocks-treesitter.nvim" = "VERSION"
 tree-sitter-tmux = "VERSION"
