@@ -225,13 +225,10 @@ jobs:
       - uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          # body_path: build/CHANGELOG.md
           files: |
             dist/*
       - uses: pypa/gh-action-pypi-publish@release/v1
         if: startsWith(github.ref, 'refs/tags/')
-        with:
-          password: ${{secrets.PYPI_API_TOKEN}}
 
   deploy-aur:
     needs: build
