@@ -859,7 +859,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "attach_session_directive",
@@ -1676,7 +1676,17 @@
     "type": "comment",
     "named": true,
     "extra": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "body",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "condition",
