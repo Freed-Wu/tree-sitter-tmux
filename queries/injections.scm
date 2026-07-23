@@ -1,7 +1,8 @@
 ((shell) @injection.content
   (#set! injection.language "bash"))
 
-((comment) @injection.content
+(comment
+  (body) @injection.content
   (#set! injection.language "comment"))
 
 (set_option_directive
