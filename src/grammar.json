@@ -6442,6 +6442,10 @@
           "value": "#"
         },
         {
+          "type": "PATTERN",
+          "value": "\\s*"
+        },
+        {
           "type": "ALIAS",
           "content": {
             "type": "PATTERN",
