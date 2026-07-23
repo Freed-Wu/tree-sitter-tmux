@@ -916,7 +916,7 @@ export default grammar({
         $._command_string,
       ),
 
-    comment: $ => seq('#', alias(/[^\n]*/, $.body)),
+    comment: $ => seq('#', /\s*/, alias(/[^\n]*/, $.body)),
     _space: _ => prec(-1, repeat1(/[ \t]/)),
   },
 });
