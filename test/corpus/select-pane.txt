@@ -246,7 +246,8 @@ selectp -dZ -t \
 ---
 
 (file
-  (comment)
+  (comment
+    (body))
   (select_pane_directive
     (command)
     (command_line_option)
@@ -256,7 +257,8 @@ selectp -dZ -t \
     (command_line_option)
     (title
       (string)))
-  (comment)
+  (comment
+    (body))
   (select_pane_directive
     (command)
     (command_line_option)
@@ -266,4 +268,5 @@ selectp -dZ -t \
     (command_line_option)
     (title
       (string)))
-  (comment))
+  (comment
+    (body)))

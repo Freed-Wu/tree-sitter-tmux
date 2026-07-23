@@ -300,7 +300,8 @@ ci -n "workers" -c ~/proj \
 ---
 
 (file
-  (comment)
+  (comment
+    (body))
   (new_session_directive
     (command)
     (command_line_option)
@@ -330,7 +331,8 @@ ci -n "workers" -c ~/proj \
     (height
       (string))
     (string))
-  (comment)
+  (comment
+    (body))
   (new_session_directive
     (command)
     (command_line_option)
@@ -360,4 +362,5 @@ ci -n "workers" -c ~/proj \
     (height
       (string))
     (string))
-  (comment))
+  (comment
+    (body)))

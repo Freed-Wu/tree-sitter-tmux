@@ -7,7 +7,8 @@ comment: start of line
 ---
 
 (file
-  (comment))
+  (comment
+    (body)))
 
 ========================================
 comment: no argument
@@ -20,7 +21,8 @@ bind # Foo
 (file
   (ERROR
     (command))
-  (comment))
+  (comment
+    (body)))
 
 ========================================
 comment: missing argument
@@ -35,7 +37,8 @@ bind a # Foo
     (command)
     (key
       (string))
-    (comment)
+    (comment
+      (body))
     (attach_session_directive
       (MISSING command))))
 
@@ -56,4 +59,5 @@ bind a send-keys a # Foo
       (command)
       (key
         (string))))
-  (comment))
+  (comment
+    (body)))

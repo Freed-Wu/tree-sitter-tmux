@@ -217,11 +217,13 @@ selectw -t \
     (window
       (string))
     (command_line_option))
-  (comment)
+  (comment
+    (body))
   (select_window_directive
     (command)
     (command_line_option)
     (window
       (string))
     (command_line_option))
-  (comment))
+  (comment
+    (body)))
