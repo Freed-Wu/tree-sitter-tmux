@@ -6443,7 +6443,7 @@
         },
         {
           "type": "PATTERN",
-          "value": "\\s*"
+          "value": "[ \\t\\v]*"
         },
         {
           "type": "ALIAS",

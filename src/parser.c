@@ -22020,7 +22020,8 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       END_STATE();
     case 2369:
       ACCEPT_TOKEN(aux_sym_comment_token1);
-      if (('\t' <= lookahead && lookahead <= '\r') ||
+      if (lookahead == '\t' ||
+          lookahead == 0x0b ||
           lookahead == ' ') ADVANCE(2369);
       END_STATE();
     case 2370:
@@ -71106,7 +71107,7 @@ TS_PUBLIC const TSLanguage *tree_sitter_tmux(void) {
     .metadata = {
       .major_version = 0,
       .minor_version = 1,
-      .patch_version = 3,
+      .patch_version = 4,
     },
   };
   return &language;
