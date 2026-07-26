@@ -1,6 +1,7 @@
-(source_file_directive
-  (path
-    (string) @source-file.-))
+(file
+  (source_file_directive
+    (path
+      (string) @source-file.-)))
 
 (set_option_directive
   (option) @--option
