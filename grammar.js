@@ -277,7 +277,7 @@ export default grammar({
         $,
         "customize-mode",
         cmdOpts(options($, "NZ"), $._format, $._filter, $._target_pane),
-        $.template,
+        optional($.template),
       ),
     delete_buffer_directive: $ =>
       command($, choice("delete-buffer", "deleteb"), cmdOpts($._buffer_name)),
