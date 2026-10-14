@@ -22,8 +22,10 @@ bind -N "Tmux customization mode" -T command z customize-mode -Z
       (string)))
   (bind_key_directive
     (command)
+    (command_line_option)
     (note
       (string))
+    (command_line_option)
     (key_table
       (string))
     (key
@@ -34,8 +36,10 @@ bind -N "Tmux customization mode" -T command z customize-mode -Z
         (command_line_option))))
   (bind_key_directive
     (command)
+    (command_line_option)
     (note
       (string))
+    (command_line_option)
     (key_table
       (string))
     (key
