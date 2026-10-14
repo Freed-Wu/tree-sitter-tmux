@@ -1565,8 +1565,16 @@
           }
         },
         {
-          "type": "SYMBOL",
-          "name": "template"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "template"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
